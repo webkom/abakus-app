@@ -38,7 +38,7 @@ function EventList() {
   return (
     <ScrollView w="100%" h="80">
       <VStack space={10} alignItems="center">
-        {result.data.map((event) =>
+        {result.data?.map((event) =>
           EventItem(
             event.id,
             event.title,
