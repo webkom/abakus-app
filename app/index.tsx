@@ -4,14 +4,13 @@ import { Button, Text, View } from 'react-native';
 
 const Page = () => {
   return (
-    <View className="flex flex-col gap-10">
+    <View className="flex flex-col gap-5">
       <Text className="text-3xl font-bold">Do not put anything on this page</Text>
-      <Text>Mor di</Text>
-      <Link href="/authed/(tabs)/events">
-        <Text>Go to events page</Text>
+      <Link href="/authed/(tabs)/events" asChild>
+        <Button title="Go to events page" />
       </Link>
-      <Link href="/non-authed/sign-in">
-        <Text>Go to sign-in page</Text>
+      <Link href="/non-authed/sign-in" asChild>
+        <Button title="Go to sign-in page" />
       </Link>
     </View>
   );
