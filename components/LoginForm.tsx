@@ -1,14 +1,6 @@
+import { Box, Button, Center, Heading, Image, Text, VStack } from "native-base";
 import React, { useState } from "react";
-import {
-  Box,
-  Text,
-  Heading,
-  VStack,
-  Button,
-  Center,
-  Image,
-} from "native-base";
-import { StyleSheet, TextInput } from "react-native";
+import { StyleSheet, TextInput, View } from "react-native";
 import { login } from "../services/auth-service";
 
 const styles = StyleSheet.create({
@@ -45,6 +37,9 @@ function LoginForm() {
     <Center flex={1} w="100%">
       <Box safeArea p="2" py="8" w="90%" maxW="290">
         <Image source={image} alt="abakus-logo" width={80} height={55} />
+        <View className="bg-red-500 w-full h-52">
+          <Text>Mor di</Text>
+        </View>
         <Heading
           size="lg"
           fontWeight="600"
