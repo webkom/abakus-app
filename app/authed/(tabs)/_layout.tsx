@@ -15,9 +15,9 @@ const TabLayout = () => {
         }}
       />
       <Tabs.Screen
-        name="transport/index"
+        name="events/index"
         options={{
-          title: 'Transport',
+          title: 'Arrangementer',
         }}
       />
     </Tabs>
