@@ -1,20 +1,19 @@
-import React, { useState } from "react";
-import { SafeAreaView } from "react-native";
-import { NavigationContainer, NavigationIndependentTree } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { NavigationIndependentTree } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { NativeBaseProvider } from "native-base";
+import React, { useState } from "react";
+import { SafeAreaView } from "react-native";
 
-import Login from "../screens/Login";
 import Dashboard from "../screens/Dashboard";
-import Settings from "../screens/Settings";
 import Events from "../screens/Events";
+import Login from "../screens/Login";
+import Settings from "../screens/Settings";
 import ShowEvent from "../screens/ShowEvent";
 
 const queryClient = new QueryClient();
-
 type ScreenType = {
   name: "Dashboard" | "Events" | "Settings" | "ShowEvent";
   component: React.ComponentType<any>;
@@ -25,17 +24,35 @@ const SCREENS: ScreenType[] = [
   {
     name: "Dashboard",
     component: Dashboard,
-    getIcon: (focused, color, size) => <Ionicons name={focused ? "home" : "home-outline"} size={size} color={color} />,
+    getIcon: (focused, color, size) => (
+      <Ionicons
+        name={focused ? "home" : "home-outline"}
+        size={size}
+        color={color}
+      />
+    ),
   },
   {
     name: "Events",
     component: Events,
-    getIcon: (focused, color, size) => <Ionicons name={focused ? "menu" : "menu-outline"} size={size} color={color} />,
+    getIcon: (focused, color, size) => (
+      <Ionicons
+        name={focused ? "menu" : "menu-outline"}
+        size={size}
+        color={color}
+      />
+    ),
   },
   {
     name: "Settings",
     component: Settings,
-    getIcon: (focused, color, size) => <Ionicons name={focused ? "settings" : "settings-outline"} size={size} color={color} />,
+    getIcon: (focused, color, size) => (
+      <Ionicons
+        name={focused ? "settings" : "settings-outline"}
+        size={size}
+        color={color}
+      />
+    ),
   },
 ];
 
@@ -44,8 +61,15 @@ const getScreenOptions = (routeName: string) => {
   if (!currentScreen) throw new Error("Route name does not exist");
 
   return {
-    tabBarIcon: ({ focused, color, size }: { focused: boolean; color: string; size: number }) =>
-      currentScreen.getIcon(focused, color, size),
+    tabBarIcon: ({
+      focused,
+      color,
+      size,
+    }: {
+      focused: boolean;
+      color: string;
+      size: number;
+    }) => currentScreen.getIcon(focused, color, size),
   };
 };
 
@@ -56,7 +80,11 @@ function TabNavigator() {
   return (
     <Tab.Navigator screenOptions={({ route }) => getScreenOptions(route.name)}>
       {SCREENS.map((screen) => (
-        <Tab.Screen key={screen.name} name={screen.name} component={screen.component} />
+        <Tab.Screen
+          key={screen.name}
+          name={screen.name}
+          component={screen.component}
+        />
       ))}
     </Tab.Navigator>
   );
@@ -65,7 +93,11 @@ function TabNavigator() {
 function AppNavigator() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Main" component={TabNavigator} options={{ headerShown: false }} />
+      <Stack.Screen
+        name="Main"
+        component={TabNavigator}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen name="ShowEvent" component={ShowEvent} />
     </Stack.Navigator>
   );
