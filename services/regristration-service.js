@@ -1,5 +1,6 @@
+// import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as SecureStore from "expo-secure-store";
 
 const API_URL = "https://lego-staging.abakus.no/api/v1"; // Backend URL
 
@@ -45,7 +46,7 @@ export const register = async (eventId, captchaResponse, feedback, userId) => {
       console.log(token);
 
       // Lagre token i AsyncStorage
-      await AsyncStorage.setItem("jwt_token", token);
+      await SecureStore.setItemAsync("jwt_token", token);
       return token;
     } catch (error) {
       console.error("Login error3:", error.response?.data || error.message);
@@ -78,12 +79,12 @@ export const unregister = async (eventId, registrationId, token) => {
 
 // Logout-funksjon
 export const logout = async () => {
-  await AsyncStorage.removeItem("jwt_token");
+  await SecureStore.deleteItemAsync("jwt_token");
 };
 
 // Hent token
 export const getCapchaToken = async () => {
-  console.log(await AsyncStorage.getItem("jwt_token"));
-  // eslint-disable-next-line no-return-await
-  return await AsyncStorage.getItem("jwt_token");
+  console.log(await SecureStore.getItem("jwt_token"));
+
+  return await SecureStore.getItem("jwt_token");
 };

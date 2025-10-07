@@ -1,15 +1,7 @@
+import { login } from "@/lib/auth/auth";
+import { Box, Button, Center, Heading, Image, Text, VStack } from "native-base";
 import React, { useState } from "react";
-import {
-  Box,
-  Text,
-  Heading,
-  VStack,
-  Button,
-  Center,
-  Image,
-} from "native-base";
 import { StyleSheet, TextInput } from "react-native";
-import { login } from "../services/auth-service";
 
 const styles = StyleSheet.create({
   container: {
@@ -34,10 +26,13 @@ function LoginForm() {
 
   const handleLogin = async () => {
     try {
-      await login(brukernavn, passord);
+      await login({
+        password: passord,
+        username: brukernavn,
+      });
       console.log("Login successful!");
-    } catch (error) {
-      console.log("ERROR");
+    } catch (e) {
+      console.log("ERROR: ", JSON.stringify(e));
     }
   };
 

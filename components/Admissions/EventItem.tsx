@@ -66,6 +66,7 @@ function EventItem(
         </Text>
         <Flex>
           <Text mt="2" fontSize={18} fontWeight="medium" color="red.900">
+          
             Til Påmelding
           </Text>
         </Flex>

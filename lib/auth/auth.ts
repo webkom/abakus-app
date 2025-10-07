@@ -12,6 +12,7 @@ export const login = async ({
   username: string;
   password: string;
 }) => {
+  console.log("TOKEN: ", await getToken());
   try {
     const response = await axios.post(`${API_URL}/authorization/token-auth/`, {
       username,
@@ -25,7 +26,7 @@ export const login = async ({
 
     return token;
   } catch (error) {
-    console.error("Login error1:", JSON.stringify(error));
+    console.error("Login error: ", JSON.stringify(error));
     throw error;
   }
 };
