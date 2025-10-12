@@ -1,16 +1,39 @@
 import { cn } from '@/lib/cn';
 import { BlurView } from '@react-native-community/blur';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Image, Text, View } from 'react-native';
 import { useFonts, PixelifySans_400Regular } from '@expo-google-fonts/pixelify-sans';
 import Input from '@/components/input';
 import Button from '@/components/button';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
 const AbakusLogo = require('@/assets/images/abakus-logo.png');
+
+const formSchema = z.object({
+  username: z.string().min(1, 'Brukernavn er påkrevd'),
+  password: z.string().min(1, 'Passord er påkrevd'),
+});
 
 const SignInPage = () => {
   const _ = useFonts({
     PixelifySans_400Regular,
   });
+
+  const form = useForm<z.infer<typeof formSchema>>({
+    defaultValues: {
+      password: '',
+      username: '',
+    },
+    resolver: zodResolver(formSchema),
+  });
+
+  const handleSubmit = (data: z.infer<typeof formSchema>) => {
+    alert('Yes');
+    console.log(data);
+  };
+
+  form.handleSubmit(handleSubmit);
 
   return (
     <View className="relative flex h-full flex-col">
@@ -32,22 +55,42 @@ const SignInPage = () => {
         blurAmount={30}
         reducedTransparencyFallbackColor="white">
         <View className="z-30 flex h-full w-full flex-col items-center justify-center gap-5 px-10">
-          <Image source={AbakusLogo} className="top-safe-offset-20 absolute w-96 max-w-full" />
+          <Image
+            source={AbakusLogo}
+            className="top-safe-offset-20 absolute h-32 w-96 max-w-full"
+            resizeMode="contain"
+          />
+          <Text className="bottom-safe-offset-10 absolute w-full text-center text-lg font-semibold text-on-background">
+            Laget med 💖 av Webkom
+          </Text>
           <Text
             style={{
               fontFamily: 'PixelifySans_400Regular',
             }}
-            className="text-primary text-5xl">
+            className="text-5xl text-primary">
             &gt; Velkommen
           </Text>
-          <Input className="mt-5 w-full" label="Brukernavn" />
-          <Input className="w-full" label="Passord" />
-          <Button size="lg" className="mt-5 w-full max-w-[300px]">
-            <Text className="text-on-primary text-xl font-semibold">Logg inn</Text>
+
+          <Input
+            className="mt-5 w-full"
+            label="Brukernavn"
+            error={form.formState.errors.username?.message}
+            inputProps={{
+              ...form.register('username'),
+            }}
+          />
+          <Input
+            className="mt-5 w-full"
+            label="Passord"
+            inputProps={{
+              secureTextEntry: true,
+              onChange: (e) => form.register('password').onChange,
+            }}
+            error={form.formState.errors.password?.message}
+          />
+          <Button size="lg" className="mt-5 w-full max-w-[300px]" onPress={() => form.trigger()}>
+            <Text className="text-xl font-semibold text-on-primary">Logg inn</Text>
           </Button>
-        </View>
-        <View className="bottom-safe-offset-10 absolute flex w-full items-center">
-          <Text className=" text-on-background font-semibold">Laget med 💖 av Webkom</Text>
         </View>
       </BlurView>
     </View>
