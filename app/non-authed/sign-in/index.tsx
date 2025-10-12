@@ -1,13 +1,15 @@
 import Button from '@/components/button';
 import Input from '@/components/input';
 import { cn } from '@/lib/cn';
+import * as auth from '@/lib/services/auth';
 import { PixelifySans_400Regular, useFonts } from '@expo-google-fonts/pixelify-sans';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { BlurView } from '@react-native-community/blur';
-import React from 'react';
+import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { Image, Text, View } from 'react-native';
 import { z } from 'zod';
+
 const AbakusLogo = require('@/assets/images/abakus-logo.png');
 
 const formSchema = z.object({
@@ -16,6 +18,7 @@ const formSchema = z.object({
 });
 
 const SignInPage = () => {
+  const [pending, setPending] = useState(false);
   const _ = useFonts({
     PixelifySans_400Regular,
   });
@@ -29,7 +32,17 @@ const SignInPage = () => {
   });
 
   const handleSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log(data);
+    setPending(true);
+    void auth
+      .login({
+        ...data,
+      })
+      .then(() => {
+        alert('Signed in!');
+      })
+      .finally(() => {
+        setPending(false);
+      });
   };
 
   return (
@@ -110,7 +123,10 @@ const SignInPage = () => {
             onPress={() => {
               form.handleSubmit(handleSubmit)();
             }}>
-            <Text className="text-xl font-semibold text-on-primary">Logg inn</Text>
+            <Text className="text-xl font-semibold text-on-primary">
+              {pending && 'Logger inn'}
+              {!pending && 'Logg inn'}
+            </Text>
           </Button>
         </View>
       </BlurView>
