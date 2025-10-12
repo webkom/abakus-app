@@ -3,7 +3,13 @@ import React from 'react';
 import '../global.css';
 
 const Layout = () => {
-  return <Stack />;
+  return (
+    <Stack
+      screenOptions={{
+        headerShown: false,
+      }}
+    />
+  );
 };
 
 export default Layout;
