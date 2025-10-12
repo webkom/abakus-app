@@ -1,13 +1,13 @@
-import { cn } from '@/lib/cn';
-import { BlurView } from '@react-native-community/blur';
-import React, { useEffect } from 'react';
-import { Image, Text, View } from 'react-native';
-import { useFonts, PixelifySans_400Regular } from '@expo-google-fonts/pixelify-sans';
-import Input from '@/components/input';
 import Button from '@/components/button';
-import { z } from 'zod';
+import Input from '@/components/input';
+import { cn } from '@/lib/cn';
+import { PixelifySans_400Regular, useFonts } from '@expo-google-fonts/pixelify-sans';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { BlurView } from '@react-native-community/blur';
+import React from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import { Image, Text, View } from 'react-native';
+import { z } from 'zod';
 const AbakusLogo = require('@/assets/images/abakus-logo.png');
 
 const formSchema = z.object({
@@ -29,11 +29,8 @@ const SignInPage = () => {
   });
 
   const handleSubmit = (data: z.infer<typeof formSchema>) => {
-    alert('Yes');
     console.log(data);
   };
-
-  form.handleSubmit(handleSubmit);
 
   return (
     <View className="relative flex h-full flex-col">
@@ -71,24 +68,48 @@ const SignInPage = () => {
             &gt; Velkommen
           </Text>
 
-          <Input
-            className="mt-5 w-full"
-            label="Brukernavn"
-            error={form.formState.errors.username?.message}
-            inputProps={{
-              ...form.register('username'),
-            }}
+          <Controller
+            control={form.control}
+            name={'username'}
+            render={({ field, fieldState }) => (
+              <Input
+                className="mt-5 w-full"
+                label="Brukernavn"
+                error={fieldState.error?.message}
+                inputProps={{
+                  value: field.value,
+                  onBlur: field.onBlur,
+                  onChangeText: field.onChange,
+                  autoCapitalize: 'none',
+                }}
+              />
+            )}
           />
-          <Input
-            className="mt-5 w-full"
-            label="Passord"
-            inputProps={{
-              secureTextEntry: true,
-              onChange: (e) => form.register('password').onChange,
-            }}
-            error={form.formState.errors.password?.message}
+
+          <Controller
+            control={form.control}
+            name="password"
+            render={({ field, fieldState }) => (
+              <Input
+                className="mt-2.5 w-full"
+                label="Passord"
+                inputProps={{
+                  ...field,
+                  secureTextEntry: true,
+                  value: field.value,
+                  onBlur: field.onBlur,
+                  onChangeText: field.onChange,
+                }}
+                error={fieldState.error?.message}
+              />
+            )}
           />
-          <Button size="lg" className="mt-5 w-full max-w-[300px]" onPress={() => form.trigger()}>
+          <Button
+            size="lg"
+            className="mt-5 w-full max-w-[300px]"
+            onPress={() => {
+              form.handleSubmit(handleSubmit)();
+            }}>
             <Text className="text-xl font-semibold text-on-primary">Logg inn</Text>
           </Button>
         </View>
