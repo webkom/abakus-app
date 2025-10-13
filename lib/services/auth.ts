@@ -49,6 +49,5 @@ export const logout = async () => {
 
 // Hent token
 export const getToken = async () => {
-  console.log(await AsyncStorage.getItem('session-token'));
   return await AsyncStorage.getItem('session-token');
 };
