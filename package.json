@@ -26,6 +26,7 @@
     "expo-router": "~6.0.10",
     "expo-status-bar": "~3.0.8",
     "jotai": "^2.15.0",
+    "lucide-react-native": "^0.545.0",
     "nativewind": "4.1.21",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -52,5 +53,6 @@
     "typescript": "~5.9.2"
   },
   "main": "expo-router/entry",
-  "private": true
+  "private": true,
+  "packageManager": "pnpm@10.6.5+sha512.cdf928fca20832cd59ec53826492b7dc25dc524d4370b6b4adbf65803d32efaa6c1c88147c0ae4e8d579a6c9eec715757b50d4fa35eea179d868eada4ed043af"
 }

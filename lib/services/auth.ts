@@ -16,7 +16,6 @@ export const login = async ({ username, password }: { username: string; password
     console.log(token);
 
     // Lagre token i AsyncStorage
-    await AsyncStorage.setItem('jwt_token', token);
     return token;
   } catch (error) {
     console.error('Login error: ', JSON.stringify(error));
@@ -26,11 +25,11 @@ export const login = async ({ username, password }: { username: string; password
 
 // Logout-funksjon
 export const logout = async () => {
-  await AsyncStorage.removeItem('jwt_token');
+  await AsyncStorage.removeItem('session-token');
 };
 
 // Hent token
 export const getToken = async () => {
-  console.log(await AsyncStorage.getItem('jwt_token'));
-  return await AsyncStorage.getItem('jwt_token');
+  console.log(await AsyncStorage.getItem('session-token'));
+  return await AsyncStorage.getItem('session-token');
 };

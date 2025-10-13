@@ -13,6 +13,9 @@ const Page = () => {
       <Link href="/non-authed/sign-in" asChild>
         <Button title="Go to sign-in page" />
       </Link>
+      <Link href="/non-authed/onboarding" asChild>
+        <Button title="Go to Onboarding page" />
+      </Link>
     </SafeAreaView>
   );
 };

@@ -21,6 +21,8 @@ module.exports = {
         'on-error': '#FFFFFF',
         'error-container': '#FFDAD6',
         'on-error-container': '#93000A',
+        'primary-container': '#FFDAD9',
+        'on-primary-container': '#733335',
       },
     },
   },
