@@ -13,7 +13,7 @@ type TabBarProps = Parameters<NonNullable<ComponentProps<typeof Tabs>['tabBar']>
 const TabBar = ({ navigation, state, descriptors, insets }: TabBarProps) => {
   const router = useRouter();
   return (
-    <View className="bottom-safe-offset-0 px-5">
+    <View className="bottom-safe-offset-2 px-5">
       <View className="flex w-full flex-row justify-evenly  rounded-full bg-primary-container py-5">
         <TabBarButton
           Icon={UserIcon}
