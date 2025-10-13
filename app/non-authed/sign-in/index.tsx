@@ -55,7 +55,7 @@ const SignInPage = () => {
         />
         <View className="bottom-safe-offset-10 absolute flex w-full flex-col items-center gap-5">
           {/* This is just temporary, for easy debugging and stuff */}
-          {token !== undefined && (
+          {!(token === undefined || token === '') && (
             <MotiView from={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
               <Card variant="error" title="Allerede logget inn" className="w-full">
                 <Text>{token}</Text>
