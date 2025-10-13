@@ -4,7 +4,7 @@ import { Pressable } from 'react-native';
 import { tv, VariantProps } from 'tailwind-variants';
 
 const buttonVariants = tv({
-  base: 'rounded-lg px-5 py-4 flex items-center flex-row gap-2.5',
+  base: 'rounded-lg px-5 py-4 flex items-center flex-row gap-2.5 justify-center',
   defaultVariants: {
     size: 'md',
     color: 'primary',
