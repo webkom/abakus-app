@@ -45,11 +45,11 @@ const SignInPage = () => {
       <View className="z-30 flex h-full w-full flex-col items-center justify-center gap-5 px-10">
         <Image
           source={AbakusLogo}
-          className="top-safe-offset-20 absolute h-32 w-96 max-w-full"
+          className="top-safe-offset-20 absolute h-32 w-72 max-w-full"
           resizeMode="contain"
         />
         <Text className="bottom-safe-offset-10 absolute w-full text-center text-lg font-semibold text-on-background">
-          Laget med 💖 av Webkom
+          Laget med 🌚 av Webkom
         </Text>
         <Text
           style={{
@@ -83,7 +83,7 @@ const SignInPage = () => {
           name="password"
           render={({ field, fieldState }) => (
             <Input
-              className="mt-2.5 w-full"
+              className="mt-5 w-full"
               label="Passord"
               inputProps={{
                 ...field,

@@ -1,4 +1,5 @@
 import { cn } from '@/lib/cn';
+import { MotiView } from 'moti';
 import React, { ComponentProps } from 'react';
 import { Text, TextInput, View } from 'react-native';
 
@@ -45,8 +46,20 @@ const Input = ({ error, label, inputProps, className, ...props }: InputProps) =>
         selectionColor={'#904a4b'}
         {...inputProps}
       />
-
-      {error && <Text className="text-error absolute bottom-0 translate-y-full">{error}</Text>}
+      {error && (
+        <MotiView
+          from={{
+            opacity: 0,
+            bottom: 5,
+          }}
+          animate={{
+            opacity: 1,
+            bottom: 0,
+          }}
+          className="absolute left-5 translate-y-full">
+          <Text className="text-error">{error}</Text>
+        </MotiView>
+      )}
     </View>
   );
 };
