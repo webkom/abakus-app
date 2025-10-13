@@ -60,7 +60,7 @@ const SignInPage = () => {
               <Card variant="error" title="Allerede logget inn" className="w-full">
                 <Text>{token}</Text>
                 <Button onPress={() => auth.signOut()} variant="secondary" className="rounded-full">
-                  <Text className="font-semibold text-on-error">Logg ut</Text>
+                  <Text className="text-on-secondary font-semibold">Logg ut</Text>
                 </Button>
               </Card>
             </MotiView>
