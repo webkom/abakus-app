@@ -58,7 +58,6 @@ const SignInPage = () => {
           {!(token === undefined || token === '') && (
             <MotiView from={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
               <Card variant="error" title="Allerede logget inn" className="w-full">
-                <Text>{token}</Text>
                 <Button onPress={() => auth.signOut()} variant="secondary" className="rounded-full">
                   <Text className="text-on-secondary font-semibold">Logg ut</Text>
                 </Button>
