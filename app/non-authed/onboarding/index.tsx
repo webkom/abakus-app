@@ -1,6 +1,5 @@
 import Button from '@/components/button';
 import Card from '@/components/card';
-import { useUser } from '@/lib/hooks/useUser';
 import { Link } from 'expo-router';
 import { MoveRightIcon } from 'lucide-react-native';
 import React from 'react';
@@ -10,7 +9,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 const BlurBackground = require('@/assets/images/blur-background.png');
 
 const OnboardingPage = () => {
-  const user = useUser();
   return (
     <View className="h-screen w-screen bg-background">
       <Image source={BlurBackground} className="absolute h-full w-full" resizeMode="cover" />
@@ -23,20 +21,20 @@ const OnboardingPage = () => {
           &gt; Nyttig å vite
         </Text>
         <View className="flex w-full flex-row flex-wrap gap-5">
-          <View className="flex max-h-[250px] min-h-[200px] w-full flex-row gap-5">
+          <View className="flex  min-h-[250px] w-full flex-row gap-5">
             <Card title={'Bla gjennom arrangementer'} className="flex-1 bg-primary-container/60">
-              <Text className="text-xl leading-[20px]">
+              <Text className="text-xl leading-tight">
                 Meld deg enkelt på arrangementer gjennom appen
               </Text>
             </Card>
             <Card title={'Aba-ID lett tilgjengelig'} className="flex-1 bg-primary-container/60">
-              <Text className="text-xl leading-[20px]">
+              <Text className="text-xl leading-tight">
                 Ha Aba-IDen din klar for kontroll til enhver tid
               </Text>
             </Card>
           </View>
           <Card title={'Varslinger rett på telefonen'} className="bg-primary-container/60">
-            <Text className="text-xl leading-[20px]">
+            <Text className="text-xl leading-tight">
               Få beskjed når påmelding til populære arrangementer nærmer seg{' '}
             </Text>
           </Card>

@@ -24,7 +24,7 @@ export type User = {
   linkedinId?: string;
   achievementsScore: number;
   achievementRank: number;
-  commandSuggestions?: Array<string>;
+  commandSuggestions?: string[];
 };
 
 export const Gender = {

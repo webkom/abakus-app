@@ -1,12 +1,14 @@
 import Button from '@/components/button';
+import Card from '@/components/card';
 import Input from '@/components/input';
-import { useSignIn } from '@/lib/hooks/useAuth';
+import { useSignIn, useToken } from '@/lib/hooks/useAuth';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
+import { MotiView } from 'moti';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { ActivityIndicator, Image, Text, View } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
 import { z } from 'zod';
 
 const AbakusLogo = require('@/assets/images/abakus-logo.png');
@@ -18,6 +20,7 @@ const formSchema = z.object({
 });
 
 const SignInPage = () => {
+  const token = useToken();
   const auth = useSignIn();
   const router = useRouter();
 
@@ -50,9 +53,21 @@ const SignInPage = () => {
           className="top-safe-offset-20 absolute h-32 w-72 max-w-full"
           resizeMode="contain"
         />
-        <Text className="bottom-safe-offset-10 absolute w-full text-center text-lg font-semibold text-on-background">
-          Laget med 🌚 av Webkom
-        </Text>
+        <View className="bottom-safe-offset-10 absolute flex w-full flex-col items-center gap-5">
+          {token !== undefined && (
+            <MotiView from={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
+              <Card variant="error" title="Allerede logget inn" className="w-full">
+                <Text>{token}</Text>
+                <Button onPress={() => auth.signOut()} variant="secondary" className="rounded-full">
+                  <Text className="font-semibold text-on-error">Logg ut</Text>
+                </Button>
+              </Card>
+            </MotiView>
+          )}
+          <Text className="mt-10 w-full text-center text-lg font-semibold text-on-background">
+            Laget med 🌚 av Webkom
+          </Text>
+        </View>
         <Text
           style={{
             fontFamily: 'PixelifySans_400Regular',
@@ -111,11 +126,11 @@ const SignInPage = () => {
             {!auth.isPending && 'Logg inn'}
           </Text>
         </Button>
+
+        {/* This is just temporary, for easy debugging and stuff */}
       </View>
     </View>
   );
 };
-
-const blobStyle = 'absolute z-10 aspect-square w-[150%] rounded-full bg-red-500/50';
 
 export default SignInPage;

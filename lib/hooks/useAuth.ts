@@ -1,10 +1,11 @@
 import { useMutation } from '@tanstack/react-query';
 import { login } from '../services/auth';
-import { useSetAtom } from 'jotai/react';
+import { useAtomValue, useSetAtom } from 'jotai/react';
 import { tokenAtom } from '../atoms/token-atom';
 import { userAtom } from '../atoms/user-atom';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { User } from '../types/user';
 
-// TODO: Set up this hook with jotai to get a reactive token and user info state!
 export const useSignIn = () => {
   const setToken = useSetAtom(tokenAtom);
   const setUser = useSetAtom(userAtom);
@@ -22,7 +23,10 @@ export const useSignIn = () => {
   });
 
   const signOut = () => {
-    setToken(undefined);
+    AsyncStorage.removeItem('user');
+    AsyncStorage.removeItem('session-token');
+    setToken('');
+    setUser({} as User);
   };
 
   return {
@@ -31,4 +35,8 @@ export const useSignIn = () => {
     signOut,
     ...rest,
   };
+};
+
+export const useToken = () => {
+  return useAtomValue(tokenAtom);
 };

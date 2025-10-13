@@ -4,7 +4,7 @@ import { Text, View } from 'react-native';
 import { tv, VariantProps } from 'tailwind-variants';
 
 const cardVariants = tv({
-  base: 'rounded-3xl p-7 flex flex-col gap-2.5',
+  base: 'rounded-3xl p-7 flex flex-col gap-5',
   defaultVariants: {
     variant: 'primary',
   },
@@ -12,6 +12,7 @@ const cardVariants = tv({
     variant: {
       primary: 'bg-primary-container',
       secondary: 'bg-secondary-container',
+      error: 'bg-error',
     },
   },
 });
@@ -25,6 +26,7 @@ const titleVariants = tv({
     variant: {
       primary: 'text-on-primary-container',
       secondary: 'text-on-secondary-container',
+      error: 'text-on-error',
     },
   },
 });
@@ -36,7 +38,7 @@ type CardProps = {
 const Card = ({ title, className, children, variant, ...props }: CardProps) => {
   return (
     <View className={cn(cardVariants({ variant }), className)} {...props}>
-      <Text className={cn(titleVariants({ variant }))}>{title}</Text>
+      {title && <Text className={cn(titleVariants({ variant }))}>{title}</Text>}
       {children}
     </View>
   );
