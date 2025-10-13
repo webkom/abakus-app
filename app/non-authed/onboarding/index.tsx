@@ -22,18 +22,18 @@ const OnboardingPage = () => {
         </Text>
         <View className="flex w-full flex-row flex-wrap gap-5">
           <View className="flex max-h-[250px] min-h-[200px] w-full flex-row gap-5">
-            <Card title={'Bla gjennom arrangementer'} className="flex-1">
+            <Card title={'Bla gjennom arrangementer'} className="flex-1 bg-primary-container/50">
               <Text className="text-xl leading-[20px]">
                 Meld deg enkelt på arrangementer gjennom appen
               </Text>
             </Card>
-            <Card title={'Aba-ID lett tilgjengelig'} className="flex-1">
+            <Card title={'Aba-ID lett tilgjengelig'} className="flex-1 bg-primary-container/50">
               <Text className="text-xl leading-[20px]">
                 Ha Aba-IDen din klar for kontroll til enhver tid
               </Text>
             </Card>
           </View>
-          <Card title={'Varslinger rett på telefonen'}>
+          <Card title={'Varslinger rett på telefonen'} className="bg-primary-container/50">
             <Text className="text-xl leading-[20px]">
               Få beskjed når påmelding for populære arrangementer nærmer seg{' '}
             </Text>

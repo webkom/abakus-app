@@ -1,7 +1,6 @@
 import Button from '@/components/button';
 import Input from '@/components/input';
 import { useSignIn } from '@/lib/hooks/useAuth';
-import { PixelifySans_400Regular, useFonts } from '@expo-google-fonts/pixelify-sans';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'expo-router';
 import React from 'react';
