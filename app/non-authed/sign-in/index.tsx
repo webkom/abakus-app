@@ -6,6 +6,7 @@ import { useRouter } from 'expo-router';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { ActivityIndicator, Image, Text, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 import { z } from 'zod';
 
 const AbakusLogo = require('@/assets/images/abakus-logo.png');
@@ -36,6 +37,7 @@ const SignInPage = () => {
 
   return (
     <View className="relative flex h-full flex-col">
+      <StatusBar style="dark" />
       <Image
         source={BlurBackground}
         className="absolute inset-0 h-full w-full"
@@ -83,7 +85,7 @@ const SignInPage = () => {
           name="password"
           render={({ field, fieldState }) => (
             <Input
-              className="mt-5 w-full"
+              className="w-full"
               label="Passord"
               inputProps={{
                 ...field,
@@ -97,6 +99,7 @@ const SignInPage = () => {
             />
           )}
         />
+
         <Button
           size="lg"
           className="mt-5 w-full max-w-[300px]"

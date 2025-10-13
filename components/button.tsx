@@ -12,7 +12,7 @@ const buttonVariants = tv({
   variants: {
     size: {
       md: '',
-      lg: 'rounded-full py-6 px-10',
+      lg: 'rounded-full px-10 h-20',
     },
     color: {
       primary: 'bg-primary text-on-primary',

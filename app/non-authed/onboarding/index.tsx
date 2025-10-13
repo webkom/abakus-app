@@ -1,5 +1,6 @@
 import Button from '@/components/button';
 import Card from '@/components/card';
+import { useUser } from '@/lib/hooks/useUser';
 import { Link } from 'expo-router';
 import { MoveRightIcon } from 'lucide-react-native';
 import React from 'react';
@@ -9,6 +10,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 const BlurBackground = require('@/assets/images/blur-background.png');
 
 const OnboardingPage = () => {
+  const user = useUser();
   return (
     <View className="h-screen w-screen bg-background">
       <Image source={BlurBackground} className="absolute h-full w-full" resizeMode="cover" />
@@ -22,20 +24,20 @@ const OnboardingPage = () => {
         </Text>
         <View className="flex w-full flex-row flex-wrap gap-5">
           <View className="flex max-h-[250px] min-h-[200px] w-full flex-row gap-5">
-            <Card title={'Bla gjennom arrangementer'} className="flex-1 bg-primary-container/50">
+            <Card title={'Bla gjennom arrangementer'} className="flex-1 bg-primary-container/60">
               <Text className="text-xl leading-[20px]">
                 Meld deg enkelt på arrangementer gjennom appen
               </Text>
             </Card>
-            <Card title={'Aba-ID lett tilgjengelig'} className="flex-1 bg-primary-container/50">
+            <Card title={'Aba-ID lett tilgjengelig'} className="flex-1 bg-primary-container/60">
               <Text className="text-xl leading-[20px]">
                 Ha Aba-IDen din klar for kontroll til enhver tid
               </Text>
             </Card>
           </View>
-          <Card title={'Varslinger rett på telefonen'} className="bg-primary-container/50">
+          <Card title={'Varslinger rett på telefonen'} className="bg-primary-container/60">
             <Text className="text-xl leading-[20px]">
-              Få beskjed når påmelding for populære arrangementer nærmer seg{' '}
+              Få beskjed når påmelding til populære arrangementer nærmer seg{' '}
             </Text>
           </Card>
         </View>

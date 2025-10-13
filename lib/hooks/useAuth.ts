@@ -2,10 +2,12 @@ import { useMutation } from '@tanstack/react-query';
 import { login } from '../services/auth';
 import { useSetAtom } from 'jotai/react';
 import { tokenAtom } from '../atoms/token-atom';
+import { userAtom } from '../atoms/user-atom';
 
 // TODO: Set up this hook with jotai to get a reactive token and user info state!
 export const useSignIn = () => {
   const setToken = useSetAtom(tokenAtom);
+  const setUser = useSetAtom(userAtom);
   const {
     mutateAsync: signInAsync,
     mutate: signIn,
@@ -13,8 +15,9 @@ export const useSignIn = () => {
   } = useMutation({
     mutationFn: ({ username, password }: { username: string; password: string }) =>
       login({ username, password }),
-    onSuccess: (data: string) => {
-      setToken(data);
+    onSuccess: ({ token, user }) => {
+      setToken(token);
+      setUser(user);
     },
   });
 
