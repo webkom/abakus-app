@@ -1,9 +1,9 @@
-import { View, Text, Pressable } from 'react-native';
-import React, { ComponentProps, useEffect } from 'react';
-import { Tabs, useRouter } from 'expo-router';
-import { CalendarIcon, QrCode, QrCodeIcon, UserIcon } from 'lucide-react-native';
 import { cn } from '@/lib/cn';
+import { Tabs, useRouter } from 'expo-router';
+import { CalendarIcon, QrCodeIcon, UserIcon } from 'lucide-react-native';
 import { MotiView, useDynamicAnimation } from 'moti';
+import React, { ComponentProps } from 'react';
+import { Pressable, Text, View } from 'react-native';
 
 // Infer the correct props from one of the lucide icons:
 type IconProps = ComponentProps<typeof UserIcon>;
