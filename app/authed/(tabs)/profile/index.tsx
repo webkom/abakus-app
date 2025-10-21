@@ -1,5 +1,5 @@
+import Avatar from '@/components/avatar';
 import Button from '@/components/button';
-import { CookieClip } from '@/components/cookie-clip';
 import Dialog from '@/components/dialog';
 import Icon from '@/components/icon';
 import { useSignIn } from '@/lib/hooks/useAuth';
@@ -35,13 +35,14 @@ const ProfilePage = () => {
       <StatusBar style="dark" />
       <SafeAreaView className="z-20 h-full w-full px-10 pt-20">
         <View className="mx-auto flex flex-col items-center gap-2.5">
-          <CookieClip uri={user?.profilePicture} />
+          <Avatar src={user?.profilePicture ?? ''} />
 
           <Text
             style={{ fontFamily: 'RobotoFlex_400Regular' }}
             className="mt-2.5 text-center text-3xl font-bold text-primary">
             {user?.fullName}
           </Text>
+
           <View className="flex-row gap-2.5">
             <Text className="text-lg font-bold text-on-background">4. klasse datateknologi</Text>
             {user?.isAbakusMember && (
