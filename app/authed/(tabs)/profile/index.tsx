@@ -1,11 +1,15 @@
+import Button from '@/components/button';
 import { CookieClip } from '@/components/cookie-clip';
 import { useUser } from '@/lib/hooks/useUser';
+import { RobotoFlex_400Regular, useFonts } from '@expo-google-fonts/roboto-flex';
+import { Link } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { ExternalLink } from 'lucide-react-native';
 import React from 'react';
+import {} from 'nativewind';
 import { Image, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useFonts, RobotoFlex_400Regular } from '@expo-google-fonts/roboto-flex';
-import Button from '@/components/button';
+import Icon from '@/components/icon';
 
 const RedGradient = require('@/assets/images/top-blur-red.png');
 
@@ -41,7 +45,14 @@ const ProfilePage = () => {
 
           <View className="mt-10 flex w-full flex-col gap-1">
             <Button className="w-full" list="top" variant="secondary">
-              <Text className="w-full text-center text-on-primary">Test</Text>
+              <Link
+                href={`https://abakus.no/users/${user?.username}/settings/profile`}
+                className="w-full">
+                <View className="flex w-full flex-row items-center justify-center gap-2.5">
+                  <Icon name="ExternalLink" className="text-on-primary" size={18} />
+                  <Text className="text-center text-on-primary">Administrer</Text>
+                </View>
+              </Link>
             </Button>
             <Button className="w-full" variant="secondary">
               <Text className="w-full text-center text-on-primary">Test</Text>
