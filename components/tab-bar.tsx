@@ -1,9 +1,9 @@
-import { View, Text, Pressable } from 'react-native';
-import React, { ComponentProps, useEffect } from 'react';
-import { Tabs, useRouter } from 'expo-router';
-import { CalendarIcon, QrCode, QrCodeIcon, UserIcon } from 'lucide-react-native';
 import { cn } from '@/lib/cn';
+import { Tabs, useRouter } from 'expo-router';
+import { CalendarIcon, QrCodeIcon, UserIcon } from 'lucide-react-native';
 import { MotiView, useDynamicAnimation } from 'moti';
+import React, { ComponentProps } from 'react';
+import { Pressable, Text, View } from 'react-native';
 
 // Infer the correct props from one of the lucide icons:
 type IconProps = ComponentProps<typeof UserIcon>;
@@ -13,7 +13,7 @@ type TabBarProps = Parameters<NonNullable<ComponentProps<typeof Tabs>['tabBar']>
 const TabBar = ({ navigation, state, descriptors, insets }: TabBarProps) => {
   const router = useRouter();
   return (
-    <View className="bottom-safe-offset-0 px-5">
+    <View className="bottom-safe-offset-2 px-5">
       <View className="flex w-full flex-row justify-evenly  rounded-full bg-primary-container py-5">
         <TabBarButton
           Icon={QrCodeIcon}

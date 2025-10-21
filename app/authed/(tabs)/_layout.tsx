@@ -1,9 +1,7 @@
 import TabBar from '@/components/tab-bar';
 import { Tabs } from 'expo-router';
-import { TabList, TabTrigger } from 'expo-router/ui';
 
 import React from 'react';
-import { Text } from 'react-native';
 
 const TabLayout = () => {
   return (
