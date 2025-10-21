@@ -12,6 +12,12 @@ type IconName = keyof typeof icons;
  */
 type IconProps = { name: IconName; className?: string } & ComponentProps<typeof HomeIcon>;
 
+/**
+ * Use this component to apply nativewind color stylings such as `text-on-primary` to lucide icons.
+ * @example ```
+    <Icon name="HouseIcon" size={20} className="text-on-primary" />
+ ```
+ */
 const Icon: React.FC<IconProps> = memo(({ name, className, ...props }) => {
   const CustomIcon = useMemo(() => {
     // eslint-disable-next-line import/namespace
