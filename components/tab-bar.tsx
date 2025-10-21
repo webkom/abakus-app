@@ -16,10 +16,10 @@ const TabBar = ({ navigation, state, descriptors, insets }: TabBarProps) => {
     <View className="bottom-safe-offset-2 px-5">
       <View className="flex w-full flex-row justify-evenly  rounded-full bg-primary-container py-5">
         <TabBarButton
-          Icon={UserRoundIcon}
-          selected={state.index === 2}
-          label="Profil"
-          onPress={() => router.push('/authed/(tabs)/profile')}
+          Icon={QrCodeIcon}
+          selected={state.index === 1}
+          label="AbaID"
+          onPress={() => router.push('/authed/(tabs)/abaid')}
         />
         <TabBarButton
           Icon={CalendarIcon}
@@ -27,11 +27,12 @@ const TabBar = ({ navigation, state, descriptors, insets }: TabBarProps) => {
           label="Arrangementer"
           onPress={() => router.push('/authed/(tabs)/events')}
         />
+
         <TabBarButton
-          Icon={QrCodeIcon}
-          selected={state.index === 1}
-          label="AbaID"
-          onPress={() => router.push('/authed/(tabs)/abaid')}
+          Icon={UserIcon}
+          selected={state.index === 2}
+          label="Profil"
+          onPress={() => router.push('/authed/(tabs)/profile')}
         />
       </View>
     </View>
