@@ -1,9 +1,11 @@
 import { PixelifySans_400Regular, useFonts } from '@expo-google-fonts/pixelify-sans';
+import { PortalProvider } from '@gorhom/portal';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Stack } from 'expo-router';
 import 'react-native-gesture-handler';
 import 'react-native-reanimated';
 import '../global.css';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const queryClient = new QueryClient();
 
@@ -13,11 +15,15 @@ const Layout = () => {
   });
   return (
     <QueryClientProvider client={queryClient}>
-      <Stack
-        screenOptions={{
-          headerShown: false,
-        }}
-      />
+      <GestureHandlerRootView>
+        <PortalProvider>
+          <Stack
+            screenOptions={{
+              headerShown: false,
+            }}
+          />
+        </PortalProvider>
+      </GestureHandlerRootView>
     </QueryClientProvider>
   );
 };

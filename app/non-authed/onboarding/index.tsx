@@ -41,7 +41,7 @@ const OnboardingPage = () => {
         </View>
 
         <Link href="/authed/(tabs)/events" asChild>
-          <Button size="lg" className="w-full max-w-[300px]">
+          <Button size="lg" className="w-full max-w-[300px] rounded-full">
             <MoveRightIcon className="text-on-primary" color={'#FFFFFF'} />
             <Text className="text-lg font-semibold text-on-primary">Til hjemskjermen</Text>
           </Button>
