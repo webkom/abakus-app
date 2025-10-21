@@ -20,7 +20,7 @@ const Avatar = ({ src }: AvatarProps) => {
         <Icon name="UserRound" size={100} className="text-on-tertiary-container" />
       </View>
 
-      <CookieClip uri={''} />
+      <CookieClip uri={src} />
     </View>
   );
 };

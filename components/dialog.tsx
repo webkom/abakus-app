@@ -1,8 +1,8 @@
 import { cn } from '@/lib/cn';
 import { Portal } from '@gorhom/portal';
 import { AnimatePresence, MotiView } from 'moti';
-import React, { ComponentProps } from 'react';
-import { Pressable, View } from 'react-native';
+import React, { ComponentProps, useEffect } from 'react';
+import { BackHandler, Pressable, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import { scheduleOnRN } from 'react-native-worklets';
@@ -48,6 +48,25 @@ const Dialog = ({ className, children, onDismiss, show, ...props }: DialogProps)
 
       start.value = offset.value;
     });
+
+  useEffect(() => {
+    const onBackPress = () => {
+      if (!show) {
+        listener.remove();
+        return false;
+      }
+
+      onDismiss?.();
+
+      return true;
+    };
+
+    const listener = BackHandler.addEventListener('hardwareBackPress', onBackPress);
+
+    return () => {
+      listener.remove();
+    };
+  }, [onDismiss]);
   return (
     <Portal>
       <View
