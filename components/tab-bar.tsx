@@ -1,6 +1,6 @@
 import { cn } from '@/lib/cn';
 import { Tabs, useRouter } from 'expo-router';
-import { CalendarIcon, QrCodeIcon, UserIcon } from 'lucide-react-native';
+import { CalendarIcon, QrCodeIcon, UserIcon, UserRoundIcon } from 'lucide-react-native';
 import { MotiView, useDynamicAnimation } from 'moti';
 import React, { ComponentProps } from 'react';
 import { Pressable, Text, View } from 'react-native';
@@ -66,7 +66,7 @@ const TabBarButton = ({
     }));
   }
   return (
-    <Pressable className="flex flex-col items-center gap-1" onPress={onPress}>
+    <Pressable className="flex flex-col items-center gap-0.5" onPress={onPress}>
       <View className="relative flex h-10 w-20 items-center justify-center">
         <View className="absolute inset-0 flex items-center justify-center">
           <MotiView
@@ -79,7 +79,7 @@ const TabBarButton = ({
         </View>
         <Icon
           color={selected ? '#FFFFFF' : '#733335'}
-          size={20}
+          size={22}
           className="transition-colors duration-500"
         />
       </View>

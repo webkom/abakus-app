@@ -1,5 +1,5 @@
 {
-  "name": "my-expo-app",
+  "name": "abakus-app",
   "version": "1.0.0",
   "scripts": {
     "android": "expo run:android",
@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@expo-google-fonts/pixelify-sans": "^0.4.2",
+    "@expo-google-fonts/roboto-flex": "^0.4.1",
+    "@gorhom/portal": "^1.0.14",
     "@hookform/resolvers": "^5.2.2",
     "@react-native-async-storage/async-storage": "2.2.0",
     "@react-native-community/blur": "^4.4.1",

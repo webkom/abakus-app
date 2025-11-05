@@ -16,7 +16,7 @@ export type User = {
   isActive: boolean;
   isStudent: boolean;
   icalToken: string;
-  abakusGroups: string[];
+  abakusGroups: Group[];
   isAbakusMember: boolean;
   isAbakomMember: boolean;
   selectedTheme: 'light' | 'dark' | 'auto';
@@ -67,3 +67,37 @@ export const ROLES = {
   event_manager: 'Arrangementansvarlig',
   snackoverflow_manager: 'SnackOverflow-ansvarlig',
 };
+
+export type Group = {
+  id: string;
+  name: string;
+  description: string;
+  contactEmail: string;
+  parent?: string;
+  permissions: string[];
+  parentPermissions: {
+    abakusGroup: Pick<Group, 'id' | 'name'>;
+    permissions: string[];
+  }[];
+  logo: string | null;
+  logoPlaceholder: string | null;
+  numberOfUsers: number;
+  type: GroupType;
+  text: string;
+  showBadge: boolean;
+  active: boolean;
+  actionGrant: ActionGrant;
+};
+
+export enum GroupType {
+  Committee = 'komite',
+  Board = 'styre',
+  Revue = 'revy',
+  Interest = 'interesse',
+  SubGroup = 'under',
+  Ordained = 'ordenen',
+  Grade = 'klasse',
+  Other = 'annen',
+}
+
+export type ActionGrant = ('create' | 'edit' | 'delete' | 'list' | 'view' | string)[];
