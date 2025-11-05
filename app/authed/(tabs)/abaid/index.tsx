@@ -1,4 +1,5 @@
 import Cookie from '@/components/cookie';
+import Header from '@/components/header';
 import { useUser } from '@/lib/hooks/useUser';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
@@ -11,10 +12,11 @@ const AbaIDPage = () => {
   const user = useUser();
   return (
     <View className="relative h-screen w-screen">
+      <Header className="z-50" />
       <StatusBar style="dark" />
       <Image source={GreenGradient} className="absolute left-0 top-0 z-20 h-96 w-full" />
-      <SafeAreaView className="h-full w-full">
-        <View className="flex h-full w-full items-center justify-center">
+      <View className="flex h-full w-full items-center pt-[50%]">
+        <View className="flex items-center justify-center">
           <View className="absolute">
             <Cookie />
           </View>
@@ -37,7 +39,7 @@ const AbaIDPage = () => {
             />
           )}
         </View>
-      </SafeAreaView>
+      </View>
     </View>
   );
 };

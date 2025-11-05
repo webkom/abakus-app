@@ -17,16 +17,16 @@ export enum EventType {
 }
 
 export const EVENT_CONSTANTS: EventTypeLabels = {
-  company_presentation: "Bedriftspresentasjon",
-  lunch_presentation: "Lunsjpresentasjon",
-  alternative_presentation: "Alternativ bedpres",
-  course: "Kurs",
-  breakfast_talk: "Frokostforedrag",
-  party: "Fest",
-  social: "Sosialt",
-  event: "Arrangement",
-  kid_event: "KID-arrangement",
-  other: "Annet",
+  company_presentation: 'Bedriftspresentasjon',
+  lunch_presentation: 'Lunsjpresentasjon',
+  alternative_presentation: 'Alternativ bedpres',
+  course: 'Kurs',
+  breakfast_talk: 'Frokostforedrag',
+  party: 'Fest',
+  social: 'Sosialt',
+  event: 'Arrangement',
+  kid_event: 'KID-arrangement',
+  other: 'Annet',
 };
 
 export interface Event {
@@ -48,6 +48,7 @@ export interface Event {
   isAdmitted: boolean;
   survey: string;
   requireAuth: boolean;
+  mazemapPoi?: string;
   pools: EventPools[];
 }
 
