@@ -1,6 +1,7 @@
 import { cn } from '@/lib/cn';
 import { ComponentProps, ReactNode } from 'react';
 import { Pressable, View } from 'react-native';
+import { ClassNameValue } from 'tailwind-merge';
 import { tv, VariantProps } from 'tailwind-variants';
 
 const buttonVariants = tv({
@@ -17,6 +18,7 @@ const buttonVariants = tv({
     variant: {
       primary: 'bg-primary text-on-primary',
       secondary: 'bg-secondary text-on-secondary',
+      tertiary: 'bg-tertiary-container',
       ghost: 'bg-transparent',
       error: 'bg-error text-on-error',
     },
@@ -29,11 +31,22 @@ const buttonVariants = tv({
 
 type ButtonProps = Omit<ComponentProps<typeof Pressable>, 'children'> & {
   children?: ReactNode;
+  innerClassName?: ClassNameValue;
 } & VariantProps<typeof buttonVariants>;
-const Button = ({ className, size, variant, list, children, ...props }: ButtonProps) => {
+const Button = ({
+  className,
+  size,
+  variant,
+  list,
+  children,
+  innerClassName,
+  ...props
+}: ButtonProps) => {
   return (
     <Pressable className={cn(buttonVariants({ size, variant, list }), className)} {...props}>
-      <View className="flex w-full flex-row items-center justify-center gap-2.5">{children}</View>
+      <View className={cn('flex flex-row items-center justify-center gap-2.5', innerClassName)}>
+        {children}
+      </View>
     </Pressable>
   );
 };

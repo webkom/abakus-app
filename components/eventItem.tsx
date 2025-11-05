@@ -1,7 +1,7 @@
-import React from "react";
-import { Pressable, Text, View } from "react-native";
-import { EventType } from "../lib/types/types";
-import { EventTypeConfig } from "../lib/types/eventColors";
+import React from 'react';
+import { Pressable, Text, View } from 'react-native';
+import { EventType } from '../lib/types/types';
+import { EventTypeConfig } from '../lib/types/eventColors';
 import { Link } from 'expo-router';
 
 interface EventItemProps {
@@ -16,34 +16,32 @@ export default function EventItem({ id, title, eventType, startTime }: EventItem
 
   function formatDate(date: Date): string {
     return date
-      .toLocaleString("nb-NO", {
-        day: "2-digit",
-        month: "long",
-        hour: "2-digit",
-        minute: "2-digit",
+      .toLocaleString('nb-NO', {
+        day: '2-digit',
+        month: 'long',
+        hour: '2-digit',
+        minute: '2-digit',
         hour12: false,
-        timeZone: "Europe/Oslo",
+        timeZone: 'Europe/Oslo',
       })
-      .replace(",", ".");
+      .replace(',', '.');
   }
 
   return (
-    <Link href={`/authed/(tabs)/events/event?id=${id}`} asChild>
-      <Pressable className="active:bg-gray-500 w-full rounded-xl p-3">
-        <View className="flex-row justify-between items-center">
-          <View className="px-1 py-9 rounded-lg" style={{ backgroundColor: event.color }} />
+    <Link href={`/authed/(tabs)/events/${id}`} asChild>
+      <Pressable className="w-full rounded-xl pr-5 active:bg-gray-500">
+        <View className="flex-row items-center justify-between">
+          <View className="rounded-lg px-1 py-9" style={{ backgroundColor: event.color }} />
 
-          <View className="flex-1 mx-3">
+          <View className="mx-3 flex-1">
             <Text className="text-lg font-medium text-gray-900" numberOfLines={1}>
               {title}
             </Text>
-            <Text className="text-gray-600 text-sm">
-              {formatDate(new Date(startTime))}
-            </Text>
+            <Text className="text-sm text-gray-600">{formatDate(new Date(startTime))}</Text>
           </View>
 
           <View>
-            <Text className="text-gray-600 text-sm">→</Text>
+            <Text className="text-sm text-gray-600">→</Text>
           </View>
         </View>
       </Pressable>

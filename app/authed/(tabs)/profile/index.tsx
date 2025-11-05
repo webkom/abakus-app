@@ -1,6 +1,7 @@
 import Avatar from '@/components/avatar';
 import Button from '@/components/button';
 import Dialog from '@/components/dialog';
+import Header from '@/components/header';
 import Icon from '@/components/icon';
 import { useSignIn } from '@/lib/hooks/useAuth';
 import { useUser } from '@/lib/hooks/useUser';
@@ -30,7 +31,8 @@ const ProfilePage = () => {
 
   const user = useUser();
   return (
-    <View className="relative h-screen w-screen">
+    <View className="pt-safe-offset-5 relative h-screen w-screen">
+      <Header className="absolute z-50" />
       <Image source={RedGradient} className="absolute left-0 top-0 z-20 h-96 w-full" />
       <StatusBar style="dark" />
       <SafeAreaView className="z-20 h-full w-full px-10 pt-20">
@@ -72,6 +74,7 @@ const ProfilePage = () => {
             </Button>
             <Button
               className="w-full"
+              innerClassName="w-full"
               variant="secondary"
               list="bottom"
               onPress={() => setShow((prev) => !prev)}>
