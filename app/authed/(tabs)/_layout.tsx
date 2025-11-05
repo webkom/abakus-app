@@ -22,6 +22,12 @@ const TabLayout = () => {
           title: 'Arrangementer',
         }}
       />
+      <Tabs.Screen
+        name="abaid/index"
+        options={{
+          title: 'AbaID',
+        }}
+      />
     </Tabs>
   );
 };

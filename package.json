@@ -50,6 +50,7 @@
     "@babel/core": "^7.20.0",
     "@tanstack/eslint-plugin-query": "^5.91.0",
     "@types/react": "~19.1.10",
+    "@types/react-query": "^1.2.8",
     "eslint": "^9.25.1",
     "eslint-config-expo": "~10.0.0",
     "eslint-config-prettier": "^10.1.2",
