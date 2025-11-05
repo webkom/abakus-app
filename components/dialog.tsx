@@ -18,7 +18,10 @@ const Dialog = ({ className, children, onDismiss, show, ...props }: DialogProps)
     return {
       transform: [
         {
-          translateY: withSpring(show ? offset.value : 560, {}),
+          translateY: withSpring(show ? offset.value : 560, {
+            damping: 50,
+            mass: 1,
+          }),
         },
       ],
     };
@@ -66,7 +69,7 @@ const Dialog = ({ className, children, onDismiss, show, ...props }: DialogProps)
     return () => {
       listener.remove();
     };
-  }, [onDismiss]);
+  }, [onDismiss, show]);
   return (
     <Portal>
       <View
