@@ -12,10 +12,10 @@ const AbaIDPage = () => {
   const user = useUser();
   return (
     <View className="relative h-screen w-screen">
-      <Header className="z-50" />
+      {/* <Header className="z-50" /> */}
       <StatusBar style="dark" />
       <Image source={GreenGradient} className="absolute left-0 top-0 z-20 h-96 w-full" />
-      <View className="flex h-full w-full items-center pt-[50%]">
+      <View className="flex h-full w-full items-center justify-center">
         <View className="flex items-center justify-center">
           <View className="absolute">
             <Cookie />
