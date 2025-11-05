@@ -1,11 +1,9 @@
 import Cookie from '@/components/cookie';
-import Header from '@/components/header';
 import { useUser } from '@/lib/hooks/useUser';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Image, Text, View } from 'react-native';
 import QRCodeStyled from 'react-native-qrcode-styled';
-import { SafeAreaView } from 'react-native-safe-area-context';
 const GreenGradient = require('@/assets/images/top-blur-green.png');
 
 const AbaIDPage = () => {

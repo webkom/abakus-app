@@ -122,7 +122,7 @@ const SignInPage = () => {
             form.handleSubmit(handleSubmit)();
           }}>
           <Text className="text-xl font-semibold text-on-primary">
-            {auth.isPending && <ActivityIndicator />}
+            {auth.isPending && <ActivityIndicator color="#FFFFFF" size="large" />}
             {!auth.isPending && 'Logg inn'}
           </Text>
         </Button>
