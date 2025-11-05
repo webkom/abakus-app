@@ -1,6 +1,6 @@
 import { cn } from '@/lib/cn';
 import { Tabs, useRouter } from 'expo-router';
-import { CalendarIcon, QrCodeIcon, UserIcon, UserRoundIcon } from 'lucide-react-native';
+import { CalendarIcon, QrCodeIcon, UserIcon } from 'lucide-react-native';
 import { MotiView, useDynamicAnimation } from 'moti';
 import React, { ComponentProps } from 'react';
 import { Pressable, Text, View } from 'react-native';
