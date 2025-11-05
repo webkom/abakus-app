@@ -59,7 +59,7 @@ const SignInPage = () => {
             <MotiView from={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
               <Card variant="error" title="Allerede logget inn" className="w-full">
                 <Button onPress={() => auth.signOut()} variant="secondary" className="rounded-full">
-                  <Text className="text-on-secondary font-semibold">Logg ut</Text>
+                  <Text className="font-semibold text-on-secondary">Logg ut</Text>
                 </Button>
               </Card>
             </MotiView>
@@ -117,7 +117,7 @@ const SignInPage = () => {
 
         <Button
           size="lg"
-          className="mt-5 w-full max-w-[300px]"
+          className="mt-5 w-full max-w-[300px] rounded-full"
           onPress={() => {
             form.handleSubmit(handleSubmit)();
           }}>
