@@ -1,0 +1,103 @@
+export type User = {
+  id: number;
+  username: string;
+  firstName: string;
+  lastName: string;
+  fullName: string;
+  gender: keyof typeof Gender;
+  email: string;
+  emailAddress: string;
+  emailListsEnabled: boolean;
+  internalEmailAddress?: string;
+  phoneNumber?: string;
+  profilePicture: string;
+  profilePicturePlaceholder: string;
+  allergies: string;
+  isActive: boolean;
+  isStudent: boolean;
+  icalToken: string;
+  abakusGroups: Group[];
+  isAbakusMember: boolean;
+  isAbakomMember: boolean;
+  selectedTheme: 'light' | 'dark' | 'auto';
+  githubUsername?: string;
+  linkedinId?: string;
+  achievementsScore: number;
+  achievementRank: number;
+  commandSuggestions?: string[];
+};
+
+export const Gender = {
+  male: 'Mann',
+  female: 'Kvinne',
+  other: 'Annet',
+} as const;
+
+export type Role = keyof typeof ROLES;
+
+export const ROLES = {
+  member: 'Medlem (standard)',
+  leader: 'Leder',
+  'co-leader': 'Nestleder',
+  treasurer: 'Økonomiansvarlig',
+  recruiting: 'Rekruttering',
+  development: 'Utvikling',
+  editor: 'Moderator',
+  retiree: 'Pang',
+  media_relations: 'PR-ansvarlig',
+  active_retiree: 'Aktiv pang',
+  alumni: 'Alumni',
+  webmaster: 'Webansvarlig',
+  interest_group_admin: 'Interessegruppeansvarlig',
+  alumni_admin: 'Alumniansvarlig',
+  retiree_email: 'Pang med e-post',
+  company_admin: 'Bedriftsansvarlig',
+  dugnad_admin: 'Dugnadsansvarlig',
+  trip_admin: 'Turansvarlig',
+  sponsor_admin: 'Sponsoransvarlig',
+  social_admin: 'Sosialansvarlig',
+  merch_admin: 'Merchansvarlig',
+  hs_representative: 'HS-representant',
+  cuddling_manager: 'Kosansvarlig',
+  photo_admin: 'Foto- og filmansvarlig',
+  graphic_admin: 'Grafiskansvarlig',
+  social_media_admin: 'SoMe-ansvarlig',
+  booking_admin: 'Bookingansvarlig',
+  purchasing_manager: 'Innkjøpsansvarlig',
+  event_manager: 'Arrangementansvarlig',
+  snackoverflow_manager: 'SnackOverflow-ansvarlig',
+};
+
+export type Group = {
+  id: string;
+  name: string;
+  description: string;
+  contactEmail: string;
+  parent?: string;
+  permissions: string[];
+  parentPermissions: {
+    abakusGroup: Pick<Group, 'id' | 'name'>;
+    permissions: string[];
+  }[];
+  logo: string | null;
+  logoPlaceholder: string | null;
+  numberOfUsers: number;
+  type: GroupType;
+  text: string;
+  showBadge: boolean;
+  active: boolean;
+  actionGrant: ActionGrant;
+};
+
+export enum GroupType {
+  Committee = 'komite',
+  Board = 'styre',
+  Revue = 'revy',
+  Interest = 'interesse',
+  SubGroup = 'under',
+  Ordained = 'ordenen',
+  Grade = 'klasse',
+  Other = 'annen',
+}
+
+export type ActionGrant = ('create' | 'edit' | 'delete' | 'list' | 'view' | string)[];
