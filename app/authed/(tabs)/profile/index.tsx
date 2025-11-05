@@ -43,14 +43,19 @@ const ProfilePage = () => {
             {user?.fullName}
           </Text>
 
-          <View className="flex-row gap-2.5">
-            <Text className="text-lg font-bold text-on-background">4. klasse datateknologi</Text>
+          <View className="flex-row items-center gap-5">
+            {user?.grade && (
+              <Text className="text-lg font-bold text-on-background">{user?.grade}</Text>
+            )}
             {user?.isAbakusMember && (
-              <Text
-                style={{ fontFamily: 'RobotoFlex_400Regular' }}
-                className="text-lg font-bold text-on-background">
-                Abakus
-              </Text>
+              <>
+                <View className="h-5 w-0.5 bg-on-background/50" />
+                <Text
+                  style={{ fontFamily: 'RobotoFlex_400Regular' }}
+                  className="text-lg font-bold text-on-background">
+                  Abakus
+                </Text>
+              </>
             )}
           </View>
 
@@ -80,18 +85,18 @@ const ProfilePage = () => {
       <Dialog
         show={show}
         onDismiss={() => setShow(false)}
-        className="flex flex-col items-center justify-between">
+        className="flex flex-col items-center justify-evenly">
         <Text className="mx-auto text-center text-3xl font-bold text-on-background">
           Er du sikker på at du vil logge ut?
         </Text>
         <View className="w-full flex-col gap-2.5">
-          <Button
+          {/* <Button
             className="flex-1 rounded-full"
             size="lg"
             variant="secondary"
             onPress={() => setShow(false)}>
             <Text className="text-xl text-on-primary">Avbryt</Text>
-          </Button>
+          </Button> */}
           <Button variant="error" className="flex-1 rounded-full" size="lg" onPress={handleSignOut}>
             <Text className="text-xl text-on-error">Logg ut</Text>
           </Button>
