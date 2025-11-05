@@ -8,26 +8,24 @@ const EventsPage = () => {
 
   if (events.isLoading) {
     return (
-      <View className="flex-row justify-center items-center h-full space-x-3">
+      <View className="h-full flex-row items-center justify-center space-x-3">
         <ActivityIndicator size="large" color="#dc2626" />
-        <Text className="text-xl text-red-600 font-semibold">Loading...</Text>
+        <Text className="text-xl font-semibold text-red-600">Loading...</Text>
       </View>
     );
   }
 
   if (events.isError) {
     return (
-      <View className="flex-1 justify-center items-center">
-        <Text className="text-red-600 text-base">
-          Error loading events. Please try again.
-        </Text>
+      <View className="flex-1 items-center justify-center">
+        <Text className="text-base text-red-600">Error loading events. Please try again.</Text>
       </View>
     );
   }
 
   return (
-    <ScrollView className="w-full h-4/5">
-      <View className="flex-col space-y-10 items-center p-4">
+    <ScrollView className="h-4/5 w-full">
+      <View className="flex-col items-center space-y-10 p-4">
         {events.data?.map((event) => (
           <EventItem
             key={event.id}
