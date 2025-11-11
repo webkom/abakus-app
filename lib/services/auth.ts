@@ -3,8 +3,9 @@
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { User } from '../types/user';
+import env from 'env';
 
-const API_URL = 'https://lego-staging.abakus.no'; // Backend URL
+const API_URL = env.EXPO_PUBLIC_API_URL; // Backend URL
 
 // Login-funksjon
 export const login = async ({ username, password }: { username: string; password: string }) => {
