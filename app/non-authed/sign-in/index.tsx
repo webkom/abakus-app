@@ -122,10 +122,12 @@ const SignInPage = () => {
             form.handleSubmit(handleSubmit)();
           }}>
           <Text className="text-xl font-semibold text-on-primary">
-            {auth.isPending && <ActivityIndicator />}
+            {auth.isPending && <ActivityIndicator color="#FFFFFF" size="large" />}
             {!auth.isPending && 'Logg inn'}
           </Text>
         </Button>
+
+        <Text>{auth.isError && 'Noe gikk galt under innlogging'}</Text>
       </View>
     </View>
   );
