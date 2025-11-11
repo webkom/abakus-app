@@ -126,6 +126,8 @@ const SignInPage = () => {
             {!auth.isPending && 'Logg inn'}
           </Text>
         </Button>
+
+        <Text>{auth.isError && 'Noe gikk galt under innlogging'}</Text>
       </View>
     </View>
   );
