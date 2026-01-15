@@ -19,15 +19,20 @@ export default function EventsPage() {
     return (
       <View className="h-full flex-row items-center justify-center space-x-3">
         <ActivityIndicator size="large" color="#dc2626" />
-        <Text className="text-xl font-semibold text-red-600">Loading...</Text>
       </View>
     );
   }
 
   if (isError) {
     return (
-      <View>
-        <Text>Fant ikke arrangement:/</Text>
+      <View className="h-full items-center justify-center px-4">
+        <Text className="text-center text-lg font-semibold text-red-600">
+          Fant ikke arrangementet. Det kan ha blitt fjernet, eller du har kanskje ikke tilgang til å
+          se det.
+        </Text>
+        <Text className="mt-2 text-center text-base">
+          Vennligst sjekk lenken, eller bruk tilbake-knappen for å gå tilbake.
+        </Text>
       </View>
     );
   }
