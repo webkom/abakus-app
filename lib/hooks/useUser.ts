@@ -6,7 +6,7 @@ export const useUser = () => {
   const user = useAtomValue(userAtom);
 
   // Calcualte the user class
-  const grade = user?.abakusGroups.find((group) => group.type === GroupType.Grade);
+  const grade = user?.abakusGroups?.find((group) => group.type === GroupType.Grade);
 
   return { ...user, grade: grade?.name };
 };

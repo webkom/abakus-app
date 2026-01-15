@@ -12,12 +12,13 @@ const cardVariants = tv({
     variant: {
       primary: 'bg-primary-container',
       secondary: 'bg-secondary-container',
+      tertiary: 'bg-tertiary-container',
       error: 'bg-error',
     },
   },
 });
 
-const titleVariants = tv({
+export const titleVariants = tv({
   base: 'text-2xl font-semibold',
   defaultVariants: {
     variant: 'primary',
@@ -26,13 +27,14 @@ const titleVariants = tv({
     variant: {
       primary: 'text-on-primary-container',
       secondary: 'text-on-secondary-container',
+      tertiary: 'text-on-tertiary-container',
       error: 'text-on-error',
     },
   },
 });
 
 type CardProps = {
-  title?: string;
+  title?: React.ReactNode;
 } & ComponentProps<typeof View> &
   VariantProps<typeof cardVariants>;
 const Card = ({ title, className, children, variant, ...props }: CardProps) => {
