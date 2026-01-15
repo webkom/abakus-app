@@ -1,6 +1,6 @@
 import { cn } from '@/lib/cn';
-import { Tabs, useRouter } from 'expo-router';
-import { CalendarIcon, QrCodeIcon, UserIcon, UserRoundIcon } from 'lucide-react-native';
+import { Tabs, usePathname, useRouter } from 'expo-router';
+import { CalendarIcon, QrCodeIcon, UserIcon } from 'lucide-react-native';
 import { MotiView, useDynamicAnimation } from 'moti';
 import React, { ComponentProps } from 'react';
 import { Pressable, Text, View } from 'react-native';
@@ -12,25 +12,26 @@ type IconType = React.ComponentType<IconProps>;
 type TabBarProps = Parameters<NonNullable<ComponentProps<typeof Tabs>['tabBar']>>[0];
 const TabBar = ({ navigation, state, descriptors, insets }: TabBarProps) => {
   const router = useRouter();
+  const pathName = usePathname();
   return (
     <View className="bottom-safe-offset-2 px-5">
       <View className="flex w-full flex-row justify-evenly  rounded-full bg-primary-container py-5">
         <TabBarButton
           Icon={QrCodeIcon}
-          selected={state.index === 1}
+          selected={pathName === '/authed/abaid'}
           label="AbaID"
           onPress={() => router.push('/authed/(tabs)/abaid')}
         />
         <TabBarButton
           Icon={CalendarIcon}
-          selected={state.index === 0}
+          selected={pathName === '/authed/events'}
           label="Arrangementer"
           onPress={() => router.push('/authed/(tabs)/events')}
         />
 
         <TabBarButton
           Icon={UserIcon}
-          selected={state.index === 2}
+          selected={pathName === '/authed/profile'}
           label="Profil"
           onPress={() => router.push('/authed/(tabs)/profile')}
         />
