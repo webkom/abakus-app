@@ -13,6 +13,8 @@ import Login from "../screens/Login";
 import Settings from "../screens/Settings";
 import ShowEvent from "../screens/ShowEvent";
 
+import "../globals.css";
+
 const queryClient = new QueryClient();
 type ScreenType = {
   name: "Dashboard" | "Events" | "Settings" | "ShowEvent";
