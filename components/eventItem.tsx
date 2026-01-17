@@ -3,29 +3,20 @@ import { Pressable, Text, View } from 'react-native';
 import { EventType } from '../lib/types/types';
 import { EventTypeConfig } from '../lib/types/eventColors';
 import { Link } from 'expo-router';
+import { format } from 'date-fns';
+import { nb } from 'date-fns/locale';
 
 interface EventItemProps {
   id: number;
   title: string;
   eventType: string;
   startTime: string;
+  registrationCount: number
+  totalCapacity: number
 }
 
-export default function EventItem({ id, title, eventType, startTime }: EventItemProps) {
+export default function EventItem({ id, title, eventType, startTime, registrationCount, totalCapacity }: EventItemProps) {
   const event = EventTypeConfig[eventType as EventType];
-
-  function formatDate(date: Date): string {
-    return date
-      .toLocaleString('nb-NO', {
-        day: '2-digit',
-        month: 'long',
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: false,
-        timeZone: 'Europe/Oslo',
-      })
-      .replace(',', '.');
-  }
 
   return (
     <Link href={`/authed/(tabs)/events/${id}`} asChild>
@@ -37,11 +28,11 @@ export default function EventItem({ id, title, eventType, startTime }: EventItem
             <Text className="text-lg font-medium text-gray-900" numberOfLines={1}>
               {title}
             </Text>
-            <Text className="text-sm text-gray-600">{formatDate(new Date(startTime))}</Text>
+            <Text className="text-sm text-gray-600">{format(new Date(startTime), "eeeeee dd. MMM HH:mm", {locale: nb})}</Text>
           </View>
 
-          <View>
-            <Text className="text-sm text-gray-600">→</Text>
+          <View className='flex flex-col'>
+            <Text>{registrationCount} / {totalCapacity}</Text>
           </View>
         </View>
       </Pressable>
