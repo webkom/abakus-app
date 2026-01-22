@@ -1,4 +1,5 @@
 import { PixelifySans_400Regular, useFonts } from '@expo-google-fonts/pixelify-sans';
+import { PortalHost } from '@rn-primitives/portal';
 import { PortalProvider } from '@gorhom/portal';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Stack } from 'expo-router';
@@ -21,6 +22,7 @@ const Layout = () => {
               headerShown: false,
             }}
           />
+          <PortalHost />
         </PortalProvider>
       </GestureHandlerRootView>
     </QueryClientProvider>

@@ -29,7 +29,7 @@ export default function EventItem({ id, title, eventType, startTime }: EventItem
 
   return (
     <Link href={`/authed/(tabs)/events/${id}`} asChild>
-      <Pressable className="w-full rounded-xl pr-5 active:bg-gray-500">
+      <Pressable className="w-full rounded-xl pr-5">
         <View className="flex-row items-center justify-between">
           <View className="rounded-lg px-1 py-9" style={{ backgroundColor: event.color }} />
 
