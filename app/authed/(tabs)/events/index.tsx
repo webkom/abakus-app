@@ -4,6 +4,7 @@ import useEvents from '../../../../lib/hooks/useEvents';
 import EventItem from '../../../../components/eventItem';
 import { StatusBar } from 'expo-status-bar';
 import Header from '@/components/header';
+import { EventType } from '@/lib/types/types';
 
 const EventsPage = () => {
   const events = useEvents();
@@ -27,24 +28,34 @@ const EventsPage = () => {
     );
   }
 
-  const eventsCompanyCourses = [];
-  const eventsSocials = [];
-  const EVENTS = 5;
+  const mapEvents = (eventTypes: EventType[]) => {
+    return events.data
+      .filter((event) => eventTypes.includes(event.eventType))
+      .slice(0, EVENTS_LIMIT)
+      .map((event) => <EventItem key={event.id} id={event.id} event={event} />);
+  };
 
-  for (const e of events.data) {
-    if (
-      eventsCompanyCourses.length < EVENTS &&
-      (e.eventType === 'company_presentation' ||
-        e.eventType === 'course' ||
-        e.eventType === 'alternative_presentation')
-    ) {
-      eventsCompanyCourses.push(e);
-    }
+  const EVENTS_LIMIT = 5;
+  const presentations = [
+    EventType.COMPANY_PRESENTATION,
+    EventType.LUNCH_PRESENTATION,
+    EventType.ALTERNATIVE_PRESENTATION,
+    EventType.COURSE,
+    EventType.BREAKFAST_TALK,
+    EventType.NEXUS_EVENT,
+  ];
+  const others = [
+    EventType.OTHER,
+    EventType.EVENT,
+    EventType.SOCIAL,
+    EventType.PARTY,
+    EventType.GALA,
+  ];
+  const eventPresentations = mapEvents(presentations);
+  const eventOthers = mapEvents(others);
 
-    if (eventsSocials.length < EVENTS && (e.eventType === 'social' || e.eventType === 'party')) {
-      eventsSocials.push(e);
-    }
-  }
+  console.log(events.data[2]);
+  console.log(events.data[3]);
 
   return (
     <>
@@ -53,32 +64,10 @@ const EventsPage = () => {
       <ScrollView className="mb-20 h-4/5 w-full bg-background">
         <Text className="pl-4 text-2xl font-semibold">Bedpres og kurs</Text>
         <View className="mb-5 flex-col items-center gap-2.5 space-y-5 p-4">
-          {eventsCompanyCourses.map((event) => (
-            <EventItem
-              key={event.id}
-              id={event.id}
-              title={event.title}
-              eventType={event.eventType}
-              startTime={event.startTime}
-              registrationCount={event.registrationCount}
-              totalCapacity={event.totalCapacity}
-            />
-          ))}
+          {eventPresentations}
         </View>
         <Text className="pl-4 text-2xl font-semibold">Sosialt</Text>
-        <View className="flex-col items-center gap-2.5 space-y-5 p-4">
-          {eventsSocials.map((event) => (
-            <EventItem
-              key={event.id}
-              id={event.id}
-              title={event.title}
-              eventType={event.eventType}
-              startTime={event.startTime}
-              registrationCount={event.registrationCount}
-              totalCapacity={event.totalCapacity}
-            />
-          ))}
-        </View>
+        <View className="flex-col items-center gap-2.5 space-y-5 p-4">{eventOthers}</View>
       </ScrollView>
     </>
   );
