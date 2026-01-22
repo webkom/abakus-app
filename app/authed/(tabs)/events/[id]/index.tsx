@@ -1,13 +1,14 @@
-import Button from '@/components/button';
 import Card from '@/components/card';
 import Header from '@/components/header';
 import Icon from '@/components/icon';
+import { Button } from '@/components/ui/button';
+import { Text } from '@/components/ui/text';
 import useEvent from '@/lib/hooks/useEvent';
 import { format } from 'date-fns';
 import { nb } from 'date-fns/locale';
 import { Link, useLocalSearchParams, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { ActivityIndicator, Image, Text, View } from 'react-native';
+import { ActivityIndicator, Image, View } from 'react-native';
 const MazeMapLogo = require('@/assets/images/mazemaplogo.png');
 
 export default function EventsPage() {
@@ -63,6 +64,9 @@ export default function EventsPage() {
           </>
         )}
       </View>
+      <Button>
+        <Text>Test</Text>
+      </Button>
       <Text className="whitespace-break-spaces text-6xl font-bold italic tracking-tight text-on-background">
         {eventData?.title}
       </Text>
