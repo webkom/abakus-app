@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { Event, EventStatusType, EventType } from '../lib/types/types';
 import { EventTypeConfig } from '../lib/types/eventColors';
 import { Link } from 'expo-router';
@@ -66,7 +66,14 @@ export default function EventItem({ id, event }: EventItemProps) {
 
           <View className="flex flex-col">
             <Text>{getRegistrationStatus()}</Text>
-            <Text className={event.eventStatusType === EventStatusType.INFINITE ? "hidden" : "rounded-xl bg-gray-200 px-2 py-1 font-semibold"}>{getCapacity()}</Text>
+            <Text
+              className={
+                event.eventStatusType === EventStatusType.INFINITE
+                  ? 'hidden'
+                  : 'rounded-xl bg-gray-200 px-2 py-1 font-semibold'
+              }>
+              {getCapacity()}
+            </Text>
           </View>
         </View>
       </Button>
