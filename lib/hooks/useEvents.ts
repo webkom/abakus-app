@@ -10,7 +10,7 @@ function useEvents() {
   const result = useQuery<Event[]>({
     queryKey: ['events', formattedTime],
     queryFn: async () => {
-      const res = await api.get<Event[]>(`api/v1/events/?date_after=${formattedTime}`);
+      const res = await api.get<{ results: Event[] }>(`api/v1/events/?date_after=${formattedTime}`);
 
       if (res.status !== 200) {
         const text = res.statusText;
@@ -18,7 +18,7 @@ function useEvents() {
         throw new Error(`Failed to fetch events (${res.status})`);
       }
 
-      const data = res.data;
+      const data = res.data.results;
       return data ?? [];
     },
   });
