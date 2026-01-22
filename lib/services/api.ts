@@ -4,7 +4,13 @@ import env from 'env';
 
 export const api = axios.create({
   baseURL: env.EXPO_PUBLIC_API_URL,
-  headers: {
-    Authorization: `Bearer ${await AsyncStorage.getItem('session-token')}`,
-  },
+});
+
+api.interceptors.request.use(async (config) => {
+  const token = await AsyncStorage.getItem('session-token');
+  if (token) {
+    config.headers = config.headers ?? {};
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
 });
