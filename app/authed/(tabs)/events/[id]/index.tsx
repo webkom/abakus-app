@@ -2,7 +2,7 @@ import Button from '@/components/button';
 import Card from '@/components/card';
 import Header from '@/components/header';
 import Icon from '@/components/icon';
-import useEvent from '@/hooks/useEvent';
+import useEvent from '@/lib/hooks/useEvent';
 import { format } from 'date-fns';
 import { nb } from 'date-fns/locale';
 import { Link, useLocalSearchParams, useRouter } from 'expo-router';

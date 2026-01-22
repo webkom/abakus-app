@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, ScrollView, ActivityIndicator } from 'react-native';
-import useEvents from '../../../../hooks/useEvents';
+import useEvents from '../../../../lib/hooks/useEvents';
 import EventItem from '../../../../components/eventItem';
 import { StatusBar } from 'expo-status-bar';
 import Header from '@/components/header';
