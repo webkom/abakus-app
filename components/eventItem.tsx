@@ -11,16 +11,23 @@ interface EventItemProps {
   title: string;
   eventType: string;
   startTime: string;
-  registrationCount: number
-  totalCapacity: number
+  registrationCount: number;
+  totalCapacity: number;
 }
 
-export default function EventItem({ id, title, eventType, startTime, registrationCount, totalCapacity }: EventItemProps) {
+export default function EventItem({
+  id,
+  title,
+  eventType,
+  startTime,
+  registrationCount,
+  totalCapacity,
+}: EventItemProps) {
   const event = EventTypeConfig[eventType as EventType];
 
   return (
     <Link href={`/authed/(tabs)/events/${id}`} asChild>
-      <Pressable className="w-full rounded-xl pr-5 active:bg-gray-500">
+      <Pressable className="r-5 w-full rounded-xl active:bg-neutral-200">
         <View className="flex-row items-center justify-between">
           <View className="rounded-lg px-1 py-9" style={{ backgroundColor: event.color }} />
 
@@ -28,11 +35,15 @@ export default function EventItem({ id, title, eventType, startTime, registratio
             <Text className="text-lg font-medium text-gray-900" numberOfLines={1}>
               {title}
             </Text>
-            <Text className="text-sm text-gray-600">{format(new Date(startTime), "eeeeee dd. MMM HH:mm", {locale: nb})}</Text>
+            <Text className="text-sm text-gray-600">
+              {format(new Date(startTime), 'eeeeee dd. MMM HH:mm', { locale: nb })}
+            </Text>
           </View>
 
-          <View className='flex flex-col'>
-            <Text>{registrationCount} / {totalCapacity}</Text>
+          <View className="flex flex-col">
+            <Text className="rounded-xl bg-gray-200 px-2 py-1 font-semibold">
+              {registrationCount} / {totalCapacity}
+            </Text>
           </View>
         </View>
       </Pressable>
