@@ -54,9 +54,6 @@ const EventsPage = () => {
   const eventPresentations = mapEvents(presentations);
   const eventOthers = mapEvents(others);
 
-  console.log(events.data[2]);
-  console.log(events.data[3]);
-
   return (
     <>
       <Header className="bg-background" />
