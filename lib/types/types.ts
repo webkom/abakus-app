@@ -16,6 +16,13 @@ export enum EventType {
   GALA = 'gala',
 }
 
+export enum EventStatusType {
+  NORMAL = 'NORMAL',
+  OPEN = 'OPEN',
+  TBA = 'TBA',
+  INFINITE = 'INFINITE',
+}
+
 export const EVENT_CONSTANTS: EventTypeLabels = {
   company_presentation: 'Bedriftspresentasjon',
   lunch_presentation: 'Lunsjpresentasjon',
@@ -32,11 +39,11 @@ export const EVENT_CONSTANTS: EventTypeLabels = {
 export interface Event {
   id: number;
   title: string;
-  description: string; //this was earlier descripstion: string; with a typo might have effect that i changed it?
+  description: string;
   cover: string;
   coverPlaceholder: string;
-  eventType: string;
-  eventStatusType: string;
+  eventType: EventType;
+  eventStatusType: EventStatusType;
   location: string;
   startTime: string;
   endTime: string;
@@ -50,6 +57,7 @@ export interface Event {
   requireAuth: boolean;
   mazemapPoi?: string;
   pools: EventPools[];
+  userReg: EventRegistrations;
 }
 
 export interface EventPools {
@@ -77,7 +85,7 @@ export interface PermissionGroup {
 
 export interface EventRegistrations {
   id: number;
-  user: User;
+  user: User | null;
   pool: number;
   status: string;
   feedback: string | null;

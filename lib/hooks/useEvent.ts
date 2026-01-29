@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { Event } from '../lib/types/types';
+import { Event } from '../types/types';
 import env from 'env';
 
 function useEvent(id: string) {
