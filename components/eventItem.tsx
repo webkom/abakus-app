@@ -49,6 +49,9 @@ export default function EventItem({ id, event }: EventItemProps) {
     return `${event.registrationCount} / ${event.totalCapacity}`;
   };
 
+  const registrationStatus = getRegistrationStatus();
+  const capacity = getCapacity();
+
   return (
     <Link href={`/authed/(tabs)/events/${id}`} asChild>
       <Button variant={'outline'} className="r-5 h-16 w-full rounded-xl active:bg-neutral-200">
@@ -65,14 +68,14 @@ export default function EventItem({ id, event }: EventItemProps) {
           </View>
 
           <View className="flex flex-col">
-            <Text>{getRegistrationStatus()}</Text>
+            <Text>{registrationStatus}</Text>
             <Text
               className={
                 event.eventStatusType === EventStatusType.INFINITE
                   ? 'hidden'
                   : 'rounded-xl bg-gray-200 px-2 py-1 font-semibold'
               }>
-              {getCapacity()}
+              {capacity}
             </Text>
           </View>
         </View>
