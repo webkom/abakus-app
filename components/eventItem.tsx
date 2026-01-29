@@ -1,50 +1,86 @@
 import React from 'react';
-import { Pressable, Text, View } from 'react-native';
-import { EventType } from '../lib/types/types';
+import { Text, View } from 'react-native';
+import { Event, EventStatusType, EventType } from '../lib/types/types';
 import { EventTypeConfig } from '../lib/types/eventColors';
 import { Link } from 'expo-router';
+import { format } from 'date-fns';
+import { nb } from 'date-fns/locale';
+import { Button } from './ui/button';
 
 interface EventItemProps {
   id: number;
-  title: string;
-  eventType: string;
-  startTime: string;
+  event: Event;
 }
 
-export default function EventItem({ id, title, eventType, startTime }: EventItemProps) {
-  const event = EventTypeConfig[eventType as EventType];
+export default function EventItem({ id, event }: EventItemProps) {
+  const eventColor = EventTypeConfig[event.eventType as EventType].color;
 
-  function formatDate(date: Date): string {
-    return date
-      .toLocaleString('nb-NO', {
-        day: '2-digit',
-        month: 'long',
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: false,
-        timeZone: 'Europe/Oslo',
-      })
-      .replace(',', '.');
-  }
+  const getRegistrationStatus = () => {
+    if (
+      event.eventStatusType === EventStatusType.OPEN ||
+      event.eventStatusType === EventStatusType.INFINITE
+    ) {
+      return 'Åpent for alle';
+    }
+
+    if (event.isAdmitted) {
+      return 'Påmeldt';
+    }
+
+    if (event.userReg && event.eventStatusType === EventStatusType.NORMAL) {
+      return 'På venteliste';
+    }
+
+    if (event.activationTime) {
+      if (new Date(event.activationTime) > new Date()) {
+        return 'Snart åpent';
+      }
+      return 'Åpnet';
+    }
+
+    return 'Kan ikke melde på';
+  };
+
+  const getCapacity = () => {
+    if (!event.registrationCount) {
+      return `${event.totalCapacity} PLASSER`;
+    }
+
+    return `${event.registrationCount} / ${event.totalCapacity}`;
+  };
+
+  const registrationStatus = getRegistrationStatus();
+  const capacity = getCapacity();
+  const formattedStartTime = format(new Date(event.startTime), 'eeeeee dd. MMM HH:mm', { locale: nb })
 
   return (
     <Link href={`/authed/(tabs)/events/${id}`} asChild>
-      <Pressable className="w-full rounded-xl pr-5 active:bg-gray-500">
+      <Button variant={'outline'} className="r-5 h-16 w-full rounded-xl active:bg-neutral-200">
         <View className="flex-row items-center justify-between">
-          <View className="rounded-lg px-1 py-9" style={{ backgroundColor: event.color }} />
+          <View className="rounded-lg px-1 py-8" style={{ backgroundColor: eventColor }} />
 
           <View className="mx-3 flex-1">
             <Text className="text-lg font-medium text-gray-900" numberOfLines={1}>
-              {title}
+              {event.title}
             </Text>
-            <Text className="text-sm text-gray-600">{formatDate(new Date(startTime))}</Text>
+            <Text className="text-sm text-gray-600">
+              {formattedStartTime}
+            </Text>
           </View>
 
-          <View>
-            <Text className="text-sm text-gray-600">→</Text>
+          <View className="flex flex-col">
+            <Text>{registrationStatus}</Text>
+            <Text
+              className={
+                event.eventStatusType === EventStatusType.INFINITE
+                  ? 'hidden'
+                  : 'rounded-xl bg-gray-200 px-2 py-1 font-semibold'
+              }>
+              {capacity}
+            </Text>
           </View>
         </View>
-      </Pressable>
+      </Button>
     </Link>
   );
 }

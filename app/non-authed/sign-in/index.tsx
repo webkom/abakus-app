@@ -1,7 +1,7 @@
 import Button from '@/components/button';
 import Card from '@/components/card';
 import Input from '@/components/input';
-import { useSignIn, useToken } from '@/lib/hooks/useAuth';
+import { useSignIn, } from '@/lib/hooks/useAuth';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
@@ -20,7 +20,6 @@ const formSchema = z.object({
 });
 
 const SignInPage = () => {
-  const token = useToken();
   const auth = useSignIn();
   const router = useRouter();
 
@@ -55,15 +54,6 @@ const SignInPage = () => {
         />
         <View className="bottom-safe-offset-10 absolute flex w-full flex-col items-center gap-5">
           {/* This is just temporary, for easy debugging and stuff */}
-          {!(token === undefined || token === '') && (
-            <MotiView from={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
-              <Card variant="error" title="Allerede logget inn" className="w-full">
-                <Button onPress={() => auth.signOut()} variant="secondary" className="rounded-full">
-                  <Text className="font-semibold text-on-secondary">Logg ut</Text>
-                </Button>
-              </Card>
-            </MotiView>
-          )}
           <Text className="mt-10 w-full text-center text-lg font-semibold text-on-background">
             Laget med 🌚 av Webkom
           </Text>
