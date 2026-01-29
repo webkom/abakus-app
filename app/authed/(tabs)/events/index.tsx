@@ -5,6 +5,7 @@ import EventItem from '../../../../components/eventItem';
 import { StatusBar } from 'expo-status-bar';
 import Header from '@/components/header';
 import { EventType } from '@/lib/types/types';
+import { EVENTS_LIMIT, others, presentations } from '@/app/constants/events';
 
 const EventsPage = () => {
   const events = useEvents();
@@ -35,22 +36,7 @@ const EventsPage = () => {
       .map((event) => <EventItem key={event.id} id={event.id} event={event} />);
   };
 
-  const EVENTS_LIMIT = 5;
-  const presentations = [
-    EventType.COMPANY_PRESENTATION,
-    EventType.LUNCH_PRESENTATION,
-    EventType.ALTERNATIVE_PRESENTATION,
-    EventType.COURSE,
-    EventType.BREAKFAST_TALK,
-    EventType.NEXUS_EVENT,
-  ];
-  const others = [
-    EventType.OTHER,
-    EventType.EVENT,
-    EventType.SOCIAL,
-    EventType.PARTY,
-    EventType.GALA,
-  ];
+
   const eventPresentations = mapEvents(presentations);
   const eventOthers = mapEvents(others);
 
