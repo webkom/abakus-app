@@ -51,6 +51,7 @@ export default function EventItem({ id, event }: EventItemProps) {
 
   const registrationStatus = getRegistrationStatus();
   const capacity = getCapacity();
+  const formattedStartTime = format(new Date(event.startTime), 'eeeeee dd. MMM HH:mm', { locale: nb })
 
   return (
     <Link href={`/authed/(tabs)/events/${id}`} asChild>
@@ -63,7 +64,7 @@ export default function EventItem({ id, event }: EventItemProps) {
               {event.title}
             </Text>
             <Text className="text-sm text-gray-600">
-              {format(new Date(event.startTime), 'eeeeee dd. MMM HH:mm', { locale: nb })}
+              {formattedStartTime}
             </Text>
           </View>
 
