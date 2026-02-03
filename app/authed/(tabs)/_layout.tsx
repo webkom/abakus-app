@@ -1,4 +1,3 @@
-import Header from '@/components/header';
 import TabBar from '@/components/tab-bar';
 import { Tabs } from 'expo-router';
 
@@ -13,12 +12,6 @@ const TabLayout = () => {
         }}
         tabBar={(props) => <TabBar {...props} />}>
         <Tabs.Screen
-          name="home/index"
-          options={{
-            title: 'Hjem',
-          }}
-        />
-        <Tabs.Screen
           name="events/index"
           options={{
             title: 'Arrangementer',
@@ -28,6 +21,12 @@ const TabLayout = () => {
           name="abaid/index"
           options={{
             title: 'AbaID',
+          }}
+        />
+        <Tabs.Screen
+          name="profile/index"
+          options={{
+            title: 'Profil',
           }}
         />
       </Tabs>

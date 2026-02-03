@@ -30,7 +30,7 @@ const EventsPage = () => {
   return (
     <>
       <Header className="bg-background" />
-      <ScrollView className="h-4/5 w-full bg-background" contentContainerClassName="">
+      <ScrollView className="h-4/5 w-full bg-background" contentContainerClassName="pb-40">
         <StatusBar style="dark" />
         <View className="flex-col items-center gap-2.5 space-y-5 p-4">
           {events.data?.map((event) => (

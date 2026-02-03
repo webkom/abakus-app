@@ -14,8 +14,8 @@ const TabBar = ({ navigation, state, descriptors, insets }: TabBarProps) => {
   const router = useRouter();
   const pathName = usePathname();
   return (
-    <View className="bottom-safe-offset-2 px-5">
-      <View className="flex w-full flex-row justify-evenly  rounded-full bg-primary-container py-5">
+    <View className="bottom-safe-offset-2 absolute w-full px-5">
+      <View className="flex w-full flex-row justify-evenly rounded-full bg-background py-5 shadow-md">
         <TabBarButton
           Icon={QrCodeIcon}
           selected={pathName === '/authed/abaid'}
