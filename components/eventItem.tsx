@@ -1,8 +1,9 @@
 import React from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { EventType } from '../lib/types/types';
 import { EventTypeConfig } from '../lib/types/eventColors';
 import { Link } from 'expo-router';
+import { Text } from './ui/text';
 
 interface EventItemProps {
   id: number;
@@ -34,14 +35,16 @@ export default function EventItem({ id, title, eventType, startTime }: EventItem
           <View className="rounded-lg px-1 py-9" style={{ backgroundColor: event.color }} />
 
           <View className="mx-3 flex-1">
-            <Text className="text-lg font-medium text-gray-900" numberOfLines={1}>
+            <Text className="text-lg font-medium text-foreground" numberOfLines={1}>
               {title}
             </Text>
-            <Text className="text-sm text-gray-600">{formatDate(new Date(startTime))}</Text>
+            <Text className="text-sm text-accent-foreground">
+              {formatDate(new Date(startTime))}
+            </Text>
           </View>
 
           <View>
-            <Text className="text-sm text-gray-600">→</Text>
+            <Text className="text-sm text-accent-foreground">→</Text>
           </View>
         </View>
       </Pressable>

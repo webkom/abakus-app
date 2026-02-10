@@ -6,6 +6,7 @@ import { Stack } from 'expo-router';
 import 'react-native-reanimated';
 import '../global.css';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import AuthGuard from '@/components/auth/auth-guard';
 
 const queryClient = new QueryClient();
 
@@ -15,15 +16,17 @@ const Layout = () => {
   });
   return (
     <QueryClientProvider client={queryClient}>
-      <GestureHandlerRootView>
-        <PortalProvider>
-          <Stack
-            screenOptions={{
-              headerShown: false,
-            }}
-          />
-          <PortalHost />
-        </PortalProvider>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <AuthGuard>
+          <PortalProvider>
+            <Stack
+              screenOptions={{
+                headerShown: false,
+              }}
+            />
+            <PortalHost />
+          </PortalProvider>
+        </AuthGuard>
       </GestureHandlerRootView>
     </QueryClientProvider>
   );

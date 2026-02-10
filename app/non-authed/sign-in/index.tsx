@@ -1,14 +1,15 @@
-import Button from '@/components/button';
+import { Button } from '@/components/ui/button';
 import Card from '@/components/card';
 import Input from '@/components/input';
 import { useSignIn, useToken } from '@/lib/hooks/useAuth';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { Text } from '@/components/ui/text';
 import { MotiView } from 'moti';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { ActivityIndicator, Image, Text, View } from 'react-native';
+import { ActivityIndicator, Image, View } from 'react-native';
 import { z } from 'zod';
 
 const AbakusLogo = require('@/assets/images/abakus-logo.png');
@@ -40,7 +41,7 @@ const SignInPage = () => {
 
   return (
     <View className="relative flex h-full flex-col">
-      <StatusBar style="dark" />
+      <StatusBar style="auto" />
       <Image
         source={BlurBackground}
         className="absolute inset-0 h-full w-full"
@@ -59,12 +60,12 @@ const SignInPage = () => {
             <MotiView from={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
               <Card variant="error" title="Allerede logget inn" className="w-full">
                 <Button onPress={() => auth.signOut()} variant="secondary" className="rounded-full">
-                  <Text className="font-semibold text-on-secondary">Logg ut</Text>
+                  <Text className="text-on-secondary font-semibold">Logg ut</Text>
                 </Button>
               </Card>
             </MotiView>
           )}
-          <Text className="mt-10 w-full text-center text-lg font-semibold text-on-background">
+          <Text className="text-on-background mt-10 w-full text-center text-lg font-semibold">
             Laget med 🌚 av Webkom
           </Text>
         </View>
@@ -121,7 +122,7 @@ const SignInPage = () => {
           onPress={() => {
             form.handleSubmit(handleSubmit)();
           }}>
-          <Text className="text-xl font-semibold text-on-primary">
+          <Text className="text-xl font-semibold">
             {auth.isPending && <ActivityIndicator color="#FFFFFF" size="large" />}
             {!auth.isPending && 'Logg inn'}
           </Text>

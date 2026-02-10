@@ -18,19 +18,60 @@ import { cn } from '@/lib/utils';
 import { useEffect, useState } from 'react';
 import AutoHeightImage from '@/components/ui/auto-height-image';
 import { setupWebSocketServer } from '@/lib/services/websockets';
+import { MotiView } from 'moti';
+import { SocketEvent, SocketEventType } from '@/lib/types/websockets';
 
 const MazeMapLogo = require('@/assets/images/mazemaplogo.png');
 
 export default function EventsPage() {
   const { id } = useLocalSearchParams();
+  const [attendees, setAttendees] = useState<string[]>([]);
   const [showFullDescription, setShowFullDescription] = useState(false);
   const { data: event, isLoading, isError } = useEvent(id.toString());
   const router = useRouter();
   const insets = useSafeAreaInsets();
+  const [scrolled, setScrolled] = useState(false);
+  const [scroll, setScroll] = useState(0);
+  const totalCapacity =
+    (event?.pools.length ?? 0) > 0
+      ? (event?.pools.reduce((sum, pool) => sum + pool.capacity, 0) ?? 0)
+      : undefined;
 
   useEffect(() => {
-    setupWebSocketServer();
-  }, []);
+    let isMounted = true;
+    let ws: WebSocket | null = null;
+
+    const callback = (message: SocketEvent) => {
+      console.log('Received WebSocket message:', message);
+      if (
+        message.type === SocketEventType.RegistrationSuccess &&
+        message.meta.eventId === event?.id
+      ) {
+        setAttendees((prev) => [...prev, message.payload.user.id.toString()]);
+      } else if (
+        message.type === SocketEventType.UnregistrationSuccess &&
+        message.meta.eventId === event?.id
+      ) {
+        setAttendees((prev) => prev.filter((id) => id !== message.payload.user.id.toString()));
+      }
+    };
+
+    const initializeWebSocket = async () => {
+      const socket = await setupWebSocketServer(callback);
+      if (!isMounted) {
+        socket.close();
+        return;
+      }
+      ws = socket;
+    };
+
+    initializeWebSocket();
+
+    return () => {
+      isMounted = false;
+      ws?.close();
+    };
+  }, [event?.id]);
 
   // --- Loading State ---
   if (isLoading) {
@@ -65,10 +106,14 @@ export default function EventsPage() {
 
   return (
     <View className="flex-1 bg-background">
-      <StatusBar style="dark" />
-      <Header />
+      <StatusBar style="auto" />
+      <Header highlight={scrolled} />
 
       <ScrollView
+        onScroll={(e) => {
+          setScrolled(e.nativeEvent.contentOffset.y > 0);
+          setScroll(e.nativeEvent.contentOffset.y);
+        }}
         className="flex-1"
         contentContainerStyle={{ paddingBottom: 120 }} // Space for sticky footer
         showsVerticalScrollIndicator={false}>
@@ -99,6 +144,11 @@ export default function EventsPage() {
 
             <Text className="text-3xl font-bold leading-tight tracking-tight text-foreground">
               {event?.title}
+            </Text>
+            <Text>
+              {totalCapacity !== undefined
+                ? `${attendees.length} / ${totalCapacity} påmeldte`
+                : `Ingen åpen påmelding`}
             </Text>
             {/* If you have organizer data: */}
             {/* <Text className="text-muted-foreground font-medium">Arrangert av Omega</Text> */}
@@ -175,7 +225,7 @@ export default function EventsPage() {
                 </Text>
                 <Button variant={'outline'} onPress={() => setShowFullDescription(true)}>
                   <Text>Vis mer</Text>
-                  <Icon name="ChevronDown" size={16} />
+                  <Icon name="ChevronDown" className="text-secondary-foreground" size={16} />
                 </Button>
               </>
             )}
@@ -186,11 +236,14 @@ export default function EventsPage() {
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque perferendis,
                     debitis omnis dolor architecto repudiandae soluta voluptatem ad dolorum dolore
                     in illo quo ut saepe consequuntur nulla iste id pariatur. {event?.description}
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nemo doloribus
+                    voluptas debitis dolore aperiam. Laudantium, quisquam. Accusamus minus commodi,
+                    amet rem dolor suscipit magni neque blanditiis placeat eligendi facilis.
                   </Text>
                 </View>
                 <Button variant={'outline'} onPress={() => setShowFullDescription(false)}>
                   <Text>Vis mindre</Text>
-                  <Icon name="ChevronUp" size={16} />
+                  <Icon name="ChevronUp" className="text-secondary-foreground" size={16} />
                 </Button>
               </>
             )}
@@ -204,7 +257,12 @@ export default function EventsPage() {
         style={{ paddingBottom: Math.max(insets.bottom, 20) }}>
         <Button size="lg" className="h-16 w-full rounded-full shadow-md">
           <View className="flex-row items-center gap-2">
-            <Icon name="Ticket" className="text-primary-foreground" size={18} />
+            <MotiView
+              animate={{
+                rotate: `${scroll}deg`,
+              }}>
+              <Icon name="Ticket" className="text-primary-foreground" size={18} />
+            </MotiView>
             <Text className="text-lg font-bold text-primary-foreground">Meld deg på</Text>
           </View>
         </Button>

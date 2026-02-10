@@ -31,10 +31,10 @@ const ProfilePage = () => {
 
   const user = useUser();
   return (
-    <View className="pt-safe-offset-5 relative h-screen w-screen">
+    <View className="pt-safe-offset-5 relative h-screen w-screen bg-background">
       {/* <Header className="absolute z-50" /> */}
       <Image source={RedGradient} className="absolute left-0 top-0 z-20 h-96 w-full" />
-      <StatusBar style="dark" />
+      <StatusBar style="auto" />
       <SafeAreaView className="z-20 h-full w-full px-10 pt-20">
         <View className="mx-auto flex flex-col items-center gap-2.5">
           <Avatar src={user?.profilePicture ?? ''} />
@@ -47,34 +47,34 @@ const ProfilePage = () => {
 
           <View className="flex-row items-center gap-5">
             {user?.grade && (
-              <Text className="text-on-background text-lg font-bold">{user?.grade}</Text>
+              <Text className="text-lg font-bold text-foreground">{user?.grade}</Text>
             )}
             {user?.isAbakusMember && (
               <>
-                <View className="bg-on-background/50 h-5 w-0.5" />
+                <View className="h-5 w-0.5 bg-foreground/50" />
                 <Text
                   style={{ fontFamily: 'RobotoFlex_400Regular' }}
-                  className="text-on-background text-lg font-bold">
+                  className="text-lg font-bold text-foreground">
                   Abakus
                 </Text>
               </>
             )}
           </View>
 
-          <View className="mt-10 flex w-full flex-col gap-1">
-            <Button className="w-full">
+          <View className="mt-10 flex w-full flex-col gap-2.5">
+            <Button>
               <Link
                 href={`https://abakus.no/users/${user?.username}/settings/profile`}
                 className="w-full">
                 <View className="flex w-full flex-row items-center justify-center gap-2.5">
-                  <Icon name="ExternalLink" size={18} />
+                  <Icon name="ExternalLink" className="text-primary-foreground" size={18} />
                   <Text className="text-center">Administrer</Text>
                 </View>
               </Link>
             </Button>
-            <Button className="w-full" variant="secondary" onPress={() => setShow((prev) => !prev)}>
-              <Icon name="LogOut" size={18} className="text-on-error" />
-              <Text className="text-on-error text-center">Logg ut</Text>
+            <Button variant="secondary" onPress={() => setShow((prev) => !prev)}>
+              <Icon name="LogOut" size={18} className="text-secondary-foreground" />
+              <Text className="text-center text-secondary-foreground">Logg ut</Text>
             </Button>
           </View>
         </View>

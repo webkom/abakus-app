@@ -9,7 +9,7 @@ const GreenGradient = require('@/assets/images/top-blur-green.png');
 const AbaIDPage = () => {
   const user = useUser();
   return (
-    <View className="relative h-screen w-screen">
+    <View className="relative h-screen w-screen bg-background">
       {/* <Header className="z-50" /> */}
       <StatusBar style="dark" />
       <Image source={GreenGradient} className="absolute left-0 top-0 z-20 h-96 w-full" />
