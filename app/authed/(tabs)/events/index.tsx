@@ -36,7 +36,6 @@ const EventsPage = () => {
       .map((event) => <EventItem key={event.id} id={event.id} event={event} />);
   };
 
-
   const eventPresentations = mapEvents(presentations);
   const eventOthers = mapEvents(others);
 
