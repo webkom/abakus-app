@@ -13,22 +13,26 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
 
 // Hooks
-import useEvent from '@/hooks/useEvent';
-import { cn } from '@/lib/utils';
-import { useEffect, useState } from 'react';
 import AutoHeightImage from '@/components/ui/auto-height-image';
+import useEvent from '@/hooks/useEvent';
 import { setupWebSocketServer } from '@/lib/services/websockets';
-import { MotiView } from 'moti';
 import { SocketEvent, SocketEventType } from '@/lib/types/websockets';
+import { cn } from '@/lib/utils';
+import { MotiView } from 'moti';
+import { useEffect, useState } from 'react';
+import { useUser } from '@/lib/hooks/useUser';
+import { useEventAttendanceMutation } from '@/hooks/useEventSignUp';
 
 const MazeMapLogo = require('@/assets/images/mazemaplogo.png');
 
 export default function EventsPage() {
   const { id } = useLocalSearchParams();
   const [attendees, setAttendees] = useState<string[]>([]);
+  const { signUp, signOff } = useEventAttendanceMutation();
   const [showFullDescription, setShowFullDescription] = useState(false);
   const { data: event, isLoading, isError } = useEvent(id.toString());
   const router = useRouter();
+  const user = useUser();
   const insets = useSafeAreaInsets();
   const [scrolled, setScrolled] = useState(false);
   const [scroll, setScroll] = useState(0);
@@ -36,6 +40,16 @@ export default function EventsPage() {
     (event?.pools.length ?? 0) > 0
       ? (event?.pools.reduce((sum, pool) => sum + pool.capacity, 0) ?? 0)
       : undefined;
+
+  const isUserSignedUp = attendees.includes(user?.id?.toString() ?? ''); // Replace with actual user ID check
+
+  useEffect(() => {
+    if (!event?.pools) return;
+    const allAttendees =
+      event?.pools.flatMap((pool) => pool.registrations.map((reg) => reg.user.id.toString())) ?? [];
+
+    setAttendees(allAttendees);
+  }, [event?.pools]);
 
   useEffect(() => {
     let isMounted = true;
@@ -255,16 +269,40 @@ export default function EventsPage() {
       <View
         className="absolute bottom-0 w-full border-t border-border bg-background px-5 py-4 shadow-lg"
         style={{ paddingBottom: Math.max(insets.bottom, 20) }}>
-        <Button size="lg" className="h-16 w-full rounded-full shadow-md">
-          <View className="flex-row items-center gap-2">
-            <MotiView
-              animate={{
-                rotate: `${scroll}deg`,
-              }}>
-              <Icon name="Ticket" className="text-primary-foreground" size={18} />
-            </MotiView>
-            <Text className="text-lg font-bold text-primary-foreground">Meld deg på</Text>
-          </View>
+        <Button
+          size="lg"
+          className="h-16 w-full rounded-full shadow-md"
+          variant={isUserSignedUp ? 'destructive' : 'default'}
+          onPress={() => {
+            if (isUserSignedUp) {
+              signOff.mutateAsync({ eventId: event?.id.toString() ?? '' }).then(console.log);
+            } else {
+              signUp.mutateAsync({ eventId: event?.id.toString() ?? '' });
+            }
+          }}>
+          {signUp.status === 'pending' ? (
+            <ActivityIndicator size="small" className="text-primary" />
+          ) : isUserSignedUp ? (
+            <View className="flex-row items-center gap-2">
+              <MotiView
+                animate={{
+                  rotate: `${scroll}deg`,
+                }}>
+                <Icon name="X" className="text-primary-foreground" size={18} />
+              </MotiView>
+              <Text className="text-lg font-bold text-primary-foreground">Meld deg av</Text>
+            </View>
+          ) : (
+            <View className="flex-row items-center gap-2">
+              <MotiView
+                animate={{
+                  rotate: `${scroll}deg`,
+                }}>
+                <Icon name="Ticket" className="text-primary-foreground" size={18} />
+              </MotiView>
+              <Text className="text-lg font-bold text-primary-foreground">Meld deg på</Text>
+            </View>
+          )}
         </Button>
       </View>
     </View>
