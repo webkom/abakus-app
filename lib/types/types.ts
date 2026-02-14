@@ -2,6 +2,16 @@ interface EventTypeLabels {
   [key: string]: string;
 }
 
+export type Penalty = {
+  id: number;
+  createdAt: Date;
+  user: number;
+  reason: string;
+  weight: number;
+  sourceEvent: Event;
+  exactExpiration: Date;
+};
+
 export enum EventType {
   ALTERNATIVE_PRESENTATION = 'alternative_presentation',
   BREAKFAST_TALK = 'breakfast_talk',

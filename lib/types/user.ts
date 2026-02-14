@@ -1,3 +1,5 @@
+import { Penalty } from './types';
+
 export type User = {
   id: number;
   username: string;
@@ -25,6 +27,7 @@ export type User = {
   achievementsScore: number;
   achievementRank: number;
   commandSuggestions?: string[];
+  penalties: Penalty[];
 };
 
 export const Gender = {

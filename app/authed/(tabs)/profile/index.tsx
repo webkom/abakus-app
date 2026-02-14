@@ -84,7 +84,7 @@ const ProfilePage = () => {
         show={show}
         onDismiss={() => setShow(false)}
         className="flex flex-col items-center justify-evenly">
-        <Text className="text-on-background mx-auto text-center text-3xl font-bold">
+        <Text className="mx-auto text-center text-3xl font-bold text-foreground">
           Er du sikker på at du vil logge ut?
         </Text>
         <View className="w-full flex-col gap-2.5">
@@ -96,7 +96,7 @@ const ProfilePage = () => {
             <Text className="text-xl text-on-primary">Avbryt</Text>
           </Button> */}
           <Button className="flex-1 rounded-full" size="lg" onPress={handleSignOut}>
-            <Text className="text-on-error text-xl">Logg ut</Text>
+            <Text className="text-xl text-destructive-foreground">Logg ut</Text>
           </Button>
         </View>
       </Dialog>

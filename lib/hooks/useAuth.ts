@@ -18,6 +18,7 @@ export const useSignIn = () => {
       login({ username, password }),
     onSuccess: ({ token, user }) => {
       setToken(token);
+      console.log(user);
       setUser(user);
     },
   });
