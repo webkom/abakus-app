@@ -11,6 +11,7 @@ import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { ActivityIndicator, Image, View } from 'react-native';
 import { z } from 'zod';
+import Icon from '@/components/icon';
 
 const AbakusLogo = require('@/assets/images/abakus-logo.png');
 const BlurBackground = require('@/assets/images/blur-background.png');
@@ -118,12 +119,15 @@ const SignInPage = () => {
 
         <Button
           size="lg"
-          className="mt-5 w-full max-w-[300px] rounded-full"
+          className="mt-5 h-20 w-full max-w-[300px] rounded-full"
           onPress={() => {
             form.handleSubmit(handleSubmit)();
           }}>
-          <Text className="text-xl font-semibold">
-            {auth.isPending && <ActivityIndicator color="#FFFFFF" size="large" />}
+          {!auth.isPending && <Icon name="LogIn" className="text-primary-foreground" />}
+          <Text className="text-xl text-primary-foreground">
+            {auth.isPending && (
+              <ActivityIndicator size="large" className="text-primary-foreground" />
+            )}
             {!auth.isPending && 'Logg inn'}
           </Text>
         </Button>

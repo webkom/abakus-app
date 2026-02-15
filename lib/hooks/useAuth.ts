@@ -17,6 +17,7 @@ export const useSignIn = () => {
     mutationFn: ({ username, password }: { username: string; password: string }) =>
       login({ username, password }),
     onSuccess: ({ token, user }) => {
+      console.log('The token is: ', token);
       setToken(token);
       console.log(user);
       setUser(user);
@@ -26,7 +27,7 @@ export const useSignIn = () => {
   const signOut = () => {
     AsyncStorage.removeItem('user');
     AsyncStorage.removeItem('session-token');
-    setToken('');
+    setToken(undefined);
     setUser({} as User);
   };
 
