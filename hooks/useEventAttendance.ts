@@ -5,6 +5,7 @@ import useEvent from './useEvent';
 import { SocketEvent, SocketEventType } from '@/lib/types/websockets';
 import { setupWebSocketServer } from '@/lib/services/websockets';
 import { useUser } from '@/lib/hooks/useUser';
+import { api } from '@/lib/services/api';
 
 /**
  * Handles event registration, unregistration, registration status and websockets
@@ -25,15 +26,7 @@ export const useEventAttendance = ({ id }: { id: string }) => {
         'and event: ',
         id
       );
-      return fetch(
-        `https://lego-staging.abakus.no/api/v1/events/${id}/registrations/${registrationId}/`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          method: 'DELETE',
-        }
-      );
+      return api.delete(`events/${id}/registrations/${registrationId}/`);
     },
     mutationKey: ['eventAttendance'],
   });
@@ -103,7 +96,7 @@ export const useEventAttendance = ({ id }: { id: string }) => {
 
   const signUp = useMutation({
     mutationFn: async ({ turnstileToken }: { turnstileToken: string }) => {
-      return fetch(`https://lego-staging.abakus.no/api/v1/events/${id}/registrations/`, {
+      return await api.post(`/events/${id}/registrations/`, {
         body: JSON.stringify({
           captchaResponse: turnstileToken,
           feedback: '',
@@ -111,10 +104,8 @@ export const useEventAttendance = ({ id }: { id: string }) => {
         headers: {
           Accept: 'application/json',
           'Accept-Language': 'en-US,en;q=0.9,nb-NO;q=0.8,nb;q=0.7,no;q=0.6',
-          Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
-        method: 'POST',
       });
     },
     onSuccess: () => {

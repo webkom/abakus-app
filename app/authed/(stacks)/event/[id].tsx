@@ -16,10 +16,10 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
 import useEvent from '@/hooks/useEvent';
 import { useEventAttendance } from '@/hooks/useEventAttendance';
+import { penaltyHours } from '@/lib/penalties';
 import { Event } from '@/lib/types/types';
 import { cn } from '@/lib/utils';
 import { AnimatePresence, MotiView } from 'moti';
-import { penaltyHours } from '@/lib/penalties';
 
 const MazeMapLogo = require('@/assets/images/mazemaplogo.png');
 
@@ -161,34 +161,15 @@ export default function EventsPage() {
     totalCurrentPenalties,
   } = useEventAttendance({ id: id as string });
 
-  const canSignUp =
-    new Date(event?.activationTime ?? '') < new Date() &&
-    totalCapacity !== undefined &&
-    new Date() > addHours(new Date(), penaltyHours(totalCurrentPenalties));
+  const canSignUp = totalCapacity !== undefined;
+  // new Date() > addHours(new Date(), penaltyHours(totalCurrentPenalties));
 
   if (isLoading) {
     return <LoadingState />;
   }
 
   if (isError) {
-    return (
-      <View className="flex-1 items-center justify-center bg-background px-6">
-        <View className="items-center gap-4">
-          <View className="h-16 w-16 items-center justify-center rounded-full bg-destructive/10">
-            <Icon name="FileWarning" size={32} className="text-destructive" />
-          </View>
-          <View className="gap-1">
-            <Text className="text-center text-xl font-semibold">Fant ikke arrangementet</Text>
-            <Text className="text-center text-muted-foreground">
-              Det kan ha blitt fjernet, eller så mangler du tilgang.
-            </Text>
-          </View>
-          <Button variant="outline" onPress={() => router.back()} className="mt-4">
-            <Text>Gå tilbake</Text>
-          </Button>
-        </View>
-      </View>
-    );
+    return <ErrorState onBack={() => router.back()} />;
   }
 
   return (
@@ -314,7 +295,7 @@ export default function EventsPage() {
                   return;
                 }
 
-                signUp.mutateAsync({ turnstileToken });
+                signUp.mutateAsync({ turnstileToken }).catch(console.error);
               }}
               onSignOff={() => {
                 signOffAsync().then(console.log);
