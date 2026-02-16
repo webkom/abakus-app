@@ -104,6 +104,7 @@ export const useEventAttendance = ({ id }: { id: string }) => {
         headers: {
           Accept: 'application/json',
           'Accept-Language': 'en-US,en;q=0.9,nb-NO;q=0.8,nb;q=0.7,no;q=0.6',
+          Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
       });
