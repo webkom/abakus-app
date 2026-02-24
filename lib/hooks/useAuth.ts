@@ -4,7 +4,7 @@ import { useAtomValue, useSetAtom } from 'jotai/react';
 import { tokenAtom } from '../atoms/token-atom';
 import { userAtom } from '../atoms/user-atom';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { User } from '../types/user';
+import { CurrentUser, User } from '../types/user';
 
 export const useSignIn = () => {
   const setToken = useSetAtom(tokenAtom);
@@ -17,9 +17,8 @@ export const useSignIn = () => {
     mutationFn: ({ username, password }: { username: string; password: string }) =>
       login({ username, password }),
     onSuccess: ({ token, user }) => {
-      console.log('The token is: ', token);
       setToken(token);
-      console.log(user);
+
       setUser(user);
     },
   });
@@ -28,7 +27,7 @@ export const useSignIn = () => {
     AsyncStorage.removeItem('user');
     AsyncStorage.removeItem('session-token');
     setToken(undefined);
-    setUser({} as User);
+    setUser({} as CurrentUser);
   };
 
   return {

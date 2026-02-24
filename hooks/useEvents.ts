@@ -1,27 +1,21 @@
+import { api } from '@/lib/services/api';
 import { useQuery } from '@tanstack/react-query';
-import env from 'env';
 import { Event } from '../lib/types/types';
+import { HttpEventsResponse } from '@/lib/types/http';
 
 function useEvents() {
   const now = new Date();
 
   const formattedTime = now.toISOString().split('T')[0];
 
-  const result = useQuery<Event[]>({
+  const result = useQuery({
     queryKey: ['events', formattedTime],
     queryFn: async () => {
-      const res = await fetch(
-        `${env.EXPO_PUBLIC_API_URL}/api/v1/events/?date_after=${formattedTime}`
-      );
+      // 1. Await the Axios request
+      const response = await api.get<HttpEventsResponse>(`events/?date_after=${formattedTime}`);
 
-      if (!res.ok) {
-        const text = await res.text();
-        console.error('Fetch failed:', res.status, text);
-        throw new Error(`Failed to fetch events (${res.status})`);
-      }
-
-      const data = await res.json();
-      return data?.results ?? [];
+      // 2. Return the .data property so TanStack Query can cache it
+      return response.data.results;
     },
   });
 

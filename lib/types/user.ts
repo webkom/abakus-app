@@ -1,4 +1,32 @@
-import { Penalty } from './types';
+import {
+  Achievement,
+  ActionGrant,
+  Group,
+  PhotoConsent,
+  PublicEmailList,
+  PublicGroup,
+  RoleType,
+} from './types';
+import { AbakusGroup } from './websockets';
+
+export default interface Membership {
+  user: number;
+  id: number;
+  abakusGroup: number;
+  role: RoleType;
+  isActive: boolean;
+  emailListsEnabled: boolean;
+  createdAt: Date;
+  firstJoinDate?: Date; //This is the first date the member joined this group based on history
+}
+
+export type PastMembership = {
+  startDate: Date;
+  endDate: Date;
+  abakusGroup: PublicGroup;
+} & Membership;
+
+export type UserPermissionGroup = Pick<PublicGroup, 'id' | 'name'>;
 
 export type User = {
   id: number;
@@ -17,18 +45,89 @@ export type User = {
   allergies: string;
   isActive: boolean;
   isStudent: boolean;
+  abakusEmailLists: PublicEmailList[];
+  penalties: number[];
   icalToken: string;
   abakusGroups: Group[];
   isAbakusMember: boolean;
   isAbakomMember: boolean;
+  pastMemberships: PastMembership[];
   selectedTheme: 'light' | 'dark' | 'auto';
+  permissionsPerGroup: {
+    abakusGroup: UserPermissionGroup;
+    permissions: string[];
+    parentPermissions: {
+      abakusGroup: UserPermissionGroup;
+      permissions: string[];
+    }[];
+  }[];
+  photoConsents?: PhotoConsent[];
+  memberships: Membership[];
   githubUsername?: string;
   linkedinId?: string;
+  actionGrant?: ActionGrant;
+  achievements: Achievement[];
   achievementsScore: number;
   achievementRank: number;
   commandSuggestions?: string[];
-  penalties: Penalty[];
 };
+
+export type CurrentUser = Pick<
+  User,
+  | 'id'
+  | 'username'
+  | 'firstName'
+  | 'lastName'
+  | 'fullName'
+  | 'email'
+  | 'emailAddress'
+  | 'phoneNumber'
+  | 'emailListsEnabled'
+  | 'profilePicture'
+  | 'profilePicturePlaceholder'
+  | 'gender'
+  | 'allergies'
+  | 'isActive'
+  | 'isStudent'
+  | 'abakusEmailLists'
+  | 'abakusGroups'
+  | 'isAbakusMember'
+  | 'isAbakomMember'
+  | 'penalties'
+  | 'icalToken'
+  | 'memberships'
+  | 'pastMemberships'
+  | 'internalEmailAddress'
+  | 'selectedTheme'
+  | 'permissionsPerGroup'
+  | 'photoConsents'
+  | 'githubUsername'
+  | 'linkedinId'
+  | 'actionGrant'
+  | 'achievements'
+  | 'achievementsScore'
+  | 'achievementRank'
+  | 'commandSuggestions'
+>;
+
+export type PublicUser = Pick<
+  User,
+  | 'id'
+  | 'username'
+  | 'firstName'
+  | 'lastName'
+  | 'fullName'
+  | 'gender'
+  | 'profilePicture'
+  | 'profilePicturePlaceholder'
+  | 'internalEmailAddress'
+  | 'githubUsername'
+  | 'linkedinId'
+  | 'achievements'
+  | 'achievementsScore'
+  | 'achievementRank'
+>;
+export type PublicUserWithAbakusGroups = Pick<User, 'abakusGroups'> & PublicUser;
 
 export const Gender = {
   male: 'Mann',
@@ -70,37 +169,3 @@ export const ROLES = {
   event_manager: 'Arrangementansvarlig',
   snackoverflow_manager: 'SnackOverflow-ansvarlig',
 };
-
-export type Group = {
-  id: string;
-  name: string;
-  description: string;
-  contactEmail: string;
-  parent?: string;
-  permissions: string[];
-  parentPermissions: {
-    abakusGroup: Pick<Group, 'id' | 'name'>;
-    permissions: string[];
-  }[];
-  logo: string | null;
-  logoPlaceholder: string | null;
-  numberOfUsers: number;
-  type: GroupType;
-  text: string;
-  showBadge: boolean;
-  active: boolean;
-  actionGrant: ActionGrant;
-};
-
-export enum GroupType {
-  Committee = 'komite',
-  Board = 'styre',
-  Revue = 'revy',
-  Interest = 'interesse',
-  SubGroup = 'under',
-  Ordained = 'ordenen',
-  Grade = 'klasse',
-  Other = 'annen',
-}
-
-export type ActionGrant = ('create' | 'edit' | 'delete' | 'list' | 'view' | string)[];

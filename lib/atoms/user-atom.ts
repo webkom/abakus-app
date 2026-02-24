@@ -1,7 +1,11 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { atomWithStorage, createJSONStorage } from 'jotai/utils';
-import { User } from '../types/user';
+import { CurrentUser } from '../types/user';
 
-const asyncJSONStorage = createJSONStorage<User | undefined>(() => AsyncStorage);
+const asyncJSONStorage = createJSONStorage<CurrentUser | undefined>(() => AsyncStorage);
 
-export const userAtom = atomWithStorage<User | undefined>('user', undefined, asyncJSONStorage);
+export const userAtom = atomWithStorage<CurrentUser | undefined>(
+  'user',
+  undefined,
+  asyncJSONStorage
+);

@@ -1,16 +1,17 @@
 import Header from '@/components/header';
+import Icon from '@/components/icon';
+import { Text } from '@/components/ui/text';
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { ActivityIndicator, ScrollView, View } from 'react-native';
 import EventItem from '../../../../components/eventItem';
 import useEvents from '../../../../hooks/useEvents';
-import { Text } from '@/components/ui/text';
 
 const EventsPage = () => {
-  const events = useEvents();
+  const { data: events, isLoading, isError } = useEvents();
   const [scrolled, setScrolled] = useState(false);
 
-  if (events.isLoading) {
+  if (isLoading) {
     return (
       <View className="h-full flex-row items-center justify-center space-x-3">
         <StatusBar style="auto" />
@@ -20,11 +21,20 @@ const EventsPage = () => {
     );
   }
 
-  if (events.isError) {
+  if (isError) {
     return (
       <View className="flex-1 items-center justify-center">
         <StatusBar style="auto" />
         <Text className="text-base text-red-600">Error loading events. Please try again.</Text>
+      </View>
+    );
+  }
+
+  if ((events?.length ?? 0) === 0) {
+    return (
+      <View className="h-full w-full flex-col items-center justify-center bg-background">
+        <Icon name="TriangleAlert" className="text-foreground" size={30} />
+        <Text className="text-foreground">Fant ingen arrangementer</Text>
       </View>
     );
   }
@@ -40,7 +50,7 @@ const EventsPage = () => {
         className="h-4/5 w-full bg-background"
         contentContainerClassName="pb-40">
         <View className="flex-col items-center gap-2.5 space-y-5 p-4">
-          {events.data?.map((event) => (
+          {events?.map?.((event) => (
             <EventItem
               key={event.id}
               id={event.id}

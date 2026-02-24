@@ -1,17 +1,15 @@
 // TODO: Clean up this file
 
-import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { User } from '../types/user';
+import axios from 'axios';
 import env from 'env';
-
-const API_URL = env.EXPO_PUBLIC_API_URL; // Backend URL
+import { CurrentUser } from '../types/user';
 
 // Login-funksjon
 export const login = async ({ username, password }: { username: string; password: string }) => {
   try {
-    const response = await axios.post<{ token: string; user: User }>(
-      `${API_URL}/authorization/token-auth/`,
+    const response = await axios.post<{ token: string; user: CurrentUser }>(
+      `authorization/token-auth/`,
       {
         username,
         password,
@@ -31,7 +29,7 @@ export const me = async () => {
     const token = await AsyncStorage.getItem('session-token');
     if (!token) return;
 
-    const response = await axios.get<User>(`${API_URL}/me`, {
+    const response = await axios.get<CurrentUser>(`me`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

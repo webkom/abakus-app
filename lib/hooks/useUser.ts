@@ -1,6 +1,6 @@
 import { useAtomValue } from 'jotai/react';
 import { userAtom } from '../atoms/user-atom';
-import { GroupType } from '../types/user';
+import { GroupType } from '../types/types';
 
 export const useUser = () => {
   const user = useAtomValue(userAtom);

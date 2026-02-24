@@ -43,16 +43,17 @@ export const useEventAttendance = ({ id }: { id: string }) => {
     return attendees.includes(user?.id?.toString() ?? '');
   }, [attendees, user?.id]);
 
-  const totalCurrentPenalties =
-    user?.penalties?.reduce((sum, penalty) => sum + penalty.weight, 0) ?? 0;
+  const totalCurrentPenalties = user?.penalties?.reduce((sum, penalty) => sum + penalty, 0) ?? 0;
 
   useEffect(() => {
     if (!event?.pools) return;
 
-    const allAttendees =
-      event.pools.flatMap((pool) => pool.registrations?.map((reg) => reg.user.id.toString())) ?? [];
+    // const allAttendees =
+    //   event.pools.flatMap((pool) => pool.registrations?.map((reg) => reg.id.toString())) ?? [];
 
-    setAttendees(allAttendees);
+    // console.log(allAttendees);
+
+    // setAttendees(allAttendees);
   }, [event?.pools]);
 
   useEffect(() => {
@@ -78,6 +79,7 @@ export const useEventAttendance = ({ id }: { id: string }) => {
     };
 
     const initializeWebSocket = async () => {
+      console.log('Setting up websocket server');
       const socket = await setupWebSocketServer(callback);
       if (!isMounted) {
         socket.close();
@@ -96,18 +98,21 @@ export const useEventAttendance = ({ id }: { id: string }) => {
 
   const signUp = useMutation({
     mutationFn: async ({ turnstileToken }: { turnstileToken: string }) => {
-      return await api.post(`/events/${id}/registrations/`, {
-        body: JSON.stringify({
+      if (!turnstileToken) throw new Error('Turnstile token must be defined');
+      return await api.post(
+        `/events/${id}/registrations/`,
+        {
           captchaResponse: turnstileToken,
           feedback: '',
-        }),
-        headers: {
-          Accept: 'application/json',
-          'Accept-Language': 'en-US,en;q=0.9,nb-NO;q=0.8,nb;q=0.7,no;q=0.6',
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
         },
-      });
+        {
+          headers: {
+            // Accept: 'application/json',
+            // 'Accept-Language': 'en-US,en;q=0.9,nb-NO;q=0.8,nb;q=0.7,no;q=0.6',
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
     },
     onSuccess: () => {
       // Invalidate attendees list for event after successful registration
