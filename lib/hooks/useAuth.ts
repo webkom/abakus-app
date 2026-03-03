@@ -4,6 +4,7 @@ import { userAtom } from '../atoms/user-atom';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { User } from '../types/user';
 import { useSetAtom } from 'jotai/react';
+import { api } from '../services/api';
 
 export const useSignIn = () => {
   const setUser = useSetAtom(userAtom);
@@ -15,14 +16,18 @@ export const useSignIn = () => {
     mutationFn: ({ username, password }: { username: string; password: string }) =>
       login({ username, password }),
     onSuccess: ({ token, user }) => {
-      AsyncStorage.setItem("session-token", token)
+      AsyncStorage.setItem('session-token', token);
       setUser(user);
     },
   });
 
-  const signOut = () => {
-    AsyncStorage.removeItem('user');
-    AsyncStorage.removeItem('session-token');
+  const signOut = async () => {
+    try {
+      await api.delete('/api/v1/device-expo/unregister/');
+    } catch {}
+
+    await AsyncStorage.removeItem('user');
+    await AsyncStorage.removeItem('session-token');
     setUser({} as User);
   };
 

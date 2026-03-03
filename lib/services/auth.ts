@@ -4,19 +4,17 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { User } from '../types/user';
 import env from 'env';
+import { api } from './api';
 
 const API_URL = env.EXPO_PUBLIC_API_URL; // Backend URL
 
 // Login-funksjon
 export const login = async ({ username, password }: { username: string; password: string }) => {
   try {
-    const response = await axios.post<{ token: string; user: User }>(
-      `${API_URL}/authorization/token-auth/`,
-      {
-        username,
-        password,
-      }
-    );
+    const response = await api.post<{ token: string; user: User }>(`/authorization/token-auth/`, {
+      username,
+      password,
+    });
     const { token, user } = response.data;
 
     return { token, user };

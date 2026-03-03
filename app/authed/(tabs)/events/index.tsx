@@ -6,9 +6,11 @@ import { StatusBar } from 'expo-status-bar';
 import Header from '@/components/header';
 import { EventType } from '@/lib/types/types';
 import { EVENTS_LIMIT, others, presentations } from '@/app/constants/events';
+import { usePushNotifications } from '@/lib/hooks/usePushNotifications';
 
 const EventsPage = () => {
   const events = useEvents();
+  const { expoPushToken, notification } = usePushNotifications();
 
   if (events.isLoading) {
     return (

@@ -4,6 +4,7 @@ import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { api } from '../services/api';
 
 interface PushNotificationState {
   expoPushToken?: Notifications.ExpoPushToken;
@@ -13,6 +14,10 @@ interface PushNotificationState {
 type NotificationData = {
   screen: string;
   params?: Record<string, string>;
+};
+
+const registerPushToken = (expoPushToken: Notifications.ExpoPushToken) => {
+  return api.post('/api/v1/device-expo/', { pushToken: expoPushToken.data });
 };
 
 export const usePushNotifications = (): PushNotificationState => {
@@ -102,6 +107,10 @@ export const usePushNotifications = (): PushNotificationState => {
   useEffect(() => {
     registerForPushNotificationsAsync().then((token) => {
       setExpoPushToken(token);
+
+      if (token) {
+        registerPushToken(token);
+      }
     });
 
     notificationListener.current = Notifications.addNotificationReceivedListener((notification) => {
