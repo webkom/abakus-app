@@ -8,7 +8,7 @@ function useEvent(id: string) {
   return useQuery<DetailedEvent>({
     queryKey: ['event', id],
     queryFn: async () => {
-      const res = await api.get<DetailedEvent>(`/events/${id}/`, {
+      const res = await api.get<DetailedEvent>(`/api/v1/events/${id}/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

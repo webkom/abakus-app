@@ -2,15 +2,17 @@ import Header from '@/components/header';
 import Icon from '@/components/icon';
 import { Text } from '@/components/ui/text';
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, ScrollView, View } from 'react-native';
 import EventItem from '../../../../components/eventItem';
 import useEvents from '../../../../hooks/useEvents';
 
 const EventsPage = () => {
-  const { data: events, isLoading, isError } = useEvents();
+  const { data: events, isLoading, isError, error } = useEvents();
   const [scrolled, setScrolled] = useState(false);
-
+  useEffect(() => {
+    console.log(error);
+  }, [error]);
   if (isLoading) {
     return (
       <View className="h-full flex-row items-center justify-center space-x-3">
@@ -56,7 +58,7 @@ const EventsPage = () => {
               id={event.id}
               title={event.title}
               eventType={event.eventType}
-              startTime={event.startTime}
+              startTime={''}
             />
           ))}
         </View>
