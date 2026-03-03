@@ -1,24 +1,28 @@
 // TODO: Clean up this file
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import axios from 'axios';
-import env from 'env';
+import axios, { AxiosError } from 'axios';
 import { CurrentUser } from '../types/user';
+import { api } from './api';
 
 // Login-funksjon
 export const login = async ({ username, password }: { username: string; password: string }) => {
   try {
-    const response = await axios.post<{ token: string; user: CurrentUser }>(
-      `authorization/token-auth/`,
+    const response = await api.post<{ token: string; user: CurrentUser }>(
+      `/authorization/token-auth/`,
       {
         username,
         password,
       }
     );
+
+    console.log(response.data);
     const { token, user } = response.data;
 
     return { token, user };
   } catch (error) {
+    const thing = error as AxiosError;
+    console.log('Axios error response: ', thing);
     console.error('Login error: ', JSON.stringify(error));
     throw error;
   }

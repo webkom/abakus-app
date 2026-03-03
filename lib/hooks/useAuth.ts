@@ -1,10 +1,10 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useMutation } from '@tanstack/react-query';
-import { login } from '../services/auth';
 import { useAtomValue, useSetAtom } from 'jotai/react';
 import { tokenAtom } from '../atoms/token-atom';
 import { userAtom } from '../atoms/user-atom';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { CurrentUser, User } from '../types/user';
+import { login } from '../services/auth';
+import { CurrentUser } from '../types/user';
 
 export const useSignIn = () => {
   const setToken = useSetAtom(tokenAtom);
@@ -18,7 +18,6 @@ export const useSignIn = () => {
       login({ username, password }),
     onSuccess: ({ token, user }) => {
       setToken(token);
-
       setUser(user);
     },
   });

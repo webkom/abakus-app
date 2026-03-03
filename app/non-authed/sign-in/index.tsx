@@ -1,17 +1,17 @@
-import { Button } from '@/components/ui/button';
 import Card from '@/components/card';
+import Icon from '@/components/icon';
 import Input from '@/components/input';
+import { Button } from '@/components/ui/button';
+import { Text } from '@/components/ui/text';
 import { useSignIn, useToken } from '@/lib/hooks/useAuth';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { Text } from '@/components/ui/text';
 import { MotiView } from 'moti';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { ActivityIndicator, Image, View } from 'react-native';
 import { z } from 'zod';
-import Icon from '@/components/icon';
 
 const AbakusLogo = require('@/assets/images/abakus-logo.png');
 const BlurBackground = require('@/assets/images/blur-background.png');
@@ -23,7 +23,7 @@ const formSchema = z.object({
 
 const SignInPage = () => {
   const token = useToken();
-  const auth = useSignIn();
+  const { signInAsync, error, isPending, signOut, isError } = useSignIn();
   const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -35,7 +35,7 @@ const SignInPage = () => {
   });
 
   const handleSubmit = (data: z.infer<typeof formSchema>) => {
-    void auth.signInAsync({ ...data }).then(() => {
+    void signInAsync({ ...data }).then(() => {
       router.push('non-authed/onboarding');
     });
   };
@@ -60,7 +60,7 @@ const SignInPage = () => {
           {!(token === undefined || token === '') && (
             <MotiView from={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
               <Card variant="error" title="Allerede logget inn" className="w-full">
-                <Button onPress={() => auth.signOut()} variant="secondary" className="rounded-full">
+                <Button onPress={() => signOut()} variant="secondary" className="rounded-full">
                   <Text className="text-on-secondary font-semibold">Logg ut</Text>
                 </Button>
               </Card>
@@ -123,16 +123,16 @@ const SignInPage = () => {
           onPress={() => {
             form.handleSubmit(handleSubmit)();
           }}>
-          {!auth.isPending && <Icon name="LogIn" className="text-primary-foreground" />}
+          {!isPending && <Icon name="LogIn" className="text-primary-foreground" />}
           <Text className="text-xl text-primary-foreground">
-            {auth.isPending && (
-              <ActivityIndicator size="large" className="text-primary-foreground" />
-            )}
-            {!auth.isPending && 'Logg inn'}
+            {isPending && <ActivityIndicator size="large" className="text-primary-foreground" />}
+            {!isPending && 'Logg inn'}
           </Text>
         </Button>
 
-        <Text>{auth.isError && 'Noe gikk galt under innlogging'}</Text>
+        <Text className="font-bold text-destructive">
+          {isError && 'Noe gikk galt under innlogging'}
+        </Text>
       </View>
     </View>
   );
