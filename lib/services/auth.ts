@@ -16,14 +16,10 @@ export const login = async ({ username, password }: { username: string; password
       }
     );
 
-    console.log(response.data);
     const { token, user } = response.data;
 
     return { token, user };
   } catch (error) {
-    const thing = error as AxiosError;
-    console.log('Axios error response: ', thing);
-    console.error('Login error: ', JSON.stringify(error));
     throw error;
   }
 };

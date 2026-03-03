@@ -527,3 +527,19 @@ export interface User {
   githubUsername: string | null;
   linkedinId: string | null;
 }
+
+export type RegisterEligibility = {
+  canRegisterNow: boolean;
+  isRegistrationDelayed: boolean;
+  delayUntil: Date;
+  delaySeconds: number;
+  willBeWaitingList: boolean;
+  reason:
+    | 'already_registered'
+    | 'registration_closed'
+    | 'unanswered_surveys'
+    | 'event_not_ready'
+    | 'missing_photo_consents'
+    | 'no_available_pools'
+    | 'cannot_register_now';
+};

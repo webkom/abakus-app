@@ -3,7 +3,6 @@ import { SocketEvent } from '../types/websockets';
 
 export const setupWebSocketServer = async (messageCallback: (message: SocketEvent) => void) => {
   const token = await AsyncStorage.getItem('session-token');
-  console.log(token);
   const ws = new WebSocket(
     `wss://ws-staging.abakus.no/?jwt=${encodeURIComponent(token?.substring(1, token.length - 1) ?? '')}`
   );
@@ -18,7 +17,6 @@ export const setupWebSocketServer = async (messageCallback: (message: SocketEven
 
   ws.onmessage = (event) => {
     const message = JSON.parse(event.data) as SocketEvent;
-    console.log(message);
     messageCallback(message);
   };
 

@@ -14,14 +14,24 @@ import { Turnstile } from '@/components/screens/event/turnstile';
 import { Text } from '@/components/ui/text';
 import useEvent from '@/hooks/useEvent';
 import { useEventAttendance } from '@/hooks/useEventAttendance';
+import { useRegistrationEligibility } from '@/hooks/useRegistrationEligibility';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { AnimatePresence, MotiView } from 'moti';
 import { useCallback, useMemo, useState } from 'react';
-import { ActivityIndicator, Alert, NativeScrollEvent, NativeSyntheticEvent, ScrollView, TouchableOpacity, View } from 'react-native';
+import {
+  ActivityIndicator,
+  Alert,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  ScrollView,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 export default function EventsPage() {
   const { id } = useLocalSearchParams<{ id?: string | string[] }>();
+  const registrationEligibility = useRegistrationEligibility(id?.toString() ?? '');
   const eventId = useMemo(() => {
     if (Array.isArray(id)) {
       return id[0] ?? '';
@@ -35,11 +45,7 @@ export default function EventsPage() {
   const [scrolled, setScrolled] = useState(false);
   const [scroll, setScroll] = useState(0);
 
-  const {
-    data: event,
-    isRefetching: refetchingEvent,
-    isError: eventError,
-  } = useEvent(eventId);
+  const { data: event, isRefetching: refetchingEvent, isError: eventError } = useEvent(eventId);
 
   const {
     signUp,
@@ -122,11 +128,23 @@ export default function EventsPage() {
               <Icon name="ArrowLeft" size={20} className="text-primary" />
               <Text className="font-medium text-primary">Tilbake</Text>
             </TouchableOpacity>
+            <Text>{JSON.stringify(registrationEligibility.isPending)}</Text>
+            <Text>{JSON.stringify(registrationEligibility.error?.stack, null, 2)}</Text>
+            <Text>{JSON.stringify(registrationEligibility.data?.data, null, 2)}</Text>
+            {/* <Text>{registrationEligibility.data && JSON.stringify(registrationEligibility.data)}</Text> */}
 
             <HeroSection event={event} />
-            <TitleSection event={event} attendeesCount={attendees.length} totalCapacity={totalCapacity} />
+            <TitleSection
+              event={event}
+              attendeesCount={attendees.length}
+              totalCapacity={totalCapacity}
+            />
 
-            <AnimatePresence>{showPenaltyWarning && <PenaltyWarningCard totalCurrentPenalties={totalCurrentPenalties} />}</AnimatePresence>
+            <AnimatePresence>
+              {showPenaltyWarning && (
+                <PenaltyWarningCard totalCurrentPenalties={totalCurrentPenalties} />
+              )}
+            </AnimatePresence>
 
             <LogisticsSection event={event} />
             <DescriptionSection description={event?.description} />

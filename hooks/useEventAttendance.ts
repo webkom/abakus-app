@@ -20,12 +20,6 @@ export const useEventAttendance = ({ id }: { id: string }) => {
   const [attendees, setAttendees] = useState<string[]>([]);
   const signOffMutation = useMutation({
     mutationFn: async ({ registrationId }: { registrationId: string }) => {
-      console.log(
-        'Attempting to unregister from event with registration ID:',
-        registrationId,
-        'and event: ',
-        id
-      );
       return api.delete(`events/${id}/registrations/${registrationId}/`);
     },
     mutationKey: ['eventAttendance'],
