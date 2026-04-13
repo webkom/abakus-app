@@ -1,7 +1,7 @@
 // TODO: Clean up this file
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 import { CurrentUser } from '../types/user';
 import { api } from './api';
 

@@ -12,6 +12,7 @@ import {
 import { HeroSection } from '@/components/screens/event/hero-section';
 import { Turnstile } from '@/components/screens/event/turnstile';
 import { Text } from '@/components/ui/text';
+import { Textarea } from '@/components/ui/textarea';
 import useEvent from '@/hooks/useEvent';
 import { useEventAttendance } from '@/hooks/useEventAttendance';
 import { useRegistrationEligibility } from '@/hooks/useRegistrationEligibility';
@@ -159,6 +160,7 @@ export default function EventsPage() {
           </View>
         </ScrollView>
       </View>
+      <Textarea placeholder="Feedback til arrangementsansvarlig" />
 
       <EventActionBar
         canSignUp={canSignUp}
