@@ -6,6 +6,9 @@ import { Stack } from 'expo-router';
 import 'react-native-reanimated';
 import '../global.css';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { useAtomValue } from 'jotai/react';
+import { userAtom } from '@/lib/atoms/user-atom';
+import { usePushNotifications } from '@/lib/hooks/usePushNotifications';
 
 const queryClient = new QueryClient();
 
@@ -13,6 +16,10 @@ const Layout = () => {
   const _ = useFonts({
     PixelifySans_400Regular,
   });
+
+  const user = useAtomValue(userAtom);
+  usePushNotifications(user?.id !== undefined);
+
   return (
     <QueryClientProvider client={queryClient}>
       <GestureHandlerRootView>

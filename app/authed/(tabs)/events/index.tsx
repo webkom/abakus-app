@@ -10,7 +10,6 @@ import { usePushNotifications } from '@/lib/hooks/usePushNotifications';
 
 const EventsPage = () => {
   const events = useEvents();
-  const { expoPushToken, notification } = usePushNotifications();
 
   if (events.isLoading) {
     return (
@@ -37,7 +36,6 @@ const EventsPage = () => {
       .slice(0, EVENTS_LIMIT)
       .map((event) => <EventItem key={event.id} id={event.id} event={event} />);
   };
-
 
   const eventPresentations = mapEvents(presentations);
   const eventOthers = mapEvents(others);
