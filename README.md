@@ -6,7 +6,7 @@
 
 - Node.js
 - npm
-- Expo account with access to the `webkom` project
+- Expo account with access to the `webkom` organization
 
 ## Install dependencies
 
@@ -32,9 +32,14 @@ npx eas-cli build --platform android --profile development
 npx eas-cli build --platform ios --profile development
 ```
 
-After 10-15 minutes the build should be completed. Open the EAS build page, download the generated development build, and install it on your device.
+Once the build has completed (typically within 10–15 minutes), open the EAS build page, download the development build, and install it on your device.
 
-> **Note:** This only needs to be done after a new build.
+> **Note:** A new development build is only required after native changes, such as:
+>
+> - adding or updating native dependencies
+> - changing the Expo configuration
+> - updating Firebase configuration
+> - upgrading the Expo SDK
 
 ## Start the development server
 
@@ -42,4 +47,4 @@ After 10-15 minutes the build should be completed. Open the EAS build page, down
 npx expo start --dev-client
 ```
 
-With the development build installed, open the app on your device (or scan the QR code from within the app) to connect to the local Metro server.
+With the development build installed, open the app on your device and connect to the local Metro server.

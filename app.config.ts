@@ -32,7 +32,7 @@ const config: ExpoConfig = {
   android: {
     adaptiveIcon: {
       foregroundImage: './assets/icon.png',
-      backgroundColor: '#e20d17',
+      backgroundColor: '#ffffff',
     },
     package: 'no.abakus.app',
     googleServicesFile: process.env.GOOGLE_SERVICES_JSON ?? './google-services.json',
