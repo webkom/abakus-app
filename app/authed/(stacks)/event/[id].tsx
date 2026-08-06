@@ -12,7 +12,6 @@ import {
 import { HeroSection } from '@/components/screens/event/hero-section';
 import { Turnstile } from '@/components/screens/event/turnstile';
 import { Text } from '@/components/ui/text';
-import { Textarea } from '@/components/ui/textarea';
 import useEvent from '@/hooks/useEvent';
 import { useEventAttendance } from '@/hooks/useEventAttendance';
 import { useRegistrationEligibility } from '@/hooks/useRegistrationEligibility';
@@ -32,7 +31,8 @@ import {
 
 export default function EventsPage() {
   const { id } = useLocalSearchParams<{ id?: string | string[] }>();
-  const registrationEligibility = useRegistrationEligibility(id?.toString() ?? '');
+  const { data: registrationEligibilityData, status: eligibilityFetchStatus } =
+    useRegistrationEligibility(id?.toString() ?? '');
   const eventId = useMemo(() => {
     if (Array.isArray(id)) {
       return id[0] ?? '';
@@ -59,7 +59,7 @@ export default function EventsPage() {
     totalCurrentPenalties,
   } = useEventAttendance({ id: eventId });
 
-  const canSignUp = totalCapacity !== undefined;
+  const canSignUp = registrationEligibilityData?.data.canRegisterNow;
   const showPenaltyWarning = Boolean(totalCurrentPenalties && !isUserSignedUp && !isLoading);
   const isAttendanceButtonLoading = signUp.status === 'pending' || isLoading || !turnstileToken;
 
@@ -129,10 +129,6 @@ export default function EventsPage() {
               <Icon name="ArrowLeft" size={20} className="text-primary" />
               <Text className="font-medium text-primary">Tilbake</Text>
             </TouchableOpacity>
-            <Text>{JSON.stringify(registrationEligibility.isPending)}</Text>
-            <Text>{JSON.stringify(registrationEligibility.error?.stack, null, 2)}</Text>
-            <Text>{JSON.stringify(registrationEligibility.data?.data, null, 2)}</Text>
-            {/* <Text>{registrationEligibility.data && JSON.stringify(registrationEligibility.data)}</Text> */}
 
             <HeroSection event={event} />
             <TitleSection
@@ -142,7 +138,7 @@ export default function EventsPage() {
             />
 
             <AnimatePresence>
-              {showPenaltyWarning && (
+              {showPenaltyWarning && canSignUp && (
                 <PenaltyWarningCard totalCurrentPenalties={totalCurrentPenalties} />
               )}
             </AnimatePresence>
@@ -160,10 +156,10 @@ export default function EventsPage() {
           </View>
         </ScrollView>
       </View>
-      <Textarea placeholder="Feedback til arrangementsansvarlig" />
+      {/* <Textarea placeholder="Feedback til arrangementsansvarlig" /> */}
 
       <EventActionBar
-        canSignUp={canSignUp}
+        canSignUp={canSignUp ?? false}
         turnstileToken={turnstileToken}
         isUserSignedUp={isUserSignedUp}
         eventId={event?.id.toString() ?? ''}

@@ -32,7 +32,7 @@ export default function EventItem({ id, title, eventType, startTime }: EventItem
     <Link href={`/authed/(stacks)/event/${id}`} asChild>
       <Pressable className="w-full rounded-xl pr-5">
         <View className="flex-row items-center justify-between">
-          <View className="rounded-lg px-1 py-9" style={{ backgroundColor: event.color }} />
+          <View className="rounded-lg px-1 py-9" style={{ backgroundColor: event?.color }} />
 
           <View className="mx-3 flex-1">
             <Text className="text-lg font-medium text-foreground" numberOfLines={1}>
