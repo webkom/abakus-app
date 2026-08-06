@@ -8,7 +8,7 @@ import '../global.css';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useAtomValue } from 'jotai/react';
 import { userAtom } from '@/lib/atoms/user-atom';
-import { usePushNotifications } from '@/lib/hooks/usePushNotifications';
+import { PushNotificationsProvider } from '@/components/PushNotificationsProvider';
 
 const queryClient = new QueryClient();
 
@@ -18,18 +18,19 @@ const Layout = () => {
   });
 
   const user = useAtomValue(userAtom);
-  usePushNotifications(user?.id !== undefined);
 
   return (
     <QueryClientProvider client={queryClient}>
       <GestureHandlerRootView>
         <PortalProvider>
-          <Stack
-            screenOptions={{
-              headerShown: false,
-            }}
-          />
-          <PortalHost />
+          <PushNotificationsProvider isLoggedIn={user?.id !== undefined}>
+            <Stack
+              screenOptions={{
+                headerShown: false,
+              }}
+            />
+            <PortalHost />
+          </PushNotificationsProvider>
         </PortalProvider>
       </GestureHandlerRootView>
     </QueryClientProvider>

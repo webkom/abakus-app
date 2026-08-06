@@ -15,7 +15,7 @@ Notifications.setNotificationHandler({
   }),
 });
 
-interface PushNotificationState {
+export interface PushNotificationState {
   expoPushToken?: Notifications.ExpoPushToken;
   notification?: Notifications.Notification;
 }
