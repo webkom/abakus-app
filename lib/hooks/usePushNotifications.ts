@@ -65,16 +65,16 @@ export const usePushNotifications = (isLoggedIn: boolean): PushNotificationState
   const [notification, setNotification] = useState<Notifications.Notification | undefined>();
   const notificationListener = useRef<Notifications.EventSubscription>(null);
   const responseListener = useRef<Notifications.EventSubscription>(null);
-  const isNavigiatingRef = useRef(false);
+  const isNavigatingRef = useRef(false);
   const router = useRouter();
 
   const handleNotificationResponse = useCallback(
     async (response: Notifications.NotificationResponse) => {
-      if (isNavigiatingRef.current) return;
+      if (isNavigatingRef.current) return;
       const data = response.notification.request.content.data as NotificationData;
       if (!data?.screen) return;
       if (typeof data.screen !== 'string') return;
-      isNavigiatingRef.current = true;
+      isNavigatingRef.current = true;
       try {
         router.push({
           pathname: data.screen,
@@ -84,7 +84,7 @@ export const usePushNotifications = (isLoggedIn: boolean): PushNotificationState
         console.error(`Error handling notification tap ${error}`);
       } finally {
         setTimeout(() => {
-          isNavigiatingRef.current = false;
+          isNavigatingRef.current = false;
         }, 1000);
       }
     },

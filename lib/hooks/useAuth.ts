@@ -24,11 +24,11 @@ export const useSignIn = () => {
   const signOut = async () => {
     try {
       await api.delete('/api/v1/device-expo/unregister/');
-    } catch {}
+    } catch { }
 
     await AsyncStorage.removeItem('user');
     await AsyncStorage.removeItem('session-token');
-    setUser({} as User);
+    setUser(undefined);
   };
 
   return {
