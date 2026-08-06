@@ -66,6 +66,7 @@ export const usePushNotifications = (isLoggedIn: boolean): PushNotificationState
   const notificationListener = useRef<Notifications.EventSubscription>(null);
   const responseListener = useRef<Notifications.EventSubscription>(null);
   const isNavigatingRef = useRef(false);
+  const checkedColdStartRef = useRef(false);
   const router = useRouter();
 
   const handleNotificationResponse = useCallback(
@@ -93,6 +94,14 @@ export const usePushNotifications = (isLoggedIn: boolean): PushNotificationState
 
   useEffect(() => {
     if (!isLoggedIn) return;
+
+    if (!checkedColdStartRef.current) {
+      checkedColdStartRef.current = true;
+      const response = Notifications.getLastNotificationResponse();
+      if (response) {
+        handleNotificationResponse(response);
+      }
+    }
 
     registerForPushNotificationsAsync().then((token) => {
       setExpoPushToken(token);
