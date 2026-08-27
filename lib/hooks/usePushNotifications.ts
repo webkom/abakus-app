@@ -4,7 +4,7 @@ import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { api } from '../services/api';
+import { fetchClient } from '../services/api';
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -25,8 +25,13 @@ type NotificationData = {
   params?: Record<string, string>;
 };
 
-const registerPushToken = (expoPushToken: Notifications.ExpoPushToken) => {
-  return api.post('/api/v1/device-expo/', { pushToken: expoPushToken.data });
+const registerPushToken = async (expoPushToken: Notifications.ExpoPushToken) => {
+  const { error } = await fetchClient.POST('/api/v1/device-expo/', {
+    body: { pushToken: expoPushToken.data } as never,
+  });
+  if (error) {
+    throw error;
+  }
 };
 
 async function registerForPushNotificationsAsync() {
