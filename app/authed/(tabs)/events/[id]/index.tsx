@@ -3,7 +3,7 @@ import Header from '@/components/header';
 import Icon from '@/components/icon';
 import { Button } from '@/components/ui/button';
 import { Text } from '@/components/ui/text';
-import useEvent from '@/lib/hooks/useEvent';
+import { useEvent } from '@/lib/hooks/useEvent';
 import { format } from 'date-fns';
 import { nb } from 'date-fns/locale';
 import { Link, useLocalSearchParams, useRouter } from 'expo-router';
@@ -12,8 +12,8 @@ import { ActivityIndicator, Image, View } from 'react-native';
 const MazeMapLogo = require('@/assets/images/mazemaplogo.png');
 
 export default function EventsPage() {
-  const { id } = useLocalSearchParams();
-  const { data: eventData, isLoading, isError } = useEvent(id.toString());
+  const { id } = useLocalSearchParams<{ id: string }>();
+  const { data: eventData, isError, isLoading } = useEvent(id);
   const router = useRouter();
 
   if (isLoading) {
@@ -51,7 +51,7 @@ export default function EventsPage() {
       <View className="relative">
         {eventData?.cover && (
           <>
-            <View className="absolute flex h-40 w-full items-center justify-center rounded-3xl bg-secondary-container">
+            <View className="bg-secondary-container absolute flex h-40 w-full items-center justify-center rounded-3xl">
               <ActivityIndicator size={'large'} color="#5B431A" />
             </View>
             <Image
@@ -67,7 +67,7 @@ export default function EventsPage() {
       <Button>
         <Text>Test</Text>
       </Button>
-      <Text className="whitespace-break-spaces text-6xl font-bold italic tracking-tight text-on-background">
+      <Text className="text-on-background whitespace-break-spaces text-6xl font-bold italic tracking-tight">
         {eventData?.title}
       </Text>
 
@@ -122,7 +122,7 @@ export default function EventsPage() {
       </Card> */}
       <Button className="rounded-full" size={'lg'}>
         <Icon name="BadgeCheck" className="text-on-primary" />
-        <Text className="font-semibold text-on-primary">Meld deg på</Text>
+        <Text className="text-on-primary font-semibold">Meld deg på</Text>
       </Button>
     </View>
   );
