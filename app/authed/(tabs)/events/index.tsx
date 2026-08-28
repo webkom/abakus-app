@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, Text, ScrollView, ActivityIndicator } from 'react-native';
-import useEvents from '../../../../lib/hooks/useEvents';
 import EventItem from '../../../../components/eventItem';
 import { StatusBar } from 'expo-status-bar';
 import Header from '@/components/header';
-import { EventType } from '@/lib/types/types';
-import { EVENTS_LIMIT, others, presentations } from '@/app/constants/events';
+import type { components } from '@/lib/types/schema';
+import { useEvents } from '@/lib/hooks/useEvents';
+import { EVENTS_LIMIT, others, presentations } from '@/lib/constants/events';
+
+type EventTypeEnum = components['schemas']['EventTypeEnum'];
 
 const EventsPage = () => {
   const events = useEvents();
@@ -29,8 +31,8 @@ const EventsPage = () => {
     );
   }
 
-  const mapEvents = (eventTypes: EventType[]) => {
-    return events.data
+  const mapEvents = (eventTypes: EventTypeEnum[]) => {
+    return events.data.results
       .filter((event) => eventTypes.includes(event.eventType))
       .slice(0, EVENTS_LIMIT)
       .map((event) => <EventItem key={event.id} id={event.id} event={event} />);

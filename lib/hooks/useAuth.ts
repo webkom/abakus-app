@@ -7,6 +7,8 @@ import { api } from '../services/api';
 
 export const useSignIn = () => {
   const setUser = useSetAtom(userAtom);
+  const unregisterPushToken = api.useMutation('delete', '/api/v1/device-expo/unregister/');
+
   const {
     mutateAsync: signInAsync,
     mutate: signIn,
@@ -14,19 +16,18 @@ export const useSignIn = () => {
   } = useMutation({
     mutationFn: ({ username, password }: { username: string; password: string }) =>
       login({ username, password }),
-    onSuccess: ({ token, user }) => {
-      AsyncStorage.setItem('session-token', token);
+    onSuccess: async ({ token, user }) => {
+      await AsyncStorage.setItem('session-token', token);
       setUser(user);
     },
   });
 
   const signOut = async () => {
     try {
-      await api.delete('/api/v1/device-expo/unregister/');
+      await unregisterPushToken.mutateAsync({});
     } catch (err) {
       console.warn('Failed to unregister push token', err);
     }
-
     await AsyncStorage.removeItem('user');
     await AsyncStorage.removeItem('session-token');
     setUser(undefined);

@@ -1,16 +1,22 @@
+import createFetchClient from 'openapi-fetch';
+import createClient from 'openapi-react-query';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import axios from 'axios';
 import env from 'env';
+import type { paths } from '../types/schema';
 
-export const api = axios.create({
-  baseURL: env.EXPO_PUBLIC_API_URL,
+const fetchClient = createFetchClient<paths>({
+  baseUrl: env.EXPO_PUBLIC_API_URL,
 });
 
-api.interceptors.request.use(async (config) => {
-  const token = await AsyncStorage.getItem('session-token');
-  if (token) {
-    config.headers = config.headers ?? {};
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
+fetchClient.use({
+  async onRequest({ request }) {
+    const token = await AsyncStorage.getItem('session-token');
+    if (token) {
+      request.headers.set('Authorization', `Bearer ${token}`);
+    }
+    return request;
+  },
 });
+
+export const api = createClient(fetchClient);
+export { fetchClient };

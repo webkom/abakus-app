@@ -1,52 +1,40 @@
-// TODO: Clean up this file
-
-import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { User } from '../types/user';
-import env from 'env';
-import { api } from './api';
+import { fetchClient } from './api';
+import type { components } from '../types/schema';
 
-const API_URL = env.EXPO_PUBLIC_API_URL; // Backend URL
+type LoginResponse = {
+  token: string;
+  user: components['schemas']['CurrentUser'];
+};
 
-// Login-funksjon
 export const login = async ({ username, password }: { username: string; password: string }) => {
-  try {
-    const response = await api.post<{ token: string; user: User }>(`/authorization/token-auth/`, {
-      username,
-      password,
-    });
-    const { token, user } = response.data;
+  const { data, error } = await fetchClient.POST('/authorization/token-auth/', {
+    body: { username, password } as components['schemas']['JSONWebToken'],
+  });
 
-    return { token, user };
-  } catch (error) {
+  if (error) {
     console.error('Login error: ', JSON.stringify(error));
     throw error;
   }
+
+  return data as unknown as LoginResponse;
 };
 
 export const me = async () => {
-  try {
-    const token = await AsyncStorage.getItem('session-token');
-    if (!token) return;
+  const { data, error } = await fetchClient.GET('/api/v1/users/me/');
 
-    const response = await axios.get<User>(`${API_URL}/me`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    return response;
-  } catch (e) {
-    console.error('User fetch error: ', JSON.stringify(e));
-    throw e;
+  if (error) {
+    console.error('User fetch error: ', JSON.stringify(error));
+    throw error;
   }
+
+  return data;
 };
 
-// Logout-funksjon
 export const logout = async () => {
   await AsyncStorage.removeItem('session-token');
 };
 
-// Hent token
 export const getToken = async () => {
   return await AsyncStorage.getItem('session-token');
 };
