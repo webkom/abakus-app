@@ -4601,6 +4601,9 @@ export interface components {
          * @enum {string}
          */
         EventsEnum: "company_presentation" | "lunch_presentation" | "course" | "breakfast_talk" | "digital_presentation" | "bedex" | "other" | "sponsor" | "start_up" | "company_to_company";
+        ExpoDevice: {
+            pushToken: string;
+        };
         FeatureFlagAdmin: {
             readonly id: number;
             identifier: string;
@@ -6154,6 +6157,9 @@ export interface components {
             achievements?: components["schemas"]["Achievement"][];
             readonly achievementsScore?: string;
             readonly achievementRank?: number;
+            readonly rankWeekAgo?: number | null;
+            readonly rankMonthAgo?: number | null;
+            readonly eventCount?: number;
         };
         PatchedQuoteCreateAndUpdate: {
             readonly id?: number;
@@ -6442,6 +6448,9 @@ export interface components {
             achievements: components["schemas"]["Achievement"][];
             readonly achievementsScore: string;
             readonly achievementRank: number;
+            readonly rankWeekAgo: number | null;
+            readonly rankMonthAgo: number | null;
+            readonly eventCount: number;
         };
         Question: {
             readonly id: number;
@@ -8766,14 +8775,19 @@ export interface operations {
             path?: never;
             cookie?: never;
         };
-        requestBody?: never;
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ExpoDevice"];
+            };
+        };
         responses: {
-            /** @description No response body */
             201: {
                 headers: {
                     [name: string]: unknown;
                 };
-                content?: never;
+                content: {
+                    "application/json": components["schemas"]["ExpoDevice"];
+                };
             };
         };
     };

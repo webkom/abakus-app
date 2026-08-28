@@ -1,8 +1,5 @@
 import { useAtomValue } from 'jotai/react';
 import { userAtom } from '../atoms/user-atom';
-import { components } from '../types/schema';
-
-type Group = components['schemas']['TypeEnum'];
 
 export const useUser = () => {
   const user = useAtomValue(userAtom);
