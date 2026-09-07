@@ -49,9 +49,27 @@ Once the build has completed (typically within 10–15 minutes), open the EAS bu
 
 ## Start the development server
 
+**Note:** To run the development server you must have a development build. It requires the Android Studio SDK (and probably something else for iOS). To create a development build,
+start the development build with
+
+```bash
+npx expo run:android
+```
+
+The next time you wish to start the app, run this command instead:
+
 ```bash
 npx expo start
 ```
+
+**Note:** If you introduce native-level configuration changes, you need to create a new development build with one of these:
+
+```bash
+npx expo prebuild --clean
+npx expo run:android
+```
+
+Then you can continue using `npx expo start` as before.
 
 With the development build installed, open the app on your device and connect to the local Metro server.
 
