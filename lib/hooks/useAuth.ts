@@ -20,6 +20,10 @@ export const useSignIn = () => {
       await AsyncStorage.setItem('session-token', token);
       setUser(user);
     },
+    onError: (error) => {
+      console.error('Sign-in failed:', error);
+      throw error;
+    },
   });
 
   const signOut = async () => {

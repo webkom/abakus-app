@@ -1,4 +1,3 @@
-import Header from '@/components/header';
 import TabBar from '@/components/tab-bar';
 import { Tabs } from 'expo-router';
 
