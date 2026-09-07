@@ -1,10 +1,10 @@
 import Icon from '@/components/icon';
 import AutoHeightImage from '@/components/ui/auto-height-image';
-import { DetailedEvent } from '@/lib/types/types';
+import { components } from '@/lib/types/schema';
 import { View } from '@rn-primitives/slot';
 
 type HeroSectionProps = {
-  event?: DetailedEvent;
+  event?: components['schemas']['EventRead'];
 };
 export function HeroSection({ event }: HeroSectionProps) {
   return (

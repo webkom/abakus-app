@@ -6548,6 +6548,14 @@ export interface components {
             captchaResponse?: string;
             paymentStatus?: components["schemas"]["PaymentStatusEnum"];
         };
+        RegistrationEligibility: {
+            canRegisterNow: boolean;
+            reason?: string | null;
+            isRegistrationDelayed?: boolean | null;
+            /** Format: date-time */
+            delayUntil?: string | null;
+            willBeWaitingList?: boolean | null;
+        };
         RegistrationPaymentRead: {
             readonly id: number;
             user: components["schemas"]["PublicUserWithAbakusGroups"];
@@ -9859,12 +9867,13 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
-            /** @description No response body */
             200: {
                 headers: {
                     [name: string]: unknown;
                 };
-                content?: never;
+                content: {
+                    "application/json": components["schemas"]["RegistrationEligibility"];
+                };
             };
         };
     };
