@@ -1299,6 +1299,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/events/{id}/registration-eligibility/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["eventsRegistrationEligibilityRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/events/{id}/statistics/": {
         parameters: {
             query?: never;
@@ -4601,9 +4621,6 @@ export interface components {
          * @enum {string}
          */
         EventsEnum: "company_presentation" | "lunch_presentation" | "course" | "breakfast_talk" | "digital_presentation" | "bedex" | "other" | "sponsor" | "start_up" | "company_to_company";
-        ExpoDevice: {
-            pushToken: string;
-        };
         FeatureFlagAdmin: {
             readonly id: number;
             identifier: string;
@@ -6157,9 +6174,6 @@ export interface components {
             achievements?: components["schemas"]["Achievement"][];
             readonly achievementsScore?: string;
             readonly achievementRank?: number;
-            readonly rankWeekAgo?: number | null;
-            readonly rankMonthAgo?: number | null;
-            readonly eventCount?: number;
         };
         PatchedQuoteCreateAndUpdate: {
             readonly id?: number;
@@ -6448,9 +6462,6 @@ export interface components {
             achievements: components["schemas"]["Achievement"][];
             readonly achievementsScore: string;
             readonly achievementRank: number;
-            readonly rankWeekAgo: number | null;
-            readonly rankMonthAgo: number | null;
-            readonly eventCount: number;
         };
         Question: {
             readonly id: number;
@@ -8775,19 +8786,14 @@ export interface operations {
             path?: never;
             cookie?: never;
         };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["ExpoDevice"];
-            };
-        };
+        requestBody?: never;
         responses: {
+            /** @description No response body */
             201: {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": components["schemas"]["ExpoDevice"];
-                };
+                content?: never;
             };
         };
     };
@@ -9838,6 +9844,27 @@ export interface operations {
                 content: {
                     "application/json": components["schemas"]["RegistrationPaymentRead"];
                 };
+            };
+        };
+    };
+    eventsRegistrationEligibilityRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this event. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
             };
         };
     };
