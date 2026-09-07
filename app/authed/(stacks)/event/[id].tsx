@@ -12,9 +12,9 @@ import {
 import { HeroSection } from '@/components/screens/event/hero-section';
 import { Turnstile } from '@/components/screens/event/turnstile';
 import { Text } from '@/components/ui/text';
-import useEvent from '@/hooks/useEvent';
 import { useEventAttendance } from '@/hooks/useEventAttendance';
 import { useRegistrationEligibility } from '@/hooks/useRegistrationEligibility';
+import { useEvent } from '@/lib/hooks/useEvent';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { AnimatePresence, MotiView } from 'moti';
@@ -31,8 +31,7 @@ import {
 
 export default function EventsPage() {
   const { id } = useLocalSearchParams<{ id?: string | string[] }>();
-  const { data: registrationEligibilityData, status: eligibilityFetchStatus } =
-    useRegistrationEligibility(id?.toString() ?? '');
+  const { data: registrationEligibilityData } = useRegistrationEligibility(id?.toString() ?? '');
   const eventId = useMemo(() => {
     if (Array.isArray(id)) {
       return id[0] ?? '';
@@ -59,7 +58,7 @@ export default function EventsPage() {
     totalCurrentPenalties,
   } = useEventAttendance({ id: eventId });
 
-  const canSignUp = registrationEligibilityData?.data.canRegisterNow;
+  const canSignUp = registrationEligibilityData?.canRegisterNow;
   const showPenaltyWarning = Boolean(totalCurrentPenalties && !isUserSignedUp && !isLoading);
   const isAttendanceButtonLoading = signUp.status === 'pending' || isLoading || !turnstileToken;
 
@@ -79,8 +78,16 @@ export default function EventsPage() {
       return;
     }
 
-    void signUp.mutateAsync({ turnstileToken });
-  }, [signUp, turnstileToken]);
+    void signUp
+      .mutateAsync({
+        params: { path: { eventPk: eventId } },
+        body: { feedback: '', captchaResponse: turnstileToken, id: eventId as unknown as number },
+      })
+      .catch((error) => {
+        console.error('Error during sign up:', error);
+        Alert.alert('Påmelding mislyktes', 'Vennligst prøv igjen senere.');
+      });
+  }, [signUp, turnstileToken, eventId]);
 
   const handleSignOff = useCallback(() => {
     void signOffAsync();
@@ -101,7 +108,7 @@ export default function EventsPage() {
   return (
     <View className="flex-1 bg-background">
       <StatusBar style="auto" />
-      <Header highlight={scrolled} />
+      <Header />
 
       <View className="flex-1 overflow-hidden">
         <AnimatePresence>
@@ -144,7 +151,7 @@ export default function EventsPage() {
             </AnimatePresence>
 
             <LogisticsSection event={event} />
-            <DescriptionSection description={event?.description} />
+            <DescriptionSection description={event?.description as string | undefined} />
 
             {canSignUp && (
               <Turnstile
