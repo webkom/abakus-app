@@ -1,6 +1,8 @@
 import { AttendanceButton } from '@/components/screens/event/attendance-button';
 import { Text } from '@/components/ui/text';
+import { setAudioModeAsync, useAudioPlayer } from 'expo-audio';
 import { AnimatePresence, MotiView } from 'moti';
+import { useEffect } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 
 type EventActionBarProps = {
@@ -10,7 +12,7 @@ type EventActionBarProps = {
   eventId: string;
   scroll: number;
   isLoading: boolean;
-  onSignUp: () => void;
+  onSignUp: () => Promise<void> | undefined;
   onSignOff: () => void;
 };
 
@@ -24,6 +26,21 @@ export function EventActionBar({
   onSignUp,
   onSignOff,
 }: EventActionBarProps) {
+  const soundSource = require('@/assets/audio/confirmation-pop.mp3');
+  const player = useAudioPlayer(soundSource);
+
+  useEffect(() => {
+    setAudioModeAsync({
+      playsInSilentMode: false,
+      interruptionMode: 'mixWithOthers',
+    });
+  }, []);
+
+  const triggerFeedback = () => {
+    player.seekTo(0);
+    player.play();
+  };
+
   if (!canSignUp) {
     return null;
   }
@@ -51,7 +68,7 @@ export function EventActionBar({
           eventId={eventId}
           scroll={scroll}
           isLoading={isLoading}
-          onSignUp={() => onSignUp()}
+          onSignUp={() => onSignUp()?.then(() => triggerFeedback())}
           onSignOff={() => onSignOff()}
         />
       </View>

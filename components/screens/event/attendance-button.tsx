@@ -31,29 +31,43 @@ export function AttendanceButton({
   };
 
   return (
-    <Button
-      size="lg"
-      className="h-16 w-full rounded-full shadow-md"
-      variant={isUserSignedUp ? 'destructive' : 'default'}
-      disabled={isLoading}
-      onPress={handlePress}>
-      {isLoading ? (
-        <ActivityIndicator size="small" className="text-primary-foreground" />
-      ) : isUserSignedUp ? (
-        <View className="flex-row items-center gap-2">
-          <MotiView animate={{ rotate: `${scroll}deg` }}>
-            <Icon name="X" className="text-secondary-foreground" size={18} />
-          </MotiView>
-          <Text className="text-lg font-bold text-secondary-foreground">Meld deg av</Text>
-        </View>
-      ) : (
-        <View className="flex-row items-center gap-2">
-          <MotiView animate={{ rotate: `${scroll}deg` }}>
-            <Icon name="Ticket" className="text-primary-foreground" size={18} />
-          </MotiView>
-          <Text className="text-lg font-bold text-primary-foreground">Meld deg på</Text>
-        </View>
-      )}
-    </Button>
+    <MotiView
+      className="w-full"
+      from={{
+        width: 0,
+        opacity: 0,
+      }}
+      animate={{
+        width: 300,
+        opacity: 1,
+      }}
+      transition={{
+        delay: 1000,
+      }}>
+      <Button
+        size="lg"
+        className="h-16 w-full rounded-full shadow-md"
+        variant={isUserSignedUp ? 'destructive' : 'default'}
+        disabled={isLoading}
+        onPress={handlePress}>
+        {isLoading ? (
+          <ActivityIndicator size="small" className="text-primary-foreground" />
+        ) : isUserSignedUp ? (
+          <View className="flex-row items-center gap-2">
+            <MotiView animate={{ rotate: `${scroll}deg` }}>
+              <Icon name="X" className="text-secondary-foreground" size={18} />
+            </MotiView>
+            <Text className="text-lg font-bold text-secondary-foreground">Meld deg av</Text>
+          </View>
+        ) : (
+          <View className="flex-row items-center gap-2">
+            <MotiView animate={{ rotate: `${scroll}deg` }}>
+              <Icon name="Ticket" className="text-primary-foreground" size={18} />
+            </MotiView>
+            <Text className="text-lg font-bold text-primary-foreground">Meld deg på</Text>
+          </View>
+        )}
+      </Button>
+    </MotiView>
   );
 }
