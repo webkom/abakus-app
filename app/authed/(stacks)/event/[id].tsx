@@ -9,6 +9,7 @@ import {
   PenaltyWarningCard,
   TitleSection,
 } from '@/components/screens/event/event-page';
+import RegistrationPools from '@/components/screens/event/event-page/registration-pools';
 import { HeroSection } from '@/components/screens/event/hero-section';
 import { Turnstile } from '@/components/screens/event/turnstile';
 import { Text } from '@/components/ui/text';
@@ -106,7 +107,7 @@ export default function EventsPage() {
   }
 
   return (
-    <View className="flex-1 bg-background">
+    <View className="flex-1 bg-background pb-20">
       <StatusBar style="auto" />
       <Header />
 
@@ -152,6 +153,11 @@ export default function EventsPage() {
 
             <LogisticsSection event={event} />
             <DescriptionSection description={event?.description as string | undefined} />
+            <RegistrationPools
+              pools={event?.pools}
+              waitingRegistrationCount={event?.waitingRegistrationCount}
+              mergeTime={event?.mergeTime}
+            />
 
             {canSignUp && (
               <Turnstile
