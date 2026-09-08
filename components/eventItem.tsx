@@ -52,7 +52,7 @@ export default function EventItem({ id, event }: EventItemProps) {
   });
 
   return (
-    <Link href={`/authed/(tabs)/events/${id}`} asChild>
+    <Link href={`/authed/(stacks)/event/${id}`} asChild>
       <Button variant={'outline'} className="r-5 h-16 w-full rounded-xl active:bg-neutral-200">
         <View className="flex-row items-center justify-between">
           <View className="rounded-lg px-1 py-8" style={{ backgroundColor: eventColor }} />

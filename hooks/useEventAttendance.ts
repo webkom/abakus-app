@@ -6,6 +6,9 @@ import { useUser } from '@/lib/hooks/useUser';
 import { api } from '@/lib/services/api';
 import { setupWebSocketServer } from '@/lib/services/websockets';
 import { SocketEvent, SocketEventType } from '@/lib/types/websockets';
+import { components } from '@/lib/types/schema';
+
+type Registration = components['schemas']['RegistrationReadDetailed'];
 
 /**
  * Handles event registration, unregistration, registration status and websockets
@@ -28,24 +31,33 @@ export const useEventAttendance = ({ id }: { id: string }) => {
   }, [event?.pools]);
 
   const isUserSignedUp = useMemo(() => {
+    console.log('User id: ', user?.id);
     return attendees.includes(user?.id?.toString() ?? '');
   }, [attendees, user?.id]);
 
-  console.log(user?.penalties, typeof user?.penalties);
+  console.log('USER PENALTIES: ', user?.penalties, typeof user?.penalties);
 
-  const totalCurrentPenalties = user?.penalties?.reduce((sum, penalty) => sum + penalty, 0) ?? 0;
+  // Do rarted workaraound because penalties is defined as a string in the openapi schema, but is actually an array of numbers
+  let totalCurrentPenalties = 0;
+  if (user?.penalties && Array.isArray(user.penalties)) {
+    totalCurrentPenalties = user.penalties.reduce((sum, penalty) => sum + penalty, 0);
+  }
 
   useEffect(() => {
     if (!event?.pools) return;
+    const pools = event.pools as (components['schemas']['PoolRead'] & {
+      registrations: Registration[];
+    })[];
+    const allAttendees = pools.flatMap((pool) =>
+      pool.registrations.map((registration) => registration.user.id.toString())
+    );
 
-    // const allAttendees =
-    //   event.pools.flatMap((pool) => pool.registrations?.map((reg) => reg.id.toString())) ?? [];
+    console.log('All attendees: ', allAttendees);
 
-    // console.log(allAttendees);
-
-    // setAttendees(allAttendees);
+    setAttendees(allAttendees);
   }, [event?.pools]);
 
+  // Set up and handle websocket client
   useEffect(() => {
     let isMounted = true;
     let ws: WebSocket | null = null;
@@ -118,7 +130,11 @@ export const useEventAttendance = ({ id }: { id: string }) => {
 
   const signOffAsync = () => {
     // Get the user's registration ID for this event
-    const registrationId = event?.pools
+    const pools = event?.pools as (components['schemas']['PoolRead'] & {
+      registrations: Registration[];
+    })[];
+
+    const registrationId = pools
       ?.flatMap((pool) => pool.registrations ?? [])
       .find((reg) => reg.user.id.toString() === user?.id?.toString())?.id;
     if (!registrationId) {
@@ -127,7 +143,7 @@ export const useEventAttendance = ({ id }: { id: string }) => {
 
     return signOffMutation
       .mutateAsync({
-        params: { path: { eventPk: id, id: registrationId.toString() } },
+        params: { path: { eventPk: id, id: registrationId } },
       })
       .then(() => {
         queryClient.invalidateQueries({ queryKey: ['event', id] });

@@ -1,6 +1,11 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { api } from '../services/api';
 
+/**
+ * Handles registering for an event for the current user.
+ * @param eventPk
+ * @returns
+ */
 export function useEventRegistration(eventPk: string) {
   const queryClient = useQueryClient();
 
