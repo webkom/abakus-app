@@ -26,7 +26,7 @@ type NotificationData = {
 };
 
 const registerPushToken = async (expoPushToken: Notifications.ExpoPushToken) => {
-  const { error } = await fetchClient.POST('/api/v1/device-expo/', {
+  const { error } = await (fetchClient.POST as any)('/api/v1/device-expo/', {
     body: { pushToken: expoPushToken.data },
   });
   if (error) {

@@ -46,10 +46,12 @@ export const useEventAttendance = ({ id }: { id: string }) => {
   useEffect(() => {
     if (!event?.pools) return;
     const pools = event.pools as (components['schemas']['PoolRead'] & {
-      registrations: Registration[];
+      registrations?: Registration[];
     })[];
     const allAttendees = pools.flatMap((pool) =>
-      pool.registrations.map((registration) => registration.user.id.toString())
+      (pool.registrations ?? [])
+        .map((registration) => registration.user?.id?.toString())
+        .filter(Boolean) as string[]
     );
 
     console.log('All attendees: ', allAttendees);
@@ -65,14 +67,17 @@ export const useEventAttendance = ({ id }: { id: string }) => {
     const callback = (message: SocketEvent) => {
       console.log('Received WebSocket message:', message);
 
+      const targetEventId = event?.id?.toString();
+      const messageEventId = message.meta?.eventId?.toString();
+
       if (
         message.type === SocketEventType.RegistrationSuccess &&
-        message.meta.eventId === event?.id
+        messageEventId === targetEventId
       ) {
         setAttendees((prev) => [...prev, message.payload.user.id.toString()]);
       } else if (
         message.type === SocketEventType.UnregistrationSuccess &&
-        message.meta.eventId === event?.id
+        messageEventId === targetEventId
       ) {
         setAttendees((prev) =>
           prev.filter((attendeeId) => attendeeId !== message.payload.user.id.toString())
@@ -84,7 +89,7 @@ export const useEventAttendance = ({ id }: { id: string }) => {
       console.log('Setting up websocket server');
       const socket = await setupWebSocketServer(callback);
       if (!isMounted) {
-        socket.close();
+        socket?.close();
         return;
       }
       ws = socket;
