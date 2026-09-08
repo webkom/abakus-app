@@ -31,13 +31,10 @@ export const useEventAttendance = ({ id }: { id: string }) => {
   }, [event?.pools]);
 
   const isUserSignedUp = useMemo(() => {
-    console.log('User id: ', user?.id);
     return attendees.includes(user?.id?.toString() ?? '');
   }, [attendees, user?.id]);
 
-  console.log('USER PENALTIES: ', user?.penalties, typeof user?.penalties);
-
-  // Do rarted workaraound because penalties is defined as a string in the openapi schema, but is actually an array of numbers
+  // Do workaround because penalties is defined as a string in the openapi schema, but is actually an array of numbers
   let totalCurrentPenalties = 0;
   if (user?.penalties && Array.isArray(user.penalties)) {
     totalCurrentPenalties = user.penalties.reduce((sum, penalty) => sum + penalty, 0);
@@ -48,13 +45,12 @@ export const useEventAttendance = ({ id }: { id: string }) => {
     const pools = event.pools as (components['schemas']['PoolRead'] & {
       registrations?: Registration[];
     })[];
-    const allAttendees = pools.flatMap((pool) =>
-      (pool.registrations ?? [])
-        .map((registration) => registration.user?.id?.toString())
-        .filter(Boolean) as string[]
+    const allAttendees = pools.flatMap(
+      (pool) =>
+        (pool.registrations ?? [])
+          .map((registration) => registration.user?.id?.toString())
+          .filter(Boolean) as string[]
     );
-
-    console.log('All attendees: ', allAttendees);
 
     setAttendees(allAttendees);
   }, [event?.pools]);
@@ -103,35 +99,26 @@ export const useEventAttendance = ({ id }: { id: string }) => {
     };
   }, [event?.id]);
 
+  const invalidateEventData = () => {
+    const eventIdNum = Number(id);
+    if (isNaN(eventIdNum)) return;
+    queryClient.invalidateQueries(
+      api.queryOptions('get', '/api/v1/events/{id}/', {
+        params: { path: { id: eventIdNum } },
+      })
+    );
+    queryClient.invalidateQueries(
+      api.queryOptions('get', '/api/v1/events/{id}/registration-eligibility/', {
+        params: { path: { id: eventIdNum } },
+      })
+    );
+  };
+
   const signUp = api.useMutation('post', '/api/v1/events/{eventPk}/registrations/', {
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['event', id] });
+      invalidateEventData();
     },
   });
-  // const signUp = useMutation({
-  //   mutationFn: async ({ turnstileToken }: { turnstileToken: string }) => {
-  //     if (!turnstileToken) throw new Error('Turnstile token must be defined');
-  //     return await api.post(
-  //       `/events/${id}/registrations/`,
-  //       {
-  //         captchaResponse: turnstileToken,
-  //         feedback: '',
-  //       },
-  //       {
-  //         headers: {
-  //           // Accept: 'application/json',
-  //           // 'Accept-Language': 'en-US,en;q=0.9,nb-NO;q=0.8,nb;q=0.7,no;q=0.6',
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //       }
-  //     );
-  //   },
-  //   onSuccess: () => {
-  //     // Invalidate attendees list for event after successful registration
-  //     queryClient.invalidateQueries({ queryKey: ['event', id] });
-  //   },
-  //   mutationKey: ['eventAttendance'],
-  // });
 
   const signOffAsync = () => {
     // Get the user's registration ID for this event
@@ -151,7 +138,7 @@ export const useEventAttendance = ({ id }: { id: string }) => {
         params: { path: { eventPk: id, id: registrationId } },
       })
       .then(() => {
-        queryClient.invalidateQueries({ queryKey: ['event', id] });
+        invalidateEventData();
       });
   };
 

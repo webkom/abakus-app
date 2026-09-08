@@ -11,7 +11,7 @@ const Header = ({ className }: HeaderProps) => {
   return (
     <View
       className={cn(
-        'pt-safe-offset-10 flex w-full flex-row justify-between gap-2.5 px-5 pb-5',
+        'pt-safe-offset-10 flex w-full flex-row justify-between gap-2.5 border-b border-border px-5 pb-5',
         className
       )}>
       <Image src={user.profilePicture ?? ''} className="h-14 w-14 rounded-full" />
