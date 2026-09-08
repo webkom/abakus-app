@@ -1,10 +1,10 @@
 import Icon from '@/components/icon';
 import AutoHeightImage from '@/components/ui/auto-height-image';
 import { components } from '@/lib/types/schema';
-import { View } from '@rn-primitives/slot';
+import { View } from 'react-native';
 
 type HeroSectionProps = {
-  event?: components['schemas']['EventRead'];
+  event?: components['schemas']['EventReadUserDetailed'];
 };
 export function HeroSection({ event }: HeroSectionProps) {
   return (

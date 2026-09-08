@@ -1,6 +1,6 @@
 // --- Meta Types ---
 
-import { User } from './user';
+import { components } from './schema';
 
 export enum SocketEventType {
   RegistrationSuccess = 'Event.SOCKET_REGISTRATION.SUCCESS',
@@ -51,14 +51,14 @@ export interface UnregistrationMeta extends BaseMeta {
 
 export interface RegistrationPayload {
   id: number;
-  user: User;
+  user: components['schemas']['CurrentUser'];
   pool: number;
   status: RegistrationStatus.SuccessRegister;
 }
 
 export interface UnregistrationPayload {
   id: number;
-  user: User;
+  user: components['schemas']['CurrentUser'];
   pool: null; // Pool is null on unregistration in your example
   status: RegistrationStatus.SuccessUnregister;
 }
