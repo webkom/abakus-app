@@ -9,13 +9,16 @@ import {
   PenaltyWarningCard,
   TitleSection,
 } from '@/components/screens/event/event-page';
+import BusinessDetails from '@/components/screens/event/event-page/business-details';
 import RegistrationPools from '@/components/screens/event/event-page/registration-pools';
 import { HeroSection } from '@/components/screens/event/hero-section';
 import { Turnstile } from '@/components/screens/event/turnstile';
 import { Text } from '@/components/ui/text';
 import { useEventAttendance } from '@/hooks/useEventAttendance';
 import { useRegistrationEligibility } from '@/hooks/useRegistrationEligibility';
+import { useCompany } from '@/lib/hooks/useCompany';
 import { useEvent } from '@/lib/hooks/useEvent';
+import { components } from '@/lib/types/schema';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { AnimatePresence, MotiView } from 'moti';
@@ -158,6 +161,11 @@ export default function EventsPage() {
               waitingRegistrationCount={event?.waitingRegistrationCount}
               mergeTime={event?.mergeTime}
             />
+            {event?.company !== undefined && (
+              <BusinessDetails
+                company={event.company as unknown as components['schemas']['CompanyDetail']}
+              />
+            )}
 
             {canSignUp && (
               <Turnstile

@@ -39,7 +39,7 @@ export const setupWebSocketServer = async (
     };
 
     ws.onerror = (error) => {
-      console.log('[WebSocket] Connection error:', error);
+      console.log('[WebSocket] Connection error');
     };
 
     ws.onmessage = (event) => {

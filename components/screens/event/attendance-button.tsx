@@ -42,9 +42,9 @@ export function AttendanceButton({
       ) : isUserSignedUp ? (
         <View className="flex-row items-center gap-2">
           <MotiView animate={{ rotate: `${scroll}deg` }}>
-            <Icon name="X" className="text-primary-foreground" size={18} />
+            <Icon name="X" className="text-secondary-foreground" size={18} />
           </MotiView>
-          <Text className="text-lg font-bold text-primary-foreground">Meld deg av</Text>
+          <Text className="text-lg font-bold text-secondary-foreground">Meld deg av</Text>
         </View>
       ) : (
         <View className="flex-row items-center gap-2">
