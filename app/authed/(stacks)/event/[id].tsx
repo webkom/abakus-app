@@ -76,13 +76,13 @@ export default function EventsPage() {
     setScroll(offset);
   }, []);
 
-  const handleSignUp = useCallback(() => {
+  const handleSignUp = useCallback<() => Promise<void> | undefined>(() => {
     if (!turnstileToken) {
       Alert.alert('Verifikasjon ikke fullført', 'Vennligst prøv igjen senere.');
       return;
     }
 
-    void signUp
+    return signUp
       .mutateAsync({
         params: { path: { eventPk: eventId } },
         body: { feedback: '', captchaResponse: turnstileToken, id: eventId as unknown as number },
@@ -90,7 +90,7 @@ export default function EventsPage() {
       .catch((error) => {
         console.error('Error during sign up:', error);
         Alert.alert('Påmelding mislyktes', 'Vennligst prøv igjen senere.');
-      });
+      }) as Promise<void>;
   }, [signUp, turnstileToken, eventId]);
 
   const handleSignOff = useCallback(() => {
