@@ -8,7 +8,7 @@ interface Pool {
   name: string;
   capacity?: number;
   registrationCount?: number | string;
-  registrations?: Array<{
+  registrations?: {
     id?: number;
     user?: {
       fullName?: string;
@@ -16,7 +16,7 @@ interface Pool {
       grade?: string;
       abakusGroup?: { name?: string };
     };
-  }>;
+  }[];
 }
 
 interface PoolsSectionProps {
@@ -56,26 +56,26 @@ export const PoolsSection: React.FC<PoolsSectionProps> = ({
         const isExpanded = expandedPoolId === pool.id;
         const capacity = Number(pool.capacity) || 0;
         const registrationCount = Number(pool.registrationCount) || 0;
-        const percentage = capacity > 0 ? Math.min(100, Math.round((registrationCount / capacity) * 100)) : 0;
+        const percentage =
+          capacity > 0 ? Math.min(100, Math.round((registrationCount / capacity) * 100)) : 0;
         const isFull = capacity > 0 && registrationCount >= capacity;
         const registrations = pool.registrations || [];
 
         return (
-          <Card key={pool.id} className="p-4 bg-background border border-gray-200">
+          <Card key={pool.id} className="border border-gray-200 bg-background p-4">
             <TouchableOpacity
               onPress={() => toggleExpand(pool.id)}
-              className="flex-row items-center justify-between"
-            >
+              className="flex-row items-center justify-between">
               <View className="flex-1 pr-2">
                 <View className="flex-row items-center gap-2">
                   <Text className="text-base font-semibold text-gray-900">{pool.name}</Text>
                   {isFull && (
-                    <Text className="text-xs font-medium text-red-600 bg-red-50 px-2 py-0.5 rounded">
+                    <Text className="rounded bg-red-50 px-2 py-0.5 text-xs font-medium text-red-600">
                       Fullt
                     </Text>
                   )}
                 </View>
-                <Text className="text-xs text-gray-500 mt-0.5">
+                <Text className="mt-0.5 text-xs text-gray-500">
                   {registrationCount} / {capacity} plasser tatt
                 </Text>
               </View>
@@ -105,11 +105,13 @@ export const PoolsSection: React.FC<PoolsSectionProps> = ({
               <View className="mt-4 border-t border-gray-100 pt-3">
                 {registrations.length > 0 ? (
                   <View className="gap-2">
-                    <Text className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                    <Text className="text-xs font-semibold uppercase tracking-wider text-gray-500">
                       Deltakere ({registrations.length})
                     </Text>
                     {registrations.map((reg, idx) => (
-                      <View key={reg.id || idx} className="flex-row items-center justify-between py-1">
+                      <View
+                        key={reg.id || idx}
+                        className="flex-row items-center justify-between py-1">
                         <Text className="text-sm font-medium text-gray-800">
                           {reg.user?.fullName || reg.user?.username || 'Anonym bruker'}
                         </Text>
@@ -120,7 +122,9 @@ export const PoolsSection: React.FC<PoolsSectionProps> = ({
                     ))}
                   </View>
                 ) : (
-                  <Text className="text-sm text-gray-500 italic">Ingen påmeldte i denne gruppen ennå.</Text>
+                  <Text className="text-sm italic text-gray-500">
+                    Ingen påmeldte i denne gruppen ennå.
+                  </Text>
                 )}
               </View>
             )}

@@ -12,6 +12,7 @@ import { useColorScheme } from 'nativewind';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import 'react-native-reanimated';
 import '../global.css';
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 
 const queryClient = new QueryClient();
 
@@ -27,17 +28,19 @@ const Layout = () => {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider value={NAV_THEME[colorScheme ?? 'light']}>
         <GestureHandlerRootView className="flex-1 bg-background">
-          <PortalProvider>
-            <PushNotificationsProvider isLoggedIn={user?.id !== undefined}>
-              <Stack
-                screenOptions={{
-                  headerShown: false,
-                }}
-              />
+          <BottomSheetModalProvider>
+            <PortalProvider>
+              <PushNotificationsProvider isLoggedIn={user?.id !== undefined}>
+                <Stack
+                  screenOptions={{
+                    headerShown: false,
+                  }}
+                />
 
-              <PortalHost />
-            </PushNotificationsProvider>
-          </PortalProvider>
+                <PortalHost />
+              </PushNotificationsProvider>
+            </PortalProvider>
+          </BottomSheetModalProvider>
         </GestureHandlerRootView>
       </ThemeProvider>
     </QueryClientProvider>

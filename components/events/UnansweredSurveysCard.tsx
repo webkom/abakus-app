@@ -28,19 +28,17 @@ export const UnansweredSurveysCard: React.FC<UnansweredSurveysCardProps> = ({
       <View className="flex-row items-start gap-3">
         <Icon name="TriangleAlert" size={24} className="mt-0.5 text-red-600" />
         <View className="flex-1">
-          <Text className="text-base font-bold text-red-800">
-            Ubesvarte spørreundersøkelser
-          </Text>
+          <Text className="text-base font-bold text-red-800">Ubesvarte spørreundersøkelser</Text>
           <Text className="mt-1 text-sm text-red-700">
-            Du kan ikke melde deg {isRegistered ? 'av' : 'på'} dette arrangementet fordi du har ubesvarte spørreundersøkelser.
+            Du kan ikke melde deg {isRegistered ? 'av' : 'på'} dette arrangementet fordi du har
+            ubesvarte spørreundersøkelser.
           </Text>
           <View className="mt-3 flex-col gap-2">
             {unansweredSurveys.map((surveyId, index) => (
               <TouchableOpacity
                 key={surveyId}
                 onPress={() => handleOpenSurvey(surveyId)}
-                className="flex-row items-center gap-2 rounded-lg bg-red-100 px-3 py-2 active:bg-red-200"
-              >
+                className="flex-row items-center gap-2 rounded-lg bg-red-100 px-3 py-2 active:bg-red-200">
                 <Icon name="ClipboardList" size={16} className="text-red-700" />
                 <Text className="text-sm font-semibold text-red-800">
                   Besvar undersøkelse {index + 1}

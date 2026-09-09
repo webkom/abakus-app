@@ -22,12 +22,12 @@ const OnboardingPage = () => {
         </Text>
         <View className="flex w-full flex-row flex-wrap gap-5">
           <View className="flex  min-h-[250px] w-full flex-row gap-5">
-            <Card title={'Bla gjennom arrangementer'} className="flex-1 bg-primary-container/60">
+            <Card title={'Bla gjennom arrangementer'} className="bg-primary-container/60 flex-1">
               <Text className="text-xl leading-tight">
                 Meld deg enkelt på arrangementer gjennom appen
               </Text>
             </Card>
-            <Card title={'Aba-ID lett tilgjengelig'} className="flex-1 bg-primary-container/60">
+            <Card title={'Aba-ID lett tilgjengelig'} className="bg-primary-container/60 flex-1">
               <Text className="text-xl leading-tight">
                 Ha Aba-IDen din klar for kontroll til enhver tid
               </Text>
@@ -43,7 +43,7 @@ const OnboardingPage = () => {
         <Link href="/authed/(tabs)/events" asChild>
           <Button size="lg" className="w-full max-w-[300px] rounded-full">
             <MoveRightIcon className="text-on-primary" color={'#FFFFFF'} />
-            <Text className="text-lg font-semibold text-on-primary">Til hjemskjermen</Text>
+            <Text className="text-on-primary text-lg font-semibold">Til hjemskjermen</Text>
           </Button>
         </Link>
       </SafeAreaView>

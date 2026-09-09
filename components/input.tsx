@@ -15,20 +15,20 @@ const Input = ({ error, label, inputProps, className, ...props }: InputProps) =>
         <View className="absolute flex h-full w-full flex-row rounded-3xl">
           <View
             className={cn(
-              'h-full w-7 rounded-bl-3xl rounded-tl-3xl border-2 border-r-0 border-outline',
+              'border-outline h-full w-7 rounded-bl-3xl rounded-tl-3xl border-2 border-r-0',
               error ? 'border-error' : undefined
             )}
           />
           <View
             className={cn(
-              'h-full flex-col justify-between border-b-2 border-outline',
+              'border-outline h-full flex-col justify-between border-b-2',
               label === undefined ? 'border-t-2' : undefined,
               error ? 'border-error' : undefined
             )}>
             {label && (
               <Text
                 className={cn(
-                  'z-20 -translate-y-1/2 px-2.5 font-semibold text-outline',
+                  'text-outline z-20 -translate-y-1/2 px-2.5 font-semibold',
                   error ? 'text-error' : undefined
                 )}>
                 {label}
@@ -37,13 +37,13 @@ const Input = ({ error, label, inputProps, className, ...props }: InputProps) =>
           </View>
           <View
             className={cn(
-              'h-full flex-1 rounded-br-3xl rounded-tr-3xl border-2 border-l-0 border-outline',
+              'border-outline h-full flex-1 rounded-br-3xl rounded-tr-3xl border-2 border-l-0',
               error ? 'border-error' : undefined
             )}
           />
         </View>
         <TextInput
-          className="h-16 overflow-hidden rounded-3xl bg-background/10 px-5 text-on-background"
+          className="text-on-background h-16 overflow-hidden rounded-3xl bg-background/10 px-5"
           selectionColor={'#904a4b'}
           {...inputProps}
         />

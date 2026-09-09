@@ -1,7 +1,7 @@
 import Button from '@/components/button';
 import Card from '@/components/card';
 import Input from '@/components/input';
-import { useSignIn, } from '@/lib/hooks/useAuth';
+import { useSignIn } from '@/lib/hooks/useAuth';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
@@ -54,7 +54,7 @@ const SignInPage = () => {
         />
         <View className="bottom-safe-offset-10 absolute flex w-full flex-col items-center gap-5">
           {/* This is just temporary, for easy debugging and stuff */}
-          <Text className="mt-10 w-full text-center text-lg font-semibold text-on-background">
+          <Text className="text-on-background mt-10 w-full text-center text-lg font-semibold">
             Laget med 🌚 av Webkom
           </Text>
         </View>
@@ -111,7 +111,7 @@ const SignInPage = () => {
           onPress={() => {
             form.handleSubmit(handleSubmit)();
           }}>
-          <Text className="text-xl font-semibold text-on-primary">
+          <Text className="text-on-primary text-xl font-semibold">
             {auth.isPending && <ActivityIndicator color="#FFFFFF" size="large" />}
             {!auth.isPending && 'Logg inn'}
           </Text>

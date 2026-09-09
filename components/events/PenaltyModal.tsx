@@ -18,12 +18,7 @@ export const PenaltyModal: React.FC<PenaltyModalProps> = ({
   showPenaltyNotice = false,
 }) => {
   return (
-    <Modal
-      transparent
-      animationType="fade"
-      visible={visible}
-      onRequestClose={onClose}
-    >
+    <Modal transparent animationType="fade" visible={visible} onRequestClose={onClose}>
       <View className="flex-1 items-center justify-center bg-black/50 px-5">
         <View className="w-full max-w-sm rounded-2xl bg-background p-6 shadow-xl">
           <View className="flex-row items-center gap-3">
@@ -38,9 +33,9 @@ export const PenaltyModal: React.FC<PenaltyModalProps> = ({
           </Text>
 
           {showPenaltyNotice && (
-            <View className="mt-3 flex-row items-center gap-2 rounded-xl bg-amber-50 p-3 border border-amber-200">
+            <View className="mt-3 flex-row items-center gap-2 rounded-xl border border-amber-200 bg-amber-50 p-3">
               <Icon name="TriangleAlert" size={18} className="text-amber-600" />
-              <Text className="text-sm font-semibold text-amber-800 flex-1">
+              <Text className="flex-1 text-sm font-semibold text-amber-800">
                 NB: Avregistrering etter fristen medfører én prikk!
               </Text>
             </View>
@@ -50,16 +45,14 @@ export const PenaltyModal: React.FC<PenaltyModalProps> = ({
             <TouchableOpacity
               onPress={onClose}
               disabled={isPending}
-              className="flex-1 items-center justify-center rounded-xl bg-gray-200 py-3 active:bg-gray-300"
-            >
+              className="flex-1 items-center justify-center rounded-xl bg-gray-200 py-3 active:bg-gray-300">
               <Text className="font-semibold text-gray-800">Avbryt</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
               onPress={onConfirm}
               disabled={isPending}
-              className="flex-1 flex-row items-center justify-center gap-2 rounded-xl bg-red-600 py-3 active:bg-red-700"
-            >
+              className="flex-1 flex-row items-center justify-center gap-2 rounded-xl bg-red-600 py-3 active:bg-red-700">
               {isPending ? (
                 <ActivityIndicator size="small" color="#ffffff" />
               ) : (
