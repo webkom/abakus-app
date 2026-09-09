@@ -18,7 +18,8 @@ export function DescriptionSection({ description, className }: DescriptionSectio
 
   const cleanDescription = description.trim();
   const isLong = cleanDescription.length > 250;
-  const previewText = isLong && !isExpanded ? `${cleanDescription.slice(0, 240)}...` : cleanDescription;
+  const previewText =
+    isLong && !isExpanded ? `${cleanDescription.slice(0, 240)}...` : cleanDescription;
 
   return (
     <View className={`gap-2.5 ${className ?? ''}`}>

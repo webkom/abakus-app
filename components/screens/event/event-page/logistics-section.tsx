@@ -33,7 +33,8 @@ export function LogisticsSection({ event }: LogisticsSectionProps) {
                 {format(startTime, 'EEEE d. MMMM', { locale: nb })}
               </Text>
               <Text className="text-base text-foreground">
-                kl. {format(startTime, 'HH:mm', { locale: nb })} - {format(endTime, 'HH:mm', { locale: nb })}
+                kl. {format(startTime, 'HH:mm', { locale: nb })} -{' '}
+                {format(endTime, 'HH:mm', { locale: nb })}
               </Text>
             </View>
           </View>
@@ -61,7 +62,9 @@ export function LogisticsSection({ event }: LogisticsSectionProps) {
                   href={`https://use.mazemap.com/#v=1&sharepoitype=poi&sharepoi=${event.mazemapPoi}`}
                   asChild>
                   <TouchableOpacity className="mt-1 flex-row items-center gap-1">
-                    <Text className="text-sm font-medium text-primary underline">Finn frem i MazeMap</Text>
+                    <Text className="text-sm font-medium text-primary underline">
+                      Finn frem i MazeMap
+                    </Text>
                     <Icon name="ArrowUpRight" size={14} className="text-primary" />
                   </TouchableOpacity>
                 </Link>

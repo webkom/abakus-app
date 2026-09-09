@@ -12,7 +12,7 @@ const config: ExpoConfig = {
   experiments: {
     tsconfigPaths: true,
   },
-  plugins: ['expo-router', 'expo-font', 'expo-notifications'],
+  plugins: ['expo-router', 'expo-font', 'expo-notifications', 'expo-audio'],
   orientation: 'portrait',
   icon: './assets/icon.png',
   userInterfaceStyle: 'light',
