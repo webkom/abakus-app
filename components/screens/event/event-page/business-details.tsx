@@ -121,10 +121,6 @@ export function BusinessDetails({ company, className }: BusinessDetailsProps) {
           {/* Contact Details & Quick Links */}
           {hasContactInfo && (
             <View className="gap-2 border-t border-border pt-3">
-              <Text className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                Kontaktinformasjon
-              </Text>
-
               <View className="gap-2">
                 {company.website && (
                   <TouchableOpacity
