@@ -1,22 +1,18 @@
-import Header from '@/components/header';
-import Icon from '@/components/icon';
 import { DescriptionSection } from '@/components/screens/event/description-section';
 import {
+  BusinessDetails,
   ErrorState,
   EventActionBar,
+  EventNotices,
+  EventQuickFacts,
   LoadingState,
-  LogisticsSection,
-  PenaltyWarningCard,
+  RegistrationPools,
   TitleSection,
 } from '@/components/screens/event/event-page';
-import BusinessDetails from '@/components/screens/event/event-page/business-details';
-import RegistrationPools from '@/components/screens/event/event-page/registration-pools';
 import { HeroSection } from '@/components/screens/event/hero-section';
 import { Turnstile } from '@/components/screens/event/turnstile';
-import { Text } from '@/components/ui/text';
 import { useEventAttendance } from '@/hooks/useEventAttendance';
 import { useRegistrationEligibility } from '@/hooks/useRegistrationEligibility';
-import { useCompany } from '@/lib/hooks/useCompany';
 import { useEvent } from '@/lib/hooks/useEvent';
 import { components } from '@/lib/types/schema';
 import { useLocalSearchParams, useRouter } from 'expo-router';
@@ -29,11 +25,12 @@ import {
   NativeScrollEvent,
   NativeSyntheticEvent,
   ScrollView,
-  TouchableOpacity,
   View,
 } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function EventsPage() {
+  const insets = useSafeAreaInsets();
   const { id } = useLocalSearchParams<{ id?: string | string[] }>();
   const { data: registrationEligibilityData } = useRegistrationEligibility(id?.toString() ?? '');
   const eventId = useMemo(() => {
@@ -43,6 +40,8 @@ export default function EventsPage() {
 
     return id ?? '';
   }, [id]);
+
+  console.log(registrationEligibilityData);
 
   const router = useRouter();
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
@@ -63,7 +62,6 @@ export default function EventsPage() {
   } = useEventAttendance({ id: eventId });
 
   const canSignUp = registrationEligibilityData?.canRegisterNow;
-  const showPenaltyWarning = Boolean(totalCurrentPenalties && !isUserSignedUp && !isLoading);
   const isAttendanceButtonLoading = signUp.status === 'pending' || isLoading || !turnstileToken;
 
   const handleBack = useCallback(() => {
@@ -110,9 +108,8 @@ export default function EventsPage() {
   }
 
   return (
-    <View className="flex-1 bg-background pb-20">
+    <View className="flex-1 bg-background">
       <StatusBar style="auto" />
-      <Header />
 
       <View className="flex-1 overflow-hidden">
         <AnimatePresence>
@@ -132,41 +129,50 @@ export default function EventsPage() {
 
         <ScrollView
           onScroll={handleScroll}
+          scrollEventThrottle={16}
           className="flex-1"
-          contentContainerStyle={{ paddingBottom: 120 }}
+          contentContainerStyle={{ paddingBottom: 140 }}
           showsVerticalScrollIndicator={false}>
-          <View className="flex-col gap-6 px-5 pt-2">
-            <TouchableOpacity onPress={handleBack} className="flex-row items-center gap-2 py-2">
-              <Icon name="ArrowLeft" size={20} className="text-primary" />
-              <Text className="font-medium text-primary">Tilbake</Text>
-            </TouchableOpacity>
+          <View className="flex-col gap-6 px-4" style={{ paddingTop: Math.max(insets.top, 12) }}>
+            {/* Hero Cover with floating back and share buttons */}
+            <HeroSection event={event} onBack={handleBack} />
 
-            <HeroSection event={event} />
-            <TitleSection
+            {/* Event Category Badge, Title & Host Attribution */}
+            <TitleSection event={event} />
+
+            {/* Unified Notices (Penalty warning, Registration opening countdown, Unregistration deadline) */}
+            <EventNotices
+              event={event}
+              totalCurrentPenalties={totalCurrentPenalties}
+              canSignUp={Boolean(canSignUp)}
+              isUserSignedUp={isUserSignedUp}
+            />
+
+            {/* 2x2 Quick Facts Grid (Tid, Sted/MazeMap, Pris, Kapasitet) */}
+            <EventQuickFacts
               event={event}
               attendeesCount={attendees.length}
               totalCapacity={totalCapacity}
             />
 
-            <AnimatePresence>
-              {showPenaltyWarning && canSignUp && (
-                <PenaltyWarningCard totalCurrentPenalties={totalCurrentPenalties} />
-              )}
-            </AnimatePresence>
-
-            <LogisticsSection event={event} />
+            {/* Event Description Section */}
             <DescriptionSection description={event?.description as string | undefined} />
+
+            {/* Registration Pools & Capacity Progress Bars */}
             <RegistrationPools
               pools={event?.pools}
               waitingRegistrationCount={event?.waitingRegistrationCount}
               mergeTime={event?.mergeTime}
             />
+
+            {/* Company Details if applicable */}
             {event?.company !== undefined && (
               <BusinessDetails
                 company={event.company as unknown as components['schemas']['CompanyDetail']}
               />
             )}
 
+            {/* Captcha verification */}
             {canSignUp && (
               <Turnstile
                 onTokenReceived={(token) => {
@@ -177,8 +183,8 @@ export default function EventsPage() {
           </View>
         </ScrollView>
       </View>
-      {/* <Textarea placeholder="Feedback til arrangementsansvarlig" /> */}
 
+      {/* Fixed bottom action bar with AttendanceButton - kept exactly as required */}
       <EventActionBar
         canSignUp={canSignUp ?? false}
         turnstileToken={turnstileToken}

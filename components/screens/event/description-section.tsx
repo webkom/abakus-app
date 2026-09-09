@@ -1,46 +1,55 @@
-import Icon from '@/components/icon';
-import { Button } from '@/components/ui/button';
+import React, { useState } from 'react';
+import { TouchableOpacity, View } from 'react-native';
+import { Card, CardContent } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
-import { useState } from 'react';
-import { View } from 'react-native';
+import Icon from '@/components/icon';
 
 type DescriptionSectionProps = {
   description?: string;
+  className?: string;
 };
 
-export function DescriptionSection({ description }: DescriptionSectionProps) {
-  const [showFullDescription, setShowFullDescription] = useState(false);
+export function DescriptionSection({ description, className }: DescriptionSectionProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  if (!description || description.trim() === '') {
+    return null;
+  }
+
+  const cleanDescription = description.trim();
+  const isLong = cleanDescription.length > 250;
+  const previewText = isLong && !isExpanded ? `${cleanDescription.slice(0, 240)}...` : cleanDescription;
 
   return (
-    <View className="mb-6 gap-3">
-      <Text className="text-xl font-bold text-foreground">Om arrangementet</Text>
-      {!showFullDescription && (
-        <>
-          <Text className="text-base leading-7 text-muted-foreground">{description}</Text>
-          <Button variant="outline" onPress={() => setShowFullDescription(true)}>
-            <Text>Vis mer</Text>
-            <Icon name="ChevronDown" className="text-secondary-foreground" size={16} />
-          </Button>
-        </>
-      )}
-      {showFullDescription && (
-        <>
-          <View className="overflow-hidden">
-            <Text className="text-base leading-7 text-muted-foreground">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque perferendis, debitis
-              omnis dolor architecto repudiandae soluta voluptatem ad dolorum dolore in illo quo ut
-              saepe consequuntur nulla iste id pariatur. {description} Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Dolorem nemo doloribus voluptas debitis dolore aperiam.
-              Laudantium, quisquam. Accusamus minus commodi, amet rem dolor suscipit magni neque
-              blanditiis placeat eligendi facilis.
-            </Text>
-          </View>
-          <Button variant="outline" onPress={() => setShowFullDescription(false)}>
-            <Text>Vis mindre</Text>
-            <Icon name="ChevronUp" className="text-secondary-foreground" size={16} />
-          </Button>
-        </>
-      )}
+    <View className={`gap-2.5 ${className ?? ''}`}>
+      <View className="flex-row items-center gap-2 px-1">
+        <Icon name="FileText" size={18} className="text-primary" />
+        <Text className="text-lg font-bold text-foreground">Om arrangementet</Text>
+      </View>
+
+      <Card className="border-border bg-card py-4">
+        <CardContent className="gap-3">
+          <Text className="text-sm leading-6 text-muted-foreground">{previewText}</Text>
+
+          {isLong && (
+            <TouchableOpacity
+              activeOpacity={0.7}
+              onPress={() => setIsExpanded(!isExpanded)}
+              className="flex-row items-center gap-1 self-start pt-1">
+              <Text className="text-xs font-semibold text-primary">
+                {isExpanded ? 'Vis mindre' : 'Les hele beskrivelsen'}
+              </Text>
+              <Icon
+                name={isExpanded ? 'ChevronUp' : 'ChevronDown'}
+                size={14}
+                className="text-primary"
+              />
+            </TouchableOpacity>
+          )}
+        </CardContent>
+      </Card>
     </View>
   );
 }
+
+export default DescriptionSection;

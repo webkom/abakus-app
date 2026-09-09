@@ -57,7 +57,7 @@ export function AttendanceButton({
           transition={{ type: 'spring' }}>
           <Button
             size="lg"
-            className={cn('h-full w-full text-nowrap rounded-full shadow-md', '')}
+            className={cn('h-16 w-full text-nowrap rounded-full shadow-md', '')}
             variant={isUserSignedUp ? 'destructive' : 'default'}
             disabled={isLoading}
             onPress={handlePress}>

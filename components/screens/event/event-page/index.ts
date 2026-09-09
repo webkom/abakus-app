@@ -5,4 +5,7 @@ export { LogisticsSection } from './logistics-section';
 export { PenaltyWarningCard } from './penalty-warning-card';
 export { RegistrationPools } from './registration-pools';
 export { TitleSection } from './title-section';
-
+export { EventCategoryBadge } from './event-category-badge';
+export { EventQuickFacts } from './event-quick-facts';
+export { EventNotices } from './event-notices';
+export { BusinessDetails } from './business-details';
