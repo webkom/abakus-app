@@ -3879,6 +3879,9 @@ export interface components {
             activities: components["schemas"]["FeedActivity"][];
             activityCount: number;
             actorIds: string[];
+            readonly context: {
+                [key: string]: unknown;
+            };
         };
         AggregatedMarkedFeed: {
             id: number;
@@ -3892,6 +3895,9 @@ export interface components {
             activities: components["schemas"]["FeedActivity"][];
             activityCount: number;
             actorIds: string[];
+            readonly context: {
+                [key: string]: unknown;
+            };
             read: boolean;
             seen: boolean;
         };
