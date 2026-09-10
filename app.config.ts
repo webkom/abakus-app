@@ -35,7 +35,7 @@ const config: ExpoConfig = {
       backgroundColor: '#ffffff',
     },
     package: 'no.abakus.app',
-    googleServicesFile: process.env.GOOGLE_SERVICES_JSON ?? './google-services.json',
+    googleServicesFile: process.env.GOOGLE_SERVICES_JSON,
   },
   extra: {
     router: {},
