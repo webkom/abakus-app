@@ -1,5 +1,4 @@
 import { ActivityIndicator, FlatList, RefreshControl, View } from 'react-native';
-import { useNotificationsFeed } from '@/lib/hooks/useNotificationFeed';
 import { ActivityRenderer } from '@/components/screens/notification-feed/types';
 import AnnouncementRenderer from '@/components/screens/notification-feed/renderers/announcement';
 import MeetingInvitationRenderer from '@/components/screens/notification-feed/renderers/meeting-invitation';
@@ -9,6 +8,8 @@ import PenaltyRenderer from '@/components/screens/notification-feed/renderers/pe
 import Header from '@/components/header';
 import Activity from '@/components/screens/notification-feed/activity';
 import { Text } from '@/components/ui/text';
+import { useMarkAllNotifications, useNotificationsFeed } from '@/lib/hooks/useNotificationsFeed';
+import { useEffect } from 'react';
 
 const activityRenderers: Record<string, ActivityRenderer> = {
   announcement: AnnouncementRenderer,
@@ -21,6 +22,11 @@ const activityRenderers: Record<string, ActivityRenderer> = {
 
 const Feed = () => {
   const { data, isLoading, isError, refetch, isRefetching } = useNotificationsFeed();
+  const markAllNotifications = useMarkAllNotifications();
+
+  useEffect(() => {
+    markAllNotifications.mutate({ body: { read: true, seen: true } });
+  }, []);
 
   if (isLoading) {
     return (
