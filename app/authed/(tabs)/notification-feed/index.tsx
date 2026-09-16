@@ -9,7 +9,8 @@ import Header from '@/components/header';
 import Activity from '@/components/screens/notification-feed/activity';
 import { Text } from '@/components/ui/text';
 import { useMarkAllNotifications, useNotificationsFeed } from '@/lib/hooks/useNotificationsFeed';
-import { useEffect } from 'react';
+import { useCallback } from 'react';
+import { useFocusEffect } from 'expo-router';
 
 const activityRenderers: Record<string, ActivityRenderer> = {
   announcement: AnnouncementRenderer,
@@ -24,9 +25,12 @@ const Feed = () => {
   const { data, isLoading, isError, refetch, isRefetching } = useNotificationsFeed();
   const markAllNotifications = useMarkAllNotifications();
 
-  useEffect(() => {
-    markAllNotifications.mutate({ body: { read: true, seen: true } });
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      refetch();
+      markAllNotifications.mutate({ body: { read: true, seen: true } });
+    }, [refetch])
+  );
 
   if (isLoading) {
     return (
@@ -47,7 +51,7 @@ const Feed = () => {
 
   return (
     <>
-      <Header className="mb-7 bg-background" />
+      <Header className="bg-background" />
       <FlatList
         data={data.results ?? []}
         keyExtractor={(item) => String(item.id)}
