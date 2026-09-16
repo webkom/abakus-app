@@ -1,7 +1,7 @@
 import { components } from '@/lib/types/schema';
 import type { ReactElement } from 'react';
 
-export type AggregatedFeedItem = components['schemas']['AggregatedMarkedFeed'];
+export type AggregatedFeedItem = components['schemas']['AggregatedFeed'];
 export type FeedActivity = components['schemas']['FeedActivity'];
 
 export type ContextValue = { contentType?: string; [key: string]: any };
