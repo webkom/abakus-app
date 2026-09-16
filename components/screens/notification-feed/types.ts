@@ -4,7 +4,7 @@ import type { ReactElement } from 'react';
 export type AggregatedFeedItem = components['schemas']['AggregatedMarkedFeed'];
 export type FeedActivity = components['schemas']['FeedActivity'];
 
-export type ContextValue = { contentType?: string;[key: string]: any };
+export type ContextValue = { contentType?: string; [key: string]: any };
 
 export type TagProps = {
   link: string;

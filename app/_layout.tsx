@@ -1,4 +1,3 @@
-import { PixelifySans_400Regular, useFonts } from '@expo-google-fonts/pixelify-sans';
 import { PortalHost } from '@rn-primitives/portal';
 import { PortalProvider } from '@gorhom/portal';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -13,10 +12,6 @@ import { PushNotificationsProvider } from '@/components/PushNotificationsProvide
 const queryClient = new QueryClient();
 
 const Layout = () => {
-  const _ = useFonts({
-    PixelifySans_400Regular,
-  });
-
   const user = useAtomValue(userAtom);
 
   return (

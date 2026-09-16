@@ -29,7 +29,7 @@ const Feed = () => {
     useCallback(() => {
       refetch();
       markAllNotifications.mutate({ body: { read: true, seen: true } });
-    }, [refetch])
+    }, [refetch, markAllNotifications])
   );
 
   if (isLoading) {

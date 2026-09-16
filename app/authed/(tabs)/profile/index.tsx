@@ -1,13 +1,12 @@
 import Button from '@/components/button';
 import Dialog from '@/components/dialog';
 import Icon from '@/components/icon';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import { useSignIn } from '@/lib/hooks/useAuth';
 import { useUser } from '@/lib/hooks/useUser';
-import { RobotoFlex_400Regular, useFonts } from '@expo-google-fonts/roboto-flex';
 import { Link, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { } from 'nativewind';
+import {} from 'nativewind';
 import React, { useState } from 'react';
 import { Image, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -19,9 +18,6 @@ const ProfilePage = () => {
 
   const [show, setShow] = useState(false);
   const router = useRouter();
-  const _ = useFonts({
-    RobotoFlex_400Regular,
-  });
 
   const handleSignOut = () => {
     auth.signOut();

@@ -1,8 +1,7 @@
-import { Pressable } from 'react-native';
+import { Pressable, Linking } from 'react-native';
 import { formatDistanceToNow } from 'date-fns';
 import { nb } from 'date-fns/locale';
 import { router } from 'expo-router';
-import { Linking } from 'react-native';
 import { Text } from '@/components/ui/text';
 import type { ActivityRenderer, AggregatedFeedItem } from './types';
 import { Tag } from './tag';

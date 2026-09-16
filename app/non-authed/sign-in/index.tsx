@@ -1,11 +1,9 @@
 import Button from '@/components/button';
-import Card from '@/components/card';
 import Input from '@/components/input';
 import { useSignIn } from '@/lib/hooks/useAuth';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { MotiView } from 'moti';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { ActivityIndicator, Image, Text, View } from 'react-native';
