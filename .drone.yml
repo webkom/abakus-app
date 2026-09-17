@@ -1,0 +1,30 @@
+---
+kind: pipeline
+type: docker
+name: default
+
+steps:
+  - name: setup
+    image: node:20
+    commands:
+      - npm ci
+
+  - name: lint
+    image: node:20
+    commands:
+      - npm run lint
+
+  - name: typescript
+    image: node:20
+    commands:
+      - npm run typecheck
+
+trigger:
+  event:
+    exclude:
+      - pull_request
+---
+kind: signature
+hmac: 58a7a2191c287822b0d0ac0717c0889dd3441e5ac98ee0761e93c0a60e8f69bf
+
+...
