@@ -1,4 +1,5 @@
 import { z } from 'zod';
+
 const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'production', 'test']),
   EXPO_PUBLIC_API_URL: z.string().url(),
@@ -7,7 +8,10 @@ const envSchema = z.object({
 // Validate the environment variables
 let parsedEnv;
 try {
-  parsedEnv = envSchema.parse(process.env);
+  parsedEnv = envSchema.parse({
+    NODE_ENV: process.env.NODE_ENV,
+    EXPO_PUBLIC_API_URL: process.env.EXPO_PUBLIC_API_URL,
+  });
 } catch (e) {
   throw new Error(`Invalid environment variables: ${e}`);
 }
