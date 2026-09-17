@@ -1,0 +1,57 @@
+---
+kind: pipeline
+type: docker
+name: default
+
+trigger:
+  event:
+    exclude:
+      - pull_request
+
+steps:
+  - name: setup
+    image: node:20
+    when: &checks
+      event: [push]
+      branch:
+        exclude: [build]
+    commands:
+      - npm ci
+
+  - name: lint
+    image: node:20
+    when: *checks
+    depends_on:
+      - setup
+    commands:
+      - npm run lint
+
+  - name: typescript
+    image: node:20
+    when: *checks
+    depends_on:
+      - setup
+    commands:
+      - npm run typecheck
+
+  - name: eas-build
+    image: node:20
+    depends_on:
+      - clone
+    environment:
+      EXPO_TOKEN:
+        from_secret: expo_token
+    commands:
+      - npm ci
+      - npx eas-cli build --platform all --non-interactive --no-wait --profile ${DRONE_DEPLOY_TO}
+    when:
+      event:
+        - promote
+        - rollback
+      branch:
+        - build
+---
+kind: signature
+hmac: 1d1134bced9a0ba21c381b0f0626914e76759d2202922b8abbcf4d4d85cdbd79
+
+...
