@@ -2,6 +2,12 @@
 
 > Mobile app for abakus.no
 
+[![Build Status](https://ci.webkom.dev/api/badges/webkom/abakus-app/status.svg)](https://ci.webkom.dev/webkom/abakus-app)
+
+> **Issues**:
+
+[![open issues](https://badgen.net/github/open-issues/webkom/abakus-app)](https://github.com/webkom/abakus-app/issues)
+
 ## Prerequisites
 
 - Node.js
@@ -44,7 +50,31 @@ Once the build has completed (typically within 10–15 minutes), open the EAS bu
 ## Start the development server
 
 ```bash
-npx expo start --dev-client
+npx expo start
 ```
 
 With the development build installed, open the app on your device and connect to the local Metro server.
+
+## Development
+
+We use some conventions and tools for our development.
+
+- [prettier](https://github.com/prettier/prettier) and [eslint](https://eslint.org/) for formatting and linting.
+  - `npm run lint`
+  - `npm run format`
+- [TypeScript](https://www.typescriptlang.org) for type checking.
+  - `npm run typecheck`
+
+When you open a pull request, CI will automatically run these checks.
+
+## CI/CD
+
+We use [Drone](https://drone.io) as our CI/CD system. The server runs at https://ci.webkom.dev.
+
+Since we use secrets in the pipeline, the pipeline config must be signed. Use the [cli](https://docs.drone.io/cli):
+
+```sh
+drone sign webkom/abakus-app --save
+```
+
+Get your login data from your [user settings](https://ci.webkom.dev/account). Re-run this command any time `.drone.yml` changes.
