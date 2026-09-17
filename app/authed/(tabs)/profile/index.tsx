@@ -47,14 +47,14 @@ const ProfilePage = () => {
 
           <View className="flex-row items-center gap-5">
             {user?.grade && (
-              <Text className="text-lg font-bold text-on-background">{user?.grade}</Text>
+              <Text className="text-on-background text-lg font-bold">{user?.grade}</Text>
             )}
             {user?.isAbakusMember && (
               <>
-                <View className="h-5 w-0.5 bg-on-background/50" />
+                <View className="bg-on-background/50 h-5 w-0.5" />
                 <Text
                   style={{ fontFamily: 'RobotoFlex_400Regular' }}
-                  className="text-lg font-bold text-on-background">
+                  className="text-on-background text-lg font-bold">
                   Abakus
                 </Text>
               </>
@@ -68,7 +68,7 @@ const ProfilePage = () => {
                 className="w-full">
                 <View className="flex w-full flex-row items-center justify-center gap-2.5">
                   <Icon name="ExternalLink" className="text-on-primary" size={18} />
-                  <Text className="text-center text-on-primary">Administrer</Text>
+                  <Text className="text-on-primary text-center">Administrer</Text>
                 </View>
               </Link>
             </Button>
@@ -79,7 +79,7 @@ const ProfilePage = () => {
               list="bottom"
               onPress={() => setShow((prev) => !prev)}>
               <Icon name="LogOut" size={18} className="text-on-error" />
-              <Text className="text-center text-on-error">Logg ut</Text>
+              <Text className="text-on-error text-center">Logg ut</Text>
             </Button>
           </View>
         </View>
@@ -89,7 +89,7 @@ const ProfilePage = () => {
         show={show}
         onDismiss={() => setShow(false)}
         className="flex flex-col items-center justify-evenly">
-        <Text className="mx-auto text-center text-3xl font-bold text-on-background">
+        <Text className="text-on-background mx-auto text-center text-3xl font-bold">
           Er du sikker på at du vil logge ut?
         </Text>
         <View className="w-full flex-col gap-2.5">
@@ -101,7 +101,7 @@ const ProfilePage = () => {
             <Text className="text-xl text-on-primary">Avbryt</Text>
           </Button> */}
           <Button variant="error" className="flex-1 rounded-full" size="lg" onPress={handleSignOut}>
-            <Text className="text-xl text-on-error">Logg ut</Text>
+            <Text className="text-on-error text-xl">Logg ut</Text>
           </Button>
         </View>
       </Dialog>
