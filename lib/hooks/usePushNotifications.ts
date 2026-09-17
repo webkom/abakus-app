@@ -5,6 +5,7 @@ import { Platform } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { fetchClient } from '../services/api';
+import { useQueryClient } from '@tanstack/react-query';
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -73,6 +74,7 @@ export const usePushNotifications = (isLoggedIn: boolean): PushNotificationState
   const isNavigatingRef = useRef(false);
   const checkedColdStartRef = useRef(false);
   const router = useRouter();
+  const queryClient = useQueryClient();
 
   const handleNotificationResponse = useCallback(
     async (response: Notifications.NotificationResponse) => {
@@ -119,6 +121,12 @@ export const usePushNotifications = (isLoggedIn: boolean): PushNotificationState
 
     notificationListener.current = Notifications.addNotificationReceivedListener((notification) => {
       setNotification(notification);
+      queryClient.invalidateQueries({
+        queryKey: ['get', '/api/v1/feed-notifications/notification_data/'],
+      });
+      queryClient.invalidateQueries({
+        queryKey: ['get', '/api/v1/feed-notifications/'],
+      });
     });
     responseListener.current = Notifications.addNotificationResponseReceivedListener(
       handleNotificationResponse
@@ -128,7 +136,7 @@ export const usePushNotifications = (isLoggedIn: boolean): PushNotificationState
       notificationListener.current?.remove();
       responseListener.current?.remove();
     };
-  }, [isLoggedIn, handleNotificationResponse]);
+  }, [isLoggedIn, handleNotificationResponse, queryClient]);
 
   return {
     expoPushToken,

@@ -20,6 +20,38 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  '/api/v1/achievements/grant/': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post: operations['achievementsGrantCreate'];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/api/v1/achievements/grant_bulk/': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post: operations['achievementsGrantBulkCreate'];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   '/api/v1/achievements/keypress_order/': {
     parameters: {
       query?: never;
@@ -52,6 +84,77 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  '/api/v1/achievements/leaderboard/distribution/': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get: operations['achievementsLeaderboardDistributionRetrieve'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/api/v1/achievements/leaderboard/rank_history/': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get: operations['achievementsLeaderboardRankHistoryRetrieve'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/api/v1/achievements/leaderboard/top_climbers/': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * @description Top 5 users by rank improvement over the last 7 days - the same
+     *     rolling window (date__lte=week_ago, most recent snapshot on or
+     *     before that date) as the personal week-ago/month-ago columns on the
+     *     leaderboard, so "top climbers" and "Siste uke" always agree.
+     */
+    get: operations['achievementsLeaderboardTopClimbersRetrieve'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/api/v1/achievements/rarity/': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description % of users who have earned each achievement, per level. */
+    get: operations['achievementsRarityRetrieve'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   '/api/v1/achievements/recheck_all/': {
     parameters: {
       query?: never;
@@ -60,6 +163,42 @@ export interface paths {
       cookie?: never;
     };
     get: operations['achievementsRecheckAllRetrieve'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/api/v1/achievements/revoke/': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post: operations['achievementsRevokeCreate'];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/api/v1/achievements/user_achievements/': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * @description List every achievement a given user currently holds - admin lookup
+     *     for the sudo trophy grant page (mode 1).
+     */
+    get: operations['achievementsUserAchievementsRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -3879,21 +4018,9 @@ export interface components {
       activities: components['schemas']['FeedActivity'][];
       activityCount: number;
       actorIds: string[];
-    };
-    AggregatedMarkedFeed: {
-      id: number;
-      orderingKey: string;
-      verb: string;
-      /** Format: date-time */
-      createdAt: string;
-      /** Format: date-time */
-      updatedAt: string;
-      lastActivity: components['schemas']['FeedActivity'];
-      activities: components['schemas']['FeedActivity'][];
-      activityCount: number;
-      actorIds: string[];
-      read: boolean;
-      seen: boolean;
+      readonly context: {
+        [key: string]: unknown;
+      };
     };
     AnnouncementDetail: {
       readonly id: number;
@@ -4352,7 +4479,6 @@ export interface components {
       coverPlaceholder?: string;
       authors: number[];
       description?: string | null;
-      readonly comments: components['schemas']['Comment'][];
       readonly contentTarget: string;
       /** @default [] */
       tags: components['schemas']['Tag'][];
@@ -4575,7 +4701,6 @@ export interface components {
       eventType: components['schemas']['EventTypeEnum'];
       eventStatusType?: components['schemas']['EventStatusTypeEnum'];
       location: string;
-      readonly comments: components['schemas']['Comment'][];
       readonly contentTarget: string;
       /** Format: date-time */
       startTime: string;
@@ -4823,7 +4948,6 @@ export interface components {
       file: string;
       readonly thumbnail: string;
       readonly rawFile: string;
-      readonly comments: components['schemas']['Comment'][];
       readonly contentTarget: string;
     };
     /**
@@ -4912,8 +5036,6 @@ export interface components {
       options: components['schemas']['HiddenResultsOption'][];
       resultsHidden?: boolean;
       readonly totalVotes: number;
-      readonly comments: components['schemas']['Comment'][];
-      readonly contentTarget: string;
       /** @default [] */
       tags: components['schemas']['Tag'][];
       readonly hasAnswered: string;
@@ -4938,6 +5060,7 @@ export interface components {
      *     * `keypress_order` - keypress_order
      *     * `meeting_hidden` - meeting_hidden
      *     * `penalty_period` - penalty_period
+     *     * `perfect_week` - perfect_week
      *     * `poll_count` - poll_count
      *     * `quote_count` - quote_count
      * @enum {string}
@@ -4957,6 +5080,7 @@ export interface components {
       | 'keypress_order'
       | 'meeting_hidden'
       | 'penalty_period'
+      | 'perfect_week'
       | 'poll_count'
       | 'quote_count';
     ImageGallery: {
@@ -5094,6 +5218,7 @@ export interface components {
       readonly updatedBy: components['schemas']['PublicUser'];
       lendableObject: number;
       status?: components['schemas']['StatusC65Enum'];
+      archived?: boolean;
       comment?: string;
       /** Format: date-time */
       startDate: string;
@@ -5107,6 +5232,7 @@ export interface components {
       readonly updatedBy: components['schemas']['PublicUser'];
       readonly lendableObject: components['schemas']['LendableObject'];
       status?: components['schemas']['StatusC65Enum'];
+      archived?: boolean;
       /** Format: date-time */
       startDate: string;
       /** Format: date-time */
@@ -5117,6 +5243,7 @@ export interface components {
       readonly id: number;
       readonly lendableObject: components['schemas']['LendableObject'];
       status?: components['schemas']['StatusC65Enum'];
+      archived?: boolean;
       /** Format: date-time */
       startDate: string;
       /** Format: date-time */
@@ -5210,6 +5337,10 @@ export interface components {
       startDate?: string | null;
       /** Format: date */
       endDate: string;
+    };
+    NotificationData: {
+      unreadCount: number;
+      unseenCount: number;
     };
     NotificationSetting: {
       readonly notificationType: components['schemas']['NotificationTypeEnum'];
@@ -5368,19 +5499,6 @@ export interface components {
        */
       previous?: string | null;
       results: components['schemas']['AggregatedFeed'][];
-    };
-    PaginatedAggregatedMarkedFeedList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['AggregatedMarkedFeed'][];
     };
     PaginatedAnnouncementListList: {
       /**
@@ -6022,7 +6140,6 @@ export interface components {
       coverPlaceholder?: string;
       authors?: number[];
       description?: string | null;
-      readonly comments?: components['schemas']['Comment'][];
       readonly contentTarget?: string;
       /** @default [] */
       tags: components['schemas']['Tag'][];
@@ -6168,7 +6285,6 @@ export interface components {
       file?: string;
       readonly thumbnail?: string;
       readonly rawFile?: string;
-      readonly comments?: components['schemas']['Comment'][];
       readonly contentTarget?: string;
     };
     PatchedJoblistingCreateAndUpdate: {
@@ -6213,6 +6329,7 @@ export interface components {
       readonly updatedBy?: components['schemas']['PublicUser'];
       lendableObject?: number;
       status?: components['schemas']['StatusC65Enum'];
+      archived?: boolean;
       comment?: string;
       /** Format: date-time */
       startDate?: string;
@@ -6319,11 +6436,7 @@ export interface components {
       pastMemberships?: components['schemas']['PastMembership'][];
       memberships?: components['schemas']['Membership'][];
       achievements?: components['schemas']['Achievement'][];
-      readonly achievementsScore?: string;
-      readonly achievementRank?: number;
-      readonly rankWeekAgo?: number | null;
-      readonly rankMonthAgo?: number | null;
-      readonly eventCount?: number;
+      readonly ranking?: string;
     };
     PatchedQuoteCreateAndUpdate: {
       readonly id?: number;
@@ -6441,8 +6554,6 @@ export interface components {
       resultsHidden?: boolean;
       readonly totalVotes: number;
       tags?: string[];
-      readonly comments: components['schemas']['Comment'][];
-      readonly contentTarget: string;
       readonly hasAnswered: string;
       pinned?: boolean;
     };
@@ -6616,11 +6727,7 @@ export interface components {
       pastMemberships: components['schemas']['PastMembership'][];
       memberships: components['schemas']['Membership'][];
       achievements: components['schemas']['Achievement'][];
-      readonly achievementsScore: string;
-      readonly achievementRank: number;
-      readonly rankWeekAgo: number | null;
-      readonly rankMonthAgo: number | null;
-      readonly eventCount: number;
+      readonly ranking: string;
     };
     Question: {
       readonly id: number;
@@ -7160,6 +7267,52 @@ export interface operations {
       };
     };
   };
+  achievementsGrantCreate: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['KeypressOrder'];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['KeypressOrder'];
+        };
+      };
+    };
+  };
+  achievementsGrantBulkCreate: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['KeypressOrder'];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['KeypressOrder'];
+        };
+      };
+    };
+  };
   achievementsKeypressOrderCreate: {
     parameters: {
       query?: never;
@@ -7205,7 +7358,125 @@ export interface operations {
       };
     };
   };
+  achievementsLeaderboardDistributionRetrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['PublicUserWithGroups'];
+        };
+      };
+    };
+  };
+  achievementsLeaderboardRankHistoryRetrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['PublicUserWithGroups'];
+        };
+      };
+    };
+  };
+  achievementsLeaderboardTopClimbersRetrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['PublicUserWithGroups'];
+        };
+      };
+    };
+  };
+  achievementsRarityRetrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['KeypressOrder'];
+        };
+      };
+    };
+  };
   achievementsRecheckAllRetrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['KeypressOrder'];
+        };
+      };
+    };
+  };
+  achievementsRevokeCreate: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['KeypressOrder'];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['KeypressOrder'];
+        };
+      };
+    };
+  };
+  achievementsUserAchievementsRetrieve: {
     parameters: {
       query?: never;
       header?: never;
@@ -10352,7 +10623,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/json': components['schemas']['PaginatedAggregatedMarkedFeedList'];
+          'application/json': components['schemas']['PaginatedAggregatedFeedList'];
         };
       };
     };
@@ -10420,7 +10691,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/json': components['schemas']['AggregatedMarkedFeed'];
+          'application/json': components['schemas']['NotificationData'];
         };
       };
     };
@@ -11685,6 +11956,7 @@ export interface operations {
   lendingRequestsList: {
     parameters: {
       query?: {
+        archived?: boolean;
         /** @description The pagination cursor value. */
         cursor?: string;
         status?: string;

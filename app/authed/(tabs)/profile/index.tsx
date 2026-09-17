@@ -1,11 +1,9 @@
-import Avatar from '@/components/avatar';
 import Button from '@/components/button';
 import Dialog from '@/components/dialog';
-import Header from '@/components/header';
 import Icon from '@/components/icon';
+import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import { useSignIn } from '@/lib/hooks/useAuth';
 import { useUser } from '@/lib/hooks/useUser';
-import { RobotoFlex_400Regular, useFonts } from '@expo-google-fonts/roboto-flex';
 import { Link, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import {} from 'nativewind';
@@ -20,9 +18,6 @@ const ProfilePage = () => {
 
   const [show, setShow] = useState(false);
   const router = useRouter();
-  const _ = useFonts({
-    RobotoFlex_400Regular,
-  });
 
   const handleSignOut = () => {
     auth.signOut();
@@ -37,7 +32,9 @@ const ProfilePage = () => {
       <StatusBar style="dark" />
       <SafeAreaView className="z-20 h-full w-full px-10 pt-20">
         <View className="mx-auto flex flex-col items-center gap-2.5">
-          <Avatar src={user?.profilePicture ?? ''} />
+          <Avatar alt="Profile Picture">
+            <AvatarImage source={{ uri: user?.profilePicture ?? '' }} />
+          </Avatar>
 
           <Text
             style={{ fontFamily: 'RobotoFlex_400Regular' }}
