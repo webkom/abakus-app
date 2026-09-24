@@ -11,7 +11,9 @@ import {
 } from '@/components/screens/event/event-page';
 import { HeroSection } from '@/components/screens/event/hero-section';
 import { Turnstile } from '@/components/screens/event/turnstile';
+import { Text } from '@/components/ui/text';
 import { useEventAttendance } from '@/hooks/useEventAttendance';
+import { useUnansweredEventSurveys } from '@/hooks/useEventSurveys';
 import { useRegistrationEligibility } from '@/hooks/useRegistrationEligibility';
 import { useEvent } from '@/lib/hooks/useEvent';
 import { components } from '@/lib/types/schema';
@@ -41,14 +43,13 @@ export default function EventsPage() {
     return id ?? '';
   }, [id]);
 
-  console.log(registrationEligibilityData);
-
   const router = useRouter();
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [scroll, setScroll] = useState(0);
 
   const { data: event, isRefetching: refetchingEvent, isError: eventError } = useEvent(eventId);
+  const { unansweredSurveys } = useUnansweredEventSurveys(eventId);
 
   const {
     signUp,
@@ -63,6 +64,7 @@ export default function EventsPage() {
 
   const canSignUp = registrationEligibilityData?.canRegisterNow;
   const isAttendanceButtonLoading = signUp.status === 'pending' || isLoading || !turnstileToken;
+  console.log('Data: ', registrationEligibilityData);
 
   const handleBack = useCallback(() => {
     router.back();
@@ -155,6 +157,10 @@ export default function EventsPage() {
               totalCapacity={totalCapacity}
             />
 
+            {unansweredSurveys.length > 0 && (
+              <Text>Unanswered surveys: {unansweredSurveys.join(', ')}</Text>
+            )}
+
             {/* Event Description Section */}
             <DescriptionSection description={event?.description as string | undefined} />
 
@@ -164,6 +170,13 @@ export default function EventsPage() {
               waitingRegistrationCount={event?.waitingRegistrationCount}
               mergeTime={event?.mergeTime}
             />
+            <Text>
+              {registrationEligibilityData?.reason !== ''
+                ? registrationEligibilityData?.reason === undefined
+                  ? 'undefined'
+                  : registrationEligibilityData?.reason
+                : 'no'}
+            </Text>
 
             {/* Company Details if applicable */}
             {event?.company !== undefined && (
