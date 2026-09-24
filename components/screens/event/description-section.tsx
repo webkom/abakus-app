@@ -3,6 +3,7 @@ import { TouchableOpacity, View } from 'react-native';
 import { Card, CardContent } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
 import Icon from '@/components/icon';
+import SectionTitle from './event-page/section-title';
 
 type DescriptionSectionProps = {
   description?: string;
@@ -23,10 +24,7 @@ export function DescriptionSection({ description, className }: DescriptionSectio
 
   return (
     <View className={`gap-2.5 ${className ?? ''}`}>
-      <View className="flex-row items-center gap-2 px-1">
-        <Icon name="FileText" size={18} className="text-primary" />
-        <Text className="text-lg font-bold text-foreground">Om arrangementet</Text>
-      </View>
+      <SectionTitle title="Om arrangementet" icon="FileText" />
 
       <Card className="border-border bg-card py-4">
         <CardContent className="gap-3">

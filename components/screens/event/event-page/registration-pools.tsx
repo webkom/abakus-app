@@ -7,6 +7,7 @@ import { format, isAfter } from 'date-fns';
 import { nb } from 'date-fns/locale';
 import React, { useState } from 'react';
 import { TouchableOpacity, View } from 'react-native';
+import SectionTitle from './section-title';
 
 export type RegistrationPool = components['schemas']['PoolRead'] & {
   registrations?: {
@@ -65,10 +66,8 @@ export function RegistrationPools({
     <View className={cn('flex flex-col gap-3', className)}>
       {/* Header Section */}
       <View className="flex-row items-center justify-between px-1">
-        <View className="flex-row items-center gap-2">
-          <Icon name="Users" size={20} className="text-primary" />
-          <Text className="text-lg font-bold text-foreground">Påmeldingspooler</Text>
-        </View>
+        <SectionTitle icon="Users" title="Påmeldingspooler" />
+
         <Text className="text-xs font-medium text-muted-foreground">
           {totalRegistered} / {totalCapacity > 0 ? `${totalCapacity}` : '∞'} plasser
         </Text>

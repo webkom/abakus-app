@@ -10,6 +10,7 @@ import { nb } from 'date-fns/locale';
 import { Link } from 'expo-router';
 import { cn } from '@/lib/utils';
 import EventDatetime from './event-datetime';
+import SectionTitle from './section-title';
 
 const MazeMapLogo = require('@/assets/images/mazemaplogo.png');
 
@@ -49,10 +50,7 @@ export function EventQuickFacts({
 
   return (
     <View className={className}>
-      <View className="mb-3 flex-row items-center gap-2">
-        <Icon name="BadgeInfo" size={20} className="text-primary" />
-        <Text className="text-lg font-bold text-foreground">Fire kjappe</Text>
-      </View>
+      <SectionTitle title="Fire kjappe" icon="BadgeInfo" className="mb-3" />
       <View className="flex-row gap-2.5">
         {/* 1. Tidspunkt */}
         <EventDatetime startTime={startTime} endTime={endTime} />
