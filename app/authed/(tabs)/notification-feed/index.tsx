@@ -23,13 +23,13 @@ const activityRenderers: Record<string, ActivityRenderer> = {
 
 const Feed = () => {
   const { data, isLoading, isError, refetch, isRefetching } = useNotificationsFeed();
-  const markAllNotifications = useMarkAllNotifications();
+  const { mutate: markAllRead } = useMarkAllNotifications();
 
   useFocusEffect(
     useCallback(() => {
       refetch();
-      markAllNotifications.mutate({ body: { read: true, seen: true } });
-    }, [refetch, markAllNotifications])
+      markAllRead({ body: { read: true, seen: true } });
+    }, [refetch, markAllRead])
   );
 
   if (isLoading) {
