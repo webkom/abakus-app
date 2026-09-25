@@ -11,6 +11,7 @@ import { Link } from 'expo-router';
 import { cn } from '@/lib/utils';
 import EventDatetime from './event-datetime';
 import SectionTitle from './section-title';
+import InfoCard from './info-card';
 
 const MazeMapLogo = require('@/assets/images/mazemaplogo.png');
 
@@ -100,40 +101,20 @@ export function EventQuickFacts({
 
       <View className="mt-2.5 flex-row gap-2.5">
         {/* 3. Pris */}
-        <Card className="flex-1 border-border bg-card px-0 py-3">
-          <CardContent className="gap-1 px-3.5">
-            <View className="flex-row items-center gap-1.5">
-              <View className="h-6 w-6 items-center justify-center rounded-md bg-primary/10">
-                <Icon name="Ticket" size={14} className="text-primary" />
-              </View>
-              <Text className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
-                Pris
-              </Text>
-            </View>
-            <Text className="text-sm font-bold text-foreground" numberOfLines={1}>
-              {priceDisplay}
-            </Text>
-          </CardContent>
-        </Card>
+        <InfoCard title="Pris" icon="Ticket">
+          <Text className="text-sm font-bold text-foreground" numberOfLines={1}>
+            {priceDisplay}
+          </Text>
+        </InfoCard>
 
         {/* 4. Kapasitet */}
-        <Card className="flex-1 border-border bg-card px-0 py-3">
-          <CardContent className="gap-1 px-3.5">
-            <View className="flex-row items-center gap-1.5">
-              <View className="h-6 w-6 items-center justify-center rounded-md bg-primary/10">
-                <Icon name="Users" size={14} className="text-primary" />
-              </View>
-              <Text className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
-                Kapasitet
-              </Text>
-            </View>
-            <Text className="text-sm font-bold text-foreground" numberOfLines={1}>
-              {totalCapacity !== undefined
-                ? `${attendeesCount} / ${totalCapacity}`
-                : 'Ingen påmelding'}
-            </Text>
-          </CardContent>
-        </Card>
+        <InfoCard title="Kapasitet" icon="Users">
+          <Text className="text-sm font-bold text-foreground" numberOfLines={1}>
+            {totalCapacity !== undefined
+              ? `${attendeesCount} / ${totalCapacity}`
+              : 'Ingen påmelding'}
+          </Text>
+        </InfoCard>
       </View>
     </View>
   );

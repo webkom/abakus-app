@@ -1,4 +1,5 @@
 import Icon from '@/components/icon';
+import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
 import { components } from '@/lib/types/schema';
@@ -86,13 +87,13 @@ export function BusinessDetails({ company, className }: BusinessDetailsProps) {
 
             <View className="flex-1 gap-1">
               <Text className="text-xl font-bold text-foreground">{company.name}</Text>
-              {company.companyType && (
-                <View className="self-start rounded-full border border-border bg-secondary px-2.5 py-0.5">
-                  <Text className="text-xs font-medium text-secondary-foreground">
-                    {company.companyType}
-                  </Text>
-                </View>
-              )}
+              <View className="flex flex-row">
+                {company.companyType && (
+                  <Badge className="w-fit min-w-0">
+                    <Text className="min-w-0 text-center">{company.companyType}</Text>
+                  </Badge>
+                )}
+              </View>
             </View>
           </View>
 
