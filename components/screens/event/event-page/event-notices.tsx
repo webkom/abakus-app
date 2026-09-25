@@ -31,7 +31,10 @@ export function EventNotices({
   onSurveyClosed,
   className,
 }: EventNoticesProps) {
-  const showSurveyWarning = Boolean(unansweredSurveys && unansweredSurveys.length > 0);
+  const showSurveyWarning = Boolean(
+    unansweredSurveys && unansweredSurveys.length > 0 && !isUserSignedUp
+  );
+
   const showPenaltyWarning = Boolean(totalCurrentPenalties > 0 && !isUserSignedUp && canSignUp);
 
   const unregistrationDeadline = event?.unregistrationDeadline
@@ -56,7 +59,6 @@ export function EventNotices({
       {showSurveyWarning && (
         <UnansweredSurveysCard
           unansweredSurveys={unansweredSurveys}
-          isRegistered={isUserSignedUp}
           onSurveyClosed={onSurveyClosed}
         />
       )}

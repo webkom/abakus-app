@@ -46,7 +46,7 @@ export const UnansweredSurveysCard: React.FC<UnansweredSurveysCardProps> = ({
               Du har ubesvarte spørreundersøkelser
             </Text>
             <Text className="text-xs text-destructive/90">
-              Du må svare på disse før du kan melde deg {isRegistered ? 'av' : 'på'} arrangementet.
+              Du må svare på disse før du kan melde deg på arrangementet.
             </Text>
           </View>
         </View>
