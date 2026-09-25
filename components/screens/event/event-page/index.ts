@@ -9,3 +9,4 @@ export { EventCategoryBadge } from './event-category-badge';
 export { EventQuickFacts } from './event-quick-facts';
 export { EventNotices } from './event-notices';
 export { BusinessDetails } from './business-details';
+export { UnansweredSurveysCard } from '@/components/events/UnansweredSurveysCard';

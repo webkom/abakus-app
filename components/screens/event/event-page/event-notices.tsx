@@ -10,12 +10,15 @@ import { nb } from 'date-fns/locale';
 import { Link } from 'expo-router';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { CircleAlert, ClockAlert } from 'lucide-react-native';
+import { UnansweredSurveysCard } from '@/components/events/UnansweredSurveysCard';
 
 interface EventNoticesProps {
   event?: DetailedEvent;
   totalCurrentPenalties?: number;
   canSignUp?: boolean;
   isUserSignedUp?: boolean;
+  unansweredSurveys?: number[];
+  onSurveyClosed?: () => void;
   className?: string;
 }
 
@@ -24,8 +27,11 @@ export function EventNotices({
   totalCurrentPenalties = 0,
   canSignUp = false,
   isUserSignedUp = false,
+  unansweredSurveys = [],
+  onSurveyClosed,
   className,
 }: EventNoticesProps) {
+  const showSurveyWarning = Boolean(unansweredSurveys && unansweredSurveys.length > 0);
   const showPenaltyWarning = Boolean(totalCurrentPenalties > 0 && !isUserSignedUp && canSignUp);
 
   const unregistrationDeadline = event?.unregistrationDeadline
@@ -40,12 +46,20 @@ export function EventNotices({
   const isFutureActivation =
     activationTime && !isNaN(activationTime.getTime()) && isAfter(activationTime, new Date());
 
-  if (!showPenaltyWarning && !unregistrationDeadline && !isFutureActivation) {
+  if (!showSurveyWarning && !showPenaltyWarning && !unregistrationDeadline && !isFutureActivation) {
     return null;
   }
 
   return (
     <View className={`gap-2.5 ${className ?? ''}`}>
+      {/* 0. Unanswered Surveys Warning */}
+      {showSurveyWarning && (
+        <UnansweredSurveysCard
+          unansweredSurveys={unansweredSurveys}
+          isRegistered={isUserSignedUp}
+          onSurveyClosed={onSurveyClosed}
+        />
+      )}
       {/* 1. Penalty Warning */}
       {showPenaltyWarning && (
         <Link

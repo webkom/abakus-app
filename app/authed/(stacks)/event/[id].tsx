@@ -49,7 +49,7 @@ export default function EventsPage() {
   const [scroll, setScroll] = useState(0);
 
   const { data: event, isRefetching: refetchingEvent, isError: eventError } = useEvent(eventId);
-  const { unansweredSurveys } = useUnansweredEventSurveys(eventId);
+  const { unansweredSurveys, refetch: refetchSurveys } = useUnansweredEventSurveys(eventId);
 
   const {
     signUp,
@@ -142,12 +142,14 @@ export default function EventsPage() {
             {/* Event Category Badge, Title & Host Attribution */}
             <TitleSection event={event} />
 
-            {/* Unified Notices (Penalty warning, Registration opening countdown, Unregistration deadline) */}
+            {/* Unified Notices (Penalty warning, Registration opening countdown, Unregistration deadline, Unanswered surveys) */}
             <EventNotices
               event={event}
               totalCurrentPenalties={totalCurrentPenalties}
               canSignUp={Boolean(canSignUp)}
               isUserSignedUp={isUserSignedUp}
+              unansweredSurveys={unansweredSurveys}
+              onSurveyClosed={refetchSurveys}
             />
 
             {/* 2x2 Quick Facts Grid (Tid, Sted/MazeMap, Pris, Kapasitet) */}
@@ -156,10 +158,6 @@ export default function EventsPage() {
               attendeesCount={attendees.length}
               totalCapacity={totalCapacity}
             />
-
-            {unansweredSurveys.length > 0 && (
-              <Text>Unanswered surveys: {unansweredSurveys.join(', ')}</Text>
-            )}
 
             {/* Event Description Section */}
             <DescriptionSection description={event?.description as string | undefined} />
