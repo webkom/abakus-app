@@ -11,19 +11,14 @@ import {
 } from '@/components/screens/event/event-page';
 import { HeroSection } from '@/components/screens/event/hero-section';
 import { Turnstile } from '@/components/screens/event/turnstile';
-import { Text } from '@/components/ui/text';
-import { useEventAttendance } from '@/hooks/useEventAttendance';
-import { useUnansweredEventSurveys } from '@/hooks/useEventSurveys';
-import { useRegistrationEligibility } from '@/hooks/useRegistrationEligibility';
-import { useEvent } from '@/lib/hooks/useEvent';
+import { useEventDetails } from '@/hooks/useEventDetails';
 import { components } from '@/lib/types/schema';
-import { useLocalSearchParams, useRouter } from 'expo-router';
+import { useLocalSearchParams } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { AnimatePresence, MotiView } from 'moti';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useState } from 'react';
 import {
   ActivityIndicator,
-  Alert,
   NativeScrollEvent,
   NativeSyntheticEvent,
   ScrollView,
@@ -33,69 +28,38 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function EventsPage() {
   const insets = useSafeAreaInsets();
+
+  // Get event details from route params
   const { id } = useLocalSearchParams<{ id?: string | string[] }>();
-  const { data: registrationEligibilityData } = useRegistrationEligibility(id?.toString() ?? '');
-  const eventId = useMemo(() => {
-    if (Array.isArray(id)) {
-      return id[0] ?? '';
-    }
-
-    return id ?? '';
-  }, [id]);
-
-  const router = useRouter();
-  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
-  const [scrolled, setScrolled] = useState(false);
-  const [scroll, setScroll] = useState(0);
-
-  const { data: event, isRefetching: refetchingEvent, isError: eventError } = useEvent(eventId);
-  const { unansweredSurveys, refetch: refetchSurveys } = useUnansweredEventSurveys(eventId);
-
   const {
-    signUp,
-    signOffAsync,
+    attendeesCount,
+    canSignUp,
+    event,
+    eventId,
+    handleBack,
+    handleSignOff,
+    handleSignUp,
+    turnstileToken,
+    setTurnstileToken,
+    isAttendanceActionLoading,
+    isError,
     isLoading,
-    isError: attendanceError,
+    isRefetchingEvent,
     isUserSignedUp,
+    refetchSurveys,
     totalCapacity,
-    attendees,
     totalCurrentPenalties,
-  } = useEventAttendance({ id: eventId });
+    unansweredSurveys,
+  } = useEventDetails(id?.toString() ?? '');
 
-  const canSignUp = registrationEligibilityData?.canRegisterNow;
-  const isAttendanceButtonLoading = signUp.status === 'pending' || isLoading || !turnstileToken;
-  console.log('Data: ', registrationEligibilityData);
+  // Derived states
+  const isAttendanceButtonLoading = isAttendanceActionLoading || isRefetchingEvent;
 
-  const handleBack = useCallback(() => {
-    router.back();
-  }, [router]);
-
+  const [scroll, setScroll] = useState(0);
   const handleScroll = useCallback((e: NativeSyntheticEvent<NativeScrollEvent>) => {
     const offset = e.nativeEvent.contentOffset.y;
-    setScrolled(offset > 0);
     setScroll(offset);
   }, []);
-
-  const handleSignUp = useCallback<() => Promise<void> | undefined>(() => {
-    if (!turnstileToken) {
-      Alert.alert('Verifikasjon ikke fullført', 'Vennligst prøv igjen senere.');
-      return;
-    }
-
-    return signUp
-      .mutateAsync({
-        params: { path: { eventPk: eventId } },
-        body: { feedback: '', captchaResponse: turnstileToken, id: eventId as unknown as number },
-      })
-      .catch((error) => {
-        console.error('Error during sign up:', error);
-        Alert.alert('Påmelding mislyktes', 'Vennligst prøv igjen senere.');
-      }) as Promise<void>;
-  }, [signUp, turnstileToken, eventId]);
-
-  const handleSignOff = useCallback(() => {
-    void signOffAsync();
-  }, [signOffAsync]);
 
   if (!eventId) {
     return <ErrorState onBack={handleBack} />;
@@ -105,7 +69,7 @@ export default function EventsPage() {
     return <LoadingState />;
   }
 
-  if (attendanceError || eventError) {
+  if (isError) {
     return <ErrorState onBack={handleBack} />;
   }
 
@@ -115,7 +79,7 @@ export default function EventsPage() {
 
       <View className="flex-1 overflow-hidden">
         <AnimatePresence>
-          {refetchingEvent && (
+          {isRefetchingEvent && (
             <MotiView
               key="refreshing-indicator"
               from={{ translateY: -100 }}
@@ -155,7 +119,7 @@ export default function EventsPage() {
             {/* 2x2 Quick Facts Grid (Tid, Sted/MazeMap, Pris, Kapasitet) */}
             <EventQuickFacts
               event={event}
-              attendeesCount={attendees.length}
+              attendeesCount={attendeesCount}
               totalCapacity={totalCapacity}
             />
 
@@ -168,13 +132,6 @@ export default function EventsPage() {
               waitingRegistrationCount={event?.waitingRegistrationCount}
               mergeTime={event?.mergeTime}
             />
-            <Text>
-              {registrationEligibilityData?.reason !== ''
-                ? registrationEligibilityData?.reason === undefined
-                  ? 'undefined'
-                  : registrationEligibilityData?.reason
-                : 'no'}
-            </Text>
 
             {/* Company Details if applicable */}
             {event?.company !== undefined && (
@@ -186,7 +143,7 @@ export default function EventsPage() {
             {/* Captcha verification */}
             {canSignUp && (
               <Turnstile
-                onTokenReceived={(token) => {
+                onTokenReceived={(token: string) => {
                   setTurnstileToken(token);
                 }}
               />
@@ -195,7 +152,6 @@ export default function EventsPage() {
         </ScrollView>
       </View>
 
-      {/* Fixed bottom action bar with AttendanceButton - kept exactly as required */}
       <EventActionBar
         canSignUp={canSignUp ?? false}
         turnstileToken={turnstileToken}
