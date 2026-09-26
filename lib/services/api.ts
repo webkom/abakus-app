@@ -10,6 +10,7 @@ const fetchClient = createFetchClient<paths>({
 
 fetchClient.use({
   async onRequest({ request }) {
+    console.log(request.url);
     const token = await AsyncStorage.getItem('session-token');
     if (token) {
       request.headers.set('Authorization', `Bearer ${token}`);
