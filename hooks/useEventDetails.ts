@@ -6,6 +6,12 @@ import { useEventAttendance } from './useEventAttendance';
 import { useUnansweredEventSurveys } from './useEventSurveys';
 import { useRegistrationEligibility } from './useRegistrationEligibility';
 
+/**
+ * A wrapper hook that combines event details, attendance, and registration eligibility into a single hook
+ * for easier consumption in components. It also computes some derived states.
+ * @param eventId The id of the event to fetch details for.
+ * @returns An object containing event details, attendance status, registration eligibility, and handlers for sign up and sign off.
+ */
 export const useEventDetails = (eventId: string) => {
   const router = useRouter();
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
