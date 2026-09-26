@@ -1,5 +1,5 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 
 import { useEvent } from '@/lib/hooks/useEvent';
 import { useUser } from '@/lib/hooks/useUser';
@@ -19,16 +19,44 @@ export const useEventAttendance = ({ id }: { id: string }) => {
   const { data: event, isLoading, isError } = useEvent(id);
   const queryClient = useQueryClient();
   const user = useUser();
-  const [attendees, setAttendees] = useState<string[]>([]);
   const signOffMutation = api.useMutation('delete', '/api/v1/events/{eventPk}/registrations/{id}/');
 
+  const invalidateEventData = useCallback(() => {
+    const eventIdNum = Number(id);
+    if (isNaN(eventIdNum)) return;
+    queryClient.invalidateQueries(
+      api.queryOptions('get', '/api/v1/events/{id}/', {
+        params: { path: { id: eventIdNum } },
+      })
+    );
+    queryClient.invalidateQueries(
+      api.queryOptions('get', '/api/v1/events/{id}/registration-eligibility/', {
+        params: { path: { id: eventIdNum } },
+      })
+    );
+  }, [id, queryClient]);
+
+  const pools = event?.pools;
   const totalCapacity = useMemo(() => {
-    if (!event?.pools?.length) {
+    if (!pools?.length) {
       return undefined;
     }
 
-    return event.pools.reduce((sum, pool) => sum + (pool.capacity ?? 0), 0);
-  }, [event?.pools]);
+    return pools.reduce((sum, pool) => sum + (pool.capacity ?? 0), 0);
+  }, [pools]);
+
+  const attendees = useMemo(() => {
+    if (!pools) return [];
+    const poolList = pools as (components['schemas']['PoolRead'] & {
+      registrations?: Registration[];
+    })[];
+    return poolList.flatMap(
+      (pool) =>
+        (pool.registrations ?? [])
+          .map((registration) => registration.user?.id?.toString())
+          .filter(Boolean) as string[]
+    );
+  }, [pools]);
 
   const isUserSignedUp = useMemo(() => {
     return attendees.includes(user?.id?.toString() ?? '');
@@ -39,21 +67,6 @@ export const useEventAttendance = ({ id }: { id: string }) => {
   if (user?.penalties && Array.isArray(user.penalties)) {
     totalCurrentPenalties = user.penalties.reduce((sum, penalty) => sum + penalty, 0);
   }
-
-  useEffect(() => {
-    if (!event?.pools) return;
-    const pools = event.pools as (components['schemas']['PoolRead'] & {
-      registrations?: Registration[];
-    })[];
-    const allAttendees = pools.flatMap(
-      (pool) =>
-        (pool.registrations ?? [])
-          .map((registration) => registration.user?.id?.toString())
-          .filter(Boolean) as string[]
-    );
-
-    setAttendees(allAttendees);
-  }, [event?.pools]);
 
   // Set up and handle websocket client
   useEffect(() => {
@@ -67,17 +80,11 @@ export const useEventAttendance = ({ id }: { id: string }) => {
       const messageEventId = message.meta?.eventId?.toString();
 
       if (
-        message.type === SocketEventType.RegistrationSuccess &&
+        (message.type === SocketEventType.RegistrationSuccess ||
+          message.type === SocketEventType.UnregistrationSuccess) &&
         messageEventId === targetEventId
       ) {
-        setAttendees((prev) => [...prev, message.payload.user.id.toString()]);
-      } else if (
-        message.type === SocketEventType.UnregistrationSuccess &&
-        messageEventId === targetEventId
-      ) {
-        setAttendees((prev) =>
-          prev.filter((attendeeId) => attendeeId !== message.payload.user.id.toString())
-        );
+        invalidateEventData();
       }
     };
 
@@ -97,22 +104,7 @@ export const useEventAttendance = ({ id }: { id: string }) => {
       isMounted = false;
       ws?.close();
     };
-  }, [event?.id]);
-
-  const invalidateEventData = () => {
-    const eventIdNum = Number(id);
-    if (isNaN(eventIdNum)) return;
-    queryClient.invalidateQueries(
-      api.queryOptions('get', '/api/v1/events/{id}/', {
-        params: { path: { id: eventIdNum } },
-      })
-    );
-    queryClient.invalidateQueries(
-      api.queryOptions('get', '/api/v1/events/{id}/registration-eligibility/', {
-        params: { path: { id: eventIdNum } },
-      })
-    );
-  };
+  }, [event?.id, invalidateEventData]);
 
   const signUp = api.useMutation('post', '/api/v1/events/{eventPk}/registrations/', {
     onSuccess: () => {
