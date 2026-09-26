@@ -14,7 +14,6 @@ export interface UnansweredSurveysCardProps {
 
 export const UnansweredSurveysCard: React.FC<UnansweredSurveysCardProps> = ({
   unansweredSurveys = [],
-  isRegistered = false,
   onSurveyClosed,
   className,
 }) => {
