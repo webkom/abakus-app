@@ -25,12 +25,12 @@ const Feed = () => {
   const { data, isLoading, isError, refetch, isRefetching } = useNotificationsFeed();
   const { mutate: markAllRead } = useMarkAllNotifications();
 
-  useFocusEffect(
-    useCallback(() => {
-      refetch();
-      markAllRead({ body: { read: true, seen: true } });
-    }, [refetch, markAllRead])
-  );
+  const refetchAll = useCallback(() => {
+    refetch();
+    markAllRead({ body: { read: true, seen: true } });
+  }, [refetch, markAllRead]);
+
+  useFocusEffect(refetchAll);
 
   if (isLoading) {
     return (
@@ -67,7 +67,7 @@ const Feed = () => {
         refreshControl={
           <RefreshControl
             refreshing={isRefetching}
-            onRefresh={refetch}
+            onRefresh={refetchAll}
             colors={['#dc2626']}
             tintColor="#dc2626"
           />
