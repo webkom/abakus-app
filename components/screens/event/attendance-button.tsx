@@ -2,7 +2,7 @@ import Icon from '@/components/icon';
 import { Button } from '@/components/ui/button';
 import { Text } from '@/components/ui/text';
 import { cn } from '@/lib/cn';
-import { AnimatePresence, MotiView } from 'moti';
+import { MotiView } from 'moti';
 import { useState } from 'react';
 import { ActivityIndicator, LayoutChangeEvent, View } from 'react-native';
 

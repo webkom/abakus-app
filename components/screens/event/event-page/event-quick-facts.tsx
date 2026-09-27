@@ -1,17 +1,13 @@
-import React from 'react';
-import * as Linking from 'expo-linking';
-import { Image, TouchableOpacity, View } from 'react-native';
+import Icon from '@/components/icon';
 import { Card, CardContent } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
-import Icon from '@/components/icon';
 import { DetailedEvent } from '@/lib/types/types';
-import { format } from 'date-fns';
-import { nb } from 'date-fns/locale';
+import * as Linking from 'expo-linking';
 import { Link } from 'expo-router';
-import { cn } from '@/lib/utils';
+import { Image, TouchableOpacity, View } from 'react-native';
 import EventDatetime from './event-datetime';
-import SectionTitle from './section-title';
 import InfoCard from './info-card';
+import SectionTitle from './section-title';
 
 const MazeMapLogo = require('@/assets/images/mazemaplogo.png');
 
@@ -30,11 +26,6 @@ export function EventQuickFacts({
 }: EventQuickFactsProps) {
   const startTime = event?.startTime ? new Date(event.startTime) : null;
   const endTime = event?.endTime ? new Date(event.endTime) : null;
-
-  const isFull =
-    totalCapacity !== undefined && totalCapacity > 0 && attendeesCount >= totalCapacity;
-  const spotsLeft =
-    totalCapacity !== undefined ? Math.max(0, totalCapacity - attendeesCount) : undefined;
 
   const openMazeMapLink = (link: string) => {
     // Open the MazeMap link in a web browser

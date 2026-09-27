@@ -1,6 +1,5 @@
 import { PushNotificationsProvider } from '@/components/PushNotificationsProvider';
 import { userAtom } from '@/lib/atoms/user-atom';
-import { NAV_THEME } from '@/lib/theme';
 import { PixelifySans_400Regular, useFonts } from '@expo-google-fonts/pixelify-sans';
 import { PortalProvider } from '@gorhom/portal';
 import { PortalHost } from '@rn-primitives/portal';
@@ -8,7 +7,6 @@ import { PortalHost } from '@rn-primitives/portal';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Stack } from 'expo-router';
 import { useAtomValue } from 'jotai/react';
-import { useColorScheme } from 'nativewind';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import 'react-native-reanimated';
 import '../global.css';
@@ -16,8 +14,7 @@ import '../global.css';
 const queryClient = new QueryClient();
 
 const Layout = () => {
-  const { colorScheme } = useColorScheme();
-  const _ = useFonts({
+  useFonts({
     PixelifySans_400Regular,
   });
 

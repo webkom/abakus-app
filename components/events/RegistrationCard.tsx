@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, ActivityIndicator } from 'react-native';
 import Card from '@/components/card';
 import Icon from '@/components/icon';
 import { useRegistrationCountdown } from '@/lib/hooks/useRegistrationCountdown';
+import React, { useState } from 'react';
+import { ActivityIndicator, Text, TouchableOpacity, View } from 'react-native';
 import { PenaltyModal } from './PenaltyModal';
 
 interface RegistrationCardProps {
@@ -30,7 +30,6 @@ export const RegistrationCard: React.FC<RegistrationCardProps> = ({
   isUnregistering = false,
 }) => {
   const countdown = useRegistrationCountdown(activationTime);
-  const [feedback, setFeedback] = useState('');
   const [showPenaltyModal, setShowPenaltyModal] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
@@ -43,7 +42,7 @@ export const RegistrationCard: React.FC<RegistrationCardProps> = ({
   const handleRegister = async () => {
     setErrorMsg(null);
     try {
-      await onRegister(feedback);
+      await onRegister('');
     } catch (err: any) {
       console.error('Registration failed:', err);
       setErrorMsg('Klarte ikke å melde på. Vennligst prøv igjen.');
