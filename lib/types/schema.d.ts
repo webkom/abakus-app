@@ -4022,6 +4022,24 @@ export interface components {
         [key: string]: unknown;
       };
     };
+    AggregatedMarkedFeed: {
+      id: number;
+      orderingKey: string;
+      verb: string;
+      /** Format: date-time */
+      createdAt: string;
+      /** Format: date-time */
+      updatedAt: string;
+      lastActivity: components['schemas']['FeedActivity'];
+      activities: components['schemas']['FeedActivity'][];
+      activityCount: number;
+      actorIds: string[];
+      readonly context: {
+        [key: string]: unknown;
+      };
+      read: boolean;
+      seen: boolean;
+    };
     AnnouncementDetail: {
       readonly id: number;
       message: string;
@@ -5499,6 +5517,19 @@ export interface components {
        */
       previous?: string | null;
       results: components['schemas']['AggregatedFeed'][];
+    };
+    PaginatedAggregatedMarkedFeedList: {
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+       */
+      next?: string | null;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+       */
+      previous?: string | null;
+      results: components['schemas']['AggregatedMarkedFeed'][];
     };
     PaginatedAnnouncementListList: {
       /**
@@ -10623,7 +10654,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          'application/json': components['schemas']['PaginatedAggregatedFeedList'];
+          'application/json': components['schemas']['PaginatedAggregatedMarkedFeedList'];
         };
       };
     };

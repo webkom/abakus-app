@@ -23,14 +23,14 @@ const activityRenderers: Record<string, ActivityRenderer> = {
 
 const Feed = () => {
   const { data, isLoading, isError, refetch, isRefetching } = useNotificationsFeed();
-  const markAllNotifications = useMarkAllNotifications();
+  const { mutate: markAllRead } = useMarkAllNotifications();
 
-  useFocusEffect(
-    useCallback(() => {
-      refetch();
-      markAllNotifications.mutate({ body: { read: true, seen: true } });
-    }, [refetch, markAllNotifications])
-  );
+  const refetchAll = useCallback(() => {
+    refetch();
+    markAllRead({ body: { read: true, seen: true } });
+  }, [refetch, markAllRead]);
+
+  useFocusEffect(refetchAll);
 
   if (isLoading) {
     return (
@@ -67,7 +67,7 @@ const Feed = () => {
         refreshControl={
           <RefreshControl
             refreshing={isRefetching}
-            onRefresh={refetch}
+            onRefresh={refetchAll}
             colors={['#dc2626']}
             tintColor="#dc2626"
           />
