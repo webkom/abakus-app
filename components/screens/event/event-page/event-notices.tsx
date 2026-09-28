@@ -126,45 +126,6 @@ export function EventNotices({
               : `${format(unregistrationDeadline, "EEEE d. MMMM 'kl.' HH:mm", { locale: nb })}`}
           </AlertDescription>
         </Alert>
-        // <Card
-        //   className={`py-3 ${
-        //     isPastUnregisterDeadline
-        //       ? 'border-destructive/30 bg-destructive/10'
-        //       : 'border-amber-500/30 bg-amber-500/10'
-        //   }`}>
-        //   <CardContent className="flex-row items-center gap-3">
-        //     <View
-        //       className={`h-8 w-8 items-center justify-center rounded-lg ${
-        //         isPastUnregisterDeadline ? 'bg-destructive/20' : 'bg-amber-500/20'
-        //       }`}>
-        //       <Icon
-        //         name={isPastUnregisterDeadline ? 'CircleAlert' : 'ClockAlert'}
-        //         size={16}
-        //         className={isPastUnregisterDeadline ? 'text-destructive' : 'text-amber-600 dark:text-amber-400'}
-        //       />
-        //     </View>
-        //     <View className="flex-1">
-        //       <Text
-        //         className={`text-xs font-bold uppercase tracking-wider ${
-        //           isPastUnregisterDeadline
-        //             ? 'text-destructive'
-        //             : 'text-amber-900 dark:text-amber-300'
-        //         }`}>
-        //         {isPastUnregisterDeadline ? 'Avmeldingsfrist utløpt' : 'Avmeldingsfrist'}
-        //       </Text>
-        //       <Text
-        //         className={`text-xs ${
-        //           isPastUnregisterDeadline
-        //             ? 'text-destructive/90'
-        //             : 'text-amber-800 dark:text-amber-400'
-        //         }`}>
-        //         {isPastUnregisterDeadline
-        //           ? `Fristen var ${format(unregistrationDeadline, "d. MMM 'kl.' HH:mm", { locale: nb })}. Avmelding gir prikk.`
-        //           : `${format(unregistrationDeadline, "EEEE d. MMMM 'kl.' HH:mm", { locale: nb })}`}
-        //       </Text>
-        //     </View>
-        //   </CardContent>
-        // </Card>
       )}
     </View>
   );

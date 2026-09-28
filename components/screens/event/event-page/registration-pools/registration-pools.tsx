@@ -96,9 +96,26 @@ export function RegistrationPools({
       )}
 
       {/* Pool Cards */}
-      {pools.map((pool) => {
-        return <PoolCard pool={pool} key={pool.id + 'pool'} />;
-      })}
+      {!hasMerged &&
+        pools.map((pool) => {
+          return <PoolCard pool={pool} key={pool.id + 'pool'} />;
+        })}
+
+      {hasMerged && (
+        <PoolCard
+          pool={{
+            id: 0,
+            name: 'Deltakere',
+            capacity: pools.reduce((acc, pool) => acc + (pool.capacity || 0), 0),
+            registrationCount: String(
+              pools.reduce((acc, pool) => acc + (Number(pool.registrationCount) || 0), 0)
+            ),
+            activationDate: pools[0]?.activationDate as string,
+            permissionGroups: pools.flatMap((pool) => pool.permissionGroups || []),
+            registrations: pools.flatMap((pool) => pool.registrations || []),
+          }}
+        />
+      )}
 
       {/* Waitlist Card */}
       {waitingCount > 0 && (

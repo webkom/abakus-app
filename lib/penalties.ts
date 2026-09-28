@@ -13,6 +13,7 @@ export const penaltyHours = (penalties: number) => {
     throw new Error('Penalties cannot be negative');
   }
 
+  if (penalties === 0) return 0;
   if (penalties === 1) return 3;
   if (penalties === 2) return 12;
   else return 1337;
