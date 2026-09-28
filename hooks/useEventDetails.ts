@@ -44,7 +44,7 @@ export const useEventDetails = (eventId: string) => {
     eligibilityData?.canRegisterNow && (isUserSignedUp || unansweredSurveys.length === 0)
   );
   const isAttendanceActionLoading =
-    signUp.status === 'pending' || isAttendanceLoading || !turnstileToken;
+    signUp.status === 'pending' || isAttendanceLoading || (!isUserSignedUp && !turnstileToken);
 
   const isLoading = (isEventLoading || isAttendanceLoading) && !event;
   const isError = !eventId || isEventError || isAttendanceError;
