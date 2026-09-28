@@ -4,7 +4,10 @@ import { Link } from 'expo-router';
 import { MoveRightIcon } from 'lucide-react-native';
 import React from 'react';
 import { Image, Text, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView as RNSafeAreaView } from 'react-native-safe-area-context';
+import { withUniwind } from 'uniwind';
+
+const SafeAreaView = withUniwind(RNSafeAreaView);
 
 const BlurBackground = require('@/assets/images/blur-background.png');
 

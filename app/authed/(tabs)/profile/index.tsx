@@ -6,10 +6,12 @@ import { useSignIn } from '@/lib/hooks/useAuth';
 import { useUser } from '@/lib/hooks/useUser';
 import { Link, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import {} from 'nativewind';
 import React, { useState } from 'react';
 import { Image, Text, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView as RNSafeAreaView } from 'react-native-safe-area-context';
+import { withUniwind } from 'uniwind';
+
+const SafeAreaView = withUniwind(RNSafeAreaView);
 
 const RedGradient = require('@/assets/images/top-blur-red.png');
 

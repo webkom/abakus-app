@@ -7,7 +7,10 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { CircleAlert, ClockAlert } from 'lucide-react-native';
 import { useState } from 'react';
 import { Alert as SystemAlert, Text, View, ActivityIndicator } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView as RNSafeAreaView } from 'react-native-safe-area-context';
+import { withUniwind } from 'uniwind';
+
+const SafeAreaView = withUniwind(RNSafeAreaView);
 
 const UnregisterPage = () => {
   const { id } = useLocalSearchParams<{ id?: string | string[] }>();
