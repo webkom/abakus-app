@@ -32,7 +32,7 @@ export function EventQuickFacts({
 
   const priceDisplay = event?.isPriced
     ? event.priceMember
-      ? `${event.priceMember} kr`
+      ? `${event.priceMember / 100} kr`
       : event.price
         ? `${event.price} kr`
         : 'Betalt'
