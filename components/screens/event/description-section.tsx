@@ -34,13 +34,13 @@ export function DescriptionSection({
         <Card className="border-border bg-card py-4">
           <CardContent className="gap-3">
             {!isExpanded && (
-              <Text className="text-sm leading-6 text-muted-foreground">{previewDescription}</Text>
+              <Text className="text-muted-foreground text-sm leading-6">{previewDescription}</Text>
             )}
 
             {isExpanded && <RenderHTML html={description} />}
 
             <View className="flex-row items-center gap-1 self-start pt-1">
-              <Text className="text-xs font-semibold text-primary">
+              <Text className="text-primary text-xs font-semibold">
                 {isExpanded ? 'Vis mindre' : 'Vis mer'}
               </Text>
               <Icon

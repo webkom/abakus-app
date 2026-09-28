@@ -1,5 +1,5 @@
 import { PushNotificationsProvider } from '@/components/PushNotificationsProvider';
-import {HeroUINativeProvider} from "heroui-native"
+import { HeroUINativeProvider } from 'heroui-native';
 import { userAtom } from '@/lib/atoms/user-atom';
 import { PixelifySans_400Regular, useFonts } from '@expo-google-fonts/pixelify-sans';
 import { PortalProvider } from '@gorhom/portal';
@@ -25,7 +25,7 @@ const Layout = () => {
   return (
     <QueryClientProvider client={queryClient}>
       {/* <ThemeProvider value={NAV_THEME[colorScheme ?? 'light']}> */}
-      <GestureHandlerRootView className="flex-1 bg-background">
+      <GestureHandlerRootView className="bg-background flex-1">
         <SafeAreaProvider>
           <PortalProvider>
             <HeroUINativeProvider>
@@ -37,9 +37,8 @@ const Layout = () => {
                 />
                 <PortalHost />
               </PushNotificationsProvider>
-            </HeroUINativeProvider>            
+            </HeroUINativeProvider>
           </PortalProvider>
-
         </SafeAreaProvider>
       </GestureHandlerRootView>
       {/* </ThemeProvider> */}

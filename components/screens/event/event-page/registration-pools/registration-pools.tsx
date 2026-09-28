@@ -62,7 +62,7 @@ export function RegistrationPools({
       <View className="flex-row items-center justify-between px-1">
         <SectionTitle icon="Users" title="Påmeldingspooler" />
 
-        <Text className="text-xs font-medium text-muted-foreground">
+        <Text className="text-muted-foreground text-xs font-medium">
           {totalRegistered} / {totalCapacity > 0 ? `${totalCapacity}` : '∞'} plasser
         </Text>
       </View>
@@ -71,14 +71,14 @@ export function RegistrationPools({
       {isMergeTimeValid && (
         <Card className="border-border/60 bg-muted/30 py-3">
           <CardContent className="flex-row items-center gap-3">
-            <View className="h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
+            <View className="bg-primary/10 h-8 w-8 items-center justify-center rounded-lg">
               <Icon name="GitMerge" size={16} className="text-primary" />
             </View>
             <View className="flex-1">
-              <Text className="text-xs font-semibold text-foreground">
+              <Text className="text-foreground text-xs font-semibold">
                 {hasMerged ? 'Poolene er slått sammen' : 'Samling av pooler'}
               </Text>
-              <Text className="text-xs text-muted-foreground">
+              <Text className="text-muted-foreground text-xs">
                 {hasMerged
                   ? `Poolene ble slått sammen ${format(formattedMergeTime, "d. MMMM 'kl.' HH:mm", { locale: nb })}`
                   : `Restplasser slås sammen ${format(formattedMergeTime, "d. MMMM 'kl.' HH:mm", { locale: nb })}`}

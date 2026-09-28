@@ -13,14 +13,14 @@ const BlurBackground = require('@/assets/images/blur-background.png');
 
 const OnboardingPage = () => {
   return (
-    <View className="h-screen w-screen bg-background">
+    <View className="bg-background h-screen w-screen">
       <Image source={BlurBackground} className="absolute h-full w-full" resizeMode="cover" />
       <SafeAreaView className="flex h-screen w-screen flex-col items-center justify-center gap-14 px-5">
         <Text
           style={{
             fontFamily: 'PixelifySans_400Regular',
           }}
-          className="text-5xl text-primary">
+          className="text-primary text-5xl">
           &gt; Nyttig å vite
         </Text>
         <View className="flex w-full flex-row flex-wrap gap-5">

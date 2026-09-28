@@ -11,19 +11,19 @@ const SafeAreaView = withUniwind(RNSafeAreaView);
 
 const Page = () => {
   return (
-    <SafeAreaView className="flex flex-col gap-5 px-5 py-10 items-center justify-center flex-1">
+    <SafeAreaView className="flex flex-1 flex-col items-center justify-center gap-5 px-5 py-10">
       <Link href="/authed/(tabs)/events" asChild>
-      <Button variant="danger" className='w-full'>
-        <Button.Label>Events</Button.Label>
-      </Button>
+        <Button variant="danger" className="w-full">
+          <Button.Label>Events</Button.Label>
+        </Button>
       </Link>
       <Link href="/non-authed/sign-in" asChild>
-        <Button variant="danger"  className='w-full'>
+        <Button variant="danger" className="w-full">
           <Button.Label>Go to sign-in page</Button.Label>
         </Button>
       </Link>
       <Link href="/non-authed/onboarding" asChild>
-        <Button variant="danger"  className='w-full'>
+        <Button variant="danger" className="w-full">
           <Button.Label>Go to Onboarding page</Button.Label>
         </Button>
       </Link>

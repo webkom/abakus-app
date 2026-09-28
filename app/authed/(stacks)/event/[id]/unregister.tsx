@@ -72,7 +72,7 @@ const UnregisterPage = () => {
             {isLoading ? (
               <ActivityIndicator className="text-primary-foreground" />
             ) : (
-              <Text className="text-nowrap text-lg font-bold text-primary-foreground">Jepp</Text>
+              <Text className="text-primary-foreground text-nowrap text-lg font-bold">Jepp</Text>
             )}
           </Button>
         </View>

@@ -43,7 +43,7 @@ const Input = ({ error, label, inputProps, className, ...props }: InputProps) =>
           />
         </View>
         <TextInput
-          className="text-on-background h-16 overflow-hidden rounded-3xl bg-background/10 px-5"
+          className="text-on-background bg-background/10 h-16 overflow-hidden rounded-3xl px-5"
           selectionColor={'#904a4b'}
           {...inputProps}
         />

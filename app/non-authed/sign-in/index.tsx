@@ -60,7 +60,7 @@ const SignInPage = () => {
           style={{
             fontFamily: 'PixelifySans_400Regular',
           }}
-          className="text-5xl text-primary">
+          className="text-primary text-5xl">
           &gt; Velkommen
         </Text>
 

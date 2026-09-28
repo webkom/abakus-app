@@ -46,13 +46,13 @@ export function EventActionBar({
   }
 
   return (
-    <View className="pb-safe-offset-0 absolute bottom-0 w-full border-t border-border bg-background">
+    <View className="pb-safe-offset-0 border-border bg-background absolute bottom-0 w-full border-t">
       <AnimatePresence>
         {!turnstileToken && (
           <View className="absolute -top-12 w-full items-center justify-center overflow-hidden">
             <MotiView
               key="verifying-message"
-              className="flex-row items-center gap-2 rounded-full bg-secondary px-5 py-2"
+              className="bg-secondary flex-row items-center gap-2 rounded-full px-5 py-2"
               from={{ translateY: 100 }}
               animate={{ translateY: 0 }}
               exit={{ translateY: 100 }}>

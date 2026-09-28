@@ -62,7 +62,7 @@ export const RegistrationCard: React.FC<RegistrationCardProps> = ({
   };
 
   return (
-    <Card className="gap-4 border border-gray-200 bg-background p-5 shadow-sm">
+    <Card className="bg-background gap-4 border border-gray-200 p-5 shadow-sm">
       {/* Registration Status Header */}
       <View className="flex-row items-center justify-between">
         {isRegistered ? (

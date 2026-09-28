@@ -73,7 +73,7 @@ export function AttendanceButton({
                 <MotiView animate={{ rotate: `${scroll}deg` }}>
                   <Icon name="X" className="text-primary-foreground" size={18} />
                 </MotiView>
-                <Text className="text-nowrap text-lg font-bold text-primary-foreground">
+                <Text className="text-primary-foreground text-nowrap text-lg font-bold">
                   Meld deg av
                 </Text>
               </MotiView>
@@ -87,7 +87,7 @@ export function AttendanceButton({
                 <MotiView animate={{ rotate: `${scroll}deg` }}>
                   <Icon name="Ticket" className="text-primary-foreground" size={18} />
                 </MotiView>
-                <Text className="whitespace-nowrap text-nowrap text-lg font-bold text-primary-foreground">
+                <Text className="text-primary-foreground whitespace-nowrap text-nowrap text-lg font-bold">
                   Meld deg på
                 </Text>
               </MotiView>

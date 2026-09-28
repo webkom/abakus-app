@@ -106,7 +106,7 @@ const Dialog = ({ className, children, onDismiss, show, ...props }: DialogProps)
               },
               animatedStyles,
             ]}
-            className={'rounded-t-[2rem] bg-background p-10 pt-2'}>
+            className={'bg-background rounded-t-[2rem] p-10 pt-2'}>
             <View className="mx-auto h-2 w-20 rounded-full bg-gray-300" />
             <View className={cn('h-fit min-h-96 w-full pt-10', className)} {...props}>
               {children}

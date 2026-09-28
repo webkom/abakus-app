@@ -38,16 +38,16 @@ export function EventCategoryBadge({
       )}
 
       {isForeignLanguage && (
-        <View className="flex-row items-center gap-1 rounded-full border border-border bg-secondary px-2.5 py-1">
+        <View className="border-border bg-secondary flex-row items-center gap-1 rounded-full border px-2.5 py-1">
           <Icon name="Globe" size={12} className="text-secondary-foreground" />
-          <Text className="text-xs font-medium text-secondary-foreground">English</Text>
+          <Text className="text-secondary-foreground text-xs font-medium">English</Text>
         </View>
       )}
 
       {isPriced && (
-        <View className="flex-row items-center gap-1 rounded-full border border-border bg-secondary px-2.5 py-1">
+        <View className="border-border bg-secondary flex-row items-center gap-1 rounded-full border px-2.5 py-1">
           <Icon name="Receipt" size={12} className="text-secondary-foreground" />
-          <Text className="text-xs font-medium text-secondary-foreground">Betalt</Text>
+          <Text className="text-secondary-foreground text-xs font-medium">Betalt</Text>
         </View>
       )}
     </View>

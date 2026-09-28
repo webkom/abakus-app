@@ -40,7 +40,7 @@ const ProfilePage = () => {
 
           <Text
             style={{ fontFamily: 'RobotoFlex_400Regular' }}
-            className="mt-2.5 text-center text-3xl font-bold text-primary">
+            className="text-primary mt-2.5 text-center text-3xl font-bold">
             {user?.fullName}
           </Text>
 

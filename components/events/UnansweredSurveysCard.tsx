@@ -34,17 +34,17 @@ export const UnansweredSurveysCard: React.FC<UnansweredSurveysCardProps> = ({
   };
 
   return (
-    <Card className={`w-full border-destructive/30 bg-destructive/10 py-3 ${className ?? ''}`}>
+    <Card className={`border-destructive/30 bg-destructive/10 w-full py-3 ${className ?? ''}`}>
       <CardContent className="flex-col gap-3">
         <View className="flex-row items-center gap-3">
-          <View className="h-8 w-8 items-center justify-center rounded-lg bg-destructive/20">
+          <View className="bg-destructive/20 h-8 w-8 items-center justify-center rounded-lg">
             <Icon name="TriangleAlert" size={16} className="text-destructive" />
           </View>
           <View className="flex-1">
-            <Text className="text-xs font-bold uppercase tracking-wider text-destructive">
+            <Text className="text-destructive text-xs font-bold uppercase tracking-wider">
               Du har ubesvarte spørreundersøkelser
             </Text>
-            <Text className="text-xs text-destructive/90">
+            <Text className="text-destructive/90 text-xs">
               Du må svare på disse før du kan melde deg på arrangementet.
             </Text>
           </View>
@@ -56,10 +56,10 @@ export const UnansweredSurveysCard: React.FC<UnansweredSurveysCardProps> = ({
               key={surveyId}
               activeOpacity={0.7}
               onPress={() => handleOpenSurvey(surveyId)}
-              className="flex-row items-center justify-between rounded-lg border border-destructive/20 bg-background/80 px-3.5 py-2.5 active:bg-background">
+              className="border-destructive/20 bg-background/80 active:bg-background flex-row items-center justify-between rounded-lg border px-3.5 py-2.5">
               <View className="flex-row items-center gap-2.5">
                 <Icon name="ClipboardList" size={16} className="text-destructive" />
-                <Text className="text-xs font-semibold text-foreground">
+                <Text className="text-foreground text-xs font-semibold">
                   Besvar undersøkelse {unansweredSurveys.length > 1 ? `#${index + 1}` : ''}
                 </Text>
               </View>

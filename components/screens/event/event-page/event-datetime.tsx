@@ -16,10 +16,10 @@ const EventDatetime = ({ startTime, endTime }: EventDatetimeProps) => {
     <>
       <TouchableOpacity onPress={() => setIsPresented(true)} className="flex-1">
         <InfoCard title="Tid" icon="Calendar">
-          <Text className="text-sm font-bold capitalize text-foreground" numberOfLines={1}>
+          <Text className="text-foreground text-sm font-bold capitalize" numberOfLines={1}>
             {startTime ? format(startTime, 'EEEE d. MMM', { locale: nb }) : 'TBA'}
           </Text>
-          <Text className="text-xs text-muted-foreground" numberOfLines={1}>
+          <Text className="text-muted-foreground text-xs" numberOfLines={1}>
             {startTime && endTime
               ? `kl. ${format(startTime, 'HH:mm')} - ${format(endTime, 'HH:mm')}`
               : 'Tid ikke satt'}

@@ -62,12 +62,12 @@ export function EventQuickFacts({
               ) : undefined
             }
             title="Sted">
-            <Text className="text-sm font-bold text-foreground" numberOfLines={1}>
+            <Text className="text-foreground text-sm font-bold" numberOfLines={1}>
               {event?.location || 'TBA'}
             </Text>
             {event?.mazemapPoi && (
               <View className="flex-row items-center gap-1">
-                <Text className="text-xs font-semibold text-primary underline">MazeMap</Text>
+                <Text className="text-primary text-xs font-semibold underline">MazeMap</Text>
                 <Icon name="ArrowUpRight" size={12} className="text-primary" />
               </View>
             )}
@@ -78,14 +78,14 @@ export function EventQuickFacts({
       <View className="mt-2.5 flex-row gap-2.5">
         {/* 3. Pris */}
         <InfoCard title="Pris" icon="Ticket">
-          <Text className="text-sm font-bold text-foreground" numberOfLines={1}>
+          <Text className="text-foreground text-sm font-bold" numberOfLines={1}>
             {priceDisplay}
           </Text>
         </InfoCard>
 
         {/* 4. Kapasitet */}
         <InfoCard title="Kapasitet" icon="Users">
-          <Text className="text-sm font-bold text-foreground" numberOfLines={1}>
+          <Text className="text-foreground text-sm font-bold" numberOfLines={1}>
             {totalCapacity !== undefined
               ? `${attendeesCount} / ${totalCapacity}`
               : 'Ingen påmelding'}

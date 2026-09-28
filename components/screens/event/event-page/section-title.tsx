@@ -12,7 +12,7 @@ const SectionTitle = ({ title, icon, className, ...props }: SeconTitleProps) => 
   return (
     <View className={cn('flex-row items-center gap-2', className)} {...props}>
       <Icon name={icon} size={20} className="text-primary" />
-      <Text className="text-lg font-bold text-foreground">{title}</Text>
+      <Text className="text-foreground text-lg font-bold">{title}</Text>
     </View>
   );
 };

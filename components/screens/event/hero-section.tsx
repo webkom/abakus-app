@@ -23,7 +23,7 @@ export function HeroSection({ event, onBack }: HeroSectionProps) {
   };
 
   return (
-    <View className="relative w-full overflow-hidden rounded-2xl border border-border bg-muted shadow-sm">
+    <View className="border-border bg-muted relative w-full overflow-hidden rounded-2xl border shadow-sm">
       {/* Cover Image or Fallback */}
       {event?.cover ? (
         <Image
@@ -33,7 +33,7 @@ export function HeroSection({ event, onBack }: HeroSectionProps) {
           transition={200}
         />
       ) : (
-        <View className="h-52 w-full items-center justify-center bg-secondary/40">
+        <View className="bg-secondary/40 h-52 w-full items-center justify-center">
           <Icon name="CalendarDays" size={48} className="text-muted-foreground/40" />
         </View>
       )}
@@ -44,7 +44,7 @@ export function HeroSection({ event, onBack }: HeroSectionProps) {
           <TouchableOpacity
             activeOpacity={0.7}
             onPress={onBack}
-            className="h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-background/80 shadow-md backdrop-blur-md dark:border-white/10">
+            className="bg-background/80 h-10 w-10 items-center justify-center rounded-full border border-black/10 shadow-md backdrop-blur-md dark:border-white/10">
             <Icon name="ArrowLeft" size={20} className="text-foreground" />
           </TouchableOpacity>
         )}
@@ -52,7 +52,7 @@ export function HeroSection({ event, onBack }: HeroSectionProps) {
         <TouchableOpacity
           activeOpacity={0.7}
           onPress={handleShare}
-          className="ml-auto h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-background/80 shadow-md backdrop-blur-md dark:border-white/10">
+          className="bg-background/80 ml-auto h-10 w-10 items-center justify-center rounded-full border border-black/10 shadow-md backdrop-blur-md dark:border-white/10">
           <Icon name="Share2" size={18} className="text-foreground" />
         </TouchableOpacity>
       </View>

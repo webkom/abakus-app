@@ -58,16 +58,16 @@ export function BusinessDetails({ company, className }: BusinessDetailsProps) {
       {/* Section Header */}
       <View className="flex-row items-center gap-2 px-1">
         <Icon name="Building2" size={20} className="text-primary" />
-        <Text className="text-lg font-bold text-foreground">Om bedriften</Text>
+        <Text className="text-foreground text-lg font-bold">Om bedriften</Text>
       </View>
 
       {/* Main Card */}
-      <Card className="overflow-hidden border-border bg-card py-4 shadow-sm">
+      <Card className="border-border bg-card overflow-hidden py-4 shadow-sm">
         <CardContent className="gap-4">
           {/* Header Row: Logo & Company Name */}
           <View className="flex-row items-center gap-3.5">
             {activeImageUri ? (
-              <View className="h-16 w-16 items-center justify-center overflow-hidden rounded-xl border border-border bg-secondary/30 p-2">
+              <View className="border-border bg-secondary/30 h-16 w-16 items-center justify-center overflow-hidden rounded-xl border p-2">
                 <Image
                   source={{ uri: activeImageUri }}
                   contentFit="contain"
@@ -80,13 +80,13 @@ export function BusinessDetails({ company, className }: BusinessDetailsProps) {
                 />
               </View>
             ) : (
-              <View className="h-16 w-16 items-center justify-center rounded-xl border border-border bg-secondary p-2">
+              <View className="border-border bg-secondary h-16 w-16 items-center justify-center rounded-xl border p-2">
                 <Icon name="Building2" size={28} className="text-muted-foreground" />
               </View>
             )}
 
             <View className="flex-1 gap-1">
-              <Text className="text-xl font-bold text-foreground">{company.name}</Text>
+              <Text className="text-foreground text-xl font-bold">{company.name}</Text>
               <View className="flex flex-row">
                 {company.companyType && (
                   <Badge className="w-fit min-w-0">
@@ -99,14 +99,14 @@ export function BusinessDetails({ company, className }: BusinessDetailsProps) {
 
           {/* Description Section */}
           {company.description && (
-            <View className="gap-2 border-t border-border pt-3">
-              <Text className="text-sm leading-6 text-muted-foreground">{displayDescription}</Text>
+            <View className="border-border gap-2 border-t pt-3">
+              <Text className="text-muted-foreground text-sm leading-6">{displayDescription}</Text>
               {isLongDescription && (
                 <TouchableOpacity
                   activeOpacity={0.7}
                   onPress={() => setIsExpanded(!isExpanded)}
                   className="flex-row items-center gap-1 self-start py-1">
-                  <Text className="text-xs font-semibold text-primary">
+                  <Text className="text-primary text-xs font-semibold">
                     {isExpanded ? 'Vis mindre' : 'Vis mer'}
                   </Text>
                   <Icon
@@ -121,16 +121,16 @@ export function BusinessDetails({ company, className }: BusinessDetailsProps) {
 
           {/* Contact Details & Quick Links */}
           {hasContactInfo && (
-            <View className="gap-2 border-t border-border pt-3">
+            <View className="border-border gap-2 border-t pt-3">
               <View className="gap-2">
                 {company.website && (
                   <TouchableOpacity
                     activeOpacity={0.7}
                     onPress={handleOpenWebsite}
-                    className="flex-row items-center justify-between rounded-lg border border-border/60 bg-muted/40 p-2.5">
+                    className="border-border/60 bg-muted/40 flex-row items-center justify-between rounded-lg border p-2.5">
                     <View className="flex-1 flex-row items-center gap-2.5 pr-2">
                       <Icon name="Globe" size={16} className="text-primary" />
-                      <Text className="text-xs font-medium text-foreground" numberOfLines={1}>
+                      <Text className="text-foreground text-xs font-medium" numberOfLines={1}>
                         {company.website.replace(/^https?:\/\//, '')}
                       </Text>
                     </View>
@@ -142,10 +142,10 @@ export function BusinessDetails({ company, className }: BusinessDetailsProps) {
                   <TouchableOpacity
                     activeOpacity={0.7}
                     onPress={handleOpenMap}
-                    className="flex-row items-center justify-between rounded-lg border border-border/60 bg-muted/40 p-2.5">
+                    className="border-border/60 bg-muted/40 flex-row items-center justify-between rounded-lg border p-2.5">
                     <View className="flex-1 flex-row items-center gap-2.5 pr-2">
                       <Icon name="MapPin" size={16} className="text-primary" />
-                      <Text className="text-xs font-medium text-foreground" numberOfLines={1}>
+                      <Text className="text-foreground text-xs font-medium" numberOfLines={1}>
                         {company.address}
                       </Text>
                     </View>
@@ -157,10 +157,10 @@ export function BusinessDetails({ company, className }: BusinessDetailsProps) {
                   <TouchableOpacity
                     activeOpacity={0.7}
                     onPress={handleCallPhone}
-                    className="flex-row items-center justify-between rounded-lg border border-border/60 bg-muted/40 p-2.5">
+                    className="border-border/60 bg-muted/40 flex-row items-center justify-between rounded-lg border p-2.5">
                     <View className="flex-1 flex-row items-center gap-2.5 pr-2">
                       <Icon name="Phone" size={16} className="text-primary" />
-                      <Text className="text-xs font-medium text-foreground">{company.phone}</Text>
+                      <Text className="text-foreground text-xs font-medium">{company.phone}</Text>
                     </View>
                     <Icon name="PhoneCall" size={14} className="text-muted-foreground" />
                   </TouchableOpacity>
