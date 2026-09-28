@@ -20,7 +20,7 @@ export const contextRender: Record<string, (context: any) => TagProps> = {
     linkType: 'external',
   }),
   'events.event': (context) => ({
-    link: `/authed/(tabs)/events/${context.id}`,
+    link: `/authed/(stacks)/event/${context.id}`,
     text: context.title,
     linkableContent: true,
     linkType: 'internal',
