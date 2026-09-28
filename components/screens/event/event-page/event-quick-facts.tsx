@@ -1,13 +1,13 @@
 import Icon from '@/components/icon';
 import { Card, CardContent } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
-import { DetailedEvent } from '@/lib/types/types';
 import * as Linking from 'expo-linking';
 import { Link } from 'expo-router';
 import { Image, TouchableOpacity, View } from 'react-native';
 import EventDatetime from './event-datetime';
 import InfoCard from './info-card';
 import SectionTitle from './section-title';
+import { DetailedEvent } from '../types';
 
 const MazeMapLogo = require('@/assets/images/mazemaplogo.png');
 

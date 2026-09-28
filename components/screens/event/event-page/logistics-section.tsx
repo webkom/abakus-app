@@ -1,11 +1,11 @@
 import Icon from '@/components/icon';
 import { Card, CardContent } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
-import { DetailedEvent } from '@/lib/types/types';
 import { format } from 'date-fns';
 import { nb } from 'date-fns/locale';
 import { Link } from 'expo-router';
 import { Image, TouchableOpacity, View } from 'react-native';
+import { DetailedEvent } from '../types';
 
 const MazeMapLogo = require('@/assets/images/mazemaplogo.png');
 

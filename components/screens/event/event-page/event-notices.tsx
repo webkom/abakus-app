@@ -4,13 +4,13 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
 import Icon from '@/components/icon';
 import { penaltyHours } from '@/lib/penalties';
-import { DetailedEvent } from '@/lib/types/types';
 import { format, isAfter } from 'date-fns';
 import { nb } from 'date-fns/locale';
 import { Link } from 'expo-router';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { CircleAlert, ClockAlert } from 'lucide-react-native';
 import { UnansweredSurveysCard } from '@/components/events/UnansweredSurveysCard';
+import { DetailedEvent } from '../types';
 
 interface EventNoticesProps {
   event?: DetailedEvent;

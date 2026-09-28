@@ -2,8 +2,8 @@ import React from 'react';
 import { View } from 'react-native';
 import { Text } from '@/components/ui/text';
 import Icon from '@/components/icon';
-import { DetailedEvent } from '@/lib/types/types';
 import { EventCategoryBadge } from './event-category-badge';
+import { DetailedEvent } from '../types';
 
 type TitleSectionProps = {
   event?: DetailedEvent;

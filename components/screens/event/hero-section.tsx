@@ -2,7 +2,7 @@ import React from 'react';
 import { Share, TouchableOpacity, View } from 'react-native';
 import { Image } from 'expo-image';
 import Icon from '@/components/icon';
-import { DetailedEvent } from '@/lib/types/types';
+import { DetailedEvent } from './types';
 
 type HeroSectionProps = {
   event?: DetailedEvent;
