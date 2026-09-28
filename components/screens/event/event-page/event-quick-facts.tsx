@@ -1,13 +1,11 @@
 import Icon from '@/components/icon';
-import { Card, CardContent } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
 import * as Linking from 'expo-linking';
-import { Link } from 'expo-router';
 import { Image, TouchableOpacity, View } from 'react-native';
+import { DetailedEvent } from '../types';
 import EventDatetime from './event-datetime';
 import InfoCard from './info-card';
 import SectionTitle from './section-title';
-import { DetailedEvent } from '../types';
 
 const MazeMapLogo = require('@/assets/images/mazemaplogo.png');
 
@@ -49,44 +47,31 @@ export function EventQuickFacts({
         {/* 2. Sted */}
         <TouchableOpacity
           className="flex-1"
-          onPress={() =>
-            openMazeMapLink(
-              `https://use.mazemap.com/#v=1&sharepoitype=poi&sharepoi=${event?.mazemapPoi}`
-            )
-          }>
-          <Card className="border-border bg-card px-0 py-3">
-            <CardContent className="gap-1 px-3.5">
-              <View className="flex-row items-center gap-1.5">
-                <View className="h-6 w-6 items-center justify-center rounded-md bg-primary/10">
-                  {event?.mazemapPoi ? (
-                    <Image source={MazeMapLogo} className="h-3.5 w-3.5" resizeMode="contain" />
-                  ) : (
-                    <Icon name="MapPin" size={14} className="text-primary" />
-                  )}
-                </View>
-                <Text className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
-                  Sted
-                </Text>
+          onPress={() => {
+            if (event?.mazemapPoi) {
+              openMazeMapLink(
+                `https://use.mazemap.com/#v=1&sharepoitype=poi&sharepoi=${event?.mazemapPoi}`
+              );
+            }
+          }}>
+          <InfoCard
+            icon={!event?.mazemapPoi ? 'MapPin' : undefined}
+            iconComponent={
+              event?.mazemapPoi ? (
+                <Image source={MazeMapLogo} width={40} height={40} className="h-4 w-4" />
+              ) : undefined
+            }
+            title="Sted">
+            <Text className="text-sm font-bold text-foreground" numberOfLines={1}>
+              {event?.location || 'TBA'}
+            </Text>
+            {event?.mazemapPoi && (
+              <View className="flex-row items-center gap-1">
+                <Text className="text-xs font-semibold text-primary underline">MazeMap</Text>
+                <Icon name="ArrowUpRight" size={12} className="text-primary" />
               </View>
-              <Text className="text-sm font-bold text-foreground" numberOfLines={1}>
-                {event?.location || 'TBA'}
-              </Text>
-              {event?.mazemapPoi ? (
-                <Link
-                  href={`https://use.mazemap.com/#v=1&sharepoitype=poi&sharepoi=${event.mazemapPoi}`}
-                  asChild>
-                  <TouchableOpacity className="flex-row items-center gap-1">
-                    <Text className="text-xs font-semibold text-primary underline">MazeMap</Text>
-                    <Icon name="ArrowUpRight" size={12} className="text-primary" />
-                  </TouchableOpacity>
-                </Link>
-              ) : (
-                <Text className="text-xs text-muted-foreground" numberOfLines={1}>
-                  Gløshaugen
-                </Text>
-              )}
-            </CardContent>
-          </Card>
+            )}
+          </InfoCard>
         </TouchableOpacity>
       </View>
 

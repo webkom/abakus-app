@@ -12,7 +12,7 @@ const TabLayout = () => {
         }}
         tabBar={(props) => <TabBar {...props} />}>
         <Tabs.Screen
-          name="home/index"
+          name="profile/index"
           options={{
             title: 'Hjem',
           }}
