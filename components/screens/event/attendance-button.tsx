@@ -71,9 +71,9 @@ export function AttendanceButton({
                 exit={{ opacity: 0, translateY: 10 }}
                 transition={{ delay: 150, duration: 100 }}>
                 <MotiView animate={{ rotate: `${scroll}deg` }}>
-                  <Icon name="X" className="text-secondary-foreground" size={18} />
+                  <Icon name="X" className="text-primary-foreground" size={18} />
                 </MotiView>
-                <Text className="text-nowrap text-lg font-bold text-secondary-foreground">
+                <Text className="text-nowrap text-lg font-bold text-primary-foreground">
                   Meld deg av
                 </Text>
               </MotiView>

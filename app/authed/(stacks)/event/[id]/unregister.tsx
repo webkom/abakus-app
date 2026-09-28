@@ -1,8 +1,81 @@
-import { View, Text } from 'react-native';
-import React from 'react';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Button } from '@/components/ui/button';
+import { useEventDetails } from '@/hooks/useEventDetails';
+import { format, isAfter } from 'date-fns';
+import { nb } from 'date-fns/locale';
+import { router, useLocalSearchParams } from 'expo-router';
+import { CircleAlert, ClockAlert } from 'lucide-react-native';
+import { useState } from 'react';
+import { Alert as SystemAlert, Text, View, ActivityIndicator } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const UnregisterPage = () => {
-  return <View className="flex-1"></View>;
+  const { id } = useLocalSearchParams<{ id?: string | string[] }>();
+  const { handleSignOff, event } = useEventDetails(id?.toString() ?? '');
+  const [isLoading, setIsLoading] = useState(false);
+
+  const unregistrationDeadline = event?.unregistrationDeadline
+    ? new Date(event.unregistrationDeadline)
+    : null;
+  const isPastUnregisterDeadline =
+    unregistrationDeadline && !isNaN(unregistrationDeadline.getTime())
+      ? isAfter(new Date(), unregistrationDeadline)
+      : false;
+
+  const signOff = () => {
+    setIsLoading(true);
+    handleSignOff()
+      .then(() => {
+        router.back();
+      })
+      .catch((error) => {
+        SystemAlert.alert(
+          'Feil',
+          error ?? 'En feil oppstod under avregistrering. Vennligst prøv igjen senere.'
+        );
+        router.back();
+      })
+      .finally(() => setIsLoading(false));
+  };
+
+  return (
+    <SafeAreaView className="h-full">
+      <View className="flex-1 items-center justify-center">
+        <View className="flex w-full max-w-xl flex-col items-center gap-5 px-10">
+          <Text className="text-lg font-semibold">Er du sikker på at du vil avregistrere?</Text>
+          {isPastUnregisterDeadline && unregistrationDeadline && (
+            <Alert
+              icon={isPastUnregisterDeadline ? CircleAlert : ClockAlert}
+              variant={isPastUnregisterDeadline ? 'destructive' : 'default'}>
+              <AlertTitle>
+                {isPastUnregisterDeadline ? 'Avmelding gir prikk' : 'Avmeldingsfrist'}
+              </AlertTitle>
+              <AlertDescription>
+                {isPastUnregisterDeadline
+                  ? `Fristen var ${format(unregistrationDeadline, "d. MMM 'kl.' HH:mm", {
+                      locale: nb,
+                    })}.`
+                  : `${format(unregistrationDeadline, "EEEE d. MMMM 'kl.' HH:mm", { locale: nb })}`}
+              </AlertDescription>
+            </Alert>
+          )}
+        </View>
+
+        <View className="absolute bottom-0 w-full p-4">
+          <Button
+            variant={'destructive'}
+            className="h-16 w-full text-nowrap rounded-full shadow-md"
+            onPress={signOff}>
+            {isLoading ? (
+              <ActivityIndicator className="text-primary-foreground" />
+            ) : (
+              <Text className="text-nowrap text-lg font-bold text-primary-foreground">Jepp</Text>
+            )}
+          </Button>
+        </View>
+      </View>
+    </SafeAreaView>
+  );
 };
 
 export default UnregisterPage;

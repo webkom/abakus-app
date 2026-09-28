@@ -13,7 +13,7 @@ import { HeroSection } from '@/components/screens/event/hero-section';
 import { Turnstile } from '@/components/screens/event/turnstile';
 import { useEventDetails } from '@/hooks/useEventDetails';
 import { components } from '@/lib/types/schema';
-import { useLocalSearchParams } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { AnimatePresence, MotiView } from 'moti';
 import { useCallback, useState } from 'react';
@@ -24,7 +24,7 @@ import {
   ScrollView,
   View,
 } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function EventsPage() {
   const insets = useSafeAreaInsets();
@@ -37,7 +37,6 @@ export default function EventsPage() {
     event,
     eventId,
     handleBack,
-    handleSignOff,
     handleSignUp,
     turnstileToken,
     setTurnstileToken,
@@ -163,7 +162,7 @@ export default function EventsPage() {
         scroll={scroll}
         isLoading={isAttendanceButtonLoading}
         onSignUp={handleSignUp}
-        onSignOff={handleSignOff}
+        onSignOff={() => router.push(`/authed/(stacks)/event/${eventId}/unregister`)}
       />
     </View>
   );

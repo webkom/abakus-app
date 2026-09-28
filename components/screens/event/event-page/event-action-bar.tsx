@@ -41,7 +41,7 @@ export function EventActionBar({
     player.play();
   };
 
-  if (!canSignUp) {
+  if (!canSignUp && !isUserSignedUp) {
     return null;
   }
 
