@@ -24,7 +24,7 @@ import {
   ScrollView,
   View,
 } from 'react-native';
-import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function EventsPage() {
   const insets = useSafeAreaInsets();

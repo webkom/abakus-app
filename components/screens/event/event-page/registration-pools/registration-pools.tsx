@@ -5,8 +5,7 @@ import { components } from '@/lib/types/schema';
 import { cn } from '@/lib/utils';
 import { format, isAfter } from 'date-fns';
 import { nb } from 'date-fns/locale';
-import React, { useState } from 'react';
-import { TouchableOpacity, View } from 'react-native';
+import { View } from 'react-native';
 import SectionTitle from '../section-title';
 import PoolCard from './pool-card';
 
@@ -36,8 +35,6 @@ export function RegistrationPools({
   mergeTime,
   className,
 }: RegistrationPoolsProps) {
-  const [expandedPoolId, setExpandedPoolId] = useState<number | null>(null);
-
   const waitingCount =
     typeof waitingRegistrationCount === 'number'
       ? waitingRegistrationCount
@@ -54,10 +51,6 @@ export function RegistrationPools({
   const totalRegistered = pools.reduce((acc, pool) => {
     return acc + (pool.registrationCount ? Number(pool.registrationCount) : 0);
   }, 0);
-
-  const toggleExpand = (id: number) => {
-    setExpandedPoolId(expandedPoolId === id ? null : id);
-  };
 
   const formattedMergeTime = mergeTime ? new Date(mergeTime) : null;
   const isMergeTimeValid = formattedMergeTime && !isNaN(formattedMergeTime.getTime());
