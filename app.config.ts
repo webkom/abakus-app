@@ -3,7 +3,7 @@ import { ExpoConfig } from 'expo/config';
 const config: ExpoConfig = {
   name: 'Abakus',
   slug: 'abakus-app',
-  version: '1.0.0',
+  version: '0.0.0',
   scheme: 'abakus',
   web: {
     favicon: './assets/favicon.png',
@@ -12,15 +12,26 @@ const config: ExpoConfig = {
   experiments: {
     tsconfigPaths: true,
   },
-  plugins: ['expo-router', 'expo-font', 'expo-notifications'],
+  plugins: [
+    'expo-router',
+    'expo-font',
+    'expo-notifications',
+    'expo-audio',
+    'expo-asset',
+    'expo-image',
+    'expo-status-bar',
+    [
+      'expo-splash-screen',
+      {
+        image: './assets/splash.png',
+        resizeMode: 'contain',
+        backgroundColor: '#ffffff',
+      },
+    ],
+  ],
   orientation: 'portrait',
   icon: './assets/icon.png',
   userInterfaceStyle: 'light',
-  splash: {
-    image: './assets/splash.png',
-    resizeMode: 'contain',
-    backgroundColor: '#ffffff',
-  },
   assetBundlePatterns: ['**/*'],
   ios: {
     supportsTablet: true,

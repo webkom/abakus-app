@@ -1438,6 +1438,26 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  '/api/v1/events/{id}/registration-eligibility/': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+     *     frontend to decide which actions a user can perform.
+     */
+    get: operations['eventsRegistrationEligibilityRetrieve'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   '/api/v1/events/{id}/statistics/': {
     parameters: {
       query?: never;
@@ -4052,8 +4072,7 @@ export interface components {
       excludeWaitingList?: boolean;
       meetings?: number[];
       meetingInvitationStatus?:
-        | components['schemas']['MeetingInvitationStatusEnum']
-        | components['schemas']['BlankEnum'];
+        components['schemas']['MeetingInvitationStatusEnum'] | components['schemas']['BlankEnum'];
     };
     AnnouncementList: {
       readonly id: number;
@@ -4067,8 +4086,7 @@ export interface components {
       excludeWaitingList?: boolean;
       readonly meetings: components['schemas']['MeetingList'][];
       meetingInvitationStatus?:
-        | components['schemas']['MeetingInvitationStatusEnum']
-        | components['schemas']['BlankEnum'];
+        components['schemas']['MeetingInvitationStatusEnum'] | components['schemas']['BlankEnum'];
     };
     Answer: {
       readonly id: number;
@@ -4910,7 +4928,7 @@ export interface components {
        */
       readonly dateCreated: string | null;
       /**
-       * @description You should choose FCM or GCM
+       * @description You should choose FCM, GCM is deprecated
        *
        *     * `FCM` - Firebase Cloud Message
        *     * `GCM` - Google Cloud Message
@@ -5006,6 +5024,7 @@ export interface components {
      *     * `purchasing_manager` - purchasing_manager
      *     * `event_manager` - event_manager
      *     * `snackoverflow_manager` - snackoverflow_manager
+     *     * `operations_manager` - operations_manager
      * @enum {string}
      */
     GroupRolesEnum:
@@ -5038,7 +5057,8 @@ export interface components {
       | 'booking_admin'
       | 'purchasing_manager'
       | 'event_manager'
-      | 'snackoverflow_manager';
+      | 'snackoverflow_manager'
+      | 'operations_manager';
     /**
      * @description Any serializer with write support and tags should implement this serializer to support automatic
      *     creation of new tags.
@@ -6051,8 +6071,7 @@ export interface components {
       excludeWaitingList?: boolean;
       meetings?: number[];
       meetingInvitationStatus?:
-        | components['schemas']['MeetingInvitationStatusEnum']
-        | components['schemas']['BlankEnum'];
+        components['schemas']['MeetingInvitationStatusEnum'] | components['schemas']['BlankEnum'];
     };
     PatchedApplication: {
       readonly id?: number;
@@ -6283,7 +6302,7 @@ export interface components {
        */
       readonly dateCreated?: string | null;
       /**
-       * @description You should choose FCM or GCM
+       * @description You should choose FCM, GCM is deprecated
        *
        *     * `FCM` - Firebase Cloud Message
        *     * `GCM` - Google Cloud Message
@@ -6845,6 +6864,14 @@ export interface components {
       captchaResponse?: string;
       paymentStatus?: components['schemas']['PaymentStatusEnum'];
     };
+    RegistrationEligibility: {
+      canRegisterNow: boolean;
+      reason?: string | null;
+      isRegistrationDelayed?: boolean | null;
+      /** Format: date-time */
+      delayUntil?: string | null;
+      willBeWaitingList?: boolean | null;
+    };
     RegistrationPaymentRead: {
       readonly id: number;
       user: components['schemas']['PublicUserWithAbakusGroups'];
@@ -6963,6 +6990,7 @@ export interface components {
      *     * `purchasing_manager` - purchasing_manager
      *     * `event_manager` - event_manager
      *     * `snackoverflow_manager` - snackoverflow_manager
+     *     * `operations_manager` - operations_manager
      * @enum {string}
      */
     RoleEnum:
@@ -6995,7 +7023,8 @@ export interface components {
       | 'booking_admin'
       | 'purchasing_manager'
       | 'event_manager'
-      | 'snackoverflow_manager';
+      | 'snackoverflow_manager'
+      | 'operations_manager';
     /**
      * @description * `auto` - auto
      *     * `light` - light
@@ -10398,6 +10427,28 @@ export interface operations {
       };
     };
   };
+  eventsRegistrationEligibilityRetrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description A unique integer value identifying this event. */
+        id: number;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          'application/json': components['schemas']['RegistrationEligibility'];
+        };
+      };
+    };
+  };
   eventsStatisticsRetrieve: {
     parameters: {
       query?: never;
@@ -12646,6 +12697,7 @@ export interface operations {
          *     * `purchasing_manager` - purchasing_manager
          *     * `event_manager` - event_manager
          *     * `snackoverflow_manager` - snackoverflow_manager
+         *     * `operations_manager` - operations_manager
          */
         role?:
           | 'active_retiree'
@@ -12666,6 +12718,7 @@ export interface operations {
           | 'media_relations'
           | 'member'
           | 'merch_admin'
+          | 'operations_manager'
           | 'photo_admin'
           | 'purchasing_manager'
           | 'recruiting'

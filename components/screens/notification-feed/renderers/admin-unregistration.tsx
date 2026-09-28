@@ -42,7 +42,7 @@ const AdminUnregistrationRenderer: ActivityRenderer = {
       return { link: '/authed/(tabs)/events', linkType: 'internal' };
     }
 
-    return { link: `/authed/(tabs)/events/${event.id}`, linkType: 'internal' };
+    return { link: `/authed/(stacks)/event/${event.id}`, linkType: 'internal' };
   },
 };
 
