@@ -41,7 +41,7 @@ export function EventQuickFacts({
   return (
     <View className={className}>
       <SectionTitle title="Fire kjappe" icon="BadgeInfo" className="mb-3" />
-      <View className="flex-row gap-2.5">
+      <View className="flex-shrink-0 flex-row gap-2.5">
         {/* 1. Tidspunkt */}
         <EventDatetime startTime={startTime} endTime={endTime} />
         {/* 2. Sted */}

@@ -12,7 +12,7 @@ type InfoCardProps = {
 
 const InfoCard = ({ children, title, icon, iconComponent }: InfoCardProps) => {
   return (
-    <Card className="flex-1 border-border bg-card px-0 py-3">
+    <Card className="flex-1 shrink-0 border-border bg-card px-0 py-3">
       <CardContent className="gap-1 px-3.5">
         <View className="flex-row items-center gap-1.5">
           {(icon || iconComponent) && (
