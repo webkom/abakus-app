@@ -40,7 +40,9 @@ export const useEventDetails = (eventId: string) => {
   } = useEventAttendance({ id: eventId });
 
   // Computed states
-  const canSignUp = Boolean(eligibilityData?.canRegisterNow);
+  const canSignUp = Boolean(
+    eligibilityData?.canRegisterNow && (isUserSignedUp || unansweredSurveys.length === 0)
+  );
   const isAttendanceActionLoading =
     signUp.status === 'pending' || isAttendanceLoading || !turnstileToken;
 
