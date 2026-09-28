@@ -124,8 +124,10 @@ export default function EventsPage() {
 
             {/* Event Description Section */}
             <DescriptionSection
-              description={event?.description ?? 'Ingen beskrivelse'}
-              previewDescription={'Preview'}
+              description={event?.text ?? 'Ingen beskrivelse'}
+              previewDescription={
+                event?.description ?? event?.text.substring(0, 200) ?? 'Ingen beskrivelse'
+              }
             />
 
             {/* Registration Pools & Capacity Progress Bars */}
