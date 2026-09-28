@@ -1,5 +1,3 @@
-// --- Meta Types ---
-
 import { components } from './schema';
 
 export enum SocketEventType {
@@ -12,38 +10,12 @@ export enum RegistrationStatus {
   SuccessUnregister = 'SUCCESS_UNREGISTER',
 }
 
-export enum GroupType {
-  Annen = 'annen',
-  Komite = 'komite',
-  Klasse = 'klasse',
-  // Add others if they exist in your domain (e.g., "styret", "undergruppe")
-}
-
-export enum Gender {
-  Male = 'male',
-  Female = 'female',
-  Other = 'other', // Extrapolated as likely options
-}
-
-export interface AbakusGroup {
-  id: number;
-  name: string;
-  description: string;
-  contactEmail: string;
-  parent: number | null;
-  logo: string | null;
-  logoPlaceholder: string | null;
-  type: GroupType;
-  showBadge: boolean;
-  active: boolean;
-}
-
 export interface BaseMeta {
   eventId: number;
 }
 
 export interface UnregistrationMeta extends BaseMeta {
-  activationTime: string; // ISO Date string
+  activationTime: string;
   fromPool: number;
 }
 
@@ -59,7 +31,7 @@ export interface RegistrationPayload {
 export interface UnregistrationPayload {
   id: number;
   user: components['schemas']['CurrentUser'];
-  pool: null; // Pool is null on unregistration in your example
+  pool: null;
   status: RegistrationStatus.SuccessUnregister;
 }
 

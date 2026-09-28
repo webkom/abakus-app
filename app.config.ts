@@ -51,7 +51,7 @@ const config: ExpoConfig = {
   extra: {
     router: {},
     eas: {
-      projectId: '58d655fc-a346-4b64-b5a7-8eb2d9cab7d4',
+      projectId: '59d655fc-a346-4b64-b5a7-8eb2d9cab7d4',
     },
   },
   owner: 'webkom',
