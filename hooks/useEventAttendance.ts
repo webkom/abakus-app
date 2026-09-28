@@ -74,8 +74,6 @@ export const useEventAttendance = ({ id }: { id: string }) => {
     let ws: WebSocket | null = null;
 
     const callback = (message: SocketEvent) => {
-      console.log('Received WebSocket message:', message);
-
       const targetEventId = event?.id?.toString();
       const messageEventId = message.meta?.eventId?.toString();
 
@@ -89,7 +87,6 @@ export const useEventAttendance = ({ id }: { id: string }) => {
     };
 
     const initializeWebSocket = async () => {
-      console.log('Setting up websocket server');
       const socket = await setupWebSocketServer(callback);
       if (!isMounted) {
         socket?.close();
