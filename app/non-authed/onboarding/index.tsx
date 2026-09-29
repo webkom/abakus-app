@@ -4,20 +4,23 @@ import { Link } from 'expo-router';
 import { MoveRightIcon } from 'lucide-react-native';
 import React from 'react';
 import { Image, Text, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView as RNSafeAreaView } from 'react-native-safe-area-context';
+import { withUniwind } from 'uniwind';
+
+const SafeAreaView = withUniwind(RNSafeAreaView);
 
 const BlurBackground = require('@/assets/images/blur-background.png');
 
 const OnboardingPage = () => {
   return (
-    <View className="h-screen w-screen bg-background">
+    <View className="bg-background h-screen w-screen">
       <Image source={BlurBackground} className="absolute h-full w-full" resizeMode="cover" />
       <SafeAreaView className="flex h-screen w-screen flex-col items-center justify-center gap-14 px-5">
         <Text
           style={{
             fontFamily: 'PixelifySans_400Regular',
           }}
-          className="text-5xl text-primary">
+          className="text-primary text-5xl">
           &gt; Nyttig å vite
         </Text>
         <View className="flex w-full flex-row flex-wrap gap-5">

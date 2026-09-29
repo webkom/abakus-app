@@ -5,7 +5,7 @@
   "projectName": "my-expo-app",
   "packages": [
     {
-      "name": "nativewind",
+      "name": "uniwind",
       "type": "styling"
     }
   ],

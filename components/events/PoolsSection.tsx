@@ -62,7 +62,7 @@ export const PoolsSection: React.FC<PoolsSectionProps> = ({
         const registrations = pool.registrations || [];
 
         return (
-          <Card key={pool.id} className="border border-gray-200 bg-background p-4">
+          <Card key={pool.id} className="bg-background border border-gray-200 p-4">
             <TouchableOpacity
               onPress={() => toggleExpand(pool.id)}
               className="flex-row items-center justify-between">

@@ -28,7 +28,7 @@ function Alert({
       <View
         role="alert"
         className={cn(
-          'relative w-full rounded-lg border border-border bg-card px-4 pb-2 pt-3.5',
+          'border-border bg-card relative w-full rounded-lg border px-4 pb-2 pt-3.5',
           className
         )}
         {...props}>
@@ -58,7 +58,7 @@ function AlertDescription({ className, ...props }: React.ComponentProps<typeof T
   return (
     <Text
       className={cn(
-        'ml-0.5 pb-1.5 pl-6 text-sm leading-relaxed text-muted-foreground',
+        'text-muted-foreground ml-0.5 pb-1.5 pl-6 text-sm leading-relaxed',
         textClass?.includes('text-destructive') && 'text-destructive/90',
         className
       )}

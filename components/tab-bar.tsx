@@ -7,12 +7,12 @@ import { MotiView, useDynamicAnimation } from 'moti';
 import React, { ComponentProps } from 'react';
 import { Pressable, View } from 'react-native';
 
-iconWithClassName(QrCodeIcon);
-iconWithClassName(CalendarIcon);
-iconWithClassName(UserIcon);
+const QrCode = iconWithClassName(QrCodeIcon);
+const Calendar = iconWithClassName(CalendarIcon);
+const User = iconWithClassName(UserIcon);
 
 // Infer the correct props from one of the lucide icons:
-type IconProps = ComponentProps<typeof UserIcon>;
+type IconProps = ComponentProps<typeof UserIcon> & { className?: string };
 type IconType = React.ComponentType<IconProps>;
 
 type TabBarProps = Parameters<NonNullable<ComponentProps<typeof Tabs>['tabBar']>>[0];
@@ -23,21 +23,21 @@ const TabBar = ({ navigation, state, descriptors, insets }: TabBarProps) => {
 
   return (
     <View className="bottom-safe-offset-2 bg-background px-5">
-      <View className="flex w-full flex-row justify-evenly rounded-full border border-border bg-card py-3 shadow-sm">
+      <View className="border-border bg-card flex w-full flex-row justify-evenly rounded-full border py-3 shadow-sm">
         <TabBarButton
-          Icon={QrCodeIcon}
+          Icon={QrCode}
           selected={pathName.includes('abaid')}
           label="AbaID"
           onPress={() => router.push('/authed/(tabs)/abaid')}
         />
         <TabBarButton
-          Icon={CalendarIcon}
+          Icon={Calendar}
           selected={pathName.includes('events')}
           label="Arrangementer"
           onPress={() => router.push('/authed/(tabs)/events')}
         />
         <TabBarButton
-          Icon={UserIcon}
+          Icon={User}
           selected={pathName.includes('profile')}
           label="Profil"
           onPress={() => router.push('/authed/(tabs)/profile')}
@@ -80,7 +80,7 @@ const TabBarButton = ({
         <View className="absolute inset-0 flex items-center justify-center">
           <MotiView
             state={animation}
-            className="h-full rounded-full bg-primary"
+            className="bg-primary h-full rounded-full"
             style={{
               borderRadius: 1000,
             }}
@@ -94,7 +94,7 @@ const TabBarButton = ({
       <Text
         className={cn(
           'text-xs',
-          selected ? 'font-semibold text-foreground' : 'text-muted-foreground'
+          selected ? 'text-foreground font-semibold' : 'text-muted-foreground'
         )}>
         {label}
       </Text>

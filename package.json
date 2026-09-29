@@ -45,10 +45,10 @@
     "expo-splash-screen": "~57.0.9",
     "expo-status-bar": "~57.0.1",
     "expo-web-browser": "~57.0.3",
+    "heroui-native": "^1.0.10",
     "jotai": "^2.15.0",
     "lucide-react-native": "^0.545.0",
     "moti": "^0.30.0",
-    "nativewind": "^4.2.7",
     "openapi-fetch": "^0.17.0",
     "openapi-react-query": "^0.5.4",
     "react": "19.2.3",
@@ -63,9 +63,10 @@
     "react-native-svg": "15.15.4",
     "react-native-webview": "13.16.1",
     "react-native-worklets": "0.10.1",
-    "tailwind-merge": "^3.4.0",
-    "tailwind-variants": "^3.1.1",
+    "tailwind-merge": "^3.7.0",
+    "tailwind-variants": "^3.3.1",
     "tailwindcss-animate": "^1.0.7",
+    "uniwind": "^1.12.0",
     "zod": "^3.25.76"
   },
   "devDependencies": {
@@ -80,7 +81,7 @@
     "openapi-typescript": "^7.13.0",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.11",
-    "tailwindcss": "^3.4.0",
+    "tailwindcss": "^4.3.3",
     "typescript": "~6.0.3"
   },
   "main": "expo-router/entry",

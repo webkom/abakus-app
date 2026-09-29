@@ -1,6 +1,6 @@
 import { HomeIcon, icons } from 'lucide-react-native';
-import { cssInterop } from 'nativewind';
-import { ComponentProps, memo, useMemo } from 'react';
+import { withUniwind } from 'uniwind';
+import React, { ComponentProps, memo } from 'react';
 
 type IconName = keyof typeof icons;
 
@@ -12,30 +12,35 @@ type IconName = keyof typeof icons;
  */
 type IconProps = { name: IconName; className?: string } & ComponentProps<typeof HomeIcon>;
 
+const iconCache = new Map<IconName, React.ComponentType<any>>();
+
+function getStyledIcon(name: IconName) {
+  let Styled = iconCache.get(name);
+  if (!Styled) {
+    // eslint-disable-next-line import/namespace
+    const IconComponent = icons[name];
+    Styled = withUniwind(IconComponent as unknown as React.ComponentType<any>, {
+      color: {
+        fromClassName: 'className',
+        styleProperty: 'color',
+      },
+      style: {
+        fromClassName: 'className',
+      },
+    });
+    iconCache.set(name, Styled);
+  }
+  return Styled;
+}
+
 /**
- * Use this component to apply nativewind color stylings such as `text-on-primary` to lucide icons.
+ * Use this component to apply color stylings such as `text-on-primary` to lucide icons.
  * @example ```
     <Icon name="HouseIcon" size={20} className="text-on-primary" />
  ```
  */
 const Icon: React.FC<IconProps> = memo(({ name, className, ...props }) => {
-  const CustomIcon = useMemo(() => {
-    // eslint-disable-next-line import/namespace
-    const Icon = icons[name];
-    Icon.displayName = name;
-
-    return cssInterop(Icon, {
-      className: {
-        target: 'style',
-        nativeStyleToProp: {
-          color: true,
-          width: true,
-          height: true,
-        },
-      },
-    });
-  }, [name]);
-
+  const CustomIcon = getStyledIcon(name);
   return <CustomIcon className={className} {...props} />;
 });
 

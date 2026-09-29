@@ -69,16 +69,16 @@ export function EventNotices({
           href="https://abakus.no/pages/arrangementer/26-arrangementsregler"
           asChild>
           <TouchableOpacity activeOpacity={0.8}>
-            <Card className="w-full border-destructive/30 bg-destructive/10 py-3">
+            <Card className="border-destructive/30 bg-destructive/10 w-full py-3">
               <CardContent className="flex-row items-center gap-3">
-                <View className="h-8 w-8 items-center justify-center rounded-lg bg-destructive/20">
+                <View className="bg-destructive/20 h-8 w-8 items-center justify-center rounded-lg">
                   <Icon name="TriangleAlert" size={16} className="text-destructive" />
                 </View>
                 <View className="flex-1">
-                  <Text className="text-xs font-bold uppercase tracking-wider text-destructive">
+                  <Text className="text-destructive text-xs font-bold uppercase tracking-wider">
                     Du har {totalCurrentPenalties} prikk{totalCurrentPenalties !== 1 ? 'er' : ''}
                   </Text>
-                  <Text className="text-xs text-destructive/90">
+                  <Text className="text-destructive/90 text-xs">
                     {totalCurrentPenalties > 2
                       ? `Påmelding forskjøvet med ${penaltyHours(totalCurrentPenalties)} timer.`
                       : 'Du legges på venteliste ved påmelding.'}
@@ -95,14 +95,14 @@ export function EventNotices({
       {isFutureActivation && !isUserSignedUp && (
         <Card className="border-primary/20 bg-primary/5 py-3">
           <CardContent className="flex-row items-center gap-3">
-            <View className="h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
+            <View className="bg-primary/10 h-8 w-8 items-center justify-center rounded-lg">
               <Icon name="Clock" size={16} className="text-primary" />
             </View>
             <View className="flex-1">
-              <Text className="text-xs font-bold uppercase tracking-wider text-primary">
+              <Text className="text-primary text-xs font-bold uppercase tracking-wider">
                 Påmelding åpner snart
               </Text>
-              <Text className="text-xs text-muted-foreground">
+              <Text className="text-muted-foreground text-xs">
                 Åpner {format(activationTime, "EEEE d. MMMM 'kl.' HH:mm", { locale: nb })}
               </Text>
             </View>

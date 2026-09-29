@@ -73,7 +73,7 @@ export default function EventsPage() {
   }
 
   return (
-    <View className="flex-1 bg-background">
+    <View className="bg-background flex-1">
       <StatusBar style="auto" />
 
       <View className="flex-1 overflow-hidden">
@@ -85,7 +85,7 @@ export default function EventsPage() {
               animate={{ translateY: 0 }}
               exit={{ translateY: -100 }}
               className="absolute top-5 z-20 w-full items-center shadow-lg">
-              <View className="rounded-full bg-secondary p-2">
+              <View className="bg-secondary rounded-full p-2">
                 <ActivityIndicator className="text-secondary-foreground" />
               </View>
             </MotiView>

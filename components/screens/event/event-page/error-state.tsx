@@ -9,14 +9,14 @@ type ErrorStateProps = {
 
 export function ErrorState({ onBack }: ErrorStateProps) {
   return (
-    <View className="flex-1 items-center justify-center bg-background px-6">
+    <View className="bg-background flex-1 items-center justify-center px-6">
       <View className="items-center gap-4">
-        <View className="h-16 w-16 items-center justify-center rounded-full bg-destructive/10">
+        <View className="bg-destructive/10 h-16 w-16 items-center justify-center rounded-full">
           <Icon name="FileWarning" size={32} className="text-destructive" />
         </View>
         <View className="gap-1">
           <Text className="text-center text-xl font-semibold">Fant ikke arrangementet</Text>
-          <Text className="text-center text-muted-foreground">
+          <Text className="text-muted-foreground text-center">
             Det kan ha blitt fjernet, eller du mangler tilgang.
           </Text>
         </View>

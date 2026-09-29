@@ -20,7 +20,7 @@ export const PenaltyModal: React.FC<PenaltyModalProps> = ({
   return (
     <Modal transparent animationType="fade" visible={visible} onRequestClose={onClose}>
       <View className="flex-1 items-center justify-center bg-black/50 px-5">
-        <View className="w-full max-w-sm rounded-2xl bg-background p-6 shadow-xl">
+        <View className="bg-background w-full max-w-sm rounded-2xl p-6 shadow-xl">
           <View className="flex-row items-center gap-3">
             <View className="rounded-full bg-red-100 p-2">
               <Icon name="UserMinus" size={24} className="text-red-600" />

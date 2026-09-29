@@ -37,17 +37,17 @@ const PoolCard = ({ pool }: PoolCardProps) => {
           <View className="gap-2.5">
             <View className="flex-row items-center justify-between">
               <View className="flex-row items-center gap-2">
-                <Text className="text-base font-semibold text-foreground">{pool.name}</Text>
+                <Text className="text-foreground text-base font-semibold">{pool.name}</Text>
 
                 {isFull && (
-                  <View className="rounded bg-destructive/15 px-2 py-0.5">
-                    <Text className="text-xs font-medium text-destructive">Fullt</Text>
+                  <View className="bg-destructive/15 rounded px-2 py-0.5">
+                    <Text className="text-destructive text-xs font-medium">Fullt</Text>
                   </View>
                 )}
               </View>
 
               <View className="flex-row items-center gap-2">
-                <Text className="text-sm font-bold text-foreground">
+                <Text className="text-foreground text-sm font-bold">
                   {registered} / {capacity > 0 ? capacity : '∞'}
                 </Text>
                 <Icon
@@ -60,7 +60,7 @@ const PoolCard = ({ pool }: PoolCardProps) => {
 
             {/* Progress Bar */}
             {capacity > 0 && (
-              <View className="h-2 w-full overflow-hidden rounded-full bg-secondary">
+              <View className="bg-secondary h-2 w-full overflow-hidden rounded-full">
                 <View
                   className={cn(
                     'h-full rounded-full',
@@ -74,19 +74,19 @@ const PoolCard = ({ pool }: PoolCardProps) => {
 
           {/* Expanded Details Section */}
           {expanded && (
-            <View className="mt-1 gap-3 border-t border-border pt-3">
+            <View className="border-border mt-1 gap-3 border-t pt-3">
               {/* Group Access Badges (shown when expanded) */}
               {pool.permissionGroups && pool.permissionGroups.length > 0 && (
                 <View className="gap-1.5">
-                  <Text className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  <Text className="text-muted-foreground text-xs font-semibold uppercase tracking-wider">
                     Gruppetilgang
                   </Text>
                   <View className="flex-row flex-wrap items-center gap-1.5">
                     {pool.permissionGroups.map((group) => (
                       <View
                         key={group.id}
-                        className="flex-row items-center gap-1 rounded-full border border-border bg-secondary px-2.5 py-0.5">
-                        <Text className="text-[11px] font-medium text-secondary-foreground">
+                        className="border-border bg-secondary flex-row items-center gap-1 rounded-full border px-2.5 py-0.5">
+                        <Text className="text-secondary-foreground text-[11px] font-medium">
                           {group.name}
                         </Text>
                       </View>
@@ -97,11 +97,11 @@ const PoolCard = ({ pool }: PoolCardProps) => {
 
               {/* Future Activation Info */}
               {isFutureActivation && (
-                <View className="flex-row items-center gap-2 rounded-lg bg-muted/50 p-2.5">
+                <View className="bg-muted/50 flex-row items-center gap-2 rounded-lg p-2.5">
                   <Icon name="Clock" size={14} className="text-muted-foreground" />
-                  <Text className="text-xs text-muted-foreground">
+                  <Text className="text-muted-foreground text-xs">
                     Påmelding åpner{' '}
-                    <Text className="text-xs font-semibold text-foreground">
+                    <Text className="text-foreground text-xs font-semibold">
                       {format(activationDateObj, "EEEE d. MMMM 'kl.' HH:mm", { locale: nb })}
                     </Text>
                   </Text>
@@ -110,7 +110,7 @@ const PoolCard = ({ pool }: PoolCardProps) => {
 
               {/* Signed Up Users List */}
               <View className="gap-1.5">
-                <Text className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                <Text className="text-muted-foreground text-xs font-semibold uppercase tracking-wider">
                   Påmeldte deltakere
                 </Text>
                 {hasRegistrations ? (
@@ -119,11 +119,11 @@ const PoolCard = ({ pool }: PoolCardProps) => {
                       <View
                         key={reg.id ?? idx}
                         className="flex-row items-center justify-between py-1">
-                        <Text className="text-sm font-medium text-foreground">
+                        <Text className="text-foreground text-sm font-medium">
                           {reg.user?.fullName || reg.user?.username || 'Anonym bruker'}
                         </Text>
                         {reg.user?.grade || reg.user?.abakusGroup?.name ? (
-                          <Text className="text-xs text-muted-foreground">
+                          <Text className="text-muted-foreground text-xs">
                             {reg.user?.grade || reg.user?.abakusGroup?.name}
                           </Text>
                         ) : null}
@@ -131,11 +131,11 @@ const PoolCard = ({ pool }: PoolCardProps) => {
                     ))}
                   </View>
                 ) : registered === 0 ? (
-                  <Text className="text-xs italic text-muted-foreground">
+                  <Text className="text-muted-foreground text-xs italic">
                     Ingen påmeldte i denne poolen ennå.
                   </Text>
                 ) : (
-                  <Text className="text-xs text-muted-foreground">
+                  <Text className="text-muted-foreground text-xs">
                     {registered} {registered === 1 ? 'person' : 'personer'} påmeldt.
                   </Text>
                 )}

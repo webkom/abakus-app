@@ -19,7 +19,7 @@ const AutoHeightImage = ({ uri, ...props }: AutoHeightImageProps) => {
 
   if (error) {
     return (
-      <View className="h-20 w-full items-center justify-center bg-secondary/30">
+      <View className="bg-secondary/30 h-20 w-full items-center justify-center">
         <Icon
           name="Ghost"
           size={48}
