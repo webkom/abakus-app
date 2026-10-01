@@ -1,10 +1,10 @@
 import Icon from '@/components/icon';
-import { Card, CardContent } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
 import { components } from '@/lib/types/schema';
 import { cn } from '@/lib/utils';
 import { format, isAfter } from 'date-fns';
 import { nb } from 'date-fns/locale';
+import { Card, Surface } from 'heroui-native';
 import { View } from 'react-native';
 import SectionTitle from '../section-title';
 import PoolCard from './pool-card';
@@ -57,80 +57,42 @@ export function RegistrationPools({
   const hasMerged = isMergeTimeValid && !isAfter(formattedMergeTime, new Date());
 
   return (
-    <View className={cn('flex flex-col gap-3', className)}>
-      {/* Header Section */}
-      <View className="flex-row items-center justify-between px-1">
-        <SectionTitle icon="Users" title="Påmeldingspooler" />
+    <Surface>
+      <View className={cn('flex flex-col gap-3', className)}>
+        {/* Header Section */}
+        <View className="flex-row items-center justify-between px-1">
+          <SectionTitle icon="Users" title="Påmeldingsgrupper" />
 
-        <Text className="text-muted-foreground text-xs font-medium">
-          {totalRegistered} / {totalCapacity > 0 ? `${totalCapacity}` : '∞'} plasser
-        </Text>
+          <Text className="text-muted-foreground text-xs font-medium">
+            {totalRegistered} / {totalCapacity > 0 ? `${totalCapacity}` : '∞'} plasser
+          </Text>
+        </View>
+
+        {/* Pool Cards */}
+        {!hasMerged &&
+          pools.map((pool) => {
+            return <PoolCard pool={pool} key={pool.id + 'pool'} />;
+          })}
+
+        {hasMerged && (
+          <PoolCard
+            pool={{
+              id: 0,
+              name: 'Deltakere',
+              capacity: pools.reduce((acc, pool) => acc + (pool.capacity || 0), 0),
+              registrationCount: String(
+                pools.reduce((acc, pool) => acc + (Number(pool.registrationCount) || 0), 0)
+              ),
+              activationDate: pools[0]?.activationDate as string,
+              permissionGroups: pools.flatMap((pool) => pool.permissionGroups || []),
+              registrations: pools.flatMap((pool) => pool.registrations || []),
+            }}
+          />
+        )}
+
+        {/* Waitlist Card */}
       </View>
-
-      {/* Merge Time Banner */}
-      {isMergeTimeValid && (
-        <Card className="border-border/60 bg-muted/30 py-3">
-          <CardContent className="flex-row items-center gap-3">
-            <View className="bg-primary/10 h-8 w-8 items-center justify-center rounded-lg">
-              <Icon name="GitMerge" size={16} className="text-primary" />
-            </View>
-            <View className="flex-1">
-              <Text className="text-foreground text-xs font-semibold">
-                {hasMerged ? 'Poolene er slått sammen' : 'Samling av pooler'}
-              </Text>
-              <Text className="text-muted-foreground text-xs">
-                {hasMerged
-                  ? `Poolene ble slått sammen ${format(formattedMergeTime, "d. MMMM 'kl.' HH:mm", { locale: nb })}`
-                  : `Restplasser slås sammen ${format(formattedMergeTime, "d. MMMM 'kl.' HH:mm", { locale: nb })}`}
-              </Text>
-            </View>
-          </CardContent>
-        </Card>
-      )}
-
-      {/* Pool Cards */}
-      {!hasMerged &&
-        pools.map((pool) => {
-          return <PoolCard pool={pool} key={pool.id + 'pool'} />;
-        })}
-
-      {hasMerged && (
-        <PoolCard
-          pool={{
-            id: 0,
-            name: 'Deltakere',
-            capacity: pools.reduce((acc, pool) => acc + (pool.capacity || 0), 0),
-            registrationCount: String(
-              pools.reduce((acc, pool) => acc + (Number(pool.registrationCount) || 0), 0)
-            ),
-            activationDate: pools[0]?.activationDate as string,
-            permissionGroups: pools.flatMap((pool) => pool.permissionGroups || []),
-            registrations: pools.flatMap((pool) => pool.registrations || []),
-          }}
-        />
-      )}
-
-      {/* Waitlist Card */}
-      {waitingCount > 0 && (
-        <Card className="border-amber-500/30 bg-amber-500/10 py-3">
-          <CardContent className="flex-row items-center gap-3">
-            <View className="h-8 w-8 items-center justify-center rounded-lg bg-amber-500/20">
-              <Icon name="Hourglass" size={16} className="text-amber-600 dark:text-amber-400" />
-            </View>
-            <View className="flex-1">
-              <Text className="text-sm font-semibold text-amber-900 dark:text-amber-200">
-                Venteliste ({waitingCount})
-              </Text>
-              <Text className="text-xs text-amber-700 dark:text-amber-300">
-                {waitingCount === 1
-                  ? '1 person står i kø for ledig plass'
-                  : `${waitingCount} personer står i kø for ledig plass`}
-              </Text>
-            </View>
-          </CardContent>
-        </Card>
-      )}
-    </View>
+    </Surface>
   );
 }
 
