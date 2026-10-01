@@ -5,6 +5,7 @@ import { Text } from '@/components/ui/text';
 import Icon from '@/components/icon';
 import SectionTitle from './event-page/section-title';
 import { RenderHTML } from '@nanogiants/react-native-render-html';
+import { Surface } from 'heroui-native';
 
 type DescriptionSectionProps = {
   description?: string;
@@ -29,28 +30,25 @@ export function DescriptionSection({
       onPress={() => setIsExpanded((prev) => !prev)}
       className={className}>
       <View className={`gap-2.5`}>
-        <SectionTitle title="Om arrangementet" icon="FileText" />
+        <Surface variant="default" className="flex flex-col gap-2.5">
+          <SectionTitle title="Om arrangementet" icon="FileText" className="mb-2.5" />
+          {!isExpanded && (
+            <Text className="text-muted-foreground text-sm leading-6">{previewDescription}</Text>
+          )}
 
-        <Card className="border-border bg-card py-4">
-          <CardContent className="gap-3">
-            {!isExpanded && (
-              <Text className="text-muted-foreground text-sm leading-6">{previewDescription}</Text>
-            )}
+          {isExpanded && <RenderHTML html={description} />}
 
-            {isExpanded && <RenderHTML html={description} />}
-
-            <View className="flex-row items-center gap-1 self-start pt-1">
-              <Text className="text-primary text-xs font-semibold">
-                {isExpanded ? 'Vis mindre' : 'Vis mer'}
-              </Text>
-              <Icon
-                name={isExpanded ? 'ChevronUp' : 'ChevronDown'}
-                size={14}
-                className="text-primary"
-              />
-            </View>
-          </CardContent>
-        </Card>
+          <View className="flex-row items-center gap-1 self-start pt-1">
+            <Text className="text-primary text-xs font-semibold">
+              {isExpanded ? 'Vis mindre' : 'Vis mer'}
+            </Text>
+            <Icon
+              name={isExpanded ? 'ChevronUp' : 'ChevronDown'}
+              size={14}
+              className="text-primary"
+            />
+          </View>
+        </Surface>
       </View>
     </TouchableOpacity>
   );

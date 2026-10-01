@@ -5,8 +5,10 @@ import { Text } from '@/components/ui/text';
 import { components } from '@/lib/types/schema';
 import { cn } from '@/lib/utils';
 import { Image } from 'expo-image';
-import React, { useState } from 'react';
+import { Surface } from 'heroui-native';
+import React, { ComponentProps, useState } from 'react';
 import { Linking, TouchableOpacity, View } from 'react-native';
+import SectionTitle from './section-title';
 
 type BusinessDetailsProps = {
   company?: components['schemas']['CompanyDetail'] | null;
@@ -54,58 +56,53 @@ export function BusinessDetails({ company, className }: BusinessDetailsProps) {
   const activeImageUri = !imageLoadError && primaryLogo ? primaryLogo : fallbackLogo;
 
   return (
-    <View className={cn('gap-3', className)}>
-      {/* Section Header */}
-      <View className="flex-row items-center gap-2 px-1">
-        <Icon name="Building2" size={20} className="text-primary" />
-        <Text className="text-foreground text-lg font-bold">Om bedriften</Text>
-      </View>
+    <Surface>
+      <View className={cn('gap-2.5', className)}>
+        {/* Section Header */}
 
-      {/* Main Card */}
-      <Card className="border-border bg-card overflow-hidden py-4 shadow-sm">
-        <CardContent className="gap-4">
-          {/* Header Row: Logo & Company Name */}
-          <View className="flex-row items-center gap-3.5">
-            {activeImageUri ? (
-              <View className="border-border bg-secondary/30 h-16 w-16 items-center justify-center overflow-hidden rounded-xl border p-2">
-                <Image
-                  source={{ uri: activeImageUri }}
-                  contentFit="contain"
-                  onError={() => {
-                    if (!imageLoadError) {
-                      setImageLoadError(true);
-                    }
-                  }}
-                  style={{ width: '100%', height: '100%' }}
-                />
-              </View>
-            ) : (
-              <View className="border-border bg-secondary h-16 w-16 items-center justify-center rounded-xl border p-2">
-                <Icon name="Building2" size={28} className="text-muted-foreground" />
-              </View>
-            )}
+        <SectionTitle icon="Building2" title="Om bedriften" className="mb-2.5" />
+        {/* Main Card */}
 
-            <View className="flex-1 gap-1">
-              <Text className="text-foreground text-xl font-bold">{company.name}</Text>
-              <View className="flex flex-row">
-                {company.companyType && (
-                  <Badge className="w-fit min-w-0">
-                    <Text className="min-w-0 text-center">{company.companyType}</Text>
-                  </Badge>
-                )}
-              </View>
+        {/* Header Row: Logo & Company Name */}
+        <View className="flex-row items-center gap-3.5">
+          {activeImageUri ? (
+            <View className="border-border bg-secondary/30 h-16 w-16 items-center justify-center overflow-hidden rounded-xl border p-2">
+              <Image
+                source={{ uri: activeImageUri }}
+                contentFit="contain"
+                onError={() => {
+                  if (!imageLoadError) {
+                    setImageLoadError(true);
+                  }
+                }}
+                style={{ width: '100%', height: '100%' }}
+              />
+            </View>
+          ) : (
+            <View className="border-border bg-secondary h-16 w-16 items-center justify-center rounded-xl border p-2">
+              <Icon name="Building2" size={28} className="text-muted-foreground" />
+            </View>
+          )}
+
+          <View className="flex-1 gap-1">
+            <Text className="text-foreground text-xl font-bold">{company.name}</Text>
+            <View className="flex flex-row">
+              {company.companyType && (
+                <Badge className="w-fit min-w-0">
+                  <Text className="min-w-0 text-center">{company.companyType}</Text>
+                </Badge>
+              )}
             </View>
           </View>
+        </View>
 
-          {/* Description Section */}
-          {company.description && (
-            <View className="border-border gap-2 border-t pt-3">
+        {/* Description Section */}
+        {company.description && (
+          <TouchableOpacity activeOpacity={0.7} onPress={() => setIsExpanded(!isExpanded)}>
+            <View className="gap-2 pt-3">
               <Text className="text-muted-foreground text-sm leading-6">{displayDescription}</Text>
               {isLongDescription && (
-                <TouchableOpacity
-                  activeOpacity={0.7}
-                  onPress={() => setIsExpanded(!isExpanded)}
-                  className="flex-row items-center gap-1 self-start py-1">
+                <View className="flex-row items-center gap-1 self-start py-1">
                   <Text className="text-primary text-xs font-semibold">
                     {isExpanded ? 'Vis mindre' : 'Vis mer'}
                   </Text>
@@ -114,64 +111,73 @@ export function BusinessDetails({ company, className }: BusinessDetailsProps) {
                     size={14}
                     className="text-primary"
                   />
-                </TouchableOpacity>
+                </View>
               )}
             </View>
-          )}
+          </TouchableOpacity>
+        )}
 
-          {/* Contact Details & Quick Links */}
-          {hasContactInfo && (
-            <View className="border-border gap-2 border-t pt-3">
-              <View className="gap-2">
-                {company.website && (
-                  <TouchableOpacity
-                    activeOpacity={0.7}
-                    onPress={handleOpenWebsite}
-                    className="border-border/60 bg-muted/40 flex-row items-center justify-between rounded-lg border p-2.5">
-                    <View className="flex-1 flex-row items-center gap-2.5 pr-2">
-                      <Icon name="Globe" size={16} className="text-primary" />
-                      <Text className="text-foreground text-xs font-medium" numberOfLines={1}>
-                        {company.website.replace(/^https?:\/\//, '')}
-                      </Text>
-                    </View>
-                    <Icon name="ExternalLink" size={14} className="text-muted-foreground" />
-                  </TouchableOpacity>
-                )}
+        {/* Contact Details & Quick Links */}
+        {hasContactInfo && (
+          <View className="gap-2 pt-3">
+            <View className="gap-2">
+              {company.website && (
+                <BusinessDetails.ContactInfo
+                  icon="Globe"
+                  label={company.website.replace(/^https?:\/\//, '')}
+                  onPress={handleOpenWebsite}
+                />
+              )}
 
-                {company.address && (
-                  <TouchableOpacity
-                    activeOpacity={0.7}
-                    onPress={handleOpenMap}
-                    className="border-border/60 bg-muted/40 flex-row items-center justify-between rounded-lg border p-2.5">
-                    <View className="flex-1 flex-row items-center gap-2.5 pr-2">
-                      <Icon name="MapPin" size={16} className="text-primary" />
-                      <Text className="text-foreground text-xs font-medium" numberOfLines={1}>
-                        {company.address}
-                      </Text>
-                    </View>
-                    <Icon name="ExternalLink" size={14} className="text-muted-foreground" />
-                  </TouchableOpacity>
-                )}
+              {company.address && (
+                <BusinessDetails.ContactInfo
+                  icon="MapPin"
+                  label={company.address}
+                  onPress={handleOpenMap}
+                />
+              )}
 
-                {company.phone && (
-                  <TouchableOpacity
-                    activeOpacity={0.7}
-                    onPress={handleCallPhone}
-                    className="border-border/60 bg-muted/40 flex-row items-center justify-between rounded-lg border p-2.5">
-                    <View className="flex-1 flex-row items-center gap-2.5 pr-2">
-                      <Icon name="Phone" size={16} className="text-primary" />
-                      <Text className="text-foreground text-xs font-medium">{company.phone}</Text>
-                    </View>
-                    <Icon name="PhoneCall" size={14} className="text-muted-foreground" />
-                  </TouchableOpacity>
-                )}
-              </View>
+              {company.phone && (
+                <BusinessDetails.ContactInfo
+                  icon="Phone"
+                  label={company.phone}
+                  onPress={handleCallPhone}
+                />
+              )}
             </View>
-          )}
-        </CardContent>
-      </Card>
-    </View>
+          </View>
+        )}
+      </View>
+    </Surface>
   );
 }
+
+type BusinessDetailsContactInfoProps = {
+  icon: ComponentProps<typeof Icon>['name'];
+  label: string;
+  onPress?: () => void;
+} & ComponentProps<typeof Surface>;
+BusinessDetails.ContactInfo = ({
+  icon,
+  label,
+  onPress,
+  className,
+  ...props
+}: BusinessDetailsContactInfoProps) => {
+  return (
+    <TouchableOpacity onPress={onPress}>
+      <Surface
+        variant="secondary"
+        className={cn('flex flex-row items-center justify-between gap-2.5 pr-5', className)}
+        {...props}>
+        <View className="flex flex-row gap-2.5">
+          <Icon name={icon} size={16} className="text-primary" />
+          <Text className="text-foreground text-xs font-medium">{label}</Text>
+        </View>
+        <Icon name="ExternalLink" size={14} className="text-muted-foreground" />
+      </Surface>
+    </TouchableOpacity>
+  );
+};
 
 export default BusinessDetails;

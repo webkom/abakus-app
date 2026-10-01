@@ -1,3 +1,4 @@
+import Icon from '@/components/icon';
 import { DescriptionSection } from '@/components/screens/event/description-section';
 import {
   BusinessDetails,
@@ -13,8 +14,10 @@ import { HeroSection } from '@/components/screens/event/hero-section';
 import { Turnstile } from '@/components/screens/event/turnstile';
 import { useEventDetails } from '@/hooks/useEventDetails';
 import { components } from '@/lib/types/schema';
+import { Text } from '@expo/ui';
 import { router, useLocalSearchParams } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { Card } from 'heroui-native';
 import { AnimatePresence, MotiView } from 'moti';
 import { useCallback, useState } from 'react';
 import {
@@ -72,6 +75,11 @@ export default function EventsPage() {
     return <ErrorState onBack={handleBack} />;
   }
 
+  const waitingCount =
+    typeof event?.waitingRegistrationCount === 'number'
+      ? event?.waitingRegistrationCount
+      : parseInt(event?.waitingRegistrationCount ?? '0', 10) || 0;
+
   return (
     <View className="bg-background flex-1">
       <StatusBar style="auto" />
@@ -121,6 +129,30 @@ export default function EventsPage() {
               attendeesCount={attendeesCount}
               totalCapacity={totalCapacity}
             />
+
+            {/* Waitlist Card */}
+            {waitingCount > 0 && (
+              <Card className="gap-2.5 border-amber-500/30 bg-amber-500/10" variant="transparent">
+                <Card.Header className="flex flex-row items-center gap-2.5">
+                  <View className="h-8 w-8 items-center justify-center rounded-lg bg-amber-500/20">
+                    <Icon
+                      name="Hourglass"
+                      size={16}
+                      className="text-amber-600 dark:text-amber-400"
+                    />
+                  </View>
+                  <Card.Title className="text-amber-600">Venteliste</Card.Title>
+                </Card.Header>
+                <Card.Body className="flex-1">
+                  <Card.Description className="text-amber-600">
+                    {waitingCount === 1
+                      ? '1 person står i kø for ledig plass'
+                      : `${waitingCount} personer står i kø for ledig plass`}
+                    {'. '} Du havner på venteliste hvis du melder deg på.
+                  </Card.Description>
+                </Card.Body>
+              </Card>
+            )}
 
             {/* Event Description Section */}
             <DescriptionSection
