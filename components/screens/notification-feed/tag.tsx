@@ -1,7 +1,6 @@
 import { router } from 'expo-router';
-import { Linking } from 'react-native';
+import { Linking, Text } from 'react-native';
 import { TagProps } from './types';
-import { Text } from '@/components/ui/text';
 
 export const navigateToTag = ({ link, linkType }: Pick<TagProps, 'link' | 'linkType'>) => {
   if (linkType === 'internal') {
@@ -14,7 +13,7 @@ export const navigateToTag = ({ link, linkType }: Pick<TagProps, 'link' | 'linkT
 
 export const Tag = ({ link, text, linkableContent, linkType }: TagProps) => {
   if (!linkableContent) {
-    return <Text className="text-sm">{text}</Text>;
+    return <Text>{text}</Text>;
   }
 
   return (

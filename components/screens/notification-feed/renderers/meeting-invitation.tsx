@@ -1,27 +1,22 @@
-import { Pressable, View } from 'react-native';
-import type { ActivityRenderer, ContextValue } from '../types';
+import type { ActivityRenderer, AggregatedFeedItem, ContextValue, FeedActivity } from '../types';
 import { contextRender } from '../context-render';
 import { joinValues } from './utils';
-import { CardContent, CardHeader } from '@/components/ui/card';
-import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import { Text } from '@/components/ui/text';
-import { navigateToTag } from '../tag';
+import { Card } from 'heroui-native';
+import Icon from '@/components/icon';
 
-const getMeetingInvitations = (aggregatedActivity: any): ContextValue[] =>
+const getContextValue = (aggregatedActivity: AggregatedFeedItem, key?: string | null) =>
+  key ? (aggregatedActivity.context[key] as ContextValue | undefined) : undefined;
+
+const getMeetingInvitations = (aggregatedActivity: AggregatedFeedItem): ContextValue[] =>
   aggregatedActivity.activities
-    .map((activity: any) => {
-      if (!activity.object) return undefined;
-      return aggregatedActivity.context[activity.object] as ContextValue | undefined;
-    })
+    .map((activity: FeedActivity) => getContextValue(aggregatedActivity, activity.object))
     .filter((invitation: ContextValue | undefined): invitation is ContextValue =>
       Boolean(invitation)
     );
 
-const getActor = (aggregatedActivity: any): ContextValue | undefined => {
-  const actorKey = aggregatedActivity.lastActivity.actor;
-  if (!actorKey) return undefined;
-  return aggregatedActivity.context[actorKey] as ContextValue | undefined;
-};
+const getActor = (aggregatedActivity: AggregatedFeedItem) =>
+  getContextValue(aggregatedActivity, aggregatedActivity.lastActivity.actor);
 
 const MeetingInvitationRenderer: ActivityRenderer = {
   Header: ({ aggregatedActivity, tag: TagComponent }) => {
@@ -34,27 +29,13 @@ const MeetingInvitationRenderer: ActivityRenderer = {
     const actorTag = actorRender(actor);
 
     return (
-      <CardHeader>
-        <View
-          role="heading"
-          aria-level={3}
-          className="flex flex-row items-center gap-1 font-semibold">
-          <Pressable onPress={() => navigateToTag(actorTag)}>
-            <Avatar alt="Profile Picture">
-              <AvatarImage source={{ uri: actorTag.profilePicture }} />
-            </Avatar>
-          </Pressable>
-          <TagComponent {...actorTag} />
-          <Text className="font-semibold">inviterte deg</Text>
-        </View>
-      </CardHeader>
+      <Card.Title>
+        <TagComponent {...actorTag} /> inviterte deg
+      </Card.Title>
     );
   },
   Content: ({ aggregatedActivity, tag: TagComponent }) => {
-    const meetingInvitations = getMeetingInvitations(aggregatedActivity);
-    if (meetingInvitations.length === 0) return null;
-
-    const meetingTags = meetingInvitations
+    const meetingTags = getMeetingInvitations(aggregatedActivity)
       .map((invitation) => {
         const render = invitation.contentType ? contextRender[invitation.contentType] : undefined;
         if (!render) return null;
@@ -65,20 +46,16 @@ const MeetingInvitationRenderer: ActivityRenderer = {
     if (meetingTags.length === 0) return null;
 
     return (
-      <CardContent>
+      <Card.Body>
         <Text>{joinValues(meetingTags)}</Text>
-      </CardContent>
+      </Card.Body>
     );
   },
+  Icon: () => <Icon name="CalendarPlus" className="text-red-600" />,
   getNotificationUrl: (aggregatedActivity) => {
-    const meetingInvitations = getMeetingInvitations(aggregatedActivity);
+    const [invitation, ...rest] = getMeetingInvitations(aggregatedActivity);
 
-    if (meetingInvitations.length !== 1) {
-      return { link: 'https://abakus.no/meetings', linkType: 'external' };
-    }
-
-    const invitation = meetingInvitations[0];
-    if (!invitation) {
+    if (!invitation || rest.length > 0) {
       return { link: 'https://abakus.no/meetings', linkType: 'external' };
     }
 

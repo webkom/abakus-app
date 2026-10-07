@@ -1,15 +1,12 @@
 import type { ActivityRenderer } from '../types';
 import { getEvents, joinValues } from './utils';
 import { contextRender } from '../context-render';
-import { CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
+import { Card } from 'heroui-native';
+import Icon from '@/components/icon';
 
 const AdminUnregistrationRenderer: ActivityRenderer = {
-  Header: () => (
-    <CardHeader>
-      <CardTitle>Fjernet av en administrator</CardTitle>
-    </CardHeader>
-  ),
+  Header: () => <Card.Title>Fjernet av en administrator</Card.Title>,
   Content: ({ aggregatedActivity, tag: TagComponent }) => {
     const events = getEvents(aggregatedActivity);
     if (events.length === 0) return null;
@@ -25,11 +22,12 @@ const AdminUnregistrationRenderer: ActivityRenderer = {
     if (eventTags.length === 0) return null;
 
     return (
-      <CardContent>
+      <Card.Body>
         <Text>{joinValues(eventTags)}</Text>
-      </CardContent>
+      </Card.Body>
     );
   },
+  Icon: () => <Icon name="CalendarX" className="text-red-600" />,
   getNotificationUrl: (aggregatedActivity) => {
     const events = getEvents(aggregatedActivity);
 
