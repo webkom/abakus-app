@@ -4,7 +4,7 @@
  */
 
 export interface paths {
-  "/api/v1/achievements/azart/": {
+  '/api/v1/achievements/azart/': {
     parameters: {
       query?: never;
       header?: never;
@@ -13,14 +13,14 @@ export interface paths {
     };
     get?: never;
     put?: never;
-    post: operations["achievementsAzartCreate"];
+    post: operations['achievementsAzartCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/achievements/getting_wood/": {
+  '/api/v1/achievements/getting_wood/': {
     parameters: {
       query?: never;
       header?: never;
@@ -29,14 +29,14 @@ export interface paths {
     };
     get?: never;
     put?: never;
-    post: operations["achievementsGettingWoodCreate"];
+    post: operations['achievementsGettingWoodCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/achievements/grant/": {
+  '/api/v1/achievements/grant/': {
     parameters: {
       query?: never;
       header?: never;
@@ -45,14 +45,14 @@ export interface paths {
     };
     get?: never;
     put?: never;
-    post: operations["achievementsGrantCreate"];
+    post: operations['achievementsGrantCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/achievements/grant_bulk/": {
+  '/api/v1/achievements/grant_bulk/': {
     parameters: {
       query?: never;
       header?: never;
@@ -61,14 +61,14 @@ export interface paths {
     };
     get?: never;
     put?: never;
-    post: operations["achievementsGrantBulkCreate"];
+    post: operations['achievementsGrantBulkCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/achievements/keypress_order/": {
+  '/api/v1/achievements/keypress_order/': {
     parameters: {
       query?: never;
       header?: never;
@@ -77,21 +77,21 @@ export interface paths {
     };
     get?: never;
     put?: never;
-    post: operations["achievementsKeypressOrderCreate"];
+    post: operations['achievementsKeypressOrderCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/achievements/leaderboard/": {
+  '/api/v1/achievements/leaderboard/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["achievementsLeaderboardList"];
+    get: operations['achievementsLeaderboardList'];
     put?: never;
     post?: never;
     delete?: never;
@@ -100,14 +100,14 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/achievements/leaderboard/distribution/": {
+  '/api/v1/achievements/leaderboard/distribution/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["achievementsLeaderboardDistributionRetrieve"];
+    get: operations['achievementsLeaderboardDistributionRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -116,14 +116,14 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/achievements/leaderboard/rank_history/": {
+  '/api/v1/achievements/leaderboard/rank_history/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["achievementsLeaderboardRankHistoryRetrieve"];
+    get: operations['achievementsLeaderboardRankHistoryRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -132,7 +132,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/achievements/leaderboard/top_climbers/": {
+  '/api/v1/achievements/leaderboard/top_climbers/': {
     parameters: {
       query?: never;
       header?: never;
@@ -145,7 +145,7 @@ export interface paths {
      *     before that date) as the personal week-ago/month-ago columns on the
      *     leaderboard, so "top climbers" and "Siste uke" always agree.
      */
-    get: operations["achievementsLeaderboardTopClimbersRetrieve"];
+    get: operations['achievementsLeaderboardTopClimbersRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -154,7 +154,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/achievements/rarity/": {
+  '/api/v1/achievements/rarity/': {
     parameters: {
       query?: never;
       header?: never;
@@ -162,7 +162,7 @@ export interface paths {
       cookie?: never;
     };
     /** @description % of users who have earned each achievement, per level. */
-    get: operations["achievementsRarityRetrieve"];
+    get: operations['achievementsRarityRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -171,14 +171,14 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/achievements/recheck_all/": {
+  '/api/v1/achievements/recheck_all/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["achievementsRecheckAllRetrieve"];
+    get: operations['achievementsRecheckAllRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -187,7 +187,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/achievements/revoke/": {
+  '/api/v1/achievements/revoke/': {
     parameters: {
       query?: never;
       header?: never;
@@ -196,14 +196,14 @@ export interface paths {
     };
     get?: never;
     put?: never;
-    post: operations["achievementsRevokeCreate"];
+    post: operations['achievementsRevokeCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/achievements/user_achievements/": {
+  '/api/v1/achievements/user_achievements/': {
     parameters: {
       query?: never;
       header?: never;
@@ -214,7 +214,7 @@ export interface paths {
      * @description List every achievement a given user currently holds - admin lookup
      *     for the sudo trophy grant page (mode 1).
      */
-    get: operations["achievementsUserAchievementsRetrieve"];
+    get: operations['achievementsUserAchievementsRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -223,7 +223,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/announcements/": {
+  '/api/v1/announcements/': {
     parameters: {
       query?: never;
       header?: never;
@@ -234,20 +234,20 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["announcementsList"];
+    get: operations['announcementsList'];
     put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["announcementsCreate"];
+    post: operations['announcementsCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/announcements/{id}/": {
+  '/api/v1/announcements/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -258,28 +258,28 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["announcementsRetrieve"];
+    get: operations['announcementsRetrieve'];
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["announcementsUpdate"];
+    put: operations['announcementsUpdate'];
     post?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["announcementsDestroy"];
+    delete: operations['announcementsDestroy'];
     options?: never;
     head?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["announcementsPartialUpdate"];
+    patch: operations['announcementsPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/announcements/{id}/send/": {
+  '/api/v1/announcements/{id}/send/': {
     parameters: {
       query?: never;
       header?: never;
@@ -292,14 +292,14 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["announcementsSendCreate"];
+    post: operations['announcementsSendCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/articles/": {
+  '/api/v1/articles/': {
     parameters: {
       query?: never;
       header?: never;
@@ -310,20 +310,20 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["articlesList"];
+    get: operations['articlesList'];
     put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["articlesCreate"];
+    post: operations['articlesCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/articles/{id}/": {
+  '/api/v1/articles/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -334,28 +334,28 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["articlesRetrieve"];
+    get: operations['articlesRetrieve'];
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["articlesUpdate"];
+    put: operations['articlesUpdate'];
     post?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["articlesDestroy"];
+    delete: operations['articlesDestroy'];
     options?: never;
     head?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["articlesPartialUpdate"];
+    patch: operations['articlesPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/articles/{id}/statistics/": {
+  '/api/v1/articles/{id}/statistics/': {
     parameters: {
       query?: never;
       header?: never;
@@ -366,55 +366,7 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["articlesStatisticsRetrieve"];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  "/api/v1/banners/": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations["bannersList"];
-    put?: never;
-    post: operations["bannersCreate"];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  "/api/v1/banners/{id}/": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations["bannersRetrieve"];
-    put: operations["bannersUpdate"];
-    post?: never;
-    delete: operations["bannersDestroy"];
-    options?: never;
-    head?: never;
-    patch: operations["bannersPartialUpdate"];
-    trace?: never;
-  };
-  "/api/v1/banners/current-private/": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations["bannersCurrentPrivateRetrieve"];
+    get: operations['articlesStatisticsRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -423,14 +375,46 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/banners/current-public/": {
+  '/api/v1/banners/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["bannersCurrentPublicRetrieve"];
+    get: operations['bannersList'];
+    put?: never;
+    post: operations['bannersCreate'];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/api/v1/banners/{id}/': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get: operations['bannersRetrieve'];
+    put: operations['bannersUpdate'];
+    post?: never;
+    delete: operations['bannersDestroy'];
+    options?: never;
+    head?: never;
+    patch: operations['bannersPartialUpdate'];
+    trace?: never;
+  };
+  '/api/v1/banners/current-private/': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get: operations['bannersCurrentPrivateRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -439,31 +423,23 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/bdb/": {
+  '/api/v1/banners/current-public/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations["bdbList"];
+    get: operations['bannersCurrentPublicRetrieve'];
     put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations["bdbCreate"];
+    post?: never;
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/bdb/{id}/": {
+  '/api/v1/bdb/': {
     parameters: {
       query?: never;
       header?: never;
@@ -474,28 +450,52 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["bdbRetrieve"];
+    get: operations['bdbList'];
+    put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["bdbUpdate"];
+    post: operations['bdbCreate'];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/api/v1/bdb/{id}/': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+     *     frontend to decide which actions a user can perform.
+     */
+    get: operations['bdbRetrieve'];
+    /**
+     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+     *     frontend to decide which actions a user can perform.
+     */
+    put: operations['bdbUpdate'];
     post?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["bdbDestroy"];
+    delete: operations['bdbDestroy'];
     options?: never;
     head?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["bdbPartialUpdate"];
+    patch: operations['bdbPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/calendar-ical/": {
+  '/api/v1/calendar-ical/': {
     parameters: {
       query?: never;
       header?: never;
@@ -503,7 +503,7 @@ export interface paths {
       cookie?: never;
     };
     /** @description List all the different icals. */
-    get: operations["calendarIcalRetrieve"];
+    get: operations['calendarIcalRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -512,7 +512,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/calendar-ical/events/": {
+  '/api/v1/calendar-ical/events/': {
     parameters: {
       query?: never;
       header?: never;
@@ -520,7 +520,7 @@ export interface paths {
       cookie?: never;
     };
     /** @description Event ical route. */
-    get: operations["calendarIcalEventsRetrieve"];
+    get: operations['calendarIcalEventsRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -529,7 +529,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/calendar-ical/personal/": {
+  '/api/v1/calendar-ical/personal/': {
     parameters: {
       query?: never;
       header?: never;
@@ -537,7 +537,7 @@ export interface paths {
       cookie?: never;
     };
     /** @description Personal ical route. */
-    get: operations["calendarIcalPersonalRetrieve"];
+    get: operations['calendarIcalPersonalRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -546,7 +546,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/calendar-ical/registrations/": {
+  '/api/v1/calendar-ical/registrations/': {
     parameters: {
       query?: never;
       header?: never;
@@ -554,7 +554,7 @@ export interface paths {
       cookie?: never;
     };
     /** @description Registration ical route. */
-    get: operations["calendarIcalRegistrationsRetrieve"];
+    get: operations['calendarIcalRegistrationsRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -563,7 +563,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/calendar-token/": {
+  '/api/v1/calendar-token/': {
     parameters: {
       query?: never;
       header?: never;
@@ -571,7 +571,7 @@ export interface paths {
       cookie?: never;
     };
     /** @description Get ICalToken. */
-    get: operations["calendarTokenRetrieve"];
+    get: operations['calendarTokenRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -580,7 +580,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/calendar-token/regenerate/": {
+  '/api/v1/calendar-token/regenerate/': {
     parameters: {
       query?: never;
       header?: never;
@@ -594,10 +594,10 @@ export interface paths {
     options?: never;
     head?: never;
     /** @description Regenerate ICalToken. */
-    patch: operations["calendarTokenRegeneratePartialUpdate"];
+    patch: operations['calendarTokenRegeneratePartialUpdate'];
     trace?: never;
   };
-  "/api/v1/comments/": {
+  '/api/v1/comments/': {
     parameters: {
       query?: never;
       header?: never;
@@ -610,14 +610,14 @@ export interface paths {
      * @description NB: Don't add the ListMixin, this breaks permissions because the permissions
      *     handles requires an object.
      */
-    post: operations["commentsCreate"];
+    post: operations['commentsCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/comments/{id}/": {
+  '/api/v1/comments/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -629,23 +629,23 @@ export interface paths {
      * @description NB: Don't add the ListMixin, this breaks permissions because the permissions
      *     handles requires an object.
      */
-    put: operations["commentsUpdate"];
+    put: operations['commentsUpdate'];
     post?: never;
     /**
      * @description NB: Don't add the ListMixin, this breaks permissions because the permissions
      *     handles requires an object.
      */
-    delete: operations["commentsDestroy"];
+    delete: operations['commentsDestroy'];
     options?: never;
     head?: never;
     /**
      * @description NB: Don't add the ListMixin, this breaks permissions because the permissions
      *     handles requires an object.
      */
-    patch: operations["commentsPartialUpdate"];
+    patch: operations['commentsPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/companies/": {
+  '/api/v1/companies/': {
     parameters: {
       query?: never;
       header?: never;
@@ -656,7 +656,7 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["companiesList"];
+    get: operations['companiesList'];
     put?: never;
     post?: never;
     delete?: never;
@@ -665,7 +665,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/companies/{companyPk}/company-contacts/": {
+  '/api/v1/companies/{companyPk}/company-contacts/': {
     parameters: {
       query?: never;
       header?: never;
@@ -676,20 +676,20 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["companiesCompanyContactsList"];
+    get: operations['companiesCompanyContactsList'];
     put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["companiesCompanyContactsCreate"];
+    post: operations['companiesCompanyContactsCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/companies/{companyPk}/company-contacts/{id}/": {
+  '/api/v1/companies/{companyPk}/company-contacts/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -700,28 +700,28 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["companiesCompanyContactsRetrieve"];
+    get: operations['companiesCompanyContactsRetrieve'];
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["companiesCompanyContactsUpdate"];
+    put: operations['companiesCompanyContactsUpdate'];
     post?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["companiesCompanyContactsDestroy"];
+    delete: operations['companiesCompanyContactsDestroy'];
     options?: never;
     head?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["companiesCompanyContactsPartialUpdate"];
+    patch: operations['companiesCompanyContactsPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/companies/{companyPk}/files/": {
+  '/api/v1/companies/{companyPk}/files/': {
     parameters: {
       query?: never;
       header?: never;
@@ -732,20 +732,20 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["companiesFilesList"];
+    get: operations['companiesFilesList'];
     put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["companiesFilesCreate"];
+    post: operations['companiesFilesCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/companies/{companyPk}/files/{id}/": {
+  '/api/v1/companies/{companyPk}/files/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -756,28 +756,28 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["companiesFilesRetrieve"];
+    get: operations['companiesFilesRetrieve'];
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["companiesFilesUpdate"];
+    put: operations['companiesFilesUpdate'];
     post?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["companiesFilesDestroy"];
+    delete: operations['companiesFilesDestroy'];
     options?: never;
     head?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["companiesFilesPartialUpdate"];
+    patch: operations['companiesFilesPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/companies/{companyPk}/semester-statuses/": {
+  '/api/v1/companies/{companyPk}/semester-statuses/': {
     parameters: {
       query?: never;
       header?: never;
@@ -788,20 +788,20 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["companiesSemesterStatusesList"];
+    get: operations['companiesSemesterStatusesList'];
     put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["companiesSemesterStatusesCreate"];
+    post: operations['companiesSemesterStatusesCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/companies/{companyPk}/semester-statuses/{id}/": {
+  '/api/v1/companies/{companyPk}/semester-statuses/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -812,28 +812,28 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["companiesSemesterStatusesRetrieve"];
+    get: operations['companiesSemesterStatusesRetrieve'];
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["companiesSemesterStatusesUpdate"];
+    put: operations['companiesSemesterStatusesUpdate'];
     post?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["companiesSemesterStatusesDestroy"];
+    delete: operations['companiesSemesterStatusesDestroy'];
     options?: never;
     head?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["companiesSemesterStatusesPartialUpdate"];
+    patch: operations['companiesSemesterStatusesPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/companies/{id}/": {
+  '/api/v1/companies/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -844,7 +844,7 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["companiesRetrieve"];
+    get: operations['companiesRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -853,7 +853,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/company-interests/": {
+  '/api/v1/company-interests/': {
     parameters: {
       query?: never;
       header?: never;
@@ -861,17 +861,17 @@ export interface paths {
       cookie?: never;
     };
     /** @description Used by new companies to register interest in Abakus and our services. */
-    get: operations["companyInterestsList"];
+    get: operations['companyInterestsList'];
     put?: never;
     /** @description Used by new companies to register interest in Abakus and our services. */
-    post: operations["companyInterestsCreate"];
+    post: operations['companyInterestsCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/company-interests/{id}/": {
+  '/api/v1/company-interests/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -879,19 +879,19 @@ export interface paths {
       cookie?: never;
     };
     /** @description Used by new companies to register interest in Abakus and our services. */
-    get: operations["companyInterestsRetrieve"];
+    get: operations['companyInterestsRetrieve'];
     /** @description Used by new companies to register interest in Abakus and our services. */
-    put: operations["companyInterestsUpdate"];
+    put: operations['companyInterestsUpdate'];
     post?: never;
     /** @description Used by new companies to register interest in Abakus and our services. */
-    delete: operations["companyInterestsDestroy"];
+    delete: operations['companyInterestsDestroy'];
     options?: never;
     head?: never;
     /** @description Used by new companies to register interest in Abakus and our services. */
-    patch: operations["companyInterestsPartialUpdate"];
+    patch: operations['companyInterestsPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/company-interests/csv/": {
+  '/api/v1/company-interests/csv/': {
     parameters: {
       query?: never;
       header?: never;
@@ -899,7 +899,7 @@ export interface paths {
       cookie?: never;
     };
     /** @description Used by new companies to register interest in Abakus and our services. */
-    get: operations["companyInterestsCsvRetrieve"];
+    get: operations['companyInterestsCsvRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -908,39 +908,39 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/company-semesters/": {
+  '/api/v1/company-semesters/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["companySemestersList"];
+    get: operations['companySemestersList'];
     put?: never;
-    post: operations["companySemestersCreate"];
+    post: operations['companySemestersCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/company-semesters/{id}/": {
+  '/api/v1/company-semesters/{id}/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["companySemestersRetrieve"];
-    put: operations["companySemestersUpdate"];
+    get: operations['companySemestersRetrieve'];
+    put: operations['companySemestersUpdate'];
     post?: never;
-    delete: operations["companySemestersDestroy"];
+    delete: operations['companySemestersDestroy'];
     options?: never;
     head?: never;
-    patch: operations["companySemestersPartialUpdate"];
+    patch: operations['companySemestersPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/contact-form/": {
+  '/api/v1/contact-form/': {
     parameters: {
       query?: never;
       header?: never;
@@ -949,46 +949,46 @@ export interface paths {
     };
     get?: never;
     put?: never;
-    post: operations["contactFormCreate"];
+    post: operations['contactFormCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/device-apns/": {
+  '/api/v1/device-apns/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["deviceApnsList"];
+    get: operations['deviceApnsList'];
     put?: never;
-    post: operations["deviceApnsCreate"];
+    post: operations['deviceApnsCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/device-apns/{registrationId}/": {
+  '/api/v1/device-apns/{registrationId}/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["deviceApnsRetrieve"];
-    put: operations["deviceApnsUpdate"];
+    get: operations['deviceApnsRetrieve'];
+    put: operations['deviceApnsUpdate'];
     post?: never;
-    delete: operations["deviceApnsDestroy"];
+    delete: operations['deviceApnsDestroy'];
     options?: never;
     head?: never;
-    patch: operations["deviceApnsPartialUpdate"];
+    patch: operations['deviceApnsPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/device-expo/": {
+  '/api/v1/device-expo/': {
     parameters: {
       query?: never;
       header?: never;
@@ -997,14 +997,14 @@ export interface paths {
     };
     get?: never;
     put?: never;
-    post: operations["deviceExpoCreate"];
+    post: operations['deviceExpoCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/device-expo/unregister/": {
+  '/api/v1/device-expo/unregister/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1014,45 +1014,45 @@ export interface paths {
     get?: never;
     put?: never;
     post?: never;
-    delete: operations["deviceExpoUnregisterDestroy"];
+    delete: operations['deviceExpoUnregisterDestroy'];
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/device-gcm/": {
+  '/api/v1/device-gcm/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["deviceGcmList"];
+    get: operations['deviceGcmList'];
     put?: never;
-    post: operations["deviceGcmCreate"];
+    post: operations['deviceGcmCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/device-gcm/{registrationId}/": {
+  '/api/v1/device-gcm/{registrationId}/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["deviceGcmRetrieve"];
-    put: operations["deviceGcmUpdate"];
+    get: operations['deviceGcmRetrieve'];
+    put: operations['deviceGcmUpdate'];
     post?: never;
-    delete: operations["deviceGcmDestroy"];
+    delete: operations['deviceGcmDestroy'];
     options?: never;
     head?: never;
-    patch: operations["deviceGcmPartialUpdate"];
+    patch: operations['deviceGcmPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/email-lists/": {
+  '/api/v1/email-lists/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1060,17 +1060,17 @@ export interface paths {
       cookie?: never;
     };
     /** @description Destroy are disabled. The external_sync don't support group destroy either! */
-    get: operations["emailListsList"];
+    get: operations['emailListsList'];
     put?: never;
     /** @description Destroy are disabled. The external_sync don't support group destroy either! */
-    post: operations["emailListsCreate"];
+    post: operations['emailListsCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/email-lists/{id}/": {
+  '/api/v1/email-lists/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1078,18 +1078,18 @@ export interface paths {
       cookie?: never;
     };
     /** @description Destroy are disabled. The external_sync don't support group destroy either! */
-    get: operations["emailListsRetrieve"];
+    get: operations['emailListsRetrieve'];
     /** @description Destroy are disabled. The external_sync don't support group destroy either! */
-    put: operations["emailListsUpdate"];
+    put: operations['emailListsUpdate'];
     post?: never;
     delete?: never;
     options?: never;
     head?: never;
     /** @description Destroy are disabled. The external_sync don't support group destroy either! */
-    patch: operations["emailListsPartialUpdate"];
+    patch: operations['emailListsPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/email-users/": {
+  '/api/v1/email-users/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1100,20 +1100,20 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["emailUsersList"];
+    get: operations['emailUsersList'];
     put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["emailUsersCreate"];
+    post: operations['emailUsersCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/email-users/{id}/": {
+  '/api/v1/email-users/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1124,12 +1124,12 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["emailUsersRetrieve"];
+    get: operations['emailUsersRetrieve'];
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["emailUsersUpdate"];
+    put: operations['emailUsersUpdate'];
     post?: never;
     delete?: never;
     options?: never;
@@ -1138,10 +1138,10 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["emailUsersPartialUpdate"];
+    patch: operations['emailUsersPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/emojis/": {
+  '/api/v1/emojis/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1152,20 +1152,20 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["emojisList"];
+    get: operations['emojisList'];
     put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["emojisCreate"];
+    post: operations['emojisCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/emojis/{shortCode}/": {
+  '/api/v1/emojis/{shortCode}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1176,28 +1176,28 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["emojisRetrieve"];
+    get: operations['emojisRetrieve'];
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["emojisUpdate"];
+    put: operations['emojisUpdate'];
     post?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["emojisDestroy"];
+    delete: operations['emojisDestroy'];
     options?: never;
     head?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["emojisPartialUpdate"];
+    patch: operations['emojisPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/events/": {
+  '/api/v1/events/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1208,20 +1208,20 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["eventsList"];
+    get: operations['eventsList'];
     put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["eventsCreate"];
+    post: operations['eventsCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/events/{eventPk}/pools/": {
+  '/api/v1/events/{eventPk}/pools/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1230,14 +1230,14 @@ export interface paths {
     };
     get?: never;
     put?: never;
-    post: operations["eventsPoolsCreate"];
+    post: operations['eventsPoolsCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/events/{eventPk}/pools/{id}/": {
+  '/api/v1/events/{eventPk}/pools/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1245,15 +1245,15 @@ export interface paths {
       cookie?: never;
     };
     get?: never;
-    put: operations["eventsPoolsUpdate"];
+    put: operations['eventsPoolsUpdate'];
     post?: never;
-    delete: operations["eventsPoolsDestroy"];
+    delete: operations['eventsPoolsDestroy'];
     options?: never;
     head?: never;
-    patch: operations["eventsPoolsPartialUpdate"];
+    patch: operations['eventsPoolsPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/events/{eventPk}/registration_search/": {
+  '/api/v1/events/{eventPk}/registration_search/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1266,14 +1266,14 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["eventsRegistrationSearchCreate"];
+    post: operations['eventsRegistrationSearchCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/events/{eventPk}/registrations/": {
+  '/api/v1/events/{eventPk}/registrations/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1286,14 +1286,14 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["eventsRegistrationsCreate"];
+    post: operations['eventsRegistrationsCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/events/{eventPk}/registrations/{id}/": {
+  '/api/v1/events/{eventPk}/registrations/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1304,28 +1304,28 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["eventsRegistrationsRetrieve"];
+    get: operations['eventsRegistrationsRetrieve'];
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["eventsRegistrationsUpdate"];
+    put: operations['eventsRegistrationsUpdate'];
     post?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["eventsRegistrationsDestroy"];
+    delete: operations['eventsRegistrationsDestroy'];
     options?: never;
     head?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["eventsRegistrationsPartialUpdate"];
+    patch: operations['eventsRegistrationsPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/events/{eventPk}/registrations/admin_register/": {
+  '/api/v1/events/{eventPk}/registrations/admin_register/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1338,14 +1338,14 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["eventsRegistrationsAdminRegisterCreate"];
+    post: operations['eventsRegistrationsAdminRegisterCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/events/{eventPk}/registrations/admin_unregister/": {
+  '/api/v1/events/{eventPk}/registrations/admin_unregister/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1358,14 +1358,14 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["eventsRegistrationsAdminUnregisterCreate"];
+    post: operations['eventsRegistrationsAdminUnregisterCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/events/{id}/": {
+  '/api/v1/events/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1376,25 +1376,25 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["eventsRetrieve"];
+    get: operations['eventsRetrieve'];
     /** @description If the capacity of the event increases we have to bump waiting users. */
-    put: operations["eventsUpdate"];
+    put: operations['eventsUpdate'];
     post?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["eventsDestroy"];
+    delete: operations['eventsDestroy'];
     options?: never;
     head?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["eventsPartialUpdate"];
+    patch: operations['eventsPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/events/{id}/administrate/": {
+  '/api/v1/events/{id}/administrate/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1405,7 +1405,7 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["eventsAdministrateRetrieve"];
+    get: operations['eventsAdministrateRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -1414,7 +1414,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/events/{id}/allergies/": {
+  '/api/v1/events/{id}/allergies/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1425,7 +1425,7 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["eventsAllergiesRetrieve"];
+    get: operations['eventsAllergiesRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -1434,7 +1434,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/events/{id}/payment/": {
+  '/api/v1/events/{id}/payment/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1447,14 +1447,14 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["eventsPaymentCreate"];
+    post: operations['eventsPaymentCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/events/{id}/statistics/": {
+  '/api/v1/events/{id}/statistics/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1465,7 +1465,7 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["eventsStatisticsRetrieve"];
+    get: operations['eventsStatisticsRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -1474,7 +1474,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/events/cover_image_gallery/": {
+  '/api/v1/events/cover_image_gallery/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1485,7 +1485,7 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["eventsCoverImageGalleryRetrieve"];
+    get: operations['eventsCoverImageGalleryRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -1494,7 +1494,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/events/previous/": {
+  '/api/v1/events/previous/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1505,7 +1505,7 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["eventsPreviousRetrieve"];
+    get: operations['eventsPreviousRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -1514,7 +1514,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/events/upcoming/": {
+  '/api/v1/events/upcoming/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1525,7 +1525,7 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["eventsUpcomingRetrieve"];
+    get: operations['eventsUpcomingRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -1534,46 +1534,46 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/featureflags-admin/": {
+  '/api/v1/featureflags-admin/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["featureflagsAdminList"];
+    get: operations['featureflagsAdminList'];
     put?: never;
-    post: operations["featureflagsAdminCreate"];
+    post: operations['featureflagsAdminCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/featureflags-admin/{id}/": {
+  '/api/v1/featureflags-admin/{id}/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["featureflagsAdminRetrieve"];
-    put: operations["featureflagsAdminUpdate"];
+    get: operations['featureflagsAdminRetrieve'];
+    put: operations['featureflagsAdminUpdate'];
     post?: never;
-    delete: operations["featureflagsAdminDestroy"];
+    delete: operations['featureflagsAdminDestroy'];
     options?: never;
     head?: never;
-    patch: operations["featureflagsAdminPartialUpdate"];
+    patch: operations['featureflagsAdminPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/featureflags/{identifier}/": {
+  '/api/v1/featureflags/{identifier}/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["featureflagsRetrieve"];
+    get: operations['featureflagsRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -1582,7 +1582,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/feed-notifications/": {
+  '/api/v1/feed-notifications/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1590,7 +1590,7 @@ export interface paths {
       cookie?: never;
     };
     /** @description Notifications feed based on request.user */
-    get: operations["feedNotificationsList"];
+    get: operations['feedNotificationsList'];
     put?: never;
     post?: never;
     delete?: never;
@@ -1599,7 +1599,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/feed-notifications/{id}/mark/": {
+  '/api/v1/feed-notifications/{id}/mark/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1609,14 +1609,14 @@ export interface paths {
     get?: never;
     put?: never;
     /** @description Mark a single notification as read or seen. */
-    post: operations["feedNotificationsMarkCreate"];
+    post: operations['feedNotificationsMarkCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/feed-notifications/mark_all/": {
+  '/api/v1/feed-notifications/mark_all/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1626,14 +1626,14 @@ export interface paths {
     get?: never;
     put?: never;
     /** @description This function marks all activities in a NotificationFeed as seen or/and red. */
-    post: operations["feedNotificationsMarkAllCreate"];
+    post: operations['feedNotificationsMarkAllCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/feed-notifications/notification_data/": {
+  '/api/v1/feed-notifications/notification_data/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1641,7 +1641,7 @@ export interface paths {
       cookie?: never;
     };
     /** @description Notifications feed based on request.user */
-    get: operations["feedNotificationsNotificationDataRetrieve"];
+    get: operations['feedNotificationsNotificationDataRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -1650,7 +1650,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/feed-personal/": {
+  '/api/v1/feed-personal/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1658,7 +1658,7 @@ export interface paths {
       cookie?: never;
     };
     /** @description Personal user timeline, based on request.user */
-    get: operations["feedPersonalList"];
+    get: operations['feedPersonalList'];
     put?: never;
     post?: never;
     delete?: never;
@@ -1667,7 +1667,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/feed-user/{userPk}/": {
+  '/api/v1/feed-user/{userPk}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1678,7 +1678,7 @@ export interface paths {
      * @description Public events produced by users. This feed should not contain private information! This feed
      *     uses a url param to decide which feed to retrieve.
      */
-    get: operations["feedUserList"];
+    get: operations['feedUserList'];
     put?: never;
     post?: never;
     delete?: never;
@@ -1687,7 +1687,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/files/": {
+  '/api/v1/files/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1697,14 +1697,14 @@ export interface paths {
     get?: never;
     put?: never;
     /** @description Upload new file. This method returns instructions to the client on how to upload the file. */
-    post: operations["filesCreate"];
+    post: operations['filesCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/files/{key}/imagegallery/": {
+  '/api/v1/files/{key}/imagegallery/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1717,10 +1717,10 @@ export interface paths {
     delete?: never;
     options?: never;
     head?: never;
-    patch: operations["filesImagegalleryPartialUpdate"];
+    patch: operations['filesImagegalleryPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/files/{key}/upload_success/": {
+  '/api/v1/files/{key}/upload_success/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1731,7 +1731,7 @@ export interface paths {
      * @description The client is redirected to this view when a upload succeeds. This view will inform the
      *     client with necessary data to change a file on a instance.
      */
-    get: operations["filesUploadSuccessRetrieve"];
+    get: operations['filesUploadSuccessRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -1740,23 +1740,23 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/followers-company/": {
+  '/api/v1/followers-company/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["followersCompanyList"];
+    get: operations['followersCompanyList'];
     put?: never;
-    post: operations["followersCompanyCreate"];
+    post: operations['followersCompanyCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/followers-company/{id}/": {
+  '/api/v1/followers-company/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1766,29 +1766,29 @@ export interface paths {
     get?: never;
     put?: never;
     post?: never;
-    delete: operations["followersCompanyDestroy"];
+    delete: operations['followersCompanyDestroy'];
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/followers-event/": {
+  '/api/v1/followers-event/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["followersEventList"];
+    get: operations['followersEventList'];
     put?: never;
-    post: operations["followersEventCreate"];
+    post: operations['followersEventCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/followers-event/{id}/": {
+  '/api/v1/followers-event/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1798,29 +1798,29 @@ export interface paths {
     get?: never;
     put?: never;
     post?: never;
-    delete: operations["followersEventDestroy"];
+    delete: operations['followersEventDestroy'];
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/followers-user/": {
+  '/api/v1/followers-user/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["followersUserList"];
+    get: operations['followersUserList'];
     put?: never;
-    post: operations["followersUserCreate"];
+    post: operations['followersUserCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/followers-user/{id}/": {
+  '/api/v1/followers-user/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1830,20 +1830,20 @@ export interface paths {
     get?: never;
     put?: never;
     post?: never;
-    delete: operations["followersUserDestroy"];
+    delete: operations['followersUserDestroy'];
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/frontpage/": {
+  '/api/v1/frontpage/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["frontpageRetrieve"];
+    get: operations['frontpageRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -1852,7 +1852,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/galleries/": {
+  '/api/v1/galleries/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1863,20 +1863,20 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["galleriesList"];
+    get: operations['galleriesList'];
     put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["galleriesCreate"];
+    post: operations['galleriesCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/galleries/{galleryPk}/pictures/": {
+  '/api/v1/galleries/{galleryPk}/pictures/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1884,17 +1884,17 @@ export interface paths {
       cookie?: never;
     };
     /** @description Nested viewset used to manage pictures in a gallery. */
-    get: operations["galleriesPicturesList"];
+    get: operations['galleriesPicturesList'];
     put?: never;
     /** @description Nested viewset used to manage pictures in a gallery. */
-    post: operations["galleriesPicturesCreate"];
+    post: operations['galleriesPicturesCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/galleries/{galleryPk}/pictures/{id}/": {
+  '/api/v1/galleries/{galleryPk}/pictures/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1902,19 +1902,19 @@ export interface paths {
       cookie?: never;
     };
     /** @description Nested viewset used to manage pictures in a gallery. */
-    get: operations["galleriesPicturesRetrieve"];
+    get: operations['galleriesPicturesRetrieve'];
     /** @description Nested viewset used to manage pictures in a gallery. */
-    put: operations["galleriesPicturesUpdate"];
+    put: operations['galleriesPicturesUpdate'];
     post?: never;
     /** @description Nested viewset used to manage pictures in a gallery. */
-    delete: operations["galleriesPicturesDestroy"];
+    delete: operations['galleriesPicturesDestroy'];
     options?: never;
     head?: never;
     /** @description Nested viewset used to manage pictures in a gallery. */
-    patch: operations["galleriesPicturesPartialUpdate"];
+    patch: operations['galleriesPicturesPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/galleries/{id}/": {
+  '/api/v1/galleries/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1925,28 +1925,28 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["galleriesRetrieve"];
+    get: operations['galleriesRetrieve'];
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["galleriesUpdate"];
+    put: operations['galleriesUpdate'];
     post?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["galleriesDestroy"];
+    delete: operations['galleriesDestroy'];
     options?: never;
     head?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["galleriesPartialUpdate"];
+    patch: operations['galleriesPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/galleries/{id}/metadata/": {
+  '/api/v1/galleries/{id}/metadata/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1957,7 +1957,7 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["galleriesMetadataRetrieve"];
+    get: operations['galleriesMetadataRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -1966,7 +1966,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/groups/": {
+  '/api/v1/groups/': {
     parameters: {
       query?: never;
       header?: never;
@@ -1977,20 +1977,20 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["groupsList"];
+    get: operations['groupsList'];
     put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["groupsCreate"];
+    post: operations['groupsCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/groups/{groupPk}/memberships/": {
+  '/api/v1/groups/{groupPk}/memberships/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2001,20 +2001,20 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["groupsMembershipsList"];
+    get: operations['groupsMembershipsList'];
     put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["groupsMembershipsCreate"];
+    post: operations['groupsMembershipsCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/groups/{groupPk}/memberships/{id}/": {
+  '/api/v1/groups/{groupPk}/memberships/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2025,28 +2025,28 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["groupsMembershipsRetrieve"];
+    get: operations['groupsMembershipsRetrieve'];
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["groupsMembershipsUpdate"];
+    put: operations['groupsMembershipsUpdate'];
     post?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["groupsMembershipsDestroy"];
+    delete: operations['groupsMembershipsDestroy'];
     options?: never;
     head?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["groupsMembershipsPartialUpdate"];
+    patch: operations['groupsMembershipsPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/groups/{id}/": {
+  '/api/v1/groups/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2057,28 +2057,28 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["groupsRetrieve"];
+    get: operations['groupsRetrieve'];
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["groupsUpdate"];
+    put: operations['groupsUpdate'];
     post?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["groupsDestroy"];
+    delete: operations['groupsDestroy'];
     options?: never;
     head?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["groupsPartialUpdate"];
+    patch: operations['groupsPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/joblistings/": {
+  '/api/v1/joblistings/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2089,20 +2089,20 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["joblistingsList"];
+    get: operations['joblistingsList'];
     put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["joblistingsCreate"];
+    post: operations['joblistingsCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/joblistings/{id}/": {
+  '/api/v1/joblistings/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2113,28 +2113,28 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["joblistingsRetrieve"];
+    get: operations['joblistingsRetrieve'];
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["joblistingsUpdate"];
+    put: operations['joblistingsUpdate'];
     post?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["joblistingsDestroy"];
+    delete: operations['joblistingsDestroy'];
     options?: never;
     head?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["joblistingsPartialUpdate"];
+    patch: operations['joblistingsPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/lending/objects/": {
+  '/api/v1/lending/objects/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2145,20 +2145,20 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["lendingObjectsList"];
+    get: operations['lendingObjectsList'];
     put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["lendingObjectsCreate"];
+    post: operations['lendingObjectsCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/lending/objects/{id}/": {
+  '/api/v1/lending/objects/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2169,28 +2169,28 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["lendingObjectsRetrieve"];
+    get: operations['lendingObjectsRetrieve'];
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["lendingObjectsUpdate"];
+    put: operations['lendingObjectsUpdate'];
     post?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["lendingObjectsDestroy"];
+    delete: operations['lendingObjectsDestroy'];
     options?: never;
     head?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["lendingObjectsPartialUpdate"];
+    patch: operations['lendingObjectsPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/lending/objects/{id}/availability/": {
+  '/api/v1/lending/objects/{id}/availability/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2201,7 +2201,7 @@ export interface paths {
      * @description Returns time ranges when the object is unavailable (has approved lending requests)
      *     for a specified month and year.
      */
-    get: operations["lendingObjectsAvailabilityRetrieve"];
+    get: operations['lendingObjectsAvailabilityRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -2210,7 +2210,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/lending/objects/available/": {
+  '/api/v1/lending/objects/available/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2225,7 +2225,7 @@ export interface paths {
      *         start_date: ISO 8601 datetime string (e.g. 2026-03-10T00:00:00Z)
      *         end_date:   ISO 8601 datetime string (e.g. 2026-03-20T00:00:00Z)
      */
-    get: operations["lendingObjectsAvailableRetrieve"];
+    get: operations['lendingObjectsAvailableRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -2234,7 +2234,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/lending/requests/": {
+  '/api/v1/lending/requests/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2245,20 +2245,20 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["lendingRequestsList"];
+    get: operations['lendingRequestsList'];
     put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["lendingRequestsCreate"];
+    post: operations['lendingRequestsCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/lending/requests/{id}/": {
+  '/api/v1/lending/requests/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2269,28 +2269,28 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["lendingRequestsRetrieve"];
+    get: operations['lendingRequestsRetrieve'];
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["lendingRequestsUpdate"];
+    put: operations['lendingRequestsUpdate'];
     post?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["lendingRequestsDestroy"];
+    delete: operations['lendingRequestsDestroy'];
     options?: never;
     head?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["lendingRequestsPartialUpdate"];
+    patch: operations['lendingRequestsPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/lending/requests/admin/": {
+  '/api/v1/lending/requests/admin/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2301,7 +2301,7 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["lendingRequestsAdminRetrieve"];
+    get: operations['lendingRequestsAdminRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -2310,7 +2310,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/lending/timelineentries/": {
+  '/api/v1/lending/timelineentries/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2319,14 +2319,14 @@ export interface paths {
     };
     get?: never;
     put?: never;
-    post: operations["lendingTimelineentriesCreate"];
+    post: operations['lendingTimelineentriesCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/meeting-token/": {
+  '/api/v1/meeting-token/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2343,7 +2343,7 @@ export interface paths {
      *
      *     To reject: [reject/?token=yourtoken](reject/)
      */
-    get: operations["meetingTokenRetrieve"];
+    get: operations['meetingTokenRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -2352,33 +2352,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/meeting-token/accept/": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * @description Accept or reject invitation
-     *
-     *     Reject or accept invitation to meeting. It is genereated when
-     *     user is invited to a meeting, and sendt in the invitation email.
-     *
-     *     To accept: [accept/?token=yourtoken](accept/)
-     *
-     *     To reject: [reject/?token=yourtoken](reject/)
-     */
-    post: operations["meetingTokenAcceptCreate"];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  "/api/v1/meeting-token/reject/": {
+  '/api/v1/meeting-token/accept/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2397,14 +2371,40 @@ export interface paths {
      *
      *     To reject: [reject/?token=yourtoken](reject/)
      */
-    post: operations["meetingTokenRejectCreate"];
+    post: operations['meetingTokenAcceptCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/meetings/": {
+  '/api/v1/meeting-token/reject/': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * @description Accept or reject invitation
+     *
+     *     Reject or accept invitation to meeting. It is genereated when
+     *     user is invited to a meeting, and sendt in the invitation email.
+     *
+     *     To accept: [accept/?token=yourtoken](accept/)
+     *
+     *     To reject: [reject/?token=yourtoken](reject/)
+     */
+    post: operations['meetingTokenRejectCreate'];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/api/v1/meetings/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2415,20 +2415,20 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["meetingsList"];
+    get: operations['meetingsList'];
     put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["meetingsCreate"];
+    post: operations['meetingsCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/meetings/{meetingPk}/invitations/": {
+  '/api/v1/meetings/{meetingPk}/invitations/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2439,20 +2439,20 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["meetingsInvitationsList"];
+    get: operations['meetingsInvitationsList'];
     put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["meetingsInvitationsCreate"];
+    post: operations['meetingsInvitationsCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/meetings/{meetingPk}/invitations/{user_id}/": {
+  '/api/v1/meetings/{meetingPk}/invitations/{user_id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2463,28 +2463,28 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["meetingsInvitationsRetrieve"];
+    get: operations['meetingsInvitationsRetrieve'];
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["meetingsInvitationsUpdate"];
+    put: operations['meetingsInvitationsUpdate'];
     post?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["meetingsInvitationsDestroy"];
+    delete: operations['meetingsInvitationsDestroy'];
     options?: never;
     head?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["meetingsInvitationsPartialUpdate"];
+    patch: operations['meetingsInvitationsPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/meetings/{id}/": {
+  '/api/v1/meetings/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2495,28 +2495,28 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["meetingsRetrieve"];
+    get: operations['meetingsRetrieve'];
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["meetingsUpdate"];
+    put: operations['meetingsUpdate'];
     post?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["meetingsDestroy"];
+    delete: operations['meetingsDestroy'];
     options?: never;
     head?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["meetingsPartialUpdate"];
+    patch: operations['meetingsPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/meetings/{id}/bulk_invite/": {
+  '/api/v1/meetings/{id}/bulk_invite/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2529,14 +2529,14 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["meetingsBulkInviteCreate"];
+    post: operations['meetingsBulkInviteCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/meetings/{id}/invite_group/": {
+  '/api/v1/meetings/{id}/invite_group/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2549,14 +2549,14 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["meetingsInviteGroupCreate"];
+    post: operations['meetingsInviteGroupCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/meetings/{id}/invite_user/": {
+  '/api/v1/meetings/{id}/invite_user/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2569,14 +2569,14 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["meetingsInviteUserCreate"];
+    post: operations['meetingsInviteUserCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/meetings/templates/": {
+  '/api/v1/meetings/templates/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2587,7 +2587,7 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["meetingsTemplatesRetrieve"];
+    get: operations['meetingsTemplatesRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -2596,14 +2596,14 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/membership-history/": {
+  '/api/v1/membership-history/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["membershipHistoryList"];
+    get: operations['membershipHistoryList'];
     put?: never;
     post?: never;
     delete?: never;
@@ -2612,14 +2612,14 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/membership-history/{id}/": {
+  '/api/v1/membership-history/{id}/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["membershipHistoryRetrieve"];
+    get: operations['membershipHistoryRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -2628,7 +2628,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/notification-settings/": {
+  '/api/v1/notification-settings/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2642,17 +2642,17 @@ export interface paths {
      *     list:
      *     List all existing settings.
      */
-    get: operations["notificationSettingsList"];
+    get: operations['notificationSettingsList'];
     put?: never;
     /** @description Lookup or create a new settings object and save it with the provided parameters. */
-    post: operations["notificationSettingsCreate"];
+    post: operations['notificationSettingsCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/notification-settings/alternatives/": {
+  '/api/v1/notification-settings/alternatives/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2660,7 +2660,7 @@ export interface paths {
       cookie?: never;
     };
     /** @description Return a list of all possible notification_types and channels. */
-    get: operations["notificationSettingsAlternativesRetrieve"];
+    get: operations['notificationSettingsAlternativesRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -2669,7 +2669,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/oauth2-access-tokens/": {
+  '/api/v1/oauth2-access-tokens/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2683,7 +2683,7 @@ export interface paths {
      *     destroy:
      *     Delete an access token created by the user.
      */
-    get: operations["oauth2AccessTokensList"];
+    get: operations['oauth2AccessTokensList'];
     put?: never;
     post?: never;
     delete?: never;
@@ -2692,7 +2692,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/oauth2-access-tokens/{id}/": {
+  '/api/v1/oauth2-access-tokens/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2709,13 +2709,13 @@ export interface paths {
      *     destroy:
      *     Delete an access token created by the user.
      */
-    delete: operations["oauth2AccessTokensDestroy"];
+    delete: operations['oauth2AccessTokensDestroy'];
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/oauth2-applications/": {
+  '/api/v1/oauth2-applications/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2726,20 +2726,20 @@ export interface paths {
      * @description list:
      *     List all applications the current user us responsible for.
      */
-    get: operations["oauth2ApplicationsList"];
+    get: operations['oauth2ApplicationsList'];
     put?: never;
     /**
      * @description list:
      *     List all applications the current user us responsible for.
      */
-    post: operations["oauth2ApplicationsCreate"];
+    post: operations['oauth2ApplicationsCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/oauth2-applications/{id}/": {
+  '/api/v1/oauth2-applications/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2750,35 +2750,35 @@ export interface paths {
      * @description list:
      *     List all applications the current user us responsible for.
      */
-    get: operations["oauth2ApplicationsRetrieve"];
+    get: operations['oauth2ApplicationsRetrieve'];
     /**
      * @description list:
      *     List all applications the current user us responsible for.
      */
-    put: operations["oauth2ApplicationsUpdate"];
+    put: operations['oauth2ApplicationsUpdate'];
     post?: never;
     /**
      * @description list:
      *     List all applications the current user us responsible for.
      */
-    delete: operations["oauth2ApplicationsDestroy"];
+    delete: operations['oauth2ApplicationsDestroy'];
     options?: never;
     head?: never;
     /**
      * @description list:
      *     List all applications the current user us responsible for.
      */
-    patch: operations["oauth2ApplicationsPartialUpdate"];
+    patch: operations['oauth2ApplicationsPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/oidc/authorize/": {
+  '/api/v1/oidc/authorize/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["oidcAuthorizeRetrieve"];
+    get: operations['oidcAuthorizeRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -2787,14 +2787,14 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/oidc/validate/": {
+  '/api/v1/oidc/validate/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["oidcValidateRetrieve"];
+    get: operations['oidcValidateRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -2803,7 +2803,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/pages/": {
+  '/api/v1/pages/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2814,20 +2814,20 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["pagesList"];
+    get: operations['pagesList'];
     put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["pagesCreate"];
+    post: operations['pagesCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/pages/{slug}/": {
+  '/api/v1/pages/{slug}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2838,28 +2838,28 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["pagesRetrieve"];
+    get: operations['pagesRetrieve'];
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["pagesUpdate"];
+    put: operations['pagesUpdate'];
     post?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["pagesDestroy"];
+    delete: operations['pagesDestroy'];
     options?: never;
     head?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["pagesPartialUpdate"];
+    patch: operations['pagesPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/password-change/": {
+  '/api/v1/password-change/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2868,14 +2868,14 @@ export interface paths {
     };
     get?: never;
     put?: never;
-    post: operations["passwordChangeCreate"];
+    post: operations['passwordChangeCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/password-reset-perform/": {
+  '/api/v1/password-reset-perform/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2884,14 +2884,14 @@ export interface paths {
     };
     get?: never;
     put?: never;
-    post: operations["passwordResetPerformCreate"];
+    post: operations['passwordResetPerformCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/password-reset-request/": {
+  '/api/v1/password-reset-request/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2900,14 +2900,14 @@ export interface paths {
     };
     get?: never;
     put?: never;
-    post: operations["passwordResetRequestCreate"];
+    post: operations['passwordResetRequestCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/penalties/": {
+  '/api/v1/penalties/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2918,20 +2918,20 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["penaltiesList"];
+    get: operations['penaltiesList'];
     put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["penaltiesCreate"];
+    post: operations['penaltiesCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/penalties/{id}/": {
+  '/api/v1/penalties/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2945,13 +2945,13 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["penaltiesDestroy"];
+    delete: operations['penaltiesDestroy'];
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/podcasts/": {
+  '/api/v1/podcasts/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2962,20 +2962,20 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["podcastsList"];
+    get: operations['podcastsList'];
     put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["podcastsCreate"];
+    post: operations['podcastsCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/podcasts/{id}/": {
+  '/api/v1/podcasts/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -2986,28 +2986,28 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["podcastsRetrieve"];
+    get: operations['podcastsRetrieve'];
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["podcastsUpdate"];
+    put: operations['podcastsUpdate'];
     post?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["podcastsDestroy"];
+    delete: operations['podcastsDestroy'];
     options?: never;
     head?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["podcastsPartialUpdate"];
+    patch: operations['podcastsPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/polls/": {
+  '/api/v1/polls/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3018,20 +3018,20 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["pollsList"];
+    get: operations['pollsList'];
     put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["pollsCreate"];
+    post: operations['pollsCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/polls/{id}/": {
+  '/api/v1/polls/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3042,28 +3042,28 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["pollsRetrieve"];
+    get: operations['pollsRetrieve'];
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["pollsUpdate"];
+    put: operations['pollsUpdate'];
     post?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["pollsDestroy"];
+    delete: operations['pollsDestroy'];
     options?: never;
     head?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["pollsPartialUpdate"];
+    patch: operations['pollsPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/polls/{id}/vote/": {
+  '/api/v1/polls/{id}/vote/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3076,14 +3076,14 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["pollsVoteCreate"];
+    post: operations['pollsVoteCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/quotes/": {
+  '/api/v1/quotes/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3094,20 +3094,20 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["quotesList"];
+    get: operations['quotesList'];
     put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["quotesCreate"];
+    post: operations['quotesCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/quotes/{id}/": {
+  '/api/v1/quotes/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3118,48 +3118,28 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["quotesRetrieve"];
+    get: operations['quotesRetrieve'];
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["quotesUpdate"];
+    put: operations['quotesUpdate'];
     post?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["quotesDestroy"];
+    delete: operations['quotesDestroy'];
     options?: never;
     head?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["quotesPartialUpdate"];
+    patch: operations['quotesPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/quotes/{id}/approve/": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations["quotesApproveUpdate"];
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  "/api/v1/quotes/{id}/unapprove/": {
+  '/api/v1/quotes/{id}/approve/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3171,7 +3151,7 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["quotesUnapproveUpdate"];
+    put: operations['quotesApproveUpdate'];
     post?: never;
     delete?: never;
     options?: never;
@@ -3179,7 +3159,27 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/quotes/random/": {
+  '/api/v1/quotes/{id}/unapprove/': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    /**
+     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+     *     frontend to decide which actions a user can perform.
+     */
+    put: operations['quotesUnapproveUpdate'];
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/api/v1/quotes/random/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3190,7 +3190,7 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["quotesRandomRetrieve"];
+    get: operations['quotesRandomRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -3199,7 +3199,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/reactions/": {
+  '/api/v1/reactions/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3208,14 +3208,14 @@ export interface paths {
     };
     get?: never;
     put?: never;
-    post: operations["reactionsCreate"];
+    post: operations['reactionsCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/reactions/{id}/": {
+  '/api/v1/reactions/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3225,13 +3225,13 @@ export interface paths {
     get?: never;
     put?: never;
     post?: never;
-    delete: operations["reactionsDestroy"];
+    delete: operations['reactionsDestroy'];
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/restricted-mail/": {
+  '/api/v1/restricted-mail/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3242,20 +3242,20 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["restrictedMailList"];
+    get: operations['restrictedMailList'];
     put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["restrictedMailCreate"];
+    post: operations['restrictedMailCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/restricted-mail/{id}/": {
+  '/api/v1/restricted-mail/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3266,7 +3266,7 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["restrictedMailRetrieve"];
+    get: operations['restrictedMailRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -3275,7 +3275,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/restricted-mail/{id}/token/": {
+  '/api/v1/restricted-mail/{id}/token/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3286,7 +3286,7 @@ export interface paths {
      * @description Download the token belonging to a restricted mail. This token has to be attached to
      *     the restricted mail for authentication.
      */
-    get: operations["restrictedMailTokenRetrieve"];
+    get: operations['restrictedMailTokenRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -3295,7 +3295,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/search-autocomplete/": {
+  '/api/v1/search-autocomplete/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3309,14 +3309,14 @@ export interface paths {
      *
      *     types is optional.
      */
-    post: operations["searchAutocompleteCreate"];
+    post: operations['searchAutocompleteCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/search-search/": {
+  '/api/v1/search-search/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3331,21 +3331,21 @@ export interface paths {
      *
      *     types and filters is optional.
      */
-    post: operations["searchSearchCreate"];
+    post: operations['searchSearchCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/site-meta/": {
+  '/api/v1/site-meta/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["siteMetaRetrieve"];
+    get: operations['siteMetaRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -3354,14 +3354,14 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/survey-results/{id}/": {
+  '/api/v1/survey-results/{id}/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["surveyResultsRetrieve"];
+    get: operations['surveyResultsRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -3370,7 +3370,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/survey-templates/": {
+  '/api/v1/survey-templates/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3381,7 +3381,7 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["surveyTemplatesList"];
+    get: operations['surveyTemplatesList'];
     put?: never;
     post?: never;
     delete?: never;
@@ -3390,7 +3390,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/survey-templates/{id}/": {
+  '/api/v1/survey-templates/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3401,7 +3401,7 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["surveyTemplatesRetrieve"];
+    get: operations['surveyTemplatesRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -3410,7 +3410,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/surveys/": {
+  '/api/v1/surveys/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3421,20 +3421,20 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["surveysList"];
+    get: operations['surveysList'];
     put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["surveysCreate"];
+    post: operations['surveysCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/surveys/{id}/": {
+  '/api/v1/surveys/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3445,28 +3445,28 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["surveysRetrieve"];
+    get: operations['surveysRetrieve'];
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["surveysUpdate"];
+    put: operations['surveysUpdate'];
     post?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["surveysDestroy"];
+    delete: operations['surveysDestroy'];
     options?: never;
     head?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["surveysPartialUpdate"];
+    patch: operations['surveysPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/surveys/{id}/csv/": {
+  '/api/v1/surveys/{id}/csv/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3477,7 +3477,7 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["surveysCsvRetrieve"];
+    get: operations['surveysCsvRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -3486,7 +3486,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/surveys/{id}/hide/": {
+  '/api/v1/surveys/{id}/hide/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3499,14 +3499,14 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["surveysHideCreate"];
+    post: operations['surveysHideCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/surveys/{id}/pdf/": {
+  '/api/v1/surveys/{id}/pdf/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3517,7 +3517,7 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["surveysPdfRetrieve"];
+    get: operations['surveysPdfRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -3526,7 +3526,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/surveys/{id}/share/": {
+  '/api/v1/surveys/{id}/share/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3539,14 +3539,14 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["surveysShareCreate"];
+    post: operations['surveysShareCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/surveys/{surveyPk}/submissions/": {
+  '/api/v1/surveys/{surveyPk}/submissions/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3557,20 +3557,20 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["surveysSubmissionsList"];
+    get: operations['surveysSubmissionsList'];
     put?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["surveysSubmissionsCreate"];
+    post: operations['surveysSubmissionsCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/surveys/{surveyPk}/submissions/{id}/": {
+  '/api/v1/surveys/{surveyPk}/submissions/{id}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3581,28 +3581,28 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["surveysSubmissionsRetrieve"];
+    get: operations['surveysSubmissionsRetrieve'];
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["surveysSubmissionsUpdate"];
+    put: operations['surveysSubmissionsUpdate'];
     post?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["surveysSubmissionsDestroy"];
+    delete: operations['surveysSubmissionsDestroy'];
     options?: never;
     head?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["surveysSubmissionsPartialUpdate"];
+    patch: operations['surveysSubmissionsPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/surveys/{surveyPk}/submissions/{id}/hide/": {
+  '/api/v1/surveys/{surveyPk}/submissions/{id}/hide/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3615,14 +3615,14 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["surveysSubmissionsHideCreate"];
+    post: operations['surveysSubmissionsHideCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/surveys/{surveyPk}/submissions/{id}/show/": {
+  '/api/v1/surveys/{surveyPk}/submissions/{id}/show/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3635,21 +3635,21 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["surveysSubmissionsShowCreate"];
+    post: operations['surveysSubmissionsShowCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/tags/": {
+  '/api/v1/tags/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["tagsList"];
+    get: operations['tagsList'];
     put?: never;
     post?: never;
     delete?: never;
@@ -3658,14 +3658,14 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/tags/{tag}/": {
+  '/api/v1/tags/{tag}/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["tagsRetrieve"];
+    get: operations['tagsRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -3674,14 +3674,14 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/tags/popular/": {
+  '/api/v1/tags/popular/': {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    get: operations["tagsPopularRetrieve"];
+    get: operations['tagsPopularRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -3690,7 +3690,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/user-commands/use/": {
+  '/api/v1/user-commands/use/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3699,14 +3699,14 @@ export interface paths {
     };
     get?: never;
     put?: never;
-    post: operations["userCommandsUseCreate"];
+    post: operations['userCommandsUseCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/user-delete/": {
+  '/api/v1/user-delete/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3715,14 +3715,14 @@ export interface paths {
     };
     get?: never;
     put?: never;
-    post: operations["userDeleteCreate"];
+    post: operations['userDeleteCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/users/": {
+  '/api/v1/users/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3733,17 +3733,17 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["usersList"];
+    get: operations['usersList'];
     put?: never;
     /** @description Attempts to register a new user based on the registration token. */
-    post: operations["usersCreate"];
+    post: operations['usersCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/users-registration-request/": {
+  '/api/v1/users-registration-request/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3756,17 +3756,17 @@ export interface paths {
      *     The request errors out if the token has expired or is invalid.
      *     Request URL: GET /api/v1/users/registration/?token=<token>
      */
-    get: operations["usersRegistrationRequestList"];
+    get: operations['usersRegistrationRequestList'];
     put?: never;
     /** @description Attempts to create a registration token and email it to the user. */
-    post: operations["usersRegistrationRequestCreate"];
+    post: operations['usersRegistrationRequestCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/users/{username}/": {
+  '/api/v1/users/{username}/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3777,28 +3777,28 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["usersRetrieve"];
+    get: operations['usersRetrieve'];
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    put: operations["usersUpdate"];
+    put: operations['usersUpdate'];
     post?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    delete: operations["usersDestroy"];
+    delete: operations['usersDestroy'];
     options?: never;
     head?: never;
     /**
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    patch: operations["usersPartialUpdate"];
+    patch: operations['usersPartialUpdate'];
     trace?: never;
   };
-  "/api/v1/users/{username}/change_grade/": {
+  '/api/v1/users/{username}/change_grade/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3808,14 +3808,14 @@ export interface paths {
     get?: never;
     put?: never;
     /** @description Attempts to change the grade of the user based selected input */
-    post: operations["usersChangeGradeCreate"];
+    post: operations['usersChangeGradeCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/users/{username}/update_photo_consent/": {
+  '/api/v1/users/{username}/update_photo_consent/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3828,14 +3828,14 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    post: operations["usersUpdatePhotoConsentCreate"];
+    post: operations['usersUpdatePhotoConsentCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/api/v1/users/me/": {
+  '/api/v1/users/me/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3843,7 +3843,7 @@ export interface paths {
       cookie?: never;
     };
     /** @description Read-only endpoint used to retrieve information about the authenticated user. */
-    get: operations["usersMeRetrieve"];
+    get: operations['usersMeRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -3852,7 +3852,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/users/me/qr/": {
+  '/api/v1/users/me/qr/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3863,7 +3863,7 @@ export interface paths {
      * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
      *     frontend to decide which actions a user can perform.
      */
-    get: operations["usersMeQrRetrieve"];
+    get: operations['usersMeQrRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -3872,7 +3872,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/users/oauth2_userdata/": {
+  '/api/v1/users/oauth2_userdata/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3880,7 +3880,7 @@ export interface paths {
       cookie?: never;
     };
     /** @description Read-only endpoint used to retrieve information about the authenticated user. */
-    get: operations["usersOauth2UserdataRetrieve"];
+    get: operations['usersOauth2UserdataRetrieve'];
     put?: never;
     post?: never;
     delete?: never;
@@ -3889,7 +3889,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/v1/webhooks-stripe/": {
+  '/api/v1/webhooks-stripe/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3898,14 +3898,14 @@ export interface paths {
     };
     get?: never;
     put?: never;
-    post: operations["webhooksStripeCreate"];
+    post: operations['webhooksStripeCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/authorization/token-auth/": {
+  '/authorization/token-auth/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3919,14 +3919,14 @@ export interface paths {
      *
      *     Returns a JSON Web Token that can be used for authenticated requests.
      */
-    post: operations["authorizationTokenAuthCreate"];
+    post: operations['authorizationTokenAuthCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/authorization/token-auth/refresh/": {
+  '/authorization/token-auth/refresh/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3942,14 +3942,14 @@ export interface paths {
      *     If 'orig_iat' field (original issued-at-time) is found it will first check
      *     if it's within expiration window, then copy it to the new token.
      */
-    post: operations["authorizationTokenAuthRefreshCreate"];
+    post: operations['authorizationTokenAuthRefreshCreate'];
     delete?: never;
     options?: never;
     head?: never;
     patch?: never;
     trace?: never;
   };
-  "/authorization/token-auth/verify/": {
+  '/authorization/token-auth/verify/': {
     parameters: {
       query?: never;
       header?: never;
@@ -3962,7 +3962,7 @@ export interface paths {
      * @description API View that checks the validity of a token, returning the token if it
      *     is valid.
      */
-    post: operations["authorizationTokenAuthVerifyCreate"];
+    post: operations['authorizationTokenAuthVerifyCreate'];
     delete?: never;
     options?: never;
     head?: never;
@@ -4010,7 +4010,7 @@ export interface components {
       /** Format: date-time */
       readonly updatedAt: string;
       readonly percentage: string;
-      identifier: components["schemas"]["IdentifierEnum"];
+      identifier: components['schemas']['IdentifierEnum'];
       level?: number;
     };
     AdminRegistrationCreateAndUpdate: {
@@ -4031,12 +4031,12 @@ export interface components {
       firstName: string;
       lastName: string;
       readonly fullName: string;
-      gender: components["schemas"]["GenderEnum"];
+      gender: components['schemas']['GenderEnum'];
       profilePicture?: string;
       profilePicturePlaceholder?: string;
       readonly internalEmailAddress: string;
       /** @description Enter a valid username. */
-      githubUsername?: (string) | null;
+      githubUsername?: string | null;
       /** @description Enter a valid LinkedIn ID. */
       linkedinId?: string | null;
       /** @description The groups this user belongs to. A user will get all permissions granted to each of their groups. */
@@ -4050,8 +4050,8 @@ export interface components {
       createdAt: string;
       /** Format: date-time */
       updatedAt: string;
-      lastActivity: components["schemas"]["FeedActivity"];
-      activities: components["schemas"]["FeedActivity"][];
+      lastActivity: components['schemas']['FeedActivity'];
+      activities: components['schemas']['FeedActivity'][];
       activityCount: number;
       actorIds: string[];
       readonly context: {
@@ -4066,8 +4066,8 @@ export interface components {
       createdAt: string;
       /** Format: date-time */
       updatedAt: string;
-      lastActivity: components["schemas"]["FeedActivity"];
-      activities: components["schemas"]["FeedActivity"][];
+      lastActivity: components['schemas']['FeedActivity'];
+      activities: components['schemas']['FeedActivity'][];
       activityCount: number;
       actorIds: string[];
       readonly context: {
@@ -4087,25 +4087,29 @@ export interface components {
       events?: number[];
       excludeWaitingList?: boolean;
       meetings?: number[];
-      meetingInvitationStatus?: components["schemas"]["MeetingInvitationStatusEnum"] | components["schemas"]["BlankEnum"];
+      meetingInvitationStatus?:
+        | components['schemas']['MeetingInvitationStatusEnum']
+        | components['schemas']['BlankEnum'];
     };
     AnnouncementList: {
       readonly id: number;
       message: string;
-      readonly fromGroup: components["schemas"]["PublicAbakusGroup"];
+      readonly fromGroup: components['schemas']['PublicAbakusGroup'];
       /** Format: date-time */
       readonly sent: string | null;
-      readonly users: components["schemas"]["PublicUser"][];
-      readonly groups: components["schemas"]["PublicAbakusGroup"][];
-      readonly events: components["schemas"]["EventRead"][];
+      readonly users: components['schemas']['PublicUser'][];
+      readonly groups: components['schemas']['PublicAbakusGroup'][];
+      readonly events: components['schemas']['EventRead'][];
       excludeWaitingList?: boolean;
-      readonly meetings: components["schemas"]["MeetingList"][];
-      meetingInvitationStatus?: components["schemas"]["MeetingInvitationStatusEnum"] | components["schemas"]["BlankEnum"];
+      readonly meetings: components['schemas']['MeetingList'][];
+      meetingInvitationStatus?:
+        | components['schemas']['MeetingInvitationStatusEnum']
+        | components['schemas']['BlankEnum'];
     };
     Answer: {
       readonly id: number;
       submission: number;
-      question: components["schemas"]["Question"];
+      question: components['schemas']['Question'];
       answerText?: string;
       selectedOptions?: number[];
     };
@@ -4130,7 +4134,7 @@ export interface components {
       readonly id: number;
       header: string;
       subheader?: string | null;
-      color?: components["schemas"]["ColorEnum"];
+      color?: components['schemas']['ColorEnum'];
       link?: string | null;
       currentPrivate?: boolean;
       currentPublic?: boolean;
@@ -4139,7 +4143,7 @@ export interface components {
       countdownEndMessage?: string | null;
     };
     /** @enum {unknown} */
-    BlankEnum: "";
+    BlankEnum: '';
     /**
      * @description * `generelt` - generelt
      *     * `organisasjon` - organisasjon
@@ -4151,7 +4155,15 @@ export interface components {
      *     * `personvern` - personvern
      * @enum {string}
      */
-    Category2a9Enum: "generelt" | "organisasjon" | "styrer" | "bedrifter" | "arrangementer" | "grupper" | "utnevnelser" | "personvern";
+    Category2a9Enum:
+      | 'generelt'
+      | 'organisasjon'
+      | 'styrer'
+      | 'bedrifter'
+      | 'arrangementer'
+      | 'grupper'
+      | 'utnevnelser'
+      | 'personvern';
     /**
      * @description * `outdoors` - outdoors
      *     * `photography` - photography
@@ -4161,7 +4173,7 @@ export interface components {
      *     * `other` - other
      * @enum {string}
      */
-    Category7d8Enum: "outdoors" | "photography" | "music" | "furniture" | "services" | "other";
+    Category7d8Enum: 'outdoors' | 'photography' | 'music' | 'furniture' | 'services' | 'other';
     ChangeGrade: {
       group: number | null;
     };
@@ -4170,13 +4182,13 @@ export interface components {
      *     * `push` - push
      * @enum {string}
      */
-    ChannelsEnum: "email" | "push";
+    ChannelsEnum: 'email' | 'push';
     /**
      * @description * `FCM` - Firebase Cloud Message
      *     * `GCM` - Google Cloud Message
      * @enum {string}
      */
-    CloudMessageTypeEnum: "FCM" | "GCM";
+    CloudMessageTypeEnum: 'FCM' | 'GCM';
     /**
      * @description * `collaboration_online` - collaboration_online
      *     * `collaboration_omega` - collaboration_omega
@@ -4186,7 +4198,13 @@ export interface components {
      *     * `collaboration_revue_anniversary` - collaboration_revue_anniversary
      * @enum {string}
      */
-    CollaborationsEnum: "collaboration_online" | "collaboration_omega" | "collaboration_tihlde" | "collaboration_revue" | "collaboration_anniversary" | "collaboration_revue_anniversary";
+    CollaborationsEnum:
+      | 'collaboration_online'
+      | 'collaboration_omega'
+      | 'collaboration_tihlde'
+      | 'collaboration_revue'
+      | 'collaboration_anniversary'
+      | 'collaboration_revue_anniversary';
     /**
      * @description * `buddyweek2024` - buddyweek2024
      *     * `christmas` - christmas
@@ -4198,11 +4216,19 @@ export interface components {
      *     * `white` - white
      * @enum {string}
      */
-    ColorEnum: "buddyweek2024" | "christmas" | "easter" | "gray" | "itdageneBlue" | "lightBlue" | "red" | "white";
+    ColorEnum:
+      | 'buddyweek2024'
+      | 'christmas'
+      | 'easter'
+      | 'gray'
+      | 'itdageneBlue'
+      | 'lightBlue'
+      | 'red'
+      | 'white';
     Comment: {
       readonly id: number;
       text: string;
-      readonly author: components["schemas"]["PublicUser"];
+      readonly author: components['schemas']['PublicUser'];
       contentTarget: string;
       readonly contentTargetSelf: string;
       /** Format: date-time */
@@ -4215,20 +4241,20 @@ export interface components {
     CompanyAdminDetail: {
       readonly id: number;
       name: string;
-      studentContacts?: components["schemas"]["StudentCompanyContact"][];
+      studentContacts?: components['schemas']['StudentCompanyContact'][];
       description?: string;
       phone?: string;
       companyType?: string;
       website?: string;
       address?: string;
       paymentMail?: string;
-      readonly comments: components["schemas"]["Comment"][];
+      readonly comments: components['schemas']['Comment'][];
       readonly contentTarget: string;
-      readonly semesterStatuses: components["schemas"]["SemesterStatusDetail"][];
+      readonly semesterStatuses: components['schemas']['SemesterStatusDetail'][];
       active?: boolean;
       logo?: string;
-      readonly files: components["schemas"]["CompanyFile"][];
-      readonly companyContacts: components["schemas"]["CompanyContact"][];
+      readonly files: components['schemas']['CompanyFile'][];
+      readonly companyContacts: components['schemas']['CompanyContact'][];
     };
     CompanyAdminList: {
       readonly id: number;
@@ -4258,7 +4284,15 @@ export interface components {
      *     * `company_survey_fintech` - Fintech
      * @enum {string}
      */
-    CompanyCourseThemesEnum: "company_survey_security" | "company_survey_ai" | "company_survey_big_data" | "company_survey_front_back_end" | "company_survey_iot" | "company_survey_gamedev" | "company_survey_softskills" | "company_survey_fintech";
+    CompanyCourseThemesEnum:
+      | 'company_survey_security'
+      | 'company_survey_ai'
+      | 'company_survey_big_data'
+      | 'company_survey_front_back_end'
+      | 'company_survey_iot'
+      | 'company_survey_gamedev'
+      | 'company_survey_softskills'
+      | 'company_survey_fintech';
     CompanyDetail: {
       readonly id: number;
       name: string;
@@ -4277,16 +4311,22 @@ export interface components {
     CompanyInterest: {
       readonly id: number;
       companyName?: string;
-      company: components["schemas"]["CompanySearch"] | null;
+      company: components['schemas']['CompanySearch'] | null;
       contactPerson: string;
       /** Format: email */
       mail: string;
       phone?: string;
       semesters?: number[];
-      events?: components["schemas"]["EventsEnum"][] | null;
-      otherOffers?: components["schemas"]["OtherOffersEnum"][] | null;
-      collaborations?: components["schemas"]["CollaborationsEnum"][] | null;
-      companyType?: (components["schemas"]["CompanyTypeEnum"] | components["schemas"]["BlankEnum"] | components["schemas"]["NullEnum"]) | null;
+      events?: components['schemas']['EventsEnum'][] | null;
+      otherOffers?: components['schemas']['OtherOffersEnum'][] | null;
+      collaborations?: components['schemas']['CollaborationsEnum'][] | null;
+      companyType?:
+        | (
+            | components['schemas']['CompanyTypeEnum']
+            | components['schemas']['BlankEnum']
+            | components['schemas']['NullEnum']
+          )
+        | null;
       targetGrades?: number[] | null;
       participantRangeStart?: number | null;
       participantRangeEnd?: number | null;
@@ -4299,7 +4339,7 @@ export interface components {
       lunchPresentationComment?: string;
       companyPresentationComment?: string;
       bedexComment?: string;
-      companyCourseThemes?: components["schemas"]["CompanyCourseThemesEnum"][] | null;
+      companyCourseThemes?: components['schemas']['CompanyCourseThemesEnum'][] | null;
       officeInTrondheim?: boolean;
       wantsThursdayEvent?: boolean;
     };
@@ -4312,10 +4352,16 @@ export interface components {
       mail: string;
       phone?: string;
       semesters?: number[];
-      events?: components["schemas"]["EventsEnum"][] | null;
-      otherOffers?: components["schemas"]["OtherOffersEnum"][] | null;
-      collaborations?: components["schemas"]["CollaborationsEnum"][] | null;
-      companyType?: (components["schemas"]["CompanyTypeEnum"] | components["schemas"]["BlankEnum"] | components["schemas"]["NullEnum"]) | null;
+      events?: components['schemas']['EventsEnum'][] | null;
+      otherOffers?: components['schemas']['OtherOffersEnum'][] | null;
+      collaborations?: components['schemas']['CollaborationsEnum'][] | null;
+      companyType?:
+        | (
+            | components['schemas']['CompanyTypeEnum']
+            | components['schemas']['BlankEnum']
+            | components['schemas']['NullEnum']
+          )
+        | null;
       targetGrades?: number[] | null;
       participantRangeStart?: number | null;
       participantRangeEnd?: number | null;
@@ -4328,20 +4374,20 @@ export interface components {
       lunchPresentationComment?: string;
       companyPresentationComment?: string;
       bedexComment?: string;
-      companyCourseThemes?: components["schemas"]["CompanyCourseThemesEnum"][] | null;
+      companyCourseThemes?: components['schemas']['CompanyCourseThemesEnum'][] | null;
       officeInTrondheim?: boolean;
       wantsThursdayEvent?: boolean;
     };
     CompanyInterestList: {
       readonly id: number;
       companyName?: string;
-      company: components["schemas"]["CompanySearch"];
+      company: components['schemas']['CompanySearch'];
       contactPerson: string;
       /** Format: email */
       mail: string;
       phone?: string;
       semesters?: number[];
-      events?: components["schemas"]["EventsEnum"][] | null;
+      events?: components['schemas']['EventsEnum'][] | null;
       /** Format: date-time */
       readonly createdAt: string;
     };
@@ -4378,7 +4424,14 @@ export interface components {
      *     * `company_types_governmental` - Governmental
      * @enum {string}
      */
-    CompanyTypeEnum: "company_types_small_consultant" | "company_types_medium_consultant" | "company_types_large_consultant" | "company_types_inhouse" | "company_types_others" | "company_types_start_up" | "company_types_governmental";
+    CompanyTypeEnum:
+      | 'company_types_small_consultant'
+      | 'company_types_medium_consultant'
+      | 'company_types_large_consultant'
+      | 'company_types_inhouse'
+      | 'company_types_others'
+      | 'company_types_start_up'
+      | 'company_types_governmental';
     ContactForm: {
       title: string;
       message: string;
@@ -4398,7 +4451,17 @@ export interface components {
      *     * `not_contacted` - not_contacted
      * @enum {string}
      */
-    ContactedStatusEnum: "company_presentation" | "course" | "breakfast_talk" | "lunch_presentation" | "bedex" | "contact_in_oslo" | "interested" | "not_interested" | "contacted" | "not_contacted";
+    ContactedStatusEnum:
+      | 'company_presentation'
+      | 'course'
+      | 'breakfast_talk'
+      | 'lunch_presentation'
+      | 'bedex'
+      | 'contact_in_oslo'
+      | 'interested'
+      | 'not_interested'
+      | 'contacted'
+      | 'not_contacted';
     /**
      * @description Serializer for the /me, retrieve and update endpoint with EDIT permissions.
      *     Also used by our JWT handler and returned to the user when a user obtains a JWT token.
@@ -4417,28 +4480,28 @@ export interface components {
       emailListsEnabled?: boolean;
       profilePicture?: string | null;
       profilePicturePlaceholder?: string;
-      gender: components["schemas"]["GenderEnum"];
+      gender: components['schemas']['GenderEnum'];
       allergies?: string;
       /** @description Designates whether this user should be treated as active. Unselect this instead of deleting accounts. */
       isActive?: boolean;
       readonly isStudent: string;
-      abakusEmailLists: components["schemas"]["PublicEmailList"][];
-      abakusGroups: components["schemas"]["PublicAbakusGroup"][];
+      abakusEmailLists: components['schemas']['PublicEmailList'][];
+      abakusGroups: components['schemas']['PublicAbakusGroup'][];
       isAbakusMember: boolean;
       readonly isAbakomMember: string;
       readonly penalties: string;
       readonly icalToken: string;
-      memberships: components["schemas"]["Membership"][];
-      pastMemberships: components["schemas"]["PastMembership"][];
+      memberships: components['schemas']['Membership'][];
+      pastMemberships: components['schemas']['PastMembership'][];
       readonly internalEmailAddress: string;
-      selectedTheme?: components["schemas"]["SelectedThemeEnum"];
+      selectedTheme?: components['schemas']['SelectedThemeEnum'];
       readonly permissionsPerGroup: string;
       readonly photoConsents: string;
       /** @description Enter a valid username. */
-      githubUsername?: (string) | null;
+      githubUsername?: string | null;
       /** @description Enter a valid LinkedIn ID. */
       linkedinId?: string | null;
-      achievements: components["schemas"]["Achievement"][];
+      achievements: components['schemas']['Achievement'][];
       readonly achievementsScore: string;
       readonly commandSuggestions: string;
       christmasSlots: number[];
@@ -4451,7 +4514,7 @@ export interface components {
       parent?: number | null;
       permissions?: string[];
       readonly parentPermissions: string;
-      type?: components["schemas"]["TypeEnum"];
+      type?: components['schemas']['TypeEnum'];
       text?: string;
       logo?: string | null;
       readonly numberOfUsers: number;
@@ -4472,7 +4535,7 @@ export interface components {
       description?: string | null;
       readonly contentTarget: string;
       /** @default [] */
-      tags: components["schemas"]["Tag"][];
+      tags: components['schemas']['Tag'][];
       content: string;
       /** Format: date-time */
       readonly createdAt: string;
@@ -4486,28 +4549,28 @@ export interface components {
       /** Format: date-time */
       readonly createdAt: string;
       description: string;
-      authors: components["schemas"]["PublicUser"][];
-      thanks: components["schemas"]["PublicUser"][];
+      authors: components['schemas']['PublicUser'][];
+      thanks: components['schemas']['PublicUser'][];
     };
     /**
      * @description * `pie_chart` - pie_chart
      *     * `bar_chart` - bar_chart
      * @enum {string}
      */
-    DisplayTypeEnum: "pie_chart" | "bar_chart";
+    DisplayTypeEnum: 'pie_chart' | 'bar_chart';
     /**
      * @description * `WEBSITE` - WEBSITE
      *     * `SOCIAL_MEDIA` - SOCIAL_MEDIA
      * @enum {string}
      */
-    DomainEnum: "WEBSITE" | "SOCIAL_MEDIA";
+    DomainEnum: 'WEBSITE' | 'SOCIAL_MEDIA';
     EmailList: {
       readonly id: number;
       name: string;
       readonly email: string;
       users?: number[];
       groups?: number[];
-      groupRoles?: components["schemas"]["GroupRolesEnum"][];
+      groupRoles?: components['schemas']['GroupRolesEnum'][];
       /** @description Only allow users with emails from our internal domain, @abakus.no */
       requireInternalAddress?: boolean;
       additionalEmails?: string[];
@@ -4524,7 +4587,7 @@ export interface components {
       email: string;
       users?: number[];
       groups?: number[];
-      groupRoles?: components["schemas"]["GroupRolesEnum"][];
+      groupRoles?: components['schemas']['GroupRolesEnum'][];
       /** @description Only allow users with emails from our internal domain, @abakus.no */
       requireInternalAddress?: boolean;
       additionalEmails?: string[];
@@ -4535,7 +4598,7 @@ export interface components {
       readonly email: string;
       users: number[];
       groups: number[];
-      groupRoles?: components["schemas"]["GroupRolesEnum"][];
+      groupRoles?: components['schemas']['GroupRolesEnum'][];
       /** @description Only allow users with emails from our internal domain, @abakus.no */
       requireInternalAddress?: boolean;
       additionalEmails?: string[];
@@ -4561,8 +4624,8 @@ export interface components {
       responsibleGroup?: number | null;
       feedbackDescription?: string;
       feedbackRequired?: boolean;
-      eventType: components["schemas"]["EventTypeEnum"];
-      eventStatusType?: components["schemas"]["EventStatusTypeEnum"];
+      eventType: components['schemas']['EventTypeEnum'];
+      eventStatusType?: components['schemas']['EventStatusTypeEnum'];
       location: string;
       isPriced?: boolean;
       priceMember?: number;
@@ -4578,8 +4641,8 @@ export interface components {
       mergeTime?: string | null;
       useCaptcha?: boolean;
       /** @default [] */
-      tags: components["schemas"]["Tag"][];
-      pools?: components["schemas"]["PoolCreateAndUpdate"][];
+      tags: components['schemas']['Tag'][];
+      pools?: components['schemas']['PoolCreateAndUpdate'][];
       /** Format: date-time */
       unregistrationDeadline?: string | null;
       unregistrationDeadlineHours?: number;
@@ -4612,8 +4675,8 @@ export interface components {
       description?: string | null;
       cover?: string;
       coverPlaceholder?: string;
-      eventType: components["schemas"]["EventTypeEnum"];
-      eventStatusType?: components["schemas"]["EventStatusTypeEnum"];
+      eventType: components['schemas']['EventTypeEnum'];
+      eventStatusType?: components['schemas']['EventStatusTypeEnum'];
       location: string;
       /** Format: date-time */
       startTime: string;
@@ -4622,10 +4685,10 @@ export interface components {
       thumbnail?: string;
       totalCapacity: string;
       company: number;
-      readonly responsibleGroup: components["schemas"]["PublicAbakusGroup"];
+      readonly responsibleGroup: components['schemas']['PublicAbakusGroup'];
       registrationCount: string;
       /** @default [] */
-      tags: components["schemas"]["Tag"][];
+      tags: components['schemas']['Tag'][];
       activationTime: string;
       isAdmitted: string;
       survey: number;
@@ -4650,8 +4713,8 @@ export interface components {
       description?: string | null;
       cover?: string;
       coverPlaceholder?: string;
-      eventType: components["schemas"]["EventTypeEnum"];
-      eventStatusType?: components["schemas"]["EventStatusTypeEnum"];
+      eventType: components['schemas']['EventTypeEnum'];
+      eventStatusType?: components['schemas']['EventStatusTypeEnum'];
       location: string;
       /** Format: date-time */
       startTime: string;
@@ -4660,10 +4723,10 @@ export interface components {
       thumbnail?: string;
       totalCapacity: string;
       company: number;
-      readonly responsibleGroup: components["schemas"]["PublicAbakusGroup"];
+      readonly responsibleGroup: components['schemas']['PublicAbakusGroup'];
       registrationCount: string;
       /** @default [] */
-      tags: components["schemas"]["Tag"][];
+      tags: components['schemas']['Tag'][];
       activationTime: string;
       isAdmitted: string;
       survey: number;
@@ -4689,8 +4752,8 @@ export interface components {
       cover?: string;
       coverPlaceholder?: string;
       text: string;
-      eventType: components["schemas"]["EventTypeEnum"];
-      eventStatusType?: components["schemas"]["EventStatusTypeEnum"];
+      eventType: components['schemas']['EventTypeEnum'];
+      eventStatusType?: components['schemas']['EventStatusTypeEnum'];
       location: string;
       readonly contentTarget: string;
       /** Format: date-time */
@@ -4699,7 +4762,7 @@ export interface components {
       endTime: string;
       /** Format: date-time */
       mergeTime?: string | null;
-      pools: components["schemas"]["PoolRead"][];
+      pools: components['schemas']['PoolRead'][];
       registrationCount: string;
       waitingRegistrationCount: string;
       /** Format: date-time */
@@ -4711,7 +4774,7 @@ export interface components {
       unregistrationDeadline?: string | null;
       unregistrationDeadlineHours?: number;
       company: number;
-      readonly responsibleGroup: components["schemas"]["PublicAbakusGroup"];
+      readonly responsibleGroup: components['schemas']['PublicAbakusGroup'];
       /** @description Calculation capacity of pools that are active. */
       readonly activeCapacity: number;
       feedbackDescription?: string;
@@ -4724,7 +4787,7 @@ export interface components {
       paymentDueDate?: string | null;
       useCaptcha?: boolean;
       /** @default [] */
-      tags: components["schemas"]["Tag"][];
+      tags: components['schemas']['Tag'][];
       readonly isMerged: boolean;
       heedPenalties?: boolean;
       legacyRegistrationCount?: number;
@@ -4749,7 +4812,7 @@ export interface components {
      *     * `TBA` - TBA
      * @enum {string}
      */
-    EventStatusTypeEnum: "NORMAL" | "INFINITE" | "OPEN" | "TBA";
+    EventStatusTypeEnum: 'NORMAL' | 'INFINITE' | 'OPEN' | 'TBA';
     /**
      * @description * `company_presentation` - company_presentation
      *     * `lunch_presentation` - lunch_presentation
@@ -4765,7 +4828,19 @@ export interface components {
      *     * `interest_event` - interest_event
      * @enum {string}
      */
-    EventTypeEnum: "company_presentation" | "lunch_presentation" | "alternative_presentation" | "course" | "breakfast_talk" | "nexus_event" | "party" | "social" | "gala" | "other" | "event" | "interest_event";
+    EventTypeEnum:
+      | 'company_presentation'
+      | 'lunch_presentation'
+      | 'alternative_presentation'
+      | 'course'
+      | 'breakfast_talk'
+      | 'nexus_event'
+      | 'party'
+      | 'social'
+      | 'gala'
+      | 'other'
+      | 'event'
+      | 'interest_event';
     /**
      * @description * `company_presentation` - company_presentation
      *     * `lunch_presentation` - lunch_presentation
@@ -4779,7 +4854,17 @@ export interface components {
      *     * `company_to_company` - company_to_company
      * @enum {string}
      */
-    EventsEnum: "company_presentation" | "lunch_presentation" | "course" | "breakfast_talk" | "digital_presentation" | "bedex" | "other" | "sponsor" | "start_up" | "company_to_company";
+    EventsEnum:
+      | 'company_presentation'
+      | 'lunch_presentation'
+      | 'course'
+      | 'breakfast_talk'
+      | 'digital_presentation'
+      | 'bedex'
+      | 'other'
+      | 'sponsor'
+      | 'start_up'
+      | 'company_to_company';
     ExpoDevice: {
       pushToken: string;
     };
@@ -4815,7 +4900,7 @@ export interface components {
      *     * `document` - document
      * @enum {string}
      */
-    FileTypeEnum: "image" | "document";
+    FileTypeEnum: 'image' | 'document';
     FileUpload: {
       key: string;
       public: boolean;
@@ -4866,7 +4951,7 @@ export interface components {
        *     * `FCM` - Firebase Cloud Message
        *     * `GCM` - Google Cloud Message
        */
-      cloudMessageType?: components["schemas"]["CloudMessageTypeEnum"];
+      cloudMessageType?: components['schemas']['CloudMessageTypeEnum'];
       /** @description Opaque application identity, should be filled in for multiple key/certificate access */
       applicationId?: string | null;
     };
@@ -4893,7 +4978,7 @@ export interface components {
     GalleryList: {
       readonly id: number;
       title: string;
-      cover: components["schemas"]["GalleryCover"];
+      cover: components['schemas']['GalleryCover'];
       location: string;
       /** Format: date */
       takenAt?: string | null;
@@ -4925,7 +5010,7 @@ export interface components {
      *     * `other` - other
      * @enum {string}
      */
-    GenderEnum: "male" | "female" | "other";
+    GenderEnum: 'male' | 'female' | 'other';
     /**
      * @description * `member` - member
      *     * `leader` - leader
@@ -4960,7 +5045,38 @@ export interface components {
      *     * `operations_manager` - operations_manager
      * @enum {string}
      */
-    GroupRolesEnum: "member" | "leader" | "co-leader" | "treasurer" | "recruiting" | "development" | "editor" | "retiree" | "media_relations" | "active_retiree" | "alumni" | "webmaster" | "interest_group_admin" | "alumni_admin" | "retiree_email" | "company_admin" | "dugnad_admin" | "trip_admin" | "sponsor_admin" | "social_admin" | "merch_admin" | "hs_representative" | "cuddling_manager" | "photo_admin" | "graphic_admin" | "social_media_admin" | "booking_admin" | "purchasing_manager" | "event_manager" | "snackoverflow_manager" | "operations_manager";
+    GroupRolesEnum:
+      | 'member'
+      | 'leader'
+      | 'co-leader'
+      | 'treasurer'
+      | 'recruiting'
+      | 'development'
+      | 'editor'
+      | 'retiree'
+      | 'media_relations'
+      | 'active_retiree'
+      | 'alumni'
+      | 'webmaster'
+      | 'interest_group_admin'
+      | 'alumni_admin'
+      | 'retiree_email'
+      | 'company_admin'
+      | 'dugnad_admin'
+      | 'trip_admin'
+      | 'sponsor_admin'
+      | 'social_admin'
+      | 'merch_admin'
+      | 'hs_representative'
+      | 'cuddling_manager'
+      | 'photo_admin'
+      | 'graphic_admin'
+      | 'social_media_admin'
+      | 'booking_admin'
+      | 'purchasing_manager'
+      | 'event_manager'
+      | 'snackoverflow_manager'
+      | 'operations_manager';
     /**
      * @description Any serializer with write support and tags should implement this serializer to support automatic
      *     creation of new tags.
@@ -4973,11 +5089,11 @@ export interface components {
       validUntil?: string;
       title: string;
       description?: string;
-      options: components["schemas"]["HiddenResultsOption"][];
+      options: components['schemas']['HiddenResultsOption'][];
       resultsHidden?: boolean;
       readonly totalVotes: number;
       /** @default [] */
-      tags: components["schemas"]["Tag"][];
+      tags: components['schemas']['Tag'][];
       readonly hasAnswered: string;
       pinned?: boolean;
     };
@@ -5006,11 +5122,29 @@ export interface components {
      *     * `quote_count` - quote_count
      * @enum {string}
      */
-    IdentifierEnum: "charity_event_2026" | "christmas_calendar" | "complete_profile" | "easter_2024" | "easter_2025" | "easter_2026" | "event_count" | "event_price" | "event_rank" | "event_rules" | "gala_count" | "genfors_count" | "keypress_order" | "meeting_hidden" | "penalty_period" | "perfect_week" | "poll_count" | "quote_count";
+    IdentifierEnum:
+      | 'charity_event_2026'
+      | 'christmas_calendar'
+      | 'complete_profile'
+      | 'easter_2024'
+      | 'easter_2025'
+      | 'easter_2026'
+      | 'event_count'
+      | 'event_price'
+      | 'event_rank'
+      | 'event_rules'
+      | 'gala_count'
+      | 'genfors_count'
+      | 'keypress_order'
+      | 'meeting_hidden'
+      | 'penalty_period'
+      | 'perfect_week'
+      | 'poll_count'
+      | 'quote_count';
     ImageGallery: {
       key: string;
-      fileType: components["schemas"]["FileTypeEnum"];
-      state?: components["schemas"]["StateEnum"];
+      fileType: components['schemas']['FileTypeEnum'];
+      state?: components['schemas']['StateEnum'];
       public?: boolean;
       saveForUse?: boolean;
       cover: string;
@@ -5037,7 +5171,7 @@ export interface components {
      *     * `other` - other
      * @enum {string}
      */
-    JobTypeEnum: "full_time" | "part_time" | "summer_job" | "master_thesis" | "other";
+    JobTypeEnum: 'full_time' | 'part_time' | 'summer_job' | 'master_thesis' | 'other';
     Joblisting: {
       readonly id: number;
       title: string;
@@ -5045,10 +5179,10 @@ export interface components {
       company: number;
       /** Format: date-time */
       deadline?: string | null;
-      jobType: components["schemas"]["JobTypeEnum"];
-      workplaces: components["schemas"]["Workplace"][];
-      fromYear?: components["schemas"]["FromYearEnum"];
-      toYear?: components["schemas"]["ToYearEnum"];
+      jobType: components['schemas']['JobTypeEnum'];
+      workplaces: components['schemas']['Workplace'][];
+      fromYear?: components['schemas']['FromYearEnum'];
+      toYear?: components['schemas']['ToYearEnum'];
       /** Format: date-time */
       readonly createdAt: string;
       rollingRecruitment?: boolean;
@@ -5067,11 +5201,11 @@ export interface components {
       visibleFrom: string;
       /** Format: date-time */
       visibleTo: string;
-      jobType: components["schemas"]["JobTypeEnum"];
-      workplaces: components["schemas"]["Workplace"][];
-      fromYear?: components["schemas"]["FromYearEnum"];
-      toYear?: components["schemas"]["ToYearEnum"];
-      applicationUrl?: (string) | null;
+      jobType: components['schemas']['JobTypeEnum'];
+      workplaces: components['schemas']['Workplace'][];
+      fromYear?: components['schemas']['FromYearEnum'];
+      toYear?: components['schemas']['ToYearEnum'];
+      applicationUrl?: string | null;
       youtubeUrl?: string;
       rollingRecruitment?: boolean;
       isPinned?: boolean;
@@ -5087,15 +5221,15 @@ export interface components {
       description?: string | null;
       /** Format: date-time */
       deadline?: string | null;
-      jobType: components["schemas"]["JobTypeEnum"];
-      workplaces: components["schemas"]["Workplace"][];
+      jobType: components['schemas']['JobTypeEnum'];
+      workplaces: components['schemas']['Workplace'][];
       /** Format: date-time */
       visibleFrom: string;
       /** Format: date-time */
       visibleTo: string;
-      fromYear?: components["schemas"]["FromYearEnum"];
-      toYear?: components["schemas"]["ToYearEnum"];
-      applicationUrl?: (string) | null;
+      fromYear?: components['schemas']['FromYearEnum'];
+      toYear?: components['schemas']['ToYearEnum'];
+      applicationUrl?: string | null;
       youtubeUrl?: string;
       /** Format: date-time */
       readonly createdAt: string;
@@ -5111,7 +5245,7 @@ export interface components {
      *     * `PHOTO_NOT_CONSENT` - PHOTO_NOT_CONSENT
      * @enum {string}
      */
-    LEGACYPhotoConsentEnum: "UNKNOWN" | "PHOTO_CONSENT" | "PHOTO_NOT_CONSENT";
+    LEGACYPhotoConsentEnum: 'UNKNOWN' | 'PHOTO_CONSENT' | 'PHOTO_NOT_CONSENT';
     LendableObject: {
       readonly id: number;
       title: string;
@@ -5120,7 +5254,7 @@ export interface components {
       readonly responsibleGroups: number[];
       location?: string;
       readonly canLend: string;
-      category?: components["schemas"]["Category7d8Enum"];
+      category?: components['schemas']['Category7d8Enum'];
     };
     LendableObjectAdmin: {
       readonly id: number;
@@ -5130,7 +5264,7 @@ export interface components {
       readonly responsibleGroups: number[];
       location?: string;
       readonly canLend: string;
-      category?: components["schemas"]["Category7d8Enum"];
+      category?: components['schemas']['Category7d8Enum'];
       canEditUsers?: (number | null)[];
       canViewGroups?: (number | null)[];
       canEditGroups?: (number | null)[];
@@ -5138,35 +5272,35 @@ export interface components {
     };
     LendingRequestCreateAndUpdate: {
       readonly id: number;
-      readonly createdBy: components["schemas"]["PublicUser"];
-      readonly updatedBy: components["schemas"]["PublicUser"];
+      readonly createdBy: components['schemas']['PublicUser'];
+      readonly updatedBy: components['schemas']['PublicUser'];
       lendableObject: number;
-      status?: components["schemas"]["StatusC65Enum"];
+      status?: components['schemas']['StatusC65Enum'];
       archived?: boolean;
       comment?: string;
       /** Format: date-time */
       startDate: string;
       /** Format: date-time */
       endDate: string;
-      readonly timelineEntries: components["schemas"]["TimelineEntry"][];
+      readonly timelineEntries: components['schemas']['TimelineEntry'][];
     };
     LendingRequestDetail: {
       readonly id: number;
-      readonly createdBy: components["schemas"]["PublicUser"];
-      readonly updatedBy: components["schemas"]["PublicUser"];
-      readonly lendableObject: components["schemas"]["LendableObject"];
-      status?: components["schemas"]["StatusC65Enum"];
+      readonly createdBy: components['schemas']['PublicUser'];
+      readonly updatedBy: components['schemas']['PublicUser'];
+      readonly lendableObject: components['schemas']['LendableObject'];
+      status?: components['schemas']['StatusC65Enum'];
       archived?: boolean;
       /** Format: date-time */
       startDate: string;
       /** Format: date-time */
       endDate: string;
-      readonly timelineEntries: components["schemas"]["TimelineEntry"][];
+      readonly timelineEntries: components['schemas']['TimelineEntry'][];
     };
     LendingRequestList: {
       readonly id: number;
-      readonly lendableObject: components["schemas"]["LendableObject"];
-      status?: components["schemas"]["StatusC65Enum"];
+      readonly lendableObject: components['schemas']['LendableObject'];
+      status?: components['schemas']['StatusC65Enum'];
       archived?: boolean;
       /** Format: date-time */
       startDate: string;
@@ -5194,14 +5328,14 @@ export interface components {
       /** Format: date-time */
       endTime?: string | null;
       report: string;
-      readonly reportChangelogs: components["schemas"]["ReportChangelog"][];
+      readonly reportChangelogs: components['schemas']['ReportChangelog'][];
       reportAuthor?: number | null;
-      readonly invitations: components["schemas"]["MeetingInvitation"][];
-      readonly comments: components["schemas"]["Comment"][];
+      readonly invitations: components['schemas']['MeetingInvitation'][];
+      readonly comments: components['schemas']['Comment'][];
       readonly contentTarget: string;
       mazemapPoi?: number | null;
       readonly reactionsGrouped: string;
-      readonly reactions: components["schemas"]["Reactions"][];
+      readonly reactions: components['schemas']['Reactions'][];
       isRecurring?: boolean;
       isTemplate?: boolean;
     };
@@ -5209,8 +5343,8 @@ export interface components {
       group: number;
     };
     MeetingInvitation: {
-      user: components["schemas"]["PublicUser"];
-      status: components["schemas"]["MeetingInvitationStatusEnum"];
+      user: components['schemas']['PublicUser'];
+      status: components['schemas']['MeetingInvitationStatusEnum'];
       meeting: number;
     };
     /**
@@ -5219,9 +5353,9 @@ export interface components {
      *     * `NOT_ATTENDING` - NOT_ATTENDING
      * @enum {string}
      */
-    MeetingInvitationStatusEnum: "NO_ANSWER" | "ATTENDING" | "NOT_ATTENDING";
+    MeetingInvitationStatusEnum: 'NO_ANSWER' | 'ATTENDING' | 'NOT_ATTENDING';
     MeetingInvitationUpdate: {
-      status?: components["schemas"]["Status7baEnum"];
+      status?: components['schemas']['Status7baEnum'];
     };
     MeetingList: {
       readonly id: number;
@@ -5245,7 +5379,7 @@ export interface components {
       user: number;
       readonly abakusGroup: number;
       /** @default member */
-      role: components["schemas"]["RoleEnum"] | components["schemas"]["BlankEnum"];
+      role: components['schemas']['RoleEnum'] | components['schemas']['BlankEnum'];
       isActive?: boolean;
       emailListsEnabled?: boolean;
       /** Format: date-time */
@@ -5256,7 +5390,7 @@ export interface components {
       readonly id: number;
       readonly user: number;
       readonly abakusGroup: number;
-      role?: components["schemas"]["RoleEnum"];
+      role?: components['schemas']['RoleEnum'];
       /** Format: date */
       startDate?: string | null;
       /** Format: date */
@@ -5267,14 +5401,14 @@ export interface components {
       unseenCount: number;
     };
     NotificationSetting: {
-      readonly notificationType: components["schemas"]["NotificationTypeEnum"];
+      readonly notificationType: components['schemas']['NotificationTypeEnum'];
       enabled?: boolean;
-      channels?: components["schemas"]["ChannelsEnum"][] | null;
+      channels?: components['schemas']['ChannelsEnum'][] | null;
     };
     NotificationSettingCreate: {
-      notificationType: components["schemas"]["NotificationTypeEnum"];
+      notificationType: components['schemas']['NotificationTypeEnum'];
       enabled?: boolean;
-      channels?: components["schemas"]["ChannelsEnum"][] | null;
+      channels?: components['schemas']['ChannelsEnum'][] | null;
     };
     /**
      * @description * `lending_request` - lending_request
@@ -5298,7 +5432,26 @@ export interface components {
      *     * `deleted_warning` - deleted_warning
      * @enum {string}
      */
-    NotificationTypeEnum: "lending_request" | "lending_request_status_update" | "announcement" | "restricted_mail_sent" | "weekly_mail" | "event_bump" | "event_admin_registration" | "event_admin_unregistration" | "event_payment_overdue" | "meeting_invite" | "meeting_invitation_reminder" | "penalty_creation" | "comment_reply" | "registration_reminder" | "survey_created" | "event_payment_overdue_creator" | "company_interest_created" | "inactive_warning" | "deleted_warning";
+    NotificationTypeEnum:
+      | 'lending_request'
+      | 'lending_request_status_update'
+      | 'announcement'
+      | 'restricted_mail_sent'
+      | 'weekly_mail'
+      | 'event_bump'
+      | 'event_admin_registration'
+      | 'event_admin_unregistration'
+      | 'event_payment_overdue'
+      | 'meeting_invite'
+      | 'meeting_invitation_reminder'
+      | 'penalty_creation'
+      | 'comment_reply'
+      | 'registration_reminder'
+      | 'survey_created'
+      | 'event_payment_overdue_creator'
+      | 'company_interest_created'
+      | 'inactive_warning'
+      | 'deleted_warning';
     /** @enum {unknown} */
     NullEnum: null;
     /** @description Basic serailizer */
@@ -5314,14 +5467,14 @@ export interface components {
       /** Format: email */
       email: string;
       profilePicture?: string;
-      gender: components["schemas"]["GenderEnum"];
+      gender: components['schemas']['GenderEnum'];
       /** @description Designates whether this user should be treated as active. Unselect this instead of deleting accounts. */
       isActive?: boolean;
       readonly isStudent: string;
-      abakusGroups: components["schemas"]["PublicAbakusGroup"][];
+      abakusGroups: components['schemas']['PublicAbakusGroup'][];
       isAbakusMember: boolean;
       readonly isAbakomMember: string;
-      memberships: components["schemas"]["Membership"][];
+      memberships: components['schemas']['Membership'][];
     };
     Option: {
       readonly id: number;
@@ -5342,7 +5495,13 @@ export interface components {
      *     * `thursday_event` - thursday_event
      * @enum {string}
      */
-    OtherOffersEnum: "collaboration" | "readme" | "itdagene" | "labamba_sponsor" | "social_media" | "thursday_event";
+    OtherOffersEnum:
+      | 'collaboration'
+      | 'readme'
+      | 'itdagene'
+      | 'labamba_sponsor'
+      | 'social_media'
+      | 'thursday_event';
     PageDetail: {
       /** ID */
       readonly pk: number;
@@ -5351,14 +5510,14 @@ export interface components {
       content: string;
       picture?: string;
       picturePlaceholder?: string;
-      category?: components["schemas"]["Category2a9Enum"];
+      category?: components['schemas']['Category2a9Enum'];
     };
     PageList: {
       /** ID */
       readonly pk: number;
       title: string;
       slug?: string | null;
-      category?: components["schemas"]["Category2a9Enum"];
+      category?: components['schemas']['Category2a9Enum'];
     };
     PaginatedAPNSDeviceList: {
       /**
@@ -5371,7 +5530,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["APNSDevice"][];
+      results: components['schemas']['APNSDevice'][];
     };
     PaginatedAccessTokenList: {
       /**
@@ -5384,7 +5543,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["AccessToken"][];
+      results: components['schemas']['AccessToken'][];
     };
     PaginatedAggregatedFeedList: {
       /**
@@ -5397,7 +5556,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["AggregatedFeed"][];
+      results: components['schemas']['AggregatedFeed'][];
     };
     PaginatedAggregatedMarkedFeedList: {
       /**
@@ -5410,7 +5569,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["AggregatedMarkedFeed"][];
+      results: components['schemas']['AggregatedMarkedFeed'][];
     };
     PaginatedAnnouncementListList: {
       /**
@@ -5423,7 +5582,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["AnnouncementList"][];
+      results: components['schemas']['AnnouncementList'][];
     };
     PaginatedApplicationList: {
       /**
@@ -5436,7 +5595,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["Application"][];
+      results: components['schemas']['Application'][];
     };
     PaginatedBannerList: {
       /**
@@ -5449,7 +5608,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["Banner"][];
+      results: components['schemas']['Banner'][];
     };
     PaginatedCompanyAdminListList: {
       /**
@@ -5462,7 +5621,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["CompanyAdminList"][];
+      results: components['schemas']['CompanyAdminList'][];
     };
     PaginatedCompanyContactList: {
       /**
@@ -5475,7 +5634,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["CompanyContact"][];
+      results: components['schemas']['CompanyContact'][];
     };
     PaginatedCompanyFileList: {
       /**
@@ -5488,7 +5647,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["CompanyFile"][];
+      results: components['schemas']['CompanyFile'][];
     };
     PaginatedCompanyInterestListList: {
       /**
@@ -5501,7 +5660,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["CompanyInterestList"][];
+      results: components['schemas']['CompanyInterestList'][];
     };
     PaginatedCompanyListList: {
       /**
@@ -5514,7 +5673,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["CompanyList"][];
+      results: components['schemas']['CompanyList'][];
     };
     PaginatedEmailListList: {
       /**
@@ -5527,7 +5686,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["EmailList"][];
+      results: components['schemas']['EmailList'][];
     };
     PaginatedEventReadList: {
       /**
@@ -5540,7 +5699,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["EventRead"][];
+      results: components['schemas']['EventRead'][];
     };
     PaginatedFeatureFlagAdminList: {
       /**
@@ -5553,7 +5712,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["FeatureFlagAdmin"][];
+      results: components['schemas']['FeatureFlagAdmin'][];
     };
     PaginatedFollowCompanyList: {
       /**
@@ -5566,7 +5725,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["FollowCompany"][];
+      results: components['schemas']['FollowCompany'][];
     };
     PaginatedFollowEventList: {
       /**
@@ -5579,7 +5738,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["FollowEvent"][];
+      results: components['schemas']['FollowEvent'][];
     };
     PaginatedFollowUserList: {
       /**
@@ -5592,7 +5751,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["FollowUser"][];
+      results: components['schemas']['FollowUser'][];
     };
     PaginatedGCMDeviceList: {
       /**
@@ -5605,7 +5764,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["GCMDevice"][];
+      results: components['schemas']['GCMDevice'][];
     };
     PaginatedGalleryListList: {
       /**
@@ -5618,7 +5777,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["GalleryList"][];
+      results: components['schemas']['GalleryList'][];
     };
     PaginatedGalleryPictureList: {
       /**
@@ -5631,7 +5790,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["GalleryPicture"][];
+      results: components['schemas']['GalleryPicture'][];
     };
     PaginatedJoblistingList: {
       /**
@@ -5644,7 +5803,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["Joblisting"][];
+      results: components['schemas']['Joblisting'][];
     };
     PaginatedLendableObjectList: {
       /**
@@ -5657,7 +5816,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["LendableObject"][];
+      results: components['schemas']['LendableObject'][];
     };
     PaginatedLendingRequestListList: {
       /**
@@ -5670,7 +5829,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["LendingRequestList"][];
+      results: components['schemas']['LendingRequestList'][];
     };
     PaginatedMeetingInvitationList: {
       /**
@@ -5683,7 +5842,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["MeetingInvitation"][];
+      results: components['schemas']['MeetingInvitation'][];
     };
     PaginatedMeetingListList: {
       /**
@@ -5696,7 +5855,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["MeetingList"][];
+      results: components['schemas']['MeetingList'][];
     };
     PaginatedMembershipHistoryList: {
       /**
@@ -5709,7 +5868,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["MembershipHistory"][];
+      results: components['schemas']['MembershipHistory'][];
     };
     PaginatedMembershipList: {
       /**
@@ -5722,7 +5881,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["Membership"][];
+      results: components['schemas']['Membership'][];
     };
     PaginatedPenaltyList: {
       /**
@@ -5735,7 +5894,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["Penalty"][];
+      results: components['schemas']['Penalty'][];
     };
     PaginatedPodcastList: {
       /**
@@ -5748,7 +5907,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["Podcast"][];
+      results: components['schemas']['Podcast'][];
     };
     PaginatedPollList: {
       /**
@@ -5761,7 +5920,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["Poll"][];
+      results: components['schemas']['Poll'][];
     };
     PaginatedPublicArticleList: {
       /**
@@ -5774,7 +5933,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["PublicArticle"][];
+      results: components['schemas']['PublicArticle'][];
     };
     PaginatedPublicUserList: {
       /**
@@ -5787,7 +5946,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["PublicUser"][];
+      results: components['schemas']['PublicUser'][];
     };
     PaginatedPublicUserWithGroupsList: {
       /**
@@ -5800,7 +5959,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["PublicUserWithGroups"][];
+      results: components['schemas']['PublicUserWithGroups'][];
     };
     PaginatedQuoteList: {
       /**
@@ -5813,7 +5972,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["Quote"][];
+      results: components['schemas']['Quote'][];
     };
     PaginatedRegistrationList: {
       /**
@@ -5826,7 +5985,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["Registration"][];
+      results: components['schemas']['Registration'][];
     };
     PaginatedRestrictedMailListList: {
       /**
@@ -5839,7 +5998,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["RestrictedMailList"][];
+      results: components['schemas']['RestrictedMailList'][];
     };
     PaginatedSemesterStatusList: {
       /**
@@ -5852,7 +6011,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["SemesterStatus"][];
+      results: components['schemas']['SemesterStatus'][];
     };
     PaginatedSurveyReadList: {
       /**
@@ -5865,7 +6024,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["SurveyRead"][];
+      results: components['schemas']['SurveyRead'][];
     };
     PaginatedUserEmailList: {
       /**
@@ -5878,7 +6037,7 @@ export interface components {
        * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
        */
       previous?: string | null;
-      results: components["schemas"]["UserEmail"][];
+      results: components['schemas']['UserEmail'][];
     };
     PasswordResetPerform: {
       token: string;
@@ -5890,8 +6049,8 @@ export interface components {
     };
     PastMembership: {
       readonly id: number;
-      abakusGroup: components["schemas"]["PublicAbakusGroup"];
-      readonly role: components["schemas"]["RoleEnum"];
+      abakusGroup: components['schemas']['PublicAbakusGroup'];
+      readonly role: components['schemas']['RoleEnum'];
       /** Format: date */
       readonly startDate: string | null;
       /** Format: date */
@@ -5931,7 +6090,9 @@ export interface components {
       events?: number[];
       excludeWaitingList?: boolean;
       meetings?: number[];
-      meetingInvitationStatus?: components["schemas"]["MeetingInvitationStatusEnum"] | components["schemas"]["BlankEnum"];
+      meetingInvitationStatus?:
+        | components['schemas']['MeetingInvitationStatusEnum']
+        | components['schemas']['BlankEnum'];
     };
     PatchedApplication: {
       readonly id?: number;
@@ -5948,7 +6109,7 @@ export interface components {
       readonly id?: number;
       header?: string;
       subheader?: string | null;
-      color?: components["schemas"]["ColorEnum"];
+      color?: components['schemas']['ColorEnum'];
       link?: string | null;
       currentPrivate?: boolean;
       currentPublic?: boolean;
@@ -5959,20 +6120,20 @@ export interface components {
     PatchedCompanyAdminDetail: {
       readonly id?: number;
       name?: string;
-      studentContacts?: components["schemas"]["StudentCompanyContact"][];
+      studentContacts?: components['schemas']['StudentCompanyContact'][];
       description?: string;
       phone?: string;
       companyType?: string;
       website?: string;
       address?: string;
       paymentMail?: string;
-      readonly comments?: components["schemas"]["Comment"][];
+      readonly comments?: components['schemas']['Comment'][];
       readonly contentTarget?: string;
-      readonly semesterStatuses?: components["schemas"]["SemesterStatusDetail"][];
+      readonly semesterStatuses?: components['schemas']['SemesterStatusDetail'][];
       active?: boolean;
       logo?: string;
-      readonly files?: components["schemas"]["CompanyFile"][];
-      readonly companyContacts?: components["schemas"]["CompanyContact"][];
+      readonly files?: components['schemas']['CompanyFile'][];
+      readonly companyContacts?: components['schemas']['CompanyContact'][];
     };
     PatchedCompanyContact: {
       readonly id?: number;
@@ -5997,10 +6158,16 @@ export interface components {
       mail?: string;
       phone?: string;
       semesters?: number[];
-      events?: components["schemas"]["EventsEnum"][] | null;
-      otherOffers?: components["schemas"]["OtherOffersEnum"][] | null;
-      collaborations?: components["schemas"]["CollaborationsEnum"][] | null;
-      companyType?: (components["schemas"]["CompanyTypeEnum"] | components["schemas"]["BlankEnum"] | components["schemas"]["NullEnum"]) | null;
+      events?: components['schemas']['EventsEnum'][] | null;
+      otherOffers?: components['schemas']['OtherOffersEnum'][] | null;
+      collaborations?: components['schemas']['CollaborationsEnum'][] | null;
+      companyType?:
+        | (
+            | components['schemas']['CompanyTypeEnum']
+            | components['schemas']['BlankEnum']
+            | components['schemas']['NullEnum']
+          )
+        | null;
       targetGrades?: number[] | null;
       participantRangeStart?: number | null;
       participantRangeEnd?: number | null;
@@ -6013,7 +6180,7 @@ export interface components {
       lunchPresentationComment?: string;
       companyPresentationComment?: string;
       bedexComment?: string;
-      companyCourseThemes?: components["schemas"]["CompanyCourseThemesEnum"][] | null;
+      companyCourseThemes?: components['schemas']['CompanyCourseThemesEnum'][] | null;
       officeInTrondheim?: boolean;
       wantsThursdayEvent?: boolean;
     };
@@ -6025,7 +6192,7 @@ export interface components {
       parent?: number | null;
       permissions?: string[];
       readonly parentPermissions?: string;
-      type?: components["schemas"]["TypeEnum"];
+      type?: components['schemas']['TypeEnum'];
       text?: string;
       logo?: string | null;
       readonly numberOfUsers?: number;
@@ -6046,7 +6213,7 @@ export interface components {
       description?: string | null;
       readonly contentTarget?: string;
       /** @default [] */
-      tags: components["schemas"]["Tag"][];
+      tags: components['schemas']['Tag'][];
       content?: string;
       /** Format: date-time */
       readonly createdAt?: string;
@@ -6060,7 +6227,7 @@ export interface components {
       readonly email?: string;
       users?: number[];
       groups?: number[];
-      groupRoles?: components["schemas"]["GroupRolesEnum"][];
+      groupRoles?: components['schemas']['GroupRolesEnum'][];
       /** @description Only allow users with emails from our internal domain, @abakus.no */
       requireInternalAddress?: boolean;
       additionalEmails?: string[];
@@ -6086,8 +6253,8 @@ export interface components {
       responsibleGroup?: number | null;
       feedbackDescription?: string;
       feedbackRequired?: boolean;
-      eventType?: components["schemas"]["EventTypeEnum"];
-      eventStatusType?: components["schemas"]["EventStatusTypeEnum"];
+      eventType?: components['schemas']['EventTypeEnum'];
+      eventStatusType?: components['schemas']['EventStatusTypeEnum'];
       location?: string;
       isPriced?: boolean;
       priceMember?: number;
@@ -6103,8 +6270,8 @@ export interface components {
       mergeTime?: string | null;
       useCaptcha?: boolean;
       /** @default [] */
-      tags: components["schemas"]["Tag"][];
-      pools?: components["schemas"]["PoolCreateAndUpdate"][];
+      tags: components['schemas']['Tag'][];
+      pools?: components['schemas']['PoolCreateAndUpdate'][];
       /** Format: date-time */
       unregistrationDeadline?: string | null;
       unregistrationDeadlineHours?: number;
@@ -6161,7 +6328,7 @@ export interface components {
        *     * `FCM` - Firebase Cloud Message
        *     * `GCM` - Google Cloud Message
        */
-      cloudMessageType?: components["schemas"]["CloudMessageTypeEnum"];
+      cloudMessageType?: components['schemas']['CloudMessageTypeEnum'];
       /** @description Opaque application identity, should be filled in for multiple key/certificate access */
       applicationId?: string | null;
     };
@@ -6204,11 +6371,11 @@ export interface components {
       visibleFrom?: string;
       /** Format: date-time */
       visibleTo?: string;
-      jobType?: components["schemas"]["JobTypeEnum"];
-      workplaces?: components["schemas"]["Workplace"][];
-      fromYear?: components["schemas"]["FromYearEnum"];
-      toYear?: components["schemas"]["ToYearEnum"];
-      applicationUrl?: (string) | null;
+      jobType?: components['schemas']['JobTypeEnum'];
+      workplaces?: components['schemas']['Workplace'][];
+      fromYear?: components['schemas']['FromYearEnum'];
+      toYear?: components['schemas']['ToYearEnum'];
+      applicationUrl?: string | null;
       youtubeUrl?: string;
       rollingRecruitment?: boolean;
       isPinned?: boolean;
@@ -6221,7 +6388,7 @@ export interface components {
       readonly responsibleGroups?: number[];
       location?: string;
       readonly canLend?: string;
-      category?: components["schemas"]["Category7d8Enum"];
+      category?: components['schemas']['Category7d8Enum'];
       canEditUsers?: (number | null)[];
       canViewGroups?: (number | null)[];
       canEditGroups?: (number | null)[];
@@ -6229,17 +6396,17 @@ export interface components {
     };
     PatchedLendingRequestCreateAndUpdate: {
       readonly id?: number;
-      readonly createdBy?: components["schemas"]["PublicUser"];
-      readonly updatedBy?: components["schemas"]["PublicUser"];
+      readonly createdBy?: components['schemas']['PublicUser'];
+      readonly updatedBy?: components['schemas']['PublicUser'];
       lendableObject?: number;
-      status?: components["schemas"]["StatusC65Enum"];
+      status?: components['schemas']['StatusC65Enum'];
       archived?: boolean;
       comment?: string;
       /** Format: date-time */
       startDate?: string;
       /** Format: date-time */
       endDate?: string;
-      readonly timelineEntries?: components["schemas"]["TimelineEntry"][];
+      readonly timelineEntries?: components['schemas']['TimelineEntry'][];
     };
     PatchedMeetingDetail: {
       readonly id?: number;
@@ -6252,26 +6419,26 @@ export interface components {
       /** Format: date-time */
       endTime?: string | null;
       report?: string;
-      readonly reportChangelogs?: components["schemas"]["ReportChangelog"][];
+      readonly reportChangelogs?: components['schemas']['ReportChangelog'][];
       reportAuthor?: number | null;
-      readonly invitations?: components["schemas"]["MeetingInvitation"][];
-      readonly comments?: components["schemas"]["Comment"][];
+      readonly invitations?: components['schemas']['MeetingInvitation'][];
+      readonly comments?: components['schemas']['Comment'][];
       readonly contentTarget?: string;
       mazemapPoi?: number | null;
       readonly reactionsGrouped?: string;
-      readonly reactions?: components["schemas"]["Reactions"][];
+      readonly reactions?: components['schemas']['Reactions'][];
       isRecurring?: boolean;
       isTemplate?: boolean;
     };
     PatchedMeetingInvitationUpdate: {
-      status?: components["schemas"]["Status7baEnum"];
+      status?: components['schemas']['Status7baEnum'];
     };
     PatchedMembership: {
       readonly id?: number;
       user?: number;
       readonly abakusGroup?: number;
       /** @default member */
-      role: components["schemas"]["RoleEnum"] | components["schemas"]["BlankEnum"];
+      role: components['schemas']['RoleEnum'] | components['schemas']['BlankEnum'];
       isActive?: boolean;
       emailListsEnabled?: boolean;
       /** Format: date-time */
@@ -6286,7 +6453,7 @@ export interface components {
       content?: string;
       picture?: string;
       picturePlaceholder?: string;
-      category?: components["schemas"]["Category2a9Enum"];
+      category?: components['schemas']['Category2a9Enum'];
     };
     PatchedPodcastCreateAndUpdate: {
       readonly id?: number;
@@ -6305,11 +6472,11 @@ export interface components {
       readonly createdAt?: string;
       title?: string;
       description?: string;
-      options?: components["schemas"]["OptionUpdate"][];
+      options?: components['schemas']['OptionUpdate'][];
       resultsHidden?: boolean;
       readonly totalVotes?: string;
       /** @default [] */
-      tags: components["schemas"]["Tag"][];
+      tags: components['schemas']['Tag'][];
       pinned?: boolean;
     };
     PatchedPoolCreateAndUpdate: {
@@ -6328,18 +6495,18 @@ export interface components {
       firstName?: string;
       lastName?: string;
       readonly fullName?: string;
-      gender?: components["schemas"]["GenderEnum"];
+      gender?: components['schemas']['GenderEnum'];
       profilePicture?: string;
       profilePicturePlaceholder?: string;
       readonly internalEmailAddress?: string;
       /** @description Enter a valid username. */
-      githubUsername?: (string) | null;
+      githubUsername?: string | null;
       /** @description Enter a valid LinkedIn ID. */
       linkedinId?: string | null;
-      abakusGroups?: components["schemas"]["PublicAbakusGroup"][];
-      pastMemberships?: components["schemas"]["PastMembership"][];
-      memberships?: components["schemas"]["Membership"][];
-      achievements?: components["schemas"]["Achievement"][];
+      abakusGroups?: components['schemas']['PublicAbakusGroup'][];
+      pastMemberships?: components['schemas']['PastMembership'][];
+      memberships?: components['schemas']['Membership'][];
+      achievements?: components['schemas']['Achievement'][];
       readonly ranking?: string;
     };
     PatchedQuoteCreateAndUpdate: {
@@ -6352,20 +6519,20 @@ export interface components {
     PatchedRegistrationCreateAndUpdate: {
       readonly id?: number;
       feedback?: string;
-      presence?: components["schemas"]["PresenceEnum"];
+      presence?: components['schemas']['PresenceEnum'];
       captchaResponse?: string;
-      paymentStatus?: components["schemas"]["PaymentStatusEnum"];
+      paymentStatus?: components['schemas']['PaymentStatusEnum'];
     };
     PatchedSemester: {
       readonly id?: number;
       year?: number;
-      semester?: components["schemas"]["SemesterEnum"];
+      semester?: components['schemas']['SemesterEnum'];
       activeInterestForm?: boolean;
     };
     PatchedSemesterStatusDetail: {
       readonly id?: number;
       semester?: number;
-      contactedStatus?: components["schemas"]["ContactedStatusEnum"][] | null;
+      contactedStatus?: components['schemas']['ContactedStatusEnum'][] | null;
       contract?: string | null;
       statistics?: string | null;
       evaluation?: string | null;
@@ -6376,17 +6543,23 @@ export interface components {
     PatchedSubmissionCreateAndUpdate: {
       readonly id?: number;
       user?: number;
-      answers?: components["schemas"]["AnswerCreateAndUpdate"][];
+      answers?: components['schemas']['AnswerCreateAndUpdate'][];
     };
     PatchedSurveyUpdate: {
       readonly id?: number;
       title?: string;
       /** Format: date-time */
       activeFrom?: string;
-      templateType?: (components["schemas"]["TemplateTypeEnum"] | components["schemas"]["BlankEnum"] | components["schemas"]["NullEnum"]) | null;
+      templateType?:
+        | (
+            | components['schemas']['TemplateTypeEnum']
+            | components['schemas']['BlankEnum']
+            | components['schemas']['NullEnum']
+          )
+        | null;
       isTemplate?: boolean;
       event?: number | null;
-      questions?: components["schemas"]["QuestionUpdate"][] | null;
+      questions?: components['schemas']['QuestionUpdate'][] | null;
     };
     PatchedUpdateComment: {
       text?: string;
@@ -6404,7 +6577,7 @@ export interface components {
      *     * `pending` - pending
      * @enum {string}
      */
-    PaymentStatusEnum: "manual" | "succeeded" | "failed" | "pending";
+    PaymentStatusEnum: 'manual' | 'succeeded' | 'failed' | 'pending';
     Penalty: {
       readonly id: number;
       /** Format: date-time */
@@ -6418,8 +6591,8 @@ export interface components {
     PhotoConsent: {
       user: number;
       year: number;
-      semester: components["schemas"]["SemesterEnum"];
-      domain: components["schemas"]["DomainEnum"];
+      semester: components['schemas']['SemesterEnum'];
+      domain: components['schemas']['DomainEnum'];
       isConsenting?: boolean | null;
       /** Format: date-time */
       readonly updatedAt: string;
@@ -6430,8 +6603,8 @@ export interface components {
       /** Format: date-time */
       readonly createdAt: string;
       description: string;
-      authors: components["schemas"]["PublicUser"][];
-      thanks: components["schemas"]["PublicUser"][];
+      authors: components['schemas']['PublicUser'][];
+      thanks: components['schemas']['PublicUser'][];
     };
     PodcastCreateAndUpdate: {
       readonly id: number;
@@ -6448,7 +6621,7 @@ export interface components {
       validUntil?: string;
       title: string;
       description?: string;
-      options: components["schemas"]["HiddenResultsOption"][];
+      options: components['schemas']['HiddenResultsOption'][];
       resultsHidden?: boolean;
       readonly totalVotes: number;
       tags?: string[];
@@ -6465,11 +6638,11 @@ export interface components {
       readonly createdAt: string;
       title: string;
       description?: string;
-      options: components["schemas"]["Option"][];
+      options: components['schemas']['Option'][];
       resultsHidden?: boolean;
       readonly totalVotes: string;
       /** @default [] */
-      tags: components["schemas"]["Tag"][];
+      tags: components['schemas']['Tag'][];
       pinned?: boolean;
       /** Format: date-time */
       validUntil?: string;
@@ -6484,11 +6657,11 @@ export interface components {
       readonly createdAt: string;
       title: string;
       description?: string;
-      options: components["schemas"]["OptionUpdate"][];
+      options: components['schemas']['OptionUpdate'][];
       resultsHidden?: boolean;
       readonly totalVotes: string;
       /** @default [] */
-      tags: components["schemas"]["Tag"][];
+      tags: components['schemas']['Tag'][];
       pinned?: boolean;
     };
     PoolCreateAndUpdate: {
@@ -6506,7 +6679,7 @@ export interface components {
       capacity?: number;
       /** Format: date-time */
       activationDate: string;
-      permissionGroups: components["schemas"]["PublicAbakusGroup"][];
+      permissionGroups: components['schemas']['PublicAbakusGroup'][];
       registrationCount: string;
     };
     /**
@@ -6516,7 +6689,7 @@ export interface components {
      *     * `NOT_PRESENT` - Not Present
      * @enum {string}
      */
-    PresenceEnum: "UNKNOWN" | "PRESENT" | "LATE" | "NOT_PRESENT";
+    PresenceEnum: 'UNKNOWN' | 'PRESENT' | 'LATE' | 'NOT_PRESENT';
     PublicAbakusGroup: {
       readonly id: number;
       name: string;
@@ -6525,7 +6698,7 @@ export interface components {
       parent?: number | null;
       logo?: string;
       logoPlaceholder?: string;
-      type?: components["schemas"]["TypeEnum"];
+      type?: components['schemas']['TypeEnum'];
       showBadge?: boolean;
       active?: boolean;
     };
@@ -6539,10 +6712,10 @@ export interface components {
       slug?: string | null;
       cover?: string;
       coverPlaceholder?: string;
-      authors: components["schemas"]["PublicUser"][];
+      authors: components['schemas']['PublicUser'][];
       description?: string | null;
       /** @default [] */
-      tags: components["schemas"]["Tag"][];
+      tags: components['schemas']['Tag'][];
       /** Format: date-time */
       readonly createdAt: string;
       pinned?: boolean;
@@ -6553,7 +6726,7 @@ export interface components {
       name: string;
       readonly email: string;
       groups?: number[];
-      groupRoles?: components["schemas"]["GroupRolesEnum"][];
+      groupRoles?: components['schemas']['GroupRolesEnum'][];
       /** @description Only allow users with emails from our internal domain, @abakus.no */
       requireInternalAddress?: boolean;
     };
@@ -6565,7 +6738,7 @@ export interface components {
       parent?: number | null;
       logo?: string;
       logoPlaceholder?: string;
-      type?: components["schemas"]["TypeEnum"];
+      type?: components['schemas']['TypeEnum'];
       showBadge?: boolean;
       active?: boolean;
       readonly numberOfUsers: number;
@@ -6580,12 +6753,12 @@ export interface components {
       firstName: string;
       lastName: string;
       readonly fullName: string;
-      gender: components["schemas"]["GenderEnum"];
+      gender: components['schemas']['GenderEnum'];
       profilePicture?: string;
       profilePicturePlaceholder?: string;
       readonly internalEmailAddress: string;
       /** @description Enter a valid username. */
-      githubUsername?: (string) | null;
+      githubUsername?: string | null;
       /** @description Enter a valid LinkedIn ID. */
       linkedinId?: string | null;
     };
@@ -6596,15 +6769,15 @@ export interface components {
       firstName: string;
       lastName: string;
       readonly fullName: string;
-      gender: components["schemas"]["GenderEnum"];
+      gender: components['schemas']['GenderEnum'];
       profilePicture?: string;
       profilePicturePlaceholder?: string;
       readonly internalEmailAddress: string;
       /** @description Enter a valid username. */
-      githubUsername?: (string) | null;
+      githubUsername?: string | null;
       /** @description Enter a valid LinkedIn ID. */
       linkedinId?: string | null;
-      abakusGroups: components["schemas"]["PublicAbakusGroup"][];
+      abakusGroups: components['schemas']['PublicAbakusGroup'][];
     };
     PublicUserWithGroups: {
       readonly id: number;
@@ -6613,27 +6786,27 @@ export interface components {
       firstName: string;
       lastName: string;
       readonly fullName: string;
-      gender: components["schemas"]["GenderEnum"];
+      gender: components['schemas']['GenderEnum'];
       profilePicture?: string;
       profilePicturePlaceholder?: string;
       readonly internalEmailAddress: string;
       /** @description Enter a valid username. */
-      githubUsername?: (string) | null;
+      githubUsername?: string | null;
       /** @description Enter a valid LinkedIn ID. */
       linkedinId?: string | null;
-      abakusGroups: components["schemas"]["PublicAbakusGroup"][];
-      pastMemberships: components["schemas"]["PastMembership"][];
-      memberships: components["schemas"]["Membership"][];
-      achievements: components["schemas"]["Achievement"][];
+      abakusGroups: components['schemas']['PublicAbakusGroup'][];
+      pastMemberships: components['schemas']['PastMembership'][];
+      memberships: components['schemas']['Membership'][];
+      achievements: components['schemas']['Achievement'][];
       readonly ranking: string;
     };
     Question: {
       readonly id: number;
-      displayType?: components["schemas"]["DisplayTypeEnum"];
-      questionType: components["schemas"]["QuestionTypeEnum"];
+      displayType?: components['schemas']['DisplayTypeEnum'];
+      questionType: components['schemas']['QuestionTypeEnum'];
       questionText: string;
       mandatory?: boolean;
-      options?: components["schemas"]["Option"][] | null;
+      options?: components['schemas']['Option'][] | null;
       relativeIndex?: number;
     };
     /**
@@ -6642,14 +6815,14 @@ export interface components {
      *     * `text_field` - text_field
      * @enum {string}
      */
-    QuestionTypeEnum: "single_choice" | "multiple_choice" | "text_field";
+    QuestionTypeEnum: 'single_choice' | 'multiple_choice' | 'text_field';
     QuestionUpdate: {
       id: number;
-      displayType: components["schemas"]["DisplayTypeEnum"];
-      questionType: components["schemas"]["QuestionTypeEnum"];
+      displayType: components['schemas']['DisplayTypeEnum'];
+      questionType: components['schemas']['QuestionTypeEnum'];
       questionText: string;
       mandatory?: boolean;
-      options?: components["schemas"]["OptionUpdate"][] | null;
+      options?: components['schemas']['OptionUpdate'][] | null;
       relativeIndex?: number;
     };
     /**
@@ -6664,7 +6837,7 @@ export interface components {
       source: string;
       approved?: boolean;
       /** @default [] */
-      tags: components["schemas"]["Tag"][];
+      tags: components['schemas']['Tag'][];
       readonly reactionsGrouped: string;
       readonly contentTarget: string;
       readonly createdBy: string;
@@ -6684,7 +6857,7 @@ export interface components {
     Reactions: {
       readonly id: number;
       emoji: string;
-      readonly author: components["schemas"]["PublicUser"];
+      readonly author: components['schemas']['PublicUser'];
     };
     /** @description Serializer used for refreshing JWTs. */
     RefreshAuthToken: {
@@ -6700,7 +6873,7 @@ export interface components {
       username: string;
       firstName: string;
       lastName: string;
-      gender: components["schemas"]["GenderEnum"];
+      gender: components['schemas']['GenderEnum'];
       password: string;
       allergies?: string;
       phoneNumber?: string | null;
@@ -6708,15 +6881,15 @@ export interface components {
     RegistrationCreateAndUpdate: {
       readonly id: number;
       feedback?: string;
-      presence?: components["schemas"]["PresenceEnum"];
+      presence?: components['schemas']['PresenceEnum'];
       captchaResponse?: string;
-      paymentStatus?: components["schemas"]["PaymentStatusEnum"];
+      paymentStatus?: components['schemas']['PaymentStatusEnum'];
     };
     RegistrationPaymentRead: {
       readonly id: number;
-      user: components["schemas"]["PublicUserWithAbakusGroups"];
+      user: components['schemas']['PublicUserWithAbakusGroups'];
       pool?: number | null;
-      status?: components["schemas"]["Status180Enum"];
+      status?: components['schemas']['Status180Enum'];
       feedback: string;
       sharedMemberships?: number;
       presence: string;
@@ -6726,14 +6899,14 @@ export interface components {
     };
     RegistrationReadDetailed: {
       readonly id: number;
-      user: components["schemas"]["AdministrateUser"];
+      user: components['schemas']['AdministrateUser'];
       readonly createdBy: number | null;
       readonly updatedBy: number | null;
       pool?: number | null;
       event: number;
-      presence?: components["schemas"]["PresenceEnum"];
+      presence?: components['schemas']['PresenceEnum'];
       feedback?: string;
-      status?: components["schemas"]["Status180Enum"];
+      status?: components['schemas']['Status180Enum'];
       /** Format: date-time */
       registrationDate?: string | null;
       /** Format: date-time */
@@ -6743,7 +6916,7 @@ export interface components {
       paymentStatus?: string | null;
       paymentAmount?: number;
       paymentAmountRefunded?: number | null;
-      LEGACYPhotoConsent?: components["schemas"]["LEGACYPhotoConsentEnum"];
+      LEGACYPhotoConsent?: components['schemas']['LEGACYPhotoConsentEnum'];
       photoConsents: string;
     };
     RegistrationSearch: {
@@ -6834,18 +7007,49 @@ export interface components {
      *     * `operations_manager` - operations_manager
      * @enum {string}
      */
-    RoleEnum: "member" | "leader" | "co-leader" | "treasurer" | "recruiting" | "development" | "editor" | "retiree" | "media_relations" | "active_retiree" | "alumni" | "webmaster" | "interest_group_admin" | "alumni_admin" | "retiree_email" | "company_admin" | "dugnad_admin" | "trip_admin" | "sponsor_admin" | "social_admin" | "merch_admin" | "hs_representative" | "cuddling_manager" | "photo_admin" | "graphic_admin" | "social_media_admin" | "booking_admin" | "purchasing_manager" | "event_manager" | "snackoverflow_manager" | "operations_manager";
+    RoleEnum:
+      | 'member'
+      | 'leader'
+      | 'co-leader'
+      | 'treasurer'
+      | 'recruiting'
+      | 'development'
+      | 'editor'
+      | 'retiree'
+      | 'media_relations'
+      | 'active_retiree'
+      | 'alumni'
+      | 'webmaster'
+      | 'interest_group_admin'
+      | 'alumni_admin'
+      | 'retiree_email'
+      | 'company_admin'
+      | 'dugnad_admin'
+      | 'trip_admin'
+      | 'sponsor_admin'
+      | 'social_admin'
+      | 'merch_admin'
+      | 'hs_representative'
+      | 'cuddling_manager'
+      | 'photo_admin'
+      | 'graphic_admin'
+      | 'social_media_admin'
+      | 'booking_admin'
+      | 'purchasing_manager'
+      | 'event_manager'
+      | 'snackoverflow_manager'
+      | 'operations_manager';
     /**
      * @description * `auto` - auto
      *     * `light` - light
      *     * `dark` - dark
      * @enum {string}
      */
-    SelectedThemeEnum: "auto" | "light" | "dark";
+    SelectedThemeEnum: 'auto' | 'light' | 'dark';
     Semester: {
       readonly id: number;
       year: number;
-      semester: components["schemas"]["SemesterEnum"];
+      semester: components['schemas']['SemesterEnum'];
       activeInterestForm?: boolean;
     };
     /**
@@ -6853,16 +7057,16 @@ export interface components {
      *     * `autumn` - autumn
      * @enum {string}
      */
-    SemesterEnum: "spring" | "autumn";
+    SemesterEnum: 'spring' | 'autumn';
     SemesterStatus: {
       readonly id: number;
       semester: number;
-      contactedStatus?: components["schemas"]["ContactedStatusEnum"][] | null;
+      contactedStatus?: components['schemas']['ContactedStatusEnum'][] | null;
     };
     SemesterStatusDetail: {
       readonly id: number;
       semester: number;
-      contactedStatus?: components["schemas"]["ContactedStatusEnum"][] | null;
+      contactedStatus?: components['schemas']['ContactedStatusEnum'][] | null;
       contract?: string | null;
       statistics?: string | null;
       evaluation?: string | null;
@@ -6875,7 +7079,7 @@ export interface components {
      *     * `ready` - ready
      * @enum {string}
      */
-    StateEnum: "pending_upload" | "ready";
+    StateEnum: 'pending_upload' | 'ready';
     /**
      * @description * `PENDING_REGISTER` - PENDING_REGISTER
      *     * `SUCCESS_REGISTER` - SUCCESS_REGISTER
@@ -6885,14 +7089,20 @@ export interface components {
      *     * `FAILURE_UNREGISTER` - FAILURE_UNREGISTER
      * @enum {string}
      */
-    Status180Enum: "PENDING_REGISTER" | "SUCCESS_REGISTER" | "FAILURE_REGISTER" | "PENDING_UNREGISTER" | "SUCCESS_UNREGISTER" | "FAILURE_UNREGISTER";
+    Status180Enum:
+      | 'PENDING_REGISTER'
+      | 'SUCCESS_REGISTER'
+      | 'FAILURE_REGISTER'
+      | 'PENDING_UNREGISTER'
+      | 'SUCCESS_UNREGISTER'
+      | 'FAILURE_UNREGISTER';
     /**
      * @description * `NO_ANSWER` - NO_ANSWER
      *     * `ATTENDING` - ATTENDING
      *     * `NOT_ATTENDING` - NOT_ATTENDING
      * @enum {string}
      */
-    Status7baEnum: "NO_ANSWER" | "ATTENDING" | "NOT_ATTENDING";
+    Status7baEnum: 'NO_ANSWER' | 'ATTENDING' | 'NOT_ATTENDING';
     /**
      * @description * `approved` - approved
      *     * `cancelled` - cancelled
@@ -6903,7 +7113,14 @@ export interface components {
      *     * `unapproved` - unapproved
      * @enum {string}
      */
-    StatusC65Enum: "approved" | "cancelled" | "changes_requested" | "changes_resolved" | "created" | "denied" | "unapproved";
+    StatusC65Enum:
+      | 'approved'
+      | 'cancelled'
+      | 'changes_requested'
+      | 'changes_resolved'
+      | 'created'
+      | 'denied'
+      | 'unapproved';
     StripeWebhook: {
       id: string;
       type: string;
@@ -6917,31 +7134,43 @@ export interface components {
     SubmissionCreateAndUpdate: {
       readonly id: number;
       user: number;
-      answers: components["schemas"]["AnswerCreateAndUpdate"][];
+      answers: components['schemas']['AnswerCreateAndUpdate'][];
     };
     SubmissionRead: {
       readonly id: number;
       readonly isOwner: string;
       survey: number;
-      answers: components["schemas"]["Answer"][];
+      answers: components['schemas']['Answer'][];
     };
     SurveyCreate: {
       readonly id: number;
       title: string;
       /** Format: date-time */
       activeFrom?: string;
-      templateType?: (components["schemas"]["TemplateTypeEnum"] | components["schemas"]["BlankEnum"] | components["schemas"]["NullEnum"]) | null;
+      templateType?:
+        | (
+            | components['schemas']['TemplateTypeEnum']
+            | components['schemas']['BlankEnum']
+            | components['schemas']['NullEnum']
+          )
+        | null;
       isTemplate?: boolean;
       event?: number | null;
-      questions?: components["schemas"]["Question"][] | null;
+      questions?: components['schemas']['Question'][] | null;
     };
     SurveyRead: {
       readonly id: number;
       title: string;
       /** Format: date-time */
       activeFrom?: string;
-      event: components["schemas"]["EventForSurvey"];
-      templateType?: (components["schemas"]["TemplateTypeEnum"] | components["schemas"]["BlankEnum"] | components["schemas"]["NullEnum"]) | null;
+      event: components['schemas']['EventForSurvey'];
+      templateType?:
+        | (
+            | components['schemas']['TemplateTypeEnum']
+            | components['schemas']['BlankEnum']
+            | components['schemas']['NullEnum']
+          )
+        | null;
       isTemplate?: boolean;
     };
     SurveyReadDetailed: {
@@ -6949,9 +7178,15 @@ export interface components {
       title: string;
       /** Format: date-time */
       activeFrom?: string;
-      questions: components["schemas"]["Question"][];
-      event: components["schemas"]["EventForSurvey"];
-      templateType?: (components["schemas"]["TemplateTypeEnum"] | components["schemas"]["BlankEnum"] | components["schemas"]["NullEnum"]) | null;
+      questions: components['schemas']['Question'][];
+      event: components['schemas']['EventForSurvey'];
+      templateType?:
+        | (
+            | components['schemas']['TemplateTypeEnum']
+            | components['schemas']['BlankEnum']
+            | components['schemas']['NullEnum']
+          )
+        | null;
       isTemplate?: boolean;
     };
     SurveyUpdate: {
@@ -6959,10 +7194,16 @@ export interface components {
       title: string;
       /** Format: date-time */
       activeFrom?: string;
-      templateType?: (components["schemas"]["TemplateTypeEnum"] | components["schemas"]["BlankEnum"] | components["schemas"]["NullEnum"]) | null;
+      templateType?:
+        | (
+            | components['schemas']['TemplateTypeEnum']
+            | components['schemas']['BlankEnum']
+            | components['schemas']['NullEnum']
+          )
+        | null;
       isTemplate?: boolean;
       event?: number | null;
-      questions?: components["schemas"]["QuestionUpdate"][] | null;
+      questions?: components['schemas']['QuestionUpdate'][] | null;
     };
     Tag: {
       tag: string;
@@ -6991,15 +7232,33 @@ export interface components {
      *     * `interest_event` - interest_event
      * @enum {string}
      */
-    TemplateTypeEnum: "company_presentation" | "lunch_presentation" | "alternative_presentation" | "course" | "breakfast_talk" | "nexus_event" | "party" | "social" | "gala" | "other" | "event" | "interest_event";
+    TemplateTypeEnum:
+      | 'company_presentation'
+      | 'lunch_presentation'
+      | 'alternative_presentation'
+      | 'course'
+      | 'breakfast_talk'
+      | 'nexus_event'
+      | 'party'
+      | 'social'
+      | 'gala'
+      | 'other'
+      | 'event'
+      | 'interest_event';
     TimelineEntry: {
       readonly id: number;
-      createdBy: components["schemas"]["PublicUser"];
+      createdBy: components['schemas']['PublicUser'];
       /** Format: date-time */
       readonly createdAt: string;
       lendingRequest: number;
       message: string;
-      status?: (components["schemas"]["StatusC65Enum"] | components["schemas"]["BlankEnum"] | components["schemas"]["NullEnum"]) | null;
+      status?:
+        | (
+            | components['schemas']['StatusC65Enum']
+            | components['schemas']['BlankEnum']
+            | components['schemas']['NullEnum']
+          )
+        | null;
       isSystem?: boolean;
     };
     TimelineEntryCreateAndUpdate: {
@@ -7027,7 +7286,7 @@ export interface components {
      *     * `ordenen` - ordenen
      * @enum {string}
      */
-    TypeEnum: "komite" | "interesse" | "styre" | "revy" | "klasse" | "annen" | "under" | "ordenen";
+    TypeEnum: 'komite' | 'interesse' | 'styre' | 'revy' | 'klasse' | 'annen' | 'under' | 'ordenen';
     UpdateComment: {
       text: string;
     };
@@ -7068,7 +7327,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["KeypressOrder"];
+        'application/json': components['schemas']['KeypressOrder'];
       };
     };
     responses: {
@@ -7077,7 +7336,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["KeypressOrder"];
+          'application/json': components['schemas']['KeypressOrder'];
         };
       };
     };
@@ -7091,7 +7350,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["KeypressOrder"];
+        'application/json': components['schemas']['KeypressOrder'];
       };
     };
     responses: {
@@ -7100,7 +7359,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["KeypressOrder"];
+          'application/json': components['schemas']['KeypressOrder'];
         };
       };
     };
@@ -7114,7 +7373,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["KeypressOrder"];
+        'application/json': components['schemas']['KeypressOrder'];
       };
     };
     responses: {
@@ -7123,7 +7382,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["KeypressOrder"];
+          'application/json': components['schemas']['KeypressOrder'];
         };
       };
     };
@@ -7137,7 +7396,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["KeypressOrder"];
+        'application/json': components['schemas']['KeypressOrder'];
       };
     };
     responses: {
@@ -7146,7 +7405,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["KeypressOrder"];
+          'application/json': components['schemas']['KeypressOrder'];
         };
       };
     };
@@ -7160,7 +7419,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["KeypressOrder"];
+        'application/json': components['schemas']['KeypressOrder'];
       };
     };
     responses: {
@@ -7169,7 +7428,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["KeypressOrder"];
+          'application/json': components['schemas']['KeypressOrder'];
         };
       };
     };
@@ -7191,7 +7450,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedPublicUserWithGroupsList"];
+          'application/json': components['schemas']['PaginatedPublicUserWithGroupsList'];
         };
       };
     };
@@ -7210,7 +7469,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PublicUserWithGroups"];
+          'application/json': components['schemas']['PublicUserWithGroups'];
         };
       };
     };
@@ -7229,7 +7488,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PublicUserWithGroups"];
+          'application/json': components['schemas']['PublicUserWithGroups'];
         };
       };
     };
@@ -7248,7 +7507,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PublicUserWithGroups"];
+          'application/json': components['schemas']['PublicUserWithGroups'];
         };
       };
     };
@@ -7267,7 +7526,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["KeypressOrder"];
+          'application/json': components['schemas']['KeypressOrder'];
         };
       };
     };
@@ -7286,7 +7545,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["KeypressOrder"];
+          'application/json': components['schemas']['KeypressOrder'];
         };
       };
     };
@@ -7300,7 +7559,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["KeypressOrder"];
+        'application/json': components['schemas']['KeypressOrder'];
       };
     };
     responses: {
@@ -7309,7 +7568,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["KeypressOrder"];
+          'application/json': components['schemas']['KeypressOrder'];
         };
       };
     };
@@ -7328,7 +7587,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["KeypressOrder"];
+          'application/json': components['schemas']['KeypressOrder'];
         };
       };
     };
@@ -7350,7 +7609,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedAnnouncementListList"];
+          'application/json': components['schemas']['PaginatedAnnouncementListList'];
         };
       };
     };
@@ -7364,7 +7623,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["AnnouncementDetail"];
+        'application/json': components['schemas']['AnnouncementDetail'];
       };
     };
     responses: {
@@ -7373,7 +7632,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["AnnouncementDetail"];
+          'application/json': components['schemas']['AnnouncementDetail'];
         };
       };
     };
@@ -7395,7 +7654,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["AnnouncementDetail"];
+          'application/json': components['schemas']['AnnouncementDetail'];
         };
       };
     };
@@ -7412,7 +7671,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["AnnouncementDetail"];
+        'application/json': components['schemas']['AnnouncementDetail'];
       };
     };
     responses: {
@@ -7421,7 +7680,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["AnnouncementDetail"];
+          'application/json': components['schemas']['AnnouncementDetail'];
         };
       };
     };
@@ -7459,7 +7718,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedAnnouncementDetail"];
+        'application/json': components['schemas']['PatchedAnnouncementDetail'];
       };
     };
     responses: {
@@ -7468,7 +7727,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["AnnouncementDetail"];
+          'application/json': components['schemas']['AnnouncementDetail'];
         };
       };
     };
@@ -7485,7 +7744,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["AnnouncementDetail"];
+        'application/json': components['schemas']['AnnouncementDetail'];
       };
     };
     responses: {
@@ -7494,7 +7753,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["AnnouncementDetail"];
+          'application/json': components['schemas']['AnnouncementDetail'];
         };
       };
     };
@@ -7517,7 +7776,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedPublicArticleList"];
+          'application/json': components['schemas']['PaginatedPublicArticleList'];
         };
       };
     };
@@ -7531,7 +7790,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["DetailedArticle"];
+        'application/json': components['schemas']['DetailedArticle'];
       };
     };
     responses: {
@@ -7540,7 +7799,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["DetailedArticle"];
+          'application/json': components['schemas']['DetailedArticle'];
         };
       };
     };
@@ -7562,7 +7821,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["DetailedArticle"];
+          'application/json': components['schemas']['DetailedArticle'];
         };
       };
     };
@@ -7579,7 +7838,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["DetailedArticle"];
+        'application/json': components['schemas']['DetailedArticle'];
       };
     };
     responses: {
@@ -7588,7 +7847,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["DetailedArticle"];
+          'application/json': components['schemas']['DetailedArticle'];
         };
       };
     };
@@ -7626,7 +7885,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedDetailedArticle"];
+        'application/json': components['schemas']['PatchedDetailedArticle'];
       };
     };
     responses: {
@@ -7635,7 +7894,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["DetailedArticle"];
+          'application/json': components['schemas']['DetailedArticle'];
         };
       };
     };
@@ -7657,7 +7916,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["DetailedArticle"];
+          'application/json': components['schemas']['DetailedArticle'];
         };
       };
     };
@@ -7679,7 +7938,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedBannerList"];
+          'application/json': components['schemas']['PaginatedBannerList'];
         };
       };
     };
@@ -7693,7 +7952,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Banner"];
+        'application/json': components['schemas']['Banner'];
       };
     };
     responses: {
@@ -7702,7 +7961,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Banner"];
+          'application/json': components['schemas']['Banner'];
         };
       };
     };
@@ -7723,7 +7982,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Banner"];
+          'application/json': components['schemas']['Banner'];
         };
       };
     };
@@ -7739,7 +7998,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Banner"];
+        'application/json': components['schemas']['Banner'];
       };
     };
     responses: {
@@ -7748,7 +8007,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Banner"];
+          'application/json': components['schemas']['Banner'];
         };
       };
     };
@@ -7784,7 +8043,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedBanner"];
+        'application/json': components['schemas']['PatchedBanner'];
       };
     };
     responses: {
@@ -7793,7 +8052,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Banner"];
+          'application/json': components['schemas']['Banner'];
         };
       };
     };
@@ -7812,7 +8071,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Banner"];
+          'application/json': components['schemas']['Banner'];
         };
       };
     };
@@ -7831,7 +8090,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Banner"];
+          'application/json': components['schemas']['Banner'];
         };
       };
     };
@@ -7856,7 +8115,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedCompanyAdminListList"];
+          'application/json': components['schemas']['PaginatedCompanyAdminListList'];
         };
       };
     };
@@ -7870,7 +8129,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["CompanyAdminDetail"];
+        'application/json': components['schemas']['CompanyAdminDetail'];
       };
     };
     responses: {
@@ -7879,7 +8138,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["CompanyAdminDetail"];
+          'application/json': components['schemas']['CompanyAdminDetail'];
         };
       };
     };
@@ -7901,7 +8160,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["CompanyAdminDetail"];
+          'application/json': components['schemas']['CompanyAdminDetail'];
         };
       };
     };
@@ -7918,7 +8177,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["CompanyAdminDetail"];
+        'application/json': components['schemas']['CompanyAdminDetail'];
       };
     };
     responses: {
@@ -7927,7 +8186,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["CompanyAdminDetail"];
+          'application/json': components['schemas']['CompanyAdminDetail'];
         };
       };
     };
@@ -7965,7 +8224,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedCompanyAdminDetail"];
+        'application/json': components['schemas']['PatchedCompanyAdminDetail'];
       };
     };
     responses: {
@@ -7974,7 +8233,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["CompanyAdminDetail"];
+          'application/json': components['schemas']['CompanyAdminDetail'];
         };
       };
     };
@@ -8096,7 +8355,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Comment"];
+        'application/json': components['schemas']['Comment'];
       };
     };
     responses: {
@@ -8105,7 +8364,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Comment"];
+          'application/json': components['schemas']['Comment'];
         };
       };
     };
@@ -8122,7 +8381,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["UpdateComment"];
+        'application/json': components['schemas']['UpdateComment'];
       };
     };
     responses: {
@@ -8131,7 +8390,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["UpdateComment"];
+          'application/json': components['schemas']['UpdateComment'];
         };
       };
     };
@@ -8169,7 +8428,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedUpdateComment"];
+        'application/json': components['schemas']['PatchedUpdateComment'];
       };
     };
     responses: {
@@ -8178,7 +8437,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["UpdateComment"];
+          'application/json': components['schemas']['UpdateComment'];
         };
       };
     };
@@ -8202,7 +8461,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedCompanyListList"];
+          'application/json': components['schemas']['PaginatedCompanyListList'];
         };
       };
     };
@@ -8226,7 +8485,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedCompanyContactList"];
+          'application/json': components['schemas']['PaginatedCompanyContactList'];
         };
       };
     };
@@ -8242,7 +8501,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["CompanyContact"];
+        'application/json': components['schemas']['CompanyContact'];
       };
     };
     responses: {
@@ -8251,7 +8510,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["CompanyContact"];
+          'application/json': components['schemas']['CompanyContact'];
         };
       };
     };
@@ -8274,7 +8533,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["CompanyContact"];
+          'application/json': components['schemas']['CompanyContact'];
         };
       };
     };
@@ -8292,7 +8551,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["CompanyContact"];
+        'application/json': components['schemas']['CompanyContact'];
       };
     };
     responses: {
@@ -8301,7 +8560,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["CompanyContact"];
+          'application/json': components['schemas']['CompanyContact'];
         };
       };
     };
@@ -8341,7 +8600,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedCompanyContact"];
+        'application/json': components['schemas']['PatchedCompanyContact'];
       };
     };
     responses: {
@@ -8350,7 +8609,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["CompanyContact"];
+          'application/json': components['schemas']['CompanyContact'];
         };
       };
     };
@@ -8374,7 +8633,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedCompanyFileList"];
+          'application/json': components['schemas']['PaginatedCompanyFileList'];
         };
       };
     };
@@ -8390,7 +8649,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["CompanyFile"];
+        'application/json': components['schemas']['CompanyFile'];
       };
     };
     responses: {
@@ -8399,7 +8658,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["CompanyFile"];
+          'application/json': components['schemas']['CompanyFile'];
         };
       };
     };
@@ -8422,7 +8681,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["CompanyFile"];
+          'application/json': components['schemas']['CompanyFile'];
         };
       };
     };
@@ -8440,7 +8699,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["CompanyFile"];
+        'application/json': components['schemas']['CompanyFile'];
       };
     };
     responses: {
@@ -8449,7 +8708,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["CompanyFile"];
+          'application/json': components['schemas']['CompanyFile'];
         };
       };
     };
@@ -8489,7 +8748,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedCompanyFile"];
+        'application/json': components['schemas']['PatchedCompanyFile'];
       };
     };
     responses: {
@@ -8498,7 +8757,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["CompanyFile"];
+          'application/json': components['schemas']['CompanyFile'];
         };
       };
     };
@@ -8522,7 +8781,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedSemesterStatusList"];
+          'application/json': components['schemas']['PaginatedSemesterStatusList'];
         };
       };
     };
@@ -8538,7 +8797,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["SemesterStatusDetail"];
+        'application/json': components['schemas']['SemesterStatusDetail'];
       };
     };
     responses: {
@@ -8547,7 +8806,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["SemesterStatusDetail"];
+          'application/json': components['schemas']['SemesterStatusDetail'];
         };
       };
     };
@@ -8570,7 +8829,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["SemesterStatusDetail"];
+          'application/json': components['schemas']['SemesterStatusDetail'];
         };
       };
     };
@@ -8588,7 +8847,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["SemesterStatusDetail"];
+        'application/json': components['schemas']['SemesterStatusDetail'];
       };
     };
     responses: {
@@ -8597,7 +8856,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["SemesterStatusDetail"];
+          'application/json': components['schemas']['SemesterStatusDetail'];
         };
       };
     };
@@ -8637,7 +8896,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedSemesterStatusDetail"];
+        'application/json': components['schemas']['PatchedSemesterStatusDetail'];
       };
     };
     responses: {
@@ -8646,7 +8905,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["SemesterStatusDetail"];
+          'application/json': components['schemas']['SemesterStatusDetail'];
         };
       };
     };
@@ -8668,7 +8927,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["CompanyDetail"];
+          'application/json': components['schemas']['CompanyDetail'];
         };
       };
     };
@@ -8692,7 +8951,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedCompanyInterestListList"];
+          'application/json': components['schemas']['PaginatedCompanyInterestListList'];
         };
       };
     };
@@ -8706,7 +8965,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["CompanyInterestCreateAndUpdate"];
+        'application/json': components['schemas']['CompanyInterestCreateAndUpdate'];
       };
     };
     responses: {
@@ -8715,7 +8974,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["CompanyInterestCreateAndUpdate"];
+          'application/json': components['schemas']['CompanyInterestCreateAndUpdate'];
         };
       };
     };
@@ -8737,7 +8996,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["CompanyInterest"];
+          'application/json': components['schemas']['CompanyInterest'];
         };
       };
     };
@@ -8754,7 +9013,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["CompanyInterestCreateAndUpdate"];
+        'application/json': components['schemas']['CompanyInterestCreateAndUpdate'];
       };
     };
     responses: {
@@ -8763,7 +9022,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["CompanyInterestCreateAndUpdate"];
+          'application/json': components['schemas']['CompanyInterestCreateAndUpdate'];
         };
       };
     };
@@ -8801,7 +9060,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedCompanyInterestCreateAndUpdate"];
+        'application/json': components['schemas']['PatchedCompanyInterestCreateAndUpdate'];
       };
     };
     responses: {
@@ -8810,7 +9069,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["CompanyInterestCreateAndUpdate"];
+          'application/json': components['schemas']['CompanyInterestCreateAndUpdate'];
         };
       };
     };
@@ -8829,7 +9088,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["CompanyInterest"];
+          'application/json': components['schemas']['CompanyInterest'];
         };
       };
     };
@@ -8850,7 +9109,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Semester"][];
+          'application/json': components['schemas']['Semester'][];
         };
       };
     };
@@ -8864,7 +9123,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Semester"];
+        'application/json': components['schemas']['Semester'];
       };
     };
     responses: {
@@ -8873,7 +9132,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Semester"];
+          'application/json': components['schemas']['Semester'];
         };
       };
     };
@@ -8895,7 +9154,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Semester"];
+          'application/json': components['schemas']['Semester'];
         };
       };
     };
@@ -8912,7 +9171,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Semester"];
+        'application/json': components['schemas']['Semester'];
       };
     };
     responses: {
@@ -8921,7 +9180,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Semester"];
+          'application/json': components['schemas']['Semester'];
         };
       };
     };
@@ -8959,7 +9218,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedSemester"];
+        'application/json': components['schemas']['PatchedSemester'];
       };
     };
     responses: {
@@ -8968,7 +9227,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Semester"];
+          'application/json': components['schemas']['Semester'];
         };
       };
     };
@@ -8982,7 +9241,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["ContactForm"];
+        'application/json': components['schemas']['ContactForm'];
       };
     };
     responses: {
@@ -8991,7 +9250,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["ContactForm"];
+          'application/json': components['schemas']['ContactForm'];
         };
       };
     };
@@ -9013,7 +9272,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedAPNSDeviceList"];
+          'application/json': components['schemas']['PaginatedAPNSDeviceList'];
         };
       };
     };
@@ -9027,7 +9286,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["APNSDevice"];
+        'application/json': components['schemas']['APNSDevice'];
       };
     };
     responses: {
@@ -9036,7 +9295,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["APNSDevice"];
+          'application/json': components['schemas']['APNSDevice'];
         };
       };
     };
@@ -9057,7 +9316,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["APNSDevice"];
+          'application/json': components['schemas']['APNSDevice'];
         };
       };
     };
@@ -9073,7 +9332,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["APNSDevice"];
+        'application/json': components['schemas']['APNSDevice'];
       };
     };
     responses: {
@@ -9082,7 +9341,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["APNSDevice"];
+          'application/json': components['schemas']['APNSDevice'];
         };
       };
     };
@@ -9118,7 +9377,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedAPNSDevice"];
+        'application/json': components['schemas']['PatchedAPNSDevice'];
       };
     };
     responses: {
@@ -9127,7 +9386,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["APNSDevice"];
+          'application/json': components['schemas']['APNSDevice'];
         };
       };
     };
@@ -9141,7 +9400,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["ExpoDevice"];
+        'application/json': components['schemas']['ExpoDevice'];
       };
     };
     responses: {
@@ -9150,7 +9409,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["ExpoDevice"];
+          'application/json': components['schemas']['ExpoDevice'];
         };
       };
     };
@@ -9190,7 +9449,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedGCMDeviceList"];
+          'application/json': components['schemas']['PaginatedGCMDeviceList'];
         };
       };
     };
@@ -9204,7 +9463,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["GCMDevice"];
+        'application/json': components['schemas']['GCMDevice'];
       };
     };
     responses: {
@@ -9213,7 +9472,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["GCMDevice"];
+          'application/json': components['schemas']['GCMDevice'];
         };
       };
     };
@@ -9234,7 +9493,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["GCMDevice"];
+          'application/json': components['schemas']['GCMDevice'];
         };
       };
     };
@@ -9250,7 +9509,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["GCMDevice"];
+        'application/json': components['schemas']['GCMDevice'];
       };
     };
     responses: {
@@ -9259,7 +9518,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["GCMDevice"];
+          'application/json': components['schemas']['GCMDevice'];
         };
       };
     };
@@ -9295,7 +9554,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedGCMDevice"];
+        'application/json': components['schemas']['PatchedGCMDevice'];
       };
     };
     responses: {
@@ -9304,7 +9563,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["GCMDevice"];
+          'application/json': components['schemas']['GCMDevice'];
         };
       };
     };
@@ -9329,7 +9588,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedEmailListList"];
+          'application/json': components['schemas']['PaginatedEmailListList'];
         };
       };
     };
@@ -9343,7 +9602,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["EmailListCreate"];
+        'application/json': components['schemas']['EmailListCreate'];
       };
     };
     responses: {
@@ -9352,7 +9611,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["EmailListCreate"];
+          'application/json': components['schemas']['EmailListCreate'];
         };
       };
     };
@@ -9374,7 +9633,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["EmailListDetail"];
+          'application/json': components['schemas']['EmailListDetail'];
         };
       };
     };
@@ -9391,7 +9650,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["EmailList"];
+        'application/json': components['schemas']['EmailList'];
       };
     };
     responses: {
@@ -9400,7 +9659,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["EmailList"];
+          'application/json': components['schemas']['EmailList'];
         };
       };
     };
@@ -9417,7 +9676,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedEmailList"];
+        'application/json': components['schemas']['PatchedEmailList'];
       };
     };
     responses: {
@@ -9426,7 +9685,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["EmailList"];
+          'application/json': components['schemas']['EmailList'];
         };
       };
     };
@@ -9455,7 +9714,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedUserEmailList"];
+          'application/json': components['schemas']['PaginatedUserEmailList'];
         };
       };
     };
@@ -9469,7 +9728,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["UserEmailCreate"];
+        'application/json': components['schemas']['UserEmailCreate'];
       };
     };
     responses: {
@@ -9478,7 +9737,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["UserEmailCreate"];
+          'application/json': components['schemas']['UserEmailCreate'];
         };
       };
     };
@@ -9500,7 +9759,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["UserEmail"];
+          'application/json': components['schemas']['UserEmail'];
         };
       };
     };
@@ -9517,7 +9776,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["UserEmail"];
+        'application/json': components['schemas']['UserEmail'];
       };
     };
     responses: {
@@ -9526,7 +9785,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["UserEmail"];
+          'application/json': components['schemas']['UserEmail'];
         };
       };
     };
@@ -9543,7 +9802,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedUserEmail"];
+        'application/json': components['schemas']['PatchedUserEmail'];
       };
     };
     responses: {
@@ -9552,7 +9811,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["UserEmail"];
+          'application/json': components['schemas']['UserEmail'];
         };
       };
     };
@@ -9571,7 +9830,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Emoji"][];
+          'application/json': components['schemas']['Emoji'][];
         };
       };
     };
@@ -9585,7 +9844,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Emoji"];
+        'application/json': components['schemas']['Emoji'];
       };
     };
     responses: {
@@ -9594,7 +9853,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Emoji"];
+          'application/json': components['schemas']['Emoji'];
         };
       };
     };
@@ -9616,7 +9875,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Emoji"];
+          'application/json': components['schemas']['Emoji'];
         };
       };
     };
@@ -9633,7 +9892,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Emoji"];
+        'application/json': components['schemas']['Emoji'];
       };
     };
     responses: {
@@ -9642,7 +9901,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Emoji"];
+          'application/json': components['schemas']['Emoji'];
         };
       };
     };
@@ -9680,7 +9939,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedEmoji"];
+        'application/json': components['schemas']['PatchedEmoji'];
       };
     };
     responses: {
@@ -9689,7 +9948,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Emoji"];
+          'application/json': components['schemas']['Emoji'];
         };
       };
     };
@@ -9718,7 +9977,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedEventReadList"];
+          'application/json': components['schemas']['PaginatedEventReadList'];
         };
       };
     };
@@ -9732,7 +9991,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["EventCreateAndUpdate"];
+        'application/json': components['schemas']['EventCreateAndUpdate'];
       };
     };
     responses: {
@@ -9741,7 +10000,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["EventCreateAndUpdate"];
+          'application/json': components['schemas']['EventCreateAndUpdate'];
         };
       };
     };
@@ -9757,7 +10016,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["PoolCreateAndUpdate"];
+        'application/json': components['schemas']['PoolCreateAndUpdate'];
       };
     };
     responses: {
@@ -9766,7 +10025,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PoolCreateAndUpdate"];
+          'application/json': components['schemas']['PoolCreateAndUpdate'];
         };
       };
     };
@@ -9784,7 +10043,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["PoolCreateAndUpdate"];
+        'application/json': components['schemas']['PoolCreateAndUpdate'];
       };
     };
     responses: {
@@ -9793,7 +10052,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PoolCreateAndUpdate"];
+          'application/json': components['schemas']['PoolCreateAndUpdate'];
         };
       };
     };
@@ -9833,7 +10092,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedPoolCreateAndUpdate"];
+        'application/json': components['schemas']['PatchedPoolCreateAndUpdate'];
       };
     };
     responses: {
@@ -9842,7 +10101,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PoolCreateAndUpdate"];
+          'application/json': components['schemas']['PoolCreateAndUpdate'];
         };
       };
     };
@@ -9858,7 +10117,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["RegistrationSearch"];
+        'application/json': components['schemas']['RegistrationSearch'];
       };
     };
     responses: {
@@ -9867,7 +10126,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["RegistrationSearch"];
+          'application/json': components['schemas']['RegistrationSearch'];
         };
       };
     };
@@ -9883,7 +10142,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["RegistrationCreateAndUpdate"];
+        'application/json': components['schemas']['RegistrationCreateAndUpdate'];
       };
     };
     responses: {
@@ -9892,7 +10151,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["RegistrationCreateAndUpdate"];
+          'application/json': components['schemas']['RegistrationCreateAndUpdate'];
         };
       };
     };
@@ -9915,7 +10174,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["RegistrationReadDetailed"];
+          'application/json': components['schemas']['RegistrationReadDetailed'];
         };
       };
     };
@@ -9933,7 +10192,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["RegistrationCreateAndUpdate"];
+        'application/json': components['schemas']['RegistrationCreateAndUpdate'];
       };
     };
     responses: {
@@ -9942,7 +10201,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["RegistrationCreateAndUpdate"];
+          'application/json': components['schemas']['RegistrationCreateAndUpdate'];
         };
       };
     };
@@ -9982,7 +10241,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedRegistrationCreateAndUpdate"];
+        'application/json': components['schemas']['PatchedRegistrationCreateAndUpdate'];
       };
     };
     responses: {
@@ -9991,7 +10250,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["RegistrationCreateAndUpdate"];
+          'application/json': components['schemas']['RegistrationCreateAndUpdate'];
         };
       };
     };
@@ -10007,7 +10266,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["AdminRegistrationCreateAndUpdate"];
+        'application/json': components['schemas']['AdminRegistrationCreateAndUpdate'];
       };
     };
     responses: {
@@ -10016,7 +10275,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["AdminRegistrationCreateAndUpdate"];
+          'application/json': components['schemas']['AdminRegistrationCreateAndUpdate'];
         };
       };
     };
@@ -10032,7 +10291,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["AdminUnregister"];
+        'application/json': components['schemas']['AdminUnregister'];
       };
     };
     responses: {
@@ -10041,7 +10300,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["AdminUnregister"];
+          'application/json': components['schemas']['AdminUnregister'];
         };
       };
     };
@@ -10063,7 +10322,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["EventReadUserDetailed"];
+          'application/json': components['schemas']['EventReadUserDetailed'];
         };
       };
     };
@@ -10080,7 +10339,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["EventCreateAndUpdate"];
+        'application/json': components['schemas']['EventCreateAndUpdate'];
       };
     };
     responses: {
@@ -10089,7 +10348,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["EventCreateAndUpdate"];
+          'application/json': components['schemas']['EventCreateAndUpdate'];
         };
       };
     };
@@ -10127,7 +10386,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedEventCreateAndUpdate"];
+        'application/json': components['schemas']['PatchedEventCreateAndUpdate'];
       };
     };
     responses: {
@@ -10136,7 +10395,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["EventCreateAndUpdate"];
+          'application/json': components['schemas']['EventCreateAndUpdate'];
         };
       };
     };
@@ -10200,7 +10459,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["RegistrationPaymentRead"];
+          'application/json': components['schemas']['RegistrationPaymentRead'];
         };
       };
     };
@@ -10240,7 +10499,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["ImageGallery"];
+          'application/json': components['schemas']['ImageGallery'];
         };
       };
     };
@@ -10259,7 +10518,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["EventRead"];
+          'application/json': components['schemas']['EventRead'];
         };
       };
     };
@@ -10278,7 +10537,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["EventRead"];
+          'application/json': components['schemas']['EventRead'];
         };
       };
     };
@@ -10300,7 +10559,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedFeatureFlagAdminList"];
+          'application/json': components['schemas']['PaginatedFeatureFlagAdminList'];
         };
       };
     };
@@ -10314,7 +10573,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["FeatureFlagAdmin"];
+        'application/json': components['schemas']['FeatureFlagAdmin'];
       };
     };
     responses: {
@@ -10323,7 +10582,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["FeatureFlagAdmin"];
+          'application/json': components['schemas']['FeatureFlagAdmin'];
         };
       };
     };
@@ -10345,7 +10604,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["FeatureFlagAdmin"];
+          'application/json': components['schemas']['FeatureFlagAdmin'];
         };
       };
     };
@@ -10362,7 +10621,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["FeatureFlagAdmin"];
+        'application/json': components['schemas']['FeatureFlagAdmin'];
       };
     };
     responses: {
@@ -10371,7 +10630,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["FeatureFlagAdmin"];
+          'application/json': components['schemas']['FeatureFlagAdmin'];
         };
       };
     };
@@ -10409,7 +10668,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedFeatureFlagAdmin"];
+        'application/json': components['schemas']['PatchedFeatureFlagAdmin'];
       };
     };
     responses: {
@@ -10418,7 +10677,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["FeatureFlagAdmin"];
+          'application/json': components['schemas']['FeatureFlagAdmin'];
         };
       };
     };
@@ -10439,7 +10698,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["FeatureFlagPublic"];
+          'application/json': components['schemas']['FeatureFlagPublic'];
         };
       };
     };
@@ -10461,7 +10720,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedAggregatedMarkedFeedList"];
+          'application/json': components['schemas']['PaginatedAggregatedMarkedFeedList'];
         };
       };
     };
@@ -10478,7 +10737,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["Mark"];
+        'application/json': components['schemas']['Mark'];
       };
     };
     responses: {
@@ -10487,7 +10746,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Mark"];
+          'application/json': components['schemas']['Mark'];
         };
       };
     };
@@ -10501,7 +10760,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["Mark"];
+        'application/json': components['schemas']['Mark'];
       };
     };
     responses: {
@@ -10510,7 +10769,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Mark"];
+          'application/json': components['schemas']['Mark'];
         };
       };
     };
@@ -10529,7 +10788,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["NotificationData"];
+          'application/json': components['schemas']['NotificationData'];
         };
       };
     };
@@ -10551,7 +10810,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedAggregatedFeedList"];
+          'application/json': components['schemas']['PaginatedAggregatedFeedList'];
         };
       };
     };
@@ -10575,7 +10834,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedAggregatedFeedList"];
+          'application/json': components['schemas']['PaginatedAggregatedFeedList'];
         };
       };
     };
@@ -10589,7 +10848,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["FileUpload"];
+        'application/json': components['schemas']['FileUpload'];
       };
     };
     responses: {
@@ -10598,7 +10857,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["FileUpload"];
+          'application/json': components['schemas']['FileUpload'];
         };
       };
     };
@@ -10614,7 +10873,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedFileUpload"];
+        'application/json': components['schemas']['PatchedFileUpload'];
       };
     };
     responses: {
@@ -10623,7 +10882,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["FileUpload"];
+          'application/json': components['schemas']['FileUpload'];
         };
       };
     };
@@ -10644,7 +10903,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["FileUpload"];
+          'application/json': components['schemas']['FileUpload'];
         };
       };
     };
@@ -10668,7 +10927,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedFollowCompanyList"];
+          'application/json': components['schemas']['PaginatedFollowCompanyList'];
         };
       };
     };
@@ -10682,7 +10941,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["FollowCompany"];
+        'application/json': components['schemas']['FollowCompany'];
       };
     };
     responses: {
@@ -10691,7 +10950,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["FollowCompany"];
+          'application/json': components['schemas']['FollowCompany'];
         };
       };
     };
@@ -10735,7 +10994,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedFollowEventList"];
+          'application/json': components['schemas']['PaginatedFollowEventList'];
         };
       };
     };
@@ -10749,7 +11008,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["FollowEvent"];
+        'application/json': components['schemas']['FollowEvent'];
       };
     };
     responses: {
@@ -10758,7 +11017,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["FollowEvent"];
+          'application/json': components['schemas']['FollowEvent'];
         };
       };
     };
@@ -10803,7 +11062,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedFollowUserList"];
+          'application/json': components['schemas']['PaginatedFollowUserList'];
         };
       };
     };
@@ -10817,7 +11076,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["FollowUser"];
+        'application/json': components['schemas']['FollowUser'];
       };
     };
     responses: {
@@ -10826,7 +11085,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["FollowUser"];
+          'application/json': components['schemas']['FollowUser'];
         };
       };
     };
@@ -10890,7 +11149,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedGalleryListList"];
+          'application/json': components['schemas']['PaginatedGalleryListList'];
         };
       };
     };
@@ -10904,7 +11163,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Gallery"];
+        'application/json': components['schemas']['Gallery'];
       };
     };
     responses: {
@@ -10913,7 +11172,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Gallery"];
+          'application/json': components['schemas']['Gallery'];
         };
       };
     };
@@ -10937,7 +11196,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedGalleryPictureList"];
+          'application/json': components['schemas']['PaginatedGalleryPictureList'];
         };
       };
     };
@@ -10953,7 +11212,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["GalleryPicture"];
+        'application/json': components['schemas']['GalleryPicture'];
       };
     };
     responses: {
@@ -10962,7 +11221,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["GalleryPicture"];
+          'application/json': components['schemas']['GalleryPicture'];
         };
       };
     };
@@ -10985,7 +11244,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["GalleryPicture"];
+          'application/json': components['schemas']['GalleryPicture'];
         };
       };
     };
@@ -11003,7 +11262,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["GalleryPicture"];
+        'application/json': components['schemas']['GalleryPicture'];
       };
     };
     responses: {
@@ -11012,7 +11271,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["GalleryPicture"];
+          'application/json': components['schemas']['GalleryPicture'];
         };
       };
     };
@@ -11052,7 +11311,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedGalleryPicture"];
+        'application/json': components['schemas']['PatchedGalleryPicture'];
       };
     };
     responses: {
@@ -11061,7 +11320,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["GalleryPicture"];
+          'application/json': components['schemas']['GalleryPicture'];
         };
       };
     };
@@ -11083,7 +11342,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Gallery"];
+          'application/json': components['schemas']['Gallery'];
         };
       };
     };
@@ -11100,7 +11359,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Gallery"];
+        'application/json': components['schemas']['Gallery'];
       };
     };
     responses: {
@@ -11109,7 +11368,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Gallery"];
+          'application/json': components['schemas']['Gallery'];
         };
       };
     };
@@ -11147,7 +11406,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedGallery"];
+        'application/json': components['schemas']['PatchedGallery'];
       };
     };
     responses: {
@@ -11156,7 +11415,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Gallery"];
+          'application/json': components['schemas']['Gallery'];
         };
       };
     };
@@ -11178,7 +11437,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["GalleryMetadata"];
+          'application/json': components['schemas']['GalleryMetadata'];
         };
       };
     };
@@ -11200,7 +11459,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PublicListAbakusGroup"][];
+          'application/json': components['schemas']['PublicListAbakusGroup'][];
         };
       };
     };
@@ -11214,7 +11473,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["DetailedAbakusGroup"];
+        'application/json': components['schemas']['DetailedAbakusGroup'];
       };
     };
     responses: {
@@ -11223,7 +11482,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["DetailedAbakusGroup"];
+          'application/json': components['schemas']['DetailedAbakusGroup'];
         };
       };
     };
@@ -11249,7 +11508,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedMembershipList"];
+          'application/json': components['schemas']['PaginatedMembershipList'];
         };
       };
     };
@@ -11265,7 +11524,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Membership"];
+        'application/json': components['schemas']['Membership'];
       };
     };
     responses: {
@@ -11274,7 +11533,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Membership"];
+          'application/json': components['schemas']['Membership'];
         };
       };
     };
@@ -11296,7 +11555,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Membership"];
+          'application/json': components['schemas']['Membership'];
         };
       };
     };
@@ -11313,7 +11572,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Membership"];
+        'application/json': components['schemas']['Membership'];
       };
     };
     responses: {
@@ -11322,7 +11581,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Membership"];
+          'application/json': components['schemas']['Membership'];
         };
       };
     };
@@ -11360,7 +11619,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedMembership"];
+        'application/json': components['schemas']['PatchedMembership'];
       };
     };
     responses: {
@@ -11369,7 +11628,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Membership"];
+          'application/json': components['schemas']['Membership'];
         };
       };
     };
@@ -11391,7 +11650,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["DetailedAbakusGroup"];
+          'application/json': components['schemas']['DetailedAbakusGroup'];
         };
       };
     };
@@ -11408,7 +11667,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["DetailedAbakusGroup"];
+        'application/json': components['schemas']['DetailedAbakusGroup'];
       };
     };
     responses: {
@@ -11417,7 +11676,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["DetailedAbakusGroup"];
+          'application/json': components['schemas']['DetailedAbakusGroup'];
         };
       };
     };
@@ -11455,7 +11714,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedDetailedAbakusGroup"];
+        'application/json': components['schemas']['PatchedDetailedAbakusGroup'];
       };
     };
     responses: {
@@ -11464,7 +11723,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["DetailedAbakusGroup"];
+          'application/json': components['schemas']['DetailedAbakusGroup'];
         };
       };
     };
@@ -11489,7 +11748,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedJoblistingList"];
+          'application/json': components['schemas']['PaginatedJoblistingList'];
         };
       };
     };
@@ -11503,7 +11762,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["JoblistingCreateAndUpdate"];
+        'application/json': components['schemas']['JoblistingCreateAndUpdate'];
       };
     };
     responses: {
@@ -11512,7 +11771,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["JoblistingCreateAndUpdate"];
+          'application/json': components['schemas']['JoblistingCreateAndUpdate'];
         };
       };
     };
@@ -11534,7 +11793,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["JoblistingDetailed"];
+          'application/json': components['schemas']['JoblistingDetailed'];
         };
       };
     };
@@ -11551,7 +11810,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["JoblistingCreateAndUpdate"];
+        'application/json': components['schemas']['JoblistingCreateAndUpdate'];
       };
     };
     responses: {
@@ -11560,7 +11819,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["JoblistingCreateAndUpdate"];
+          'application/json': components['schemas']['JoblistingCreateAndUpdate'];
         };
       };
     };
@@ -11598,7 +11857,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedJoblistingCreateAndUpdate"];
+        'application/json': components['schemas']['PatchedJoblistingCreateAndUpdate'];
       };
     };
     responses: {
@@ -11607,7 +11866,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["JoblistingCreateAndUpdate"];
+          'application/json': components['schemas']['JoblistingCreateAndUpdate'];
         };
       };
     };
@@ -11629,7 +11888,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedLendableObjectList"];
+          'application/json': components['schemas']['PaginatedLendableObjectList'];
         };
       };
     };
@@ -11643,7 +11902,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["LendableObjectAdmin"];
+        'application/json': components['schemas']['LendableObjectAdmin'];
       };
     };
     responses: {
@@ -11652,7 +11911,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["LendableObjectAdmin"];
+          'application/json': components['schemas']['LendableObjectAdmin'];
         };
       };
     };
@@ -11690,7 +11949,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["LendableObjectAdmin"];
+        'application/json': components['schemas']['LendableObjectAdmin'];
       };
     };
     responses: {
@@ -11699,7 +11958,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["LendableObjectAdmin"];
+          'application/json': components['schemas']['LendableObjectAdmin'];
         };
       };
     };
@@ -11737,7 +11996,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedLendableObjectAdmin"];
+        'application/json': components['schemas']['PatchedLendableObjectAdmin'];
       };
     };
     responses: {
@@ -11746,7 +12005,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["LendableObjectAdmin"];
+          'application/json': components['schemas']['LendableObjectAdmin'];
         };
       };
     };
@@ -11768,7 +12027,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["LendableObject"];
+          'application/json': components['schemas']['LendableObject'];
         };
       };
     };
@@ -11787,7 +12046,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["LendableObject"];
+          'application/json': components['schemas']['LendableObject'];
         };
       };
     };
@@ -11811,7 +12070,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedLendingRequestListList"];
+          'application/json': components['schemas']['PaginatedLendingRequestListList'];
         };
       };
     };
@@ -11825,7 +12084,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["LendingRequestCreateAndUpdate"];
+        'application/json': components['schemas']['LendingRequestCreateAndUpdate'];
       };
     };
     responses: {
@@ -11834,7 +12093,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["LendingRequestCreateAndUpdate"];
+          'application/json': components['schemas']['LendingRequestCreateAndUpdate'];
         };
       };
     };
@@ -11856,7 +12115,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["LendingRequestDetail"];
+          'application/json': components['schemas']['LendingRequestDetail'];
         };
       };
     };
@@ -11873,7 +12132,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["LendingRequestCreateAndUpdate"];
+        'application/json': components['schemas']['LendingRequestCreateAndUpdate'];
       };
     };
     responses: {
@@ -11882,7 +12141,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["LendingRequestCreateAndUpdate"];
+          'application/json': components['schemas']['LendingRequestCreateAndUpdate'];
         };
       };
     };
@@ -11920,7 +12179,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedLendingRequestCreateAndUpdate"];
+        'application/json': components['schemas']['PatchedLendingRequestCreateAndUpdate'];
       };
     };
     responses: {
@@ -11929,7 +12188,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["LendingRequestCreateAndUpdate"];
+          'application/json': components['schemas']['LendingRequestCreateAndUpdate'];
         };
       };
     };
@@ -11948,7 +12207,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["LendingRequestList"];
+          'application/json': components['schemas']['LendingRequestList'];
         };
       };
     };
@@ -11962,7 +12221,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["TimelineEntryCreateAndUpdate"];
+        'application/json': components['schemas']['TimelineEntryCreateAndUpdate'];
       };
     };
     responses: {
@@ -11971,7 +12230,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["TimelineEntryCreateAndUpdate"];
+          'application/json': components['schemas']['TimelineEntryCreateAndUpdate'];
         };
       };
     };
@@ -12049,7 +12308,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedMeetingListList"];
+          'application/json': components['schemas']['PaginatedMeetingListList'];
         };
       };
     };
@@ -12063,7 +12322,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["MeetingDetail"];
+        'application/json': components['schemas']['MeetingDetail'];
       };
     };
     responses: {
@@ -12072,7 +12331,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["MeetingDetail"];
+          'application/json': components['schemas']['MeetingDetail'];
         };
       };
     };
@@ -12096,7 +12355,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedMeetingInvitationList"];
+          'application/json': components['schemas']['PaginatedMeetingInvitationList'];
         };
       };
     };
@@ -12112,7 +12371,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["MeetingInvitation"];
+        'application/json': components['schemas']['MeetingInvitation'];
       };
     };
     responses: {
@@ -12121,7 +12380,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["MeetingInvitation"];
+          'application/json': components['schemas']['MeetingInvitation'];
         };
       };
     };
@@ -12144,7 +12403,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["MeetingInvitation"];
+          'application/json': components['schemas']['MeetingInvitation'];
         };
       };
     };
@@ -12162,7 +12421,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["MeetingInvitationUpdate"];
+        'application/json': components['schemas']['MeetingInvitationUpdate'];
       };
     };
     responses: {
@@ -12171,7 +12430,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["MeetingInvitationUpdate"];
+          'application/json': components['schemas']['MeetingInvitationUpdate'];
         };
       };
     };
@@ -12211,7 +12470,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedMeetingInvitationUpdate"];
+        'application/json': components['schemas']['PatchedMeetingInvitationUpdate'];
       };
     };
     responses: {
@@ -12220,7 +12479,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["MeetingInvitationUpdate"];
+          'application/json': components['schemas']['MeetingInvitationUpdate'];
         };
       };
     };
@@ -12242,7 +12501,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["MeetingDetail"];
+          'application/json': components['schemas']['MeetingDetail'];
         };
       };
     };
@@ -12259,7 +12518,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["MeetingDetail"];
+        'application/json': components['schemas']['MeetingDetail'];
       };
     };
     responses: {
@@ -12268,7 +12527,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["MeetingDetail"];
+          'application/json': components['schemas']['MeetingDetail'];
         };
       };
     };
@@ -12306,7 +12565,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedMeetingDetail"];
+        'application/json': components['schemas']['PatchedMeetingDetail'];
       };
     };
     responses: {
@@ -12315,7 +12574,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["MeetingDetail"];
+          'application/json': components['schemas']['MeetingDetail'];
         };
       };
     };
@@ -12332,7 +12591,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["MeetingBulkInvite"];
+        'application/json': components['schemas']['MeetingBulkInvite'];
       };
     };
     responses: {
@@ -12341,7 +12600,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["MeetingBulkInvite"];
+          'application/json': components['schemas']['MeetingBulkInvite'];
         };
       };
     };
@@ -12358,7 +12617,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["MeetingGroupInvite"];
+        'application/json': components['schemas']['MeetingGroupInvite'];
       };
     };
     responses: {
@@ -12367,7 +12626,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["MeetingGroupInvite"];
+          'application/json': components['schemas']['MeetingGroupInvite'];
         };
       };
     };
@@ -12384,7 +12643,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["MeetingUserInvite"];
+        'application/json': components['schemas']['MeetingUserInvite'];
       };
     };
     responses: {
@@ -12393,7 +12652,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["MeetingUserInvite"];
+          'application/json': components['schemas']['MeetingUserInvite'];
         };
       };
     };
@@ -12412,7 +12671,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["MeetingDetail"];
+          'application/json': components['schemas']['MeetingDetail'];
         };
       };
     };
@@ -12456,7 +12715,38 @@ export interface operations {
          *     * `snackoverflow_manager` - snackoverflow_manager
          *     * `operations_manager` - operations_manager
          */
-        role?: "active_retiree" | "alumni" | "alumni_admin" | "booking_admin" | "co-leader" | "company_admin" | "cuddling_manager" | "development" | "dugnad_admin" | "editor" | "event_manager" | "graphic_admin" | "hs_representative" | "interest_group_admin" | "leader" | "media_relations" | "member" | "merch_admin" | "operations_manager" | "photo_admin" | "purchasing_manager" | "recruiting" | "retiree" | "retiree_email" | "snackoverflow_manager" | "social_admin" | "social_media_admin" | "sponsor_admin" | "treasurer" | "trip_admin" | "webmaster";
+        role?:
+          | 'active_retiree'
+          | 'alumni'
+          | 'alumni_admin'
+          | 'booking_admin'
+          | 'co-leader'
+          | 'company_admin'
+          | 'cuddling_manager'
+          | 'development'
+          | 'dugnad_admin'
+          | 'editor'
+          | 'event_manager'
+          | 'graphic_admin'
+          | 'hs_representative'
+          | 'interest_group_admin'
+          | 'leader'
+          | 'media_relations'
+          | 'member'
+          | 'merch_admin'
+          | 'operations_manager'
+          | 'photo_admin'
+          | 'purchasing_manager'
+          | 'recruiting'
+          | 'retiree'
+          | 'retiree_email'
+          | 'snackoverflow_manager'
+          | 'social_admin'
+          | 'social_media_admin'
+          | 'sponsor_admin'
+          | 'treasurer'
+          | 'trip_admin'
+          | 'webmaster';
         user?: number;
       };
       header?: never;
@@ -12470,7 +12760,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedMembershipHistoryList"];
+          'application/json': components['schemas']['PaginatedMembershipHistoryList'];
         };
       };
     };
@@ -12492,7 +12782,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["MembershipHistory"];
+          'application/json': components['schemas']['MembershipHistory'];
         };
       };
     };
@@ -12511,7 +12801,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["NotificationSetting"][];
+          'application/json': components['schemas']['NotificationSetting'][];
         };
       };
     };
@@ -12525,7 +12815,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["NotificationSettingCreate"];
+        'application/json': components['schemas']['NotificationSettingCreate'];
       };
     };
     responses: {
@@ -12534,7 +12824,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["NotificationSettingCreate"];
+          'application/json': components['schemas']['NotificationSettingCreate'];
         };
       };
     };
@@ -12553,7 +12843,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["NotificationSetting"];
+          'application/json': components['schemas']['NotificationSetting'];
         };
       };
     };
@@ -12575,7 +12865,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedAccessTokenList"];
+          'application/json': components['schemas']['PaginatedAccessTokenList'];
         };
       };
     };
@@ -12617,7 +12907,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedApplicationList"];
+          'application/json': components['schemas']['PaginatedApplicationList'];
         };
       };
     };
@@ -12631,7 +12921,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["Application"];
+        'application/json': components['schemas']['Application'];
       };
     };
     responses: {
@@ -12640,7 +12930,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Application"];
+          'application/json': components['schemas']['Application'];
         };
       };
     };
@@ -12662,7 +12952,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Application"];
+          'application/json': components['schemas']['Application'];
         };
       };
     };
@@ -12679,7 +12969,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["Application"];
+        'application/json': components['schemas']['Application'];
       };
     };
     responses: {
@@ -12688,7 +12978,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Application"];
+          'application/json': components['schemas']['Application'];
         };
       };
     };
@@ -12726,7 +13016,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedApplication"];
+        'application/json': components['schemas']['PatchedApplication'];
       };
     };
     responses: {
@@ -12735,7 +13025,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Application"];
+          'application/json': components['schemas']['Application'];
         };
       };
     };
@@ -12790,7 +13080,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PageList"][];
+          'application/json': components['schemas']['PageList'][];
         };
       };
     };
@@ -12804,7 +13094,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["PageDetail"];
+        'application/json': components['schemas']['PageDetail'];
       };
     };
     responses: {
@@ -12813,7 +13103,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PageDetail"];
+          'application/json': components['schemas']['PageDetail'];
         };
       };
     };
@@ -12834,7 +13124,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PageDetail"];
+          'application/json': components['schemas']['PageDetail'];
         };
       };
     };
@@ -12850,7 +13140,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["PageDetail"];
+        'application/json': components['schemas']['PageDetail'];
       };
     };
     responses: {
@@ -12859,7 +13149,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PageDetail"];
+          'application/json': components['schemas']['PageDetail'];
         };
       };
     };
@@ -12895,7 +13185,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedPageDetail"];
+        'application/json': components['schemas']['PatchedPageDetail'];
       };
     };
     responses: {
@@ -12904,7 +13194,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PageDetail"];
+          'application/json': components['schemas']['PageDetail'];
         };
       };
     };
@@ -12936,7 +13226,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["PasswordResetPerform"];
+        'application/json': components['schemas']['PasswordResetPerform'];
       };
     };
     responses: {
@@ -12945,7 +13235,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PasswordResetPerform"];
+          'application/json': components['schemas']['PasswordResetPerform'];
         };
       };
     };
@@ -12959,7 +13249,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["PasswordResetRequest"];
+        'application/json': components['schemas']['PasswordResetRequest'];
       };
     };
     responses: {
@@ -12968,7 +13258,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PasswordResetRequest"];
+          'application/json': components['schemas']['PasswordResetRequest'];
         };
       };
     };
@@ -12992,7 +13282,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedPenaltyList"];
+          'application/json': components['schemas']['PaginatedPenaltyList'];
         };
       };
     };
@@ -13006,7 +13296,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Penalty"];
+        'application/json': components['schemas']['Penalty'];
       };
     };
     responses: {
@@ -13015,7 +13305,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Penalty"];
+          'application/json': components['schemas']['Penalty'];
         };
       };
     };
@@ -13058,7 +13348,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedPodcastList"];
+          'application/json': components['schemas']['PaginatedPodcastList'];
         };
       };
     };
@@ -13072,7 +13362,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["PodcastCreateAndUpdate"];
+        'application/json': components['schemas']['PodcastCreateAndUpdate'];
       };
     };
     responses: {
@@ -13081,7 +13371,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PodcastCreateAndUpdate"];
+          'application/json': components['schemas']['PodcastCreateAndUpdate'];
         };
       };
     };
@@ -13103,7 +13393,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["DetailedPodcast"];
+          'application/json': components['schemas']['DetailedPodcast'];
         };
       };
     };
@@ -13120,7 +13410,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["PodcastCreateAndUpdate"];
+        'application/json': components['schemas']['PodcastCreateAndUpdate'];
       };
     };
     responses: {
@@ -13129,7 +13419,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PodcastCreateAndUpdate"];
+          'application/json': components['schemas']['PodcastCreateAndUpdate'];
         };
       };
     };
@@ -13167,7 +13457,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedPodcastCreateAndUpdate"];
+        'application/json': components['schemas']['PatchedPodcastCreateAndUpdate'];
       };
     };
     responses: {
@@ -13176,7 +13466,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PodcastCreateAndUpdate"];
+          'application/json': components['schemas']['PodcastCreateAndUpdate'];
         };
       };
     };
@@ -13198,7 +13488,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedPollList"];
+          'application/json': components['schemas']['PaginatedPollList'];
         };
       };
     };
@@ -13212,7 +13502,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["PollCreate"];
+        'application/json': components['schemas']['PollCreate'];
       };
     };
     responses: {
@@ -13221,7 +13511,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PollCreate"];
+          'application/json': components['schemas']['PollCreate'];
         };
       };
     };
@@ -13243,7 +13533,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["HiddenResultsDetailedPoll"];
+          'application/json': components['schemas']['HiddenResultsDetailedPoll'];
         };
       };
     };
@@ -13260,7 +13550,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["PollUpdate"];
+        'application/json': components['schemas']['PollUpdate'];
       };
     };
     responses: {
@@ -13269,7 +13559,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PollUpdate"];
+          'application/json': components['schemas']['PollUpdate'];
         };
       };
     };
@@ -13307,7 +13597,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedPollUpdate"];
+        'application/json': components['schemas']['PatchedPollUpdate'];
       };
     };
     responses: {
@@ -13316,7 +13606,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PollUpdate"];
+          'application/json': components['schemas']['PollUpdate'];
         };
       };
     };
@@ -13333,7 +13623,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["HiddenResultsDetailedPoll"];
+        'application/json': components['schemas']['HiddenResultsDetailedPoll'];
       };
     };
     responses: {
@@ -13342,7 +13632,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["HiddenResultsDetailedPoll"];
+          'application/json': components['schemas']['HiddenResultsDetailedPoll'];
         };
       };
     };
@@ -13367,7 +13657,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedQuoteList"];
+          'application/json': components['schemas']['PaginatedQuoteList'];
         };
       };
     };
@@ -13381,7 +13671,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["QuoteCreateAndUpdate"];
+        'application/json': components['schemas']['QuoteCreateAndUpdate'];
       };
     };
     responses: {
@@ -13390,7 +13680,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["QuoteCreateAndUpdate"];
+          'application/json': components['schemas']['QuoteCreateAndUpdate'];
         };
       };
     };
@@ -13412,7 +13702,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Quote"];
+          'application/json': components['schemas']['Quote'];
         };
       };
     };
@@ -13429,7 +13719,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["QuoteCreateAndUpdate"];
+        'application/json': components['schemas']['QuoteCreateAndUpdate'];
       };
     };
     responses: {
@@ -13438,7 +13728,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["QuoteCreateAndUpdate"];
+          'application/json': components['schemas']['QuoteCreateAndUpdate'];
         };
       };
     };
@@ -13476,7 +13766,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedQuoteCreateAndUpdate"];
+        'application/json': components['schemas']['PatchedQuoteCreateAndUpdate'];
       };
     };
     responses: {
@@ -13485,7 +13775,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["QuoteCreateAndUpdate"];
+          'application/json': components['schemas']['QuoteCreateAndUpdate'];
         };
       };
     };
@@ -13502,7 +13792,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Quote"];
+        'application/json': components['schemas']['Quote'];
       };
     };
     responses: {
@@ -13511,7 +13801,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Quote"];
+          'application/json': components['schemas']['Quote'];
         };
       };
     };
@@ -13528,7 +13818,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Quote"];
+        'application/json': components['schemas']['Quote'];
       };
     };
     responses: {
@@ -13537,7 +13827,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Quote"];
+          'application/json': components['schemas']['Quote'];
         };
       };
     };
@@ -13556,7 +13846,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Quote"];
+          'application/json': components['schemas']['Quote'];
         };
       };
     };
@@ -13570,7 +13860,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Reaction"];
+        'application/json': components['schemas']['Reaction'];
       };
     };
     responses: {
@@ -13579,7 +13869,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Reaction"];
+          'application/json': components['schemas']['Reaction'];
         };
       };
     };
@@ -13625,7 +13915,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedRestrictedMailListList"];
+          'application/json': components['schemas']['PaginatedRestrictedMailListList'];
         };
       };
     };
@@ -13639,7 +13929,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["RestrictedMail"];
+        'application/json': components['schemas']['RestrictedMail'];
       };
     };
     responses: {
@@ -13648,7 +13938,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["RestrictedMail"];
+          'application/json': components['schemas']['RestrictedMail'];
         };
       };
     };
@@ -13670,7 +13960,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["RestrictedMailDetail"];
+          'application/json': components['schemas']['RestrictedMailDetail'];
         };
       };
     };
@@ -13692,7 +13982,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["RestrictedMail"];
+          'application/json': components['schemas']['RestrictedMail'];
         };
       };
     };
@@ -13789,7 +14079,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedSurveyReadList"];
+          'application/json': components['schemas']['PaginatedSurveyReadList'];
         };
       };
     };
@@ -13811,7 +14101,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["SurveyReadDetailed"];
+          'application/json': components['schemas']['SurveyReadDetailed'];
         };
       };
     };
@@ -13836,7 +14126,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedSurveyReadList"];
+          'application/json': components['schemas']['PaginatedSurveyReadList'];
         };
       };
     };
@@ -13850,7 +14140,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["SurveyCreate"];
+        'application/json': components['schemas']['SurveyCreate'];
       };
     };
     responses: {
@@ -13859,7 +14149,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["SurveyCreate"];
+          'application/json': components['schemas']['SurveyCreate'];
         };
       };
     };
@@ -13881,7 +14171,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["SurveyReadDetailed"];
+          'application/json': components['schemas']['SurveyReadDetailed'];
         };
       };
     };
@@ -13898,7 +14188,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["SurveyUpdate"];
+        'application/json': components['schemas']['SurveyUpdate'];
       };
     };
     responses: {
@@ -13907,7 +14197,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["SurveyUpdate"];
+          'application/json': components['schemas']['SurveyUpdate'];
         };
       };
     };
@@ -13945,7 +14235,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedSurveyUpdate"];
+        'application/json': components['schemas']['PatchedSurveyUpdate'];
       };
     };
     responses: {
@@ -13954,7 +14244,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["SurveyUpdate"];
+          'application/json': components['schemas']['SurveyUpdate'];
         };
       };
     };
@@ -13976,7 +14266,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["SurveyRead"];
+          'application/json': components['schemas']['SurveyRead'];
         };
       };
     };
@@ -13993,7 +14283,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["SurveyRead"];
+        'application/json': components['schemas']['SurveyRead'];
       };
     };
     responses: {
@@ -14002,7 +14292,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["SurveyRead"];
+          'application/json': components['schemas']['SurveyRead'];
         };
       };
     };
@@ -14024,7 +14314,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["SurveyRead"];
+          'application/json': components['schemas']['SurveyRead'];
         };
       };
     };
@@ -14041,7 +14331,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["SurveyRead"];
+        'application/json': components['schemas']['SurveyRead'];
       };
     };
     responses: {
@@ -14050,7 +14340,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["SurveyRead"];
+          'application/json': components['schemas']['SurveyRead'];
         };
       };
     };
@@ -14073,7 +14363,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["SubmissionRead"][];
+          'application/json': components['schemas']['SubmissionRead'][];
         };
       };
     };
@@ -14089,7 +14379,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["SubmissionCreateAndUpdate"];
+        'application/json': components['schemas']['SubmissionCreateAndUpdate'];
       };
     };
     responses: {
@@ -14098,7 +14388,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["SubmissionCreateAndUpdate"];
+          'application/json': components['schemas']['SubmissionCreateAndUpdate'];
         };
       };
     };
@@ -14121,7 +14411,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["SubmissionRead"];
+          'application/json': components['schemas']['SubmissionRead'];
         };
       };
     };
@@ -14139,7 +14429,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["SubmissionCreateAndUpdate"];
+        'application/json': components['schemas']['SubmissionCreateAndUpdate'];
       };
     };
     responses: {
@@ -14148,7 +14438,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["SubmissionCreateAndUpdate"];
+          'application/json': components['schemas']['SubmissionCreateAndUpdate'];
         };
       };
     };
@@ -14188,7 +14478,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedSubmissionCreateAndUpdate"];
+        'application/json': components['schemas']['PatchedSubmissionCreateAndUpdate'];
       };
     };
     responses: {
@@ -14197,7 +14487,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["SubmissionCreateAndUpdate"];
+          'application/json': components['schemas']['SubmissionCreateAndUpdate'];
         };
       };
     };
@@ -14215,7 +14505,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["SubmissionRead"];
+        'application/json': components['schemas']['SubmissionRead'];
       };
     };
     responses: {
@@ -14224,7 +14514,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["SubmissionRead"];
+          'application/json': components['schemas']['SubmissionRead'];
         };
       };
     };
@@ -14242,7 +14532,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["SubmissionRead"];
+        'application/json': components['schemas']['SubmissionRead'];
       };
     };
     responses: {
@@ -14251,7 +14541,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["SubmissionRead"];
+          'application/json': components['schemas']['SubmissionRead'];
         };
       };
     };
@@ -14270,7 +14560,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["TagList"][];
+          'application/json': components['schemas']['TagList'][];
         };
       };
     };
@@ -14292,7 +14582,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["TagDetail"];
+          'application/json': components['schemas']['TagDetail'];
         };
       };
     };
@@ -14311,7 +14601,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["TagDetail"];
+          'application/json': components['schemas']['TagDetail'];
         };
       };
     };
@@ -14369,7 +14659,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedPublicUserList"];
+          'application/json': components['schemas']['PaginatedPublicUserList'];
         };
       };
     };
@@ -14383,7 +14673,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["RegistrationConfirmation"];
+        'application/json': components['schemas']['RegistrationConfirmation'];
       };
     };
     responses: {
@@ -14392,7 +14682,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["RegistrationConfirmation"];
+          'application/json': components['schemas']['RegistrationConfirmation'];
         };
       };
     };
@@ -14414,7 +14704,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PaginatedRegistrationList"];
+          'application/json': components['schemas']['PaginatedRegistrationList'];
         };
       };
     };
@@ -14428,7 +14718,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Registration"];
+        'application/json': components['schemas']['Registration'];
       };
     };
     responses: {
@@ -14437,7 +14727,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Registration"];
+          'application/json': components['schemas']['Registration'];
         };
       };
     };
@@ -14458,7 +14748,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PublicUserWithGroups"];
+          'application/json': components['schemas']['PublicUserWithGroups'];
         };
       };
     };
@@ -14474,7 +14764,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["PublicUserWithGroups"];
+        'application/json': components['schemas']['PublicUserWithGroups'];
       };
     };
     responses: {
@@ -14483,7 +14773,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PublicUserWithGroups"];
+          'application/json': components['schemas']['PublicUserWithGroups'];
         };
       };
     };
@@ -14519,7 +14809,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["PatchedPublicUserWithGroups"];
+        'application/json': components['schemas']['PatchedPublicUserWithGroups'];
       };
     };
     responses: {
@@ -14528,7 +14818,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PublicUserWithGroups"];
+          'application/json': components['schemas']['PublicUserWithGroups'];
         };
       };
     };
@@ -14544,7 +14834,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["ChangeGrade"];
+        'application/json': components['schemas']['ChangeGrade'];
       };
     };
     responses: {
@@ -14553,7 +14843,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["ChangeGrade"];
+          'application/json': components['schemas']['ChangeGrade'];
         };
       };
     };
@@ -14569,7 +14859,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["PhotoConsent"];
+        'application/json': components['schemas']['PhotoConsent'];
       };
     };
     responses: {
@@ -14578,7 +14868,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PhotoConsent"];
+          'application/json': components['schemas']['PhotoConsent'];
         };
       };
     };
@@ -14597,7 +14887,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["CurrentUser"];
+          'application/json': components['schemas']['CurrentUser'];
         };
       };
     };
@@ -14616,7 +14906,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["PublicUser"];
+          'application/json': components['schemas']['PublicUser'];
         };
       };
     };
@@ -14635,7 +14925,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["Oauth2UserData"];
+          'application/json': components['schemas']['Oauth2UserData'];
         };
       };
     };
@@ -14649,7 +14939,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["StripeWebhook"];
+        'application/json': components['schemas']['StripeWebhook'];
       };
     };
     responses: {
@@ -14658,7 +14948,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["StripeWebhook"];
+          'application/json': components['schemas']['StripeWebhook'];
         };
       };
     };
@@ -14672,7 +14962,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["JSONWebToken"];
+        'application/json': components['schemas']['JSONWebToken'];
       };
     };
     responses: {
@@ -14681,7 +14971,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["JSONWebToken"];
+          'application/json': components['schemas']['JSONWebToken'];
         };
       };
     };
@@ -14695,7 +14985,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["RefreshAuthToken"];
+        'application/json': components['schemas']['RefreshAuthToken'];
       };
     };
     responses: {
@@ -14704,7 +14994,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["RefreshAuthToken"];
+          'application/json': components['schemas']['RefreshAuthToken'];
         };
       };
     };
@@ -14718,7 +15008,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["VerifyAuthToken"];
+        'application/json': components['schemas']['VerifyAuthToken'];
       };
     };
     responses: {
@@ -14727,9 +15017,9 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          "application/json": components["schemas"]["VerifyAuthToken"];
+          'application/json': components['schemas']['VerifyAuthToken'];
         };
       };
     };
   };
-  k
+}

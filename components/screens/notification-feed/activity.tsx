@@ -30,8 +30,9 @@ const Activity = ({ aggregatedActivity, activityRenderer, isNew = false }: Activ
       onPress={() => destination && navigateToTag(destination)}>
       {({ pressed }) => (
         <Card
-          className={`m-2 gap-2 overflow-hidden ${pressed && isPressable ? 'bg-gray-100' : isNew ? 'bg-red-50' : ''
-            }`}>
+          className={`m-2 gap-2 overflow-hidden ${
+            pressed && isPressable ? 'bg-gray-100' : isNew ? 'bg-red-50' : ''
+          }`}>
           {isNew && <View className="absolute inset-y-1 left-0 w-1.5 bg-red-600" />}
           <Card.Header>
             <View className="flex-row items-center gap-3">
