@@ -29,11 +29,11 @@ export const useEventAttendance = ({ id }: { id: string }) => {
         params: { path: { id: eventIdNum } },
       })
     );
-    queryClient.invalidateQueries(
-      api.queryOptions('get', '/api/v1/events/{id}/registration-eligibility/', {
-        params: { path: { id: eventIdNum } },
-      })
-    );
+    // queryClient.invalidateQueries(
+    //   api.queryOptions('get', '/api/v1/events/{id}/registration-eligibility/', {
+    //     params: { path: { id: eventIdNum } },
+    //   })
+    // );
   }, [id, queryClient]);
 
   const pools = event?.pools;

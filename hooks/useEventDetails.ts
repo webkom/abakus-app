@@ -4,7 +4,7 @@ import { useCallback, useState } from 'react';
 import { Alert } from 'react-native';
 import { useEventAttendance } from './useEventAttendance';
 import { useUnansweredEventSurveys } from './useEventSurveys';
-import { useRegistrationEligibility } from './useRegistrationEligibility';
+// import { useRegistrationEligibility } from './useRegistrationEligibility';
 
 /**
  * A wrapper hook that combines event details, attendance, and registration eligibility into a single hook
@@ -23,8 +23,8 @@ export const useEventDetails = (eventId: string) => {
     isError: isEventError,
   } = useEvent(eventId);
 
-  const { data: eligibilityData, isLoading: isEligibilityLoading } =
-    useRegistrationEligibility(eventId);
+  // const { data: eligibilityData, isLoading: isEligibilityLoading } =
+  //   useRegistrationEligibility(eventId);
 
   const { unansweredSurveys, refetch: refetchSurveys } = useUnansweredEventSurveys(eventId);
 
@@ -40,9 +40,10 @@ export const useEventDetails = (eventId: string) => {
   } = useEventAttendance({ id: eventId });
 
   // Computed states
-  const canSignUp = Boolean(
-    eligibilityData?.canRegisterNow && (isUserSignedUp || unansweredSurveys.length === 0)
-  );
+  // const canSignUp = Boolean(
+  //   eligibilityData?.canRegisterNow && (isUserSignedUp || unansweredSurveys.length === 0)
+  // );
+  const canSignUp = true;
   const isAttendanceActionLoading =
     signUp.status === 'pending' || isAttendanceLoading || (!isUserSignedUp && !turnstileToken);
 
@@ -91,7 +92,7 @@ export const useEventDetails = (eventId: string) => {
     isError,
     // Attendance & Registration
     canSignUp,
-    isEligibilityLoading,
+    // isEligibilityLoading,
     isUserSignedUp,
     isAttendanceActionLoading,
     attendeesCount: attendees.length,
