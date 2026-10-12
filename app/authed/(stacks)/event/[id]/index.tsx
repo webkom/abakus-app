@@ -1,4 +1,3 @@
-import Icon from '@/components/icon';
 import { DescriptionSection } from '@/components/screens/event/description-section';
 import {
   BusinessDetails,
@@ -14,20 +13,14 @@ import { HeroSection } from '@/components/screens/event/hero-section';
 import { Turnstile } from '@/components/screens/event/turnstile';
 import { useEventDetails } from '@/hooks/useEventDetails';
 import { components } from '@/lib/types/schema';
-import { Text } from '@expo/ui';
 import { router, useLocalSearchParams } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { Card } from 'heroui-native';
+import { Spinner, Typography } from 'heroui-native';
 import { AnimatePresence, MotiView } from 'moti';
 import { useCallback, useState } from 'react';
-import {
-  ActivityIndicator,
-  NativeScrollEvent,
-  NativeSyntheticEvent,
-  ScrollView,
-  View,
-} from 'react-native';
+import { Image, NativeScrollEvent, NativeSyntheticEvent, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+const RedGradient = require('@/assets/images/top-blur-red.png');
 
 export default function EventsPage() {
   const insets = useSafeAreaInsets();
@@ -52,6 +45,13 @@ export default function EventsPage() {
     totalCapacity,
     totalCurrentPenalties,
     unansweredSurveys,
+    waitingListPositions,
+    isPastUnregistrationDeadline,
+    isPastRegistrationDeadline,
+    registrationOffset,
+    willBeWaitlisted,
+    canSignUpLater,
+    eligibilityReason,
   } = useEventDetails(id?.toString() ?? '');
 
   // Derived states
@@ -75,11 +75,6 @@ export default function EventsPage() {
     return <ErrorState onBack={handleBack} />;
   }
 
-  const waitingCount =
-    typeof event?.waitingRegistrationCount === 'number'
-      ? event?.waitingRegistrationCount
-      : parseInt(event?.waitingRegistrationCount ?? '0', 10) || 0;
-
   return (
     <View className="bg-background flex-1">
       <StatusBar style="auto" />
@@ -89,12 +84,15 @@ export default function EventsPage() {
           {isRefetchingEvent && (
             <MotiView
               key="refreshing-indicator"
-              from={{ translateY: -100 }}
-              animate={{ translateY: 0 }}
-              exit={{ translateY: -100 }}
-              className="absolute top-5 z-20 w-full items-center shadow-lg">
-              <View className="bg-secondary rounded-full p-2">
-                <ActivityIndicator className="text-secondary-foreground" />
+              from={{ translateY: -100, opacity: 0 }}
+              animate={{ translateY: 0, opacity: 1 }}
+              exit={{ translateY: -100, opacity: 0 }}
+              className="absolute top-5 z-20 w-full items-center">
+              <View className="bg-surface border-border/80 flex-row items-center gap-2 rounded-full border px-4 py-2 shadow-lg">
+                <Spinner size="sm" color="accent" />
+                <Typography type="body-xs" className="text-accent font-semibold">
+                  Oppdaterer...
+                </Typography>
               </View>
             </MotiView>
           )}
@@ -106,6 +104,7 @@ export default function EventsPage() {
           className="flex-1"
           contentContainerStyle={{ paddingBottom: 140 }}
           showsVerticalScrollIndicator={false}>
+          <Image source={RedGradient} className="absolute left-0 top-0 z-0 h-96 w-full" />
           <View className="flex-col gap-6 px-4" style={{ paddingTop: Math.max(insets.top, 12) }}>
             {/* Hero Cover with floating back and share buttons */}
             <HeroSection event={event} onBack={handleBack} />
@@ -113,14 +112,20 @@ export default function EventsPage() {
             {/* Event Category Badge, Title & Host Attribution */}
             <TitleSection event={event} />
 
-            {/* Unified Notices (Penalty warning, Registration opening countdown, Unregistration deadline, Unanswered surveys) */}
+            {/* Unified Notices (Penalty warning, Registration opening countdown, Unregistration deadline, Unanswered surveys, Waitlist) */}
+
+            <Typography>{eligibilityReason}</Typography>
             <EventNotices
+              registrationClosed={isPastRegistrationDeadline}
               event={event}
               totalCurrentPenalties={totalCurrentPenalties}
               canSignUp={Boolean(canSignUp)}
+              penaltyRegistrationDate={registrationOffset}
+              willBeWaitlisted={willBeWaitlisted}
               isUserSignedUp={isUserSignedUp}
               unansweredSurveys={unansweredSurveys}
               onSurveyClosed={refetchSurveys}
+              canSignUpLater={canSignUpLater ?? undefined}
             />
 
             {/* 2x2 Quick Facts Grid (Tid, Sted/MazeMap, Pris, Kapasitet) */}
@@ -129,30 +134,6 @@ export default function EventsPage() {
               attendeesCount={attendeesCount}
               totalCapacity={totalCapacity}
             />
-
-            {/* Waitlist Card */}
-            {waitingCount > 0 && (
-              <Card className="gap-2.5 border-amber-500/30 bg-amber-500/10" variant="transparent">
-                <Card.Header className="flex flex-row items-center gap-2.5">
-                  <View className="h-8 w-8 items-center justify-center rounded-lg bg-amber-500/20">
-                    <Icon
-                      name="Hourglass"
-                      size={16}
-                      className="text-amber-600 dark:text-amber-400"
-                    />
-                  </View>
-                  <Card.Title className="text-amber-600">Venteliste</Card.Title>
-                </Card.Header>
-                <Card.Body className="flex-1">
-                  <Card.Description className="text-amber-600">
-                    {waitingCount === 1
-                      ? '1 person står i kø for ledig plass'
-                      : `${waitingCount} personer står i kø for ledig plass`}
-                    {'. '} Du havner på venteliste hvis du melder deg på.
-                  </Card.Description>
-                </Card.Body>
-              </Card>
-            )}
 
             {/* Event Description Section */}
             <DescriptionSection
@@ -190,8 +171,9 @@ export default function EventsPage() {
 
       <EventActionBar
         canSignUp={canSignUp ?? false}
+        canSignOff={isUserSignedUp && !isPastUnregistrationDeadline}
         turnstileToken={turnstileToken}
-        isUserSignedUp={isUserSignedUp}
+        isUserSignedUp={isUserSignedUp ?? waitingListPositions !== undefined}
         eventId={event?.id.toString() ?? ''}
         scroll={scroll}
         isLoading={isAttendanceButtonLoading}

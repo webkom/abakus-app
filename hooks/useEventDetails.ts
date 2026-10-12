@@ -1,10 +1,12 @@
 import { useEvent } from '@/lib/hooks/useEvent';
 import { useRouter } from 'expo-router';
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { Alert } from 'react-native';
 import { useEventAttendance } from './useEventAttendance';
 import { useUnansweredEventSurveys } from './useEventSurveys';
 import { useRegistrationEligibility } from './useRegistrationEligibility';
+import { getWaitingListPosition } from '@/lib/getWaitingListPosition';
+import { isAfter } from 'date-fns';
 
 /**
  * A wrapper hook that combines event details, attendance, and registration eligibility into a single hook
@@ -37,7 +39,13 @@ export const useEventDetails = (eventId: string) => {
     totalCapacity,
     attendees,
     totalCurrentPenalties,
+    userRegistration,
   } = useEventAttendance({ id: eventId });
+
+  const waitingListPositions = useMemo(
+    () => getWaitingListPosition(userRegistration, event),
+    [userRegistration, event]
+  );
 
   // Computed states
   const canSignUp = Boolean(
@@ -46,8 +54,22 @@ export const useEventDetails = (eventId: string) => {
   const isAttendanceActionLoading =
     signUp.status === 'pending' || isAttendanceLoading || (!isUserSignedUp && !turnstileToken);
 
+  const registrationOffset = useMemo(() => {
+    return eligibilityData?.delayUntil ? new Date(eligibilityData.delayUntil) : null;
+  }, [eligibilityData]);
+
   const isLoading = (isEventLoading || isAttendanceLoading) && !event;
   const isError = !eventId || isEventError || isAttendanceError;
+
+  const isPastUnregistrationDeadline = useMemo(() => {
+    if (!event?.unregistrationDeadline) return null;
+    return isAfter(new Date(), new Date(event?.unregistrationDeadline));
+  }, [event?.unregistrationDeadline]);
+
+  const isPastRegistrationDeadline = useMemo(() => {
+    if (!event?.registrationCloseTime) return null;
+    return isAfter(new Date(), new Date(event?.registrationCloseTime));
+  }, [event?.registrationCloseTime]);
 
   // Actions
   const handleBack = useCallback(() => {
@@ -91,7 +113,11 @@ export const useEventDetails = (eventId: string) => {
     isError,
     // Attendance & Registration
     canSignUp,
+    canSignUpLater: eligibilityData?.canRegisterLater,
+    willBeWaitlisted: eligibilityData?.willBeWaitingList ?? false,
+    registrationOffset,
     isEligibilityLoading,
+    eligibilityReason: eligibilityData?.reason,
     isUserSignedUp,
     isAttendanceActionLoading,
     attendeesCount: attendees.length,
@@ -106,5 +132,8 @@ export const useEventDetails = (eventId: string) => {
     handleBack,
     handleSignUp,
     handleSignOff,
+    waitingListPositions,
+    isPastUnregistrationDeadline,
+    isPastRegistrationDeadline,
   };
 };

@@ -25,3 +25,7 @@ android
 
 .env
 google-services.json
+
+
+.agents
+skills-lock.json
